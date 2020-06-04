@@ -58,7 +58,7 @@ const cache = {
 };
 
 /**
- * Class that provides [[MapView]]'s atmospheric scattering effect.
+ * Class that provides {@link MapView}'s atmospheric scattering effect.
  */
 export class MapViewAtmosphere {
     /**
@@ -73,7 +73,7 @@ export class MapViewAtmosphere {
     /**
      * Check if scene or root scene object has already atmosphere effect added.
      *
-     * @param where [[THREE.Object3D]] or [[THREE.Scene]] instance.
+     * @param where {@link THREE.Object3D} or {@link THREE.Scene} instance.
      */
     static isPresent(where: THREE.Scene | THREE.Object3D): boolean {
         const root = where instanceof THREE.Scene ? where.parent : where;
@@ -113,14 +113,14 @@ export class MapViewAtmosphere {
      *
      * @note Currently works only with globe projection.
      *
-     * @param m_sceneRoot The scene's root [[THREE.Object3D]] instance where the effect will
+     * @param m_sceneRoot The scene's root {@link THREE.Object3D} instance where the effect will
      * be added.
      * @param m_sceneCamera The camera used to render entire scene.
      * @param m_projection The geo-projection used to transform geo coordinates to cartesian space.
      * @param m_updateCallback The optional callback to that should be called whenever atmosphere
      * configuration changes, may be used to inform related components (`MapView`) to redraw.
      * @param m_atmosphereVariant The optional atmosphere configuration variant enum
-     * [[AtmosphereVariant]], which denotes where the atmosphere scattering effect should be
+     * {@link AtmosphereVariant}, which denotes where the atmosphere scattering effect should be
      * applied, it may be ground or sky atmosphere only or most realistic for both, which is
      * chosen by default.
      * @param m_materialVariant The optional material variant to be used, mainly for
@@ -226,13 +226,13 @@ export class MapViewAtmosphere {
     }
 
     /**
-     * Sets the atmosphere depending on the [[Theme]] instance provided.
+     * Sets the atmosphere depending on the {@link Theme} instance provided.
      *
      * This function is called when a theme is loaded. Atmosphere is added only if the theme
      * contains a atmosphere definition with a:
      * - `color` property, used to set the atmosphere color.
      *
-     * @param theme A [[Theme]] instance.
+     * @param theme A {@link Theme} instance.
      */
     reset(theme: Theme) {
         //this.m_cachedTheme = theme;
@@ -254,7 +254,7 @@ export class MapViewAtmosphere {
             sceneRoot.add(createWorldAnchor(this.m_groundMesh, Number.MAX_SAFE_INTEGER));
         }
 
-        // Request an update once the anchor is added to [[MapView]].
+        // Request an update once the anchor is added to {@link MapView}.
         if (this.m_updateCallback) {
             this.m_updateCallback();
         }

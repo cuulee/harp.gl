@@ -26,28 +26,28 @@ import { DataProvider } from "./DataProvider";
 import { TileInfoLoader, TileLoader } from "./TileLoader";
 
 /**
- * Set of common options for all [[TileDataSource]]s.
+ * Set of common options for all {@link TileDataSource}s.
  */
 export interface TileDataSourceOptions extends DataSourceOptions {
     /**
-     * The [[TilingScheme]] the data source is using.
+     * The {@link TilingScheme} the data source is using.
      */
     tilingScheme: TilingScheme;
 
     /**
-     * The [[DataProvider]] to use for downloading the actual data.
+     * The {@link DataProvider} to use for downloading the actual data.
      */
     dataProvider: DataProvider;
 
     /**
-     * Optional: Specify [[ITileDecoder]] instance.
+     * Optional: Specify {@link ITileDecoder} instance.
      */
     decoder?: ITileDecoder;
 
     /**
      * Optional name of decoder service class.
-     * @see [[ConcurrentDecoderFacade]]
-     * @see [[ConcurrentWorkerSet]]
+     * @see {@link ConcurrentDecoderFacade}
+     * @see {@link ConcurrentWorkerSet}
      */
     concurrentDecoderServiceName?: string;
 
@@ -75,25 +75,25 @@ export interface TileDataSourceOptions extends DataSourceOptions {
 }
 
 /**
- * Templated factory class to create instances of [[Tile]].
+ * Templated factory class to create instances of {@link Tile}.
  */
 export class TileFactory<TileType extends Tile> {
     /**
-     * Initialize the factory using the constructor of the element to be called when a [[Tile]] is
-     * created.
+     * Initialize the factory using the constructor of the element to be called when a {@link Tile}
+     * is created.
      *
-     * @param m_modelConstructor Constructor of (subclass of) [[Tile]].
+     * @param m_modelConstructor Constructor of (subclass of) {@link Tile}.
      */
     constructor(
         private m_modelConstructor: new (dataSource: DataSource, tileKey: TileKey) => TileType
     ) {}
 
     /**
-     * Create an instance of (subclass of) [[Tile]]. The required parameters are passed as arguments
-     * to the constructor of [[Tile]].
+     * Create an instance of (subclass of) {@link Tile}. The required parameters are passed as
+     * arguments to the constructor of {@link Tile}.
      *
-     * @param dataSource [[Datasource]] this class belongs to.
-     * @param tileKey Quadtree address of the [[Tile]].
+     * @param dataSource {@link Datasource} this class belongs to.
+     * @param tileKey Quadtree address of the {@link Tile}.
      */
     create(dataSource: DataSource, tileKey: TileKey): TileType {
         return new this.m_modelConstructor(dataSource, tileKey);
@@ -101,8 +101,8 @@ export class TileFactory<TileType extends Tile> {
 }
 
 /**
- * Common base class for the typical [[DataSource]] which uses an [[ITileDecoder]] to decode the
- * tile content asynchronously. The decoder can be passed in as an option, or a default
+ * Common base class for the typical {@link DataSource} which uses an {@link ITileDecoder} to decode
+ * the tile content asynchronously. The decoder can be passed in as an option, or a default
  * asynchronous one is generated.
  */
 export class TileDataSource<TileType extends Tile> extends DataSource {
@@ -113,8 +113,8 @@ export class TileDataSource<TileType extends Tile> extends DataSource {
     /**
      * Set up the `TileDataSource`.
      *
-     * @param m_tileFactory Factory to create the [[Tile]] instances.
-     * @param m_options Options specifying the parameters of the [[DataSource]].
+     * @param m_tileFactory Factory to create the {@link Tile} instances.
+     * @param m_options Options specifying the parameters of the {@link DataSource}.
      */
     constructor(
         private readonly m_tileFactory: TileFactory<TileType>,
@@ -163,8 +163,8 @@ export class TileDataSource<TileType extends Tile> extends DataSource {
     }
 
     /**
-     * Get the [[ITileDecoder]] of this `ITileDataSource`, which has either been passed in with
-     * the options, or has been supplied by the [[ConcurrentDecoderFacade]].
+     * Get the {@link ITileDecoder} of this `ITileDataSource`, which has either been passed in with
+     * the options, or has been supplied by the {@link ConcurrentDecoderFacade}.
      */
     get decoder(): ITileDecoder {
         return this.m_decoder;
@@ -187,9 +187,9 @@ export class TileDataSource<TileType extends Tile> extends DataSource {
     }
 
     /**
-     * Apply the [[Theme]] to this data source.
+     * Apply the {@link Theme} to this data source.
      *
-     * Applies new [[StyleSet]] and definitions from theme only if matching styleset (see
+     * Applies new {@link StyleSet} and definitions from theme only if matching styleset (see
      * `styleSetName` property) is found in `theme`.
      * @override
      */
@@ -205,7 +205,7 @@ export class TileDataSource<TileType extends Tile> extends DataSource {
     }
 
     /**
-     * Get the [[DataProvider]] that has been passed in with the options.
+     * Get the {@link DataProvider} that has been passed in with the options.
      */
     dataProvider(): DataProvider {
         return this.m_options.dataProvider;
@@ -217,10 +217,10 @@ export class TileDataSource<TileType extends Tile> extends DataSource {
     }
 
     /**
-     * Create a [[Tile]] and start the asynchronous download of the tile content. The [[Tile]] will
-     * be empty, but the download and decoding will be scheduled immediately. [[Tile]] instance is
-     * initialized with default copyrights, concatenated with copyrights from copyright provider of
-     * this data source.
+     * Create a {@link Tile} and start the asynchronous download of the tile content.
+     * The {@link Tile} will be empty, but the download and decoding will be scheduled immediately.
+     * {@link Tile} instance is initialized with default copyrights, concatenated with copyrights
+     * from copyright provider of this data source.
      *
      * @param tileKey Quadtree address of the requested tile.
      * @override
@@ -252,10 +252,10 @@ export class TileDataSource<TileType extends Tile> extends DataSource {
     }
 
     /**
-     * Get [[TileInfo]] of a tile.
+     * Get {@link TileInfo} of a tile.
      *
      * @param tileKey Quadtree address of the requested tile.
-     * @returns A promise which will contain the [[TileInfo]] when resolved.
+     * @returns A promise which will contain the {@link TileInfo} when resolved.
      */
     getTileInfo(tileKey: TileKey): Promise<TileInfo | undefined> {
         const promise = new Promise<TileInfo | undefined>((resolve, reject) => {

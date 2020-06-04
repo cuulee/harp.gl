@@ -14,10 +14,10 @@ import { apikey, copyrightInfo } from "../config";
  * This example shows how to customize builtin `Berlin` theme using [Theme] `definition` mechanism.
  *
  * > NOTE:
- * > This example focuses on [[Theme]] customization. Please refer to [[HelloWorldExample]] for
- * > introduction how to use [[MapView]]
+ * > This example focuses on {@link Theme} customization. Please refer to {@link HelloWorldExample}
+ * > for an introduction on how to use {@link MapView}
  *
- * [Theme]s can inherit from another theme by using `extends: URL` property:
+ * {@link Theme}s can inherit from another theme by using `extends: URL` property:
  *
  * ```typescript
  * [[include:harp_gl_hello_custom_theme_0.ts]]

@@ -91,8 +91,8 @@ const localP = new THREE.Vector2();
 /**
  * Converts a `geoPoint` to local tile space.
  *
- * @param geoPoint The input [[GeoPointLike]].
- * @param decodeInfo The [[DecodeInfo]].
+ * @param geoPoint The input {@link GeoPointLike}.
+ * @param decodeInfo The {@link DecodeInfo}.
  * @hidden
  */
 function convertPoint(geoPoint: GeoPointLike, decodeInfo: DecodeInfo): THREE.Vector2 {

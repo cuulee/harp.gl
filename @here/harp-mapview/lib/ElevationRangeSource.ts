@@ -32,14 +32,15 @@ export interface ElevationRange {
  */
 export interface ElevationRangeSource {
     /**
-     * Compute the elevation range for a given [[TileKey]].
+     * Compute the elevation range for a given {@link TileKey}.
      * @param tileKey The tile for which the elevation range should be computed.
      */
     getElevationRange(tileKey: TileKey): ElevationRange;
 
     /**
-     * The tiling scheme of this [[ElevationRangeSource]]. [[MapView]] will only apply the elevation
-     * ranges returned by [[getElevationRange]] that have the same [[TilingScheme]].
+     * The tiling scheme of this {@link ElevationRangeSource}. {@link MapView} will only apply the
+     * elevation ranges returned by {@link getElevationRange} that have the same
+     * {@link TilingScheme}.
      */
     getTilingScheme(): TilingScheme;
 
@@ -49,7 +50,7 @@ export interface ElevationRangeSource {
     connect(): Promise<void>;
 
     /**
-     * Returns `true` if this `ElevationRangeSource` is ready and the [[MapView]] can invoke
+     * Returns `true` if this `ElevationRangeSource` is ready and the {@link MapView} can invoke
      * `getElevationRange()` to start requesting data.
      */
     ready(): boolean;

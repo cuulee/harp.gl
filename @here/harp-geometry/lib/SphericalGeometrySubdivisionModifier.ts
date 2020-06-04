@@ -11,12 +11,12 @@ import { SubdivisionModifier } from "./SubdivisionModifier";
 const VERTEX_POSITION_CACHE = [new Vector3(), new Vector3(), new Vector3()];
 
 /**
- * The [[SphericalGeometrySubdivisionModifier]] subdivides triangle mesh geometries positioned
+ * The {@link SphericalGeometrySubdivisionModifier} subdivides triangle mesh geometries positioned
  * on the surface of a sphere centered at `(0, 0, 0)`.
  */
 export class SphericalGeometrySubdivisionModifier extends SubdivisionModifier {
     /**
-     * Constructs a new [[SphericalGeometrySubdivisionModifier]].
+     * Constructs a new {@link SphericalGeometrySubdivisionModifier}.
      *
      * @param angle The maximum angle in radians between two vertices and the origin.
      * @param projection The projection that defines the world space of this geometry.

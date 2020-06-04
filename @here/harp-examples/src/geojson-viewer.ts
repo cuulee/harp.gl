@@ -12,9 +12,9 @@ import { APIFormat, AuthenticationMethod, OmvDataSource } from "@here/harp-omv-d
 import { apikey, copyrightInfo } from "../config";
 
 /**
- * In this example we avail ourselves of the [[FeaturesDataSource]] and its `setFromGeoJson` method
- * to read GeoJSON from a file or from a textarea in the page. A default style is applied for all
- * possible geometry types.
+ * In this example we avail ourselves of the {@link FeaturesDataSource} and its `setFromGeoJson`
+ * method to read GeoJSON from a file or from a textarea in the page. A default style is applied
+ * for all possible geometry types.
  */
 export namespace GeoJsonExample {
     const editorWidth = "550px";

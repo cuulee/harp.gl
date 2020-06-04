@@ -51,8 +51,8 @@ West</a>.</p>`;
     }
 
     /**
-     * Modify the theme after loading and replace some area features that use the [[FillTechnique]]
-     * to use [[StandardTexturedTechnique]] instead.
+     * Modify the theme after loading and replace some area features that use the
+     * {@link FillTechnique} to use {@link StandardTexturedTechnique} instead.
      * This enables lighting for these areas and allows to specify textures.
      * This could solely be done in the theme json file but for explanatory reasons it's done here.
      * @param theme The theme that should be modified.

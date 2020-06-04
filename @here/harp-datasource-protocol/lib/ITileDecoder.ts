@@ -28,7 +28,7 @@ export interface ITileDecoder {
      * Decode raw tile data (encoded with datasource specific encoding) into transferrable
      * representation of tile's geometry.
      *
-     * See [[DecodedTile]].
+     * See {@link DecodedTile}.
      */
     decodeTile(
         data: ArrayBufferLike | {},
@@ -40,7 +40,7 @@ export interface ITileDecoder {
     /**
      * Get tile info.
      *
-     * Get map features metadata associated with tile. See [[TileInfo]].
+     * Get map features metadata associated with tile. See {@link TileInfo}.
      */
     getTileInfo(
         data: ArrayBufferLike | {},
@@ -52,8 +52,8 @@ export interface ITileDecoder {
     /**
      * Set decoder configuration.
      *
-     * Configuration will take effect for next calls to results of [[decodeTile]],
-     * [[decodeThemedTile]].
+     * Configuration will take effect for next calls to results of {@link decodeTile},
+     * {@link decodeThemedTile}.
      *
      * Non-existing (`undefined`) options (including styleSet) are not changed.
      *

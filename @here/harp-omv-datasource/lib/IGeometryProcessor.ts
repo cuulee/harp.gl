@@ -23,24 +23,24 @@ export interface IPolygonGeometry {
  */
 export interface ILineGeometry {
     /**
-     * The positions of this [[ILineGeometry]] projected in local webMercator space.
+     * The positions of this {@link ILineGeometry} projected in local webMercator space.
      */
     readonly positions: Vector2[];
 
     /**
-     * The positions of the original/untiled [[ILineGeometry]] in [[GeoCoordinates]].
+     * The positions of the original/untiled {@link ILineGeometry} in {@link GeoCoordinates}.
      */
     readonly untiledPositions?: GeoCoordinates[];
 }
 
 /**
- * The [[IGeometryProcessor]] is used to process geometry features encoded in OMV tiles.
+ * The {@link IGeometryProcessor} is used to process geometry features encoded in OMV tiles.
  *
- * [[OmvDecoder]] will pass to the processing methods of the concrete implementations
+ * {@link OmvDecoder} will pass to the processing methods of the concrete implementations
  * of this interface, sequences of geometries projected in the local space of the OMV
- * [[TilingScheme]] that is always defined to be an instance of [[webMercatorTilingScheme]].
- * If desired, the world positions can be converted to [[GeoCoordinates]] using the
- * [[Projection.unprojectPoint]], for example:
+ * {@link TilingScheme} that is always defined to be an instance of {@link webMercatorTilingScheme}.
+ * If desired, the world positions can be converted to {@link GeoCoordinates} using the
+ * {@link Projection.unprojectPoint}, for example:
  *
  * ```typescript
  *        convert(geometry: ILineGeometry): GeoCoordinates[] {
@@ -53,8 +53,8 @@ export interface ILineGeometry {
  *        }
  * ```
  *
- * The methods of concrete implementations of [[IGeometryProcessor]] are called to process point,
- * line and polygon geometries, see [[OmvDecoder]].
+ * The methods of concrete implementations of {@link IGeometryProcessor} are called to process
+ * point, line and polygon geometries, see {@link OmvDecoder}.
  */
 export interface IGeometryProcessor {
     /**

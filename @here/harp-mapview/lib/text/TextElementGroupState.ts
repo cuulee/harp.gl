@@ -28,7 +28,7 @@ export class TextElementGroupState {
      * Creates the state for specified group.
      * @param group The group of which the state will be created.
      * @param tileKey The key of the tile to which this group belongs.
-     * @param filter Function used to do early rejection. @see [[TextElementFilter]].
+     * @param filter Function used to do early rejection. @see {@link TextElementFilter}.
      */
     constructor(
         readonly group: TextElementGroup,
@@ -55,8 +55,8 @@ export class TextElementGroupState {
     }
 
     /**
-     * Indicates whether the group has been submitted to the [[TextElementsRenderer]] in the current
-     * frame.
+     * Indicates whether the group has been submitted to the {@link TextElementsRenderer} in the
+     * current frame.
      */
     get visited(): boolean {
         return this.m_visited;
@@ -101,7 +101,7 @@ export class TextElementGroupState {
 
     /**
      * Updates the states of elements within the group.
-     * @param filter Function used to do early rejection. @see [[TextElementFilter]].
+     * @param filter Function used to do early rejection. @see {@link TextElementFilter}.
      */
     updateElements(filter: TextElementFilter) {
         for (const elementState of this.m_textElementStates) {

@@ -8,11 +8,11 @@ import * as THREE from "three";
 import { PickingRaycaster } from "./PickingRaycaster";
 
 /**
- * `MapViewPoints` is a class to extend for the `"circles"` and `"squares"` [[Technique]]s to
- * implement raycasting of [[THREE.Points]] as expected in [[MapView]], that are in screen space. It
- * copies the behaviour of the `raycast` method in [[THREE.Points]] and dispatches it to its
- * children classes, [[Circles]] and [[Squares]], who hold the intersection testing in the
- * `testPoint` method. This class also has the ability to dismiss the testing via the
+ * `MapViewPoints` is a class to extend for the `"circles"` and `"squares"` {@link Technique}s to
+ * implement raycasting of {@link THREE.Points} as expected in {@link MapView}, that are in screen
+ * space. It copies the behaviour of the `raycast` method in {@link THREE.Points} and dispatches
+ * it to its children classes, {@link Circles} and {@link Squares}, who hold the intersection
+ * testing in the `testPoint` method. This class also has the ability to dismiss the testing via the
  * `enableRayTesting` flag.
  *
  * Its main motivation is to handle the point styles of XYZ projects.
@@ -27,13 +27,13 @@ export abstract class MapViewPoints extends THREE.Points {
 
     /**
      * Implements the intersection testing in screen space between the drawn points and the ray. The
-     * drawing of the points being different between [[Circles]] and [[Squares]], this method is
-     * implemented in these child classes.
+     * drawing of the points being different between {@link Circles} and {@link Squares}, this
+     * method is implemented in these child classes.
      *
      * @param point The point to test.
      * @param screenPosition The point position on screen.
      * @param pickCoordinates The picking position on screen.
-     * @param index The index of the point in the [[THREE.Geometry]].
+     * @param index The index of the point in the {@link THREE.Geometry}.
      * @param distance The distance between the point and the ray origin.
      * @param intersects The results array.
      */
@@ -47,12 +47,13 @@ export abstract class MapViewPoints extends THREE.Points {
     ): void;
 
     /**
-     * This method is similar to the original method `raycast` in [[THREE.Points]] except that it
-     * then calls the tailored `testPoint` method in the children classes to test intersections
-     * depending on whether the points are circles or squares, which [[THREE.Points]] cannot do.
+     * This method is similar to the original method `raycast` in {@link THREE.Points} except that
+     * it then calls the tailored `testPoint` method in the children classes to test intersections
+     * depending on whether the points are circles or squares, which {@link THREE.Points} cannot do.
      *
      * @param raycaster The raycaster.
      * @param intersects The array to fill with the results.
+     *
      */
     raycast(raycaster: PickingRaycaster, intersects: THREE.Intersection[]) {
         if (!this.enableRayTesting) {

@@ -75,12 +75,12 @@ export class TileGeometryManager {
     private m_visibilityCounter: number = 1;
 
     /**
-     * Creates an instance of `TileGeometryManager` with a reference to the [[MapView]].
+     * Creates an instance of `TileGeometryManager` with a reference to the {@link MapView}.
      */
     constructor(protected mapView: MapView) {}
 
     /**
-     * Initialize the [[Tile]] with the TileGeometryManager.
+     * Initialize the {@link Tile} with the TileGeometryManager.
      */
     initTile(tile: Tile): void {
         if (tile.dataSource.useGeometryLoader) {
@@ -89,7 +89,7 @@ export class TileGeometryManager {
     }
 
     /**
-     * Process the [[Tile]]s for rendering. May alter the content of the tile per frame.
+     * Process the {@link Tile}s for rendering. May alter the content of the tile per frame.
      */
     updateTiles(tiles: Tile[]): void {
         for (const tile of tiles) {
@@ -122,7 +122,7 @@ export class TileGeometryManager {
     }
 
     /**
-     * Enable a [[GeometryKind]] by adding it to the enabled set, or remove it from that set.
+     * Enable a {@link GeometryKind} by adding it to the enabled set, or remove it from that set.
      *
      * @param {(GeometryKind | GeometryKind[] | GeometryKindSet)} kind The kind to add or remove
      *      from the enabled set.
@@ -137,7 +137,7 @@ export class TileGeometryManager {
     }
 
     /**
-     * Disable a [[GeometryKind]] by adding it to the disabled set, or remove it from that set.
+     * Disable a {@link GeometryKind} by adding it to the disabled set, or remove it from that set.
      *
      * @param {(GeometryKind | GeometryKind[] | GeometryKindSet)} kind The kind to add or remove
      *      from the disabled set.
@@ -152,7 +152,7 @@ export class TileGeometryManager {
     }
 
     /**
-     * Hide a [[GeometryKind]] by adding it to the hidden set, or remove it from that set.
+     * Hide a {@link GeometryKind} by adding it to the hidden set, or remove it from that set.
      *
      * @param {(GeometryKind | GeometryKind[] | GeometryKindSet)} kind The kind to add or remove
      *      from the hidden set.
@@ -185,7 +185,7 @@ export class TileGeometryManager {
     }
 
     /**
-     * Return all [[GeometryKind]]s that are contained in the tiles.
+     * Return all {@link GeometryKind}s that are contained in the tiles.
      *
      * @param {IterableIterator<Tile>} tiles The
      * @returns {GeometryKindSet}
@@ -210,7 +210,7 @@ export class TileGeometryManager {
      * Apply the visibility status taken from the `hiddenKinds` to all geometries in the specified
      * tiles.
      *
-     * @param {Tile[]} tiles List of [[Tiles]] to process the visibility status of.
+     * @param {Tile[]} tiles List of {@link Tiles} to process the visibility status of.
      */
     updateTileObjectVisibility(tiles: Tile[]): boolean {
         let needUpdate = false;
@@ -235,7 +235,7 @@ export class TileGeometryManager {
     }
 
     /**
-     * Sets a callback that will be called for every updated tile on [[updateTiles]].
+     * Sets a callback that will be called for every updated tile on {@link updateTiles}.
      *
      * @param {TileUpdateCallback} callback The callback that will be called after a tile has been
      * updated, passing the updated tile as argument. If `undefined`, a previously set callback will

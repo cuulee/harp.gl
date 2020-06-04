@@ -41,7 +41,7 @@ export interface ITiler {
      * Retrieves a tile for a previously registered index.
      *
      * @param indexId Index identifier.
-     * @param tileKey The [[TileKey]] that identifies the tile.
+     * @param tileKey The {@link TileKey} that identifies the tile.
      */
     getTile(indexId: string, tileKey: TileKey): Promise<{}>;
 

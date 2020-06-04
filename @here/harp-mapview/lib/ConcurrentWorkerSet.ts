@@ -44,14 +44,14 @@ export interface ConcurrentWorkerSetOptions {
     /**
      * The number of Web Workers for processing data.
      *
-     * Defaults to CLAMP(`navigator.hardwareConcurrency` - 1, 1, 4) or [[DEFAULT_WORKER_COUNT]].
+     * Defaults to CLAMP(`navigator.hardwareConcurrency` - 1, 1, 4) or {@link DEFAULT_WORKER_COUNT}.
      */
     workerCount?: number;
 
     /**
      * Timeout in milliseconds, in which each worker should set initial message.
      *
-     * @default 10 seconds, see [[DEFAULT_WORKER_INITIALIZATION_TIMEOUT]]
+     * @default 10 seconds, see {@link DEFAULT_WORKER_INITIALIZATION_TIMEOUT}
      */
     workerConnectionTimeout?: number;
 }
@@ -66,7 +66,7 @@ interface WorkerEntry {
 
 /**
  * Interface for an item in the request queue. Stores the data to be decoded along with an
- * [[AbortController]].
+ * {@link AbortController}.
  */
 interface WorkerRequestEntry {
     message: WorkerServiceProtocol.RequestMessage;
@@ -82,20 +82,20 @@ const DEFAULT_WORKER_COUNT = 2;
 /**
  * The default timeout for first message from worker.
  *
- * @see [[WorkerLoader.startWorker]]
+ * @see {@link WorkerLoader.startWorker}
  */
 export const DEFAULT_WORKER_INITIALIZATION_TIMEOUT = 10000;
 
 /**
- * A set of concurrent Web Workers. Acts as a Communication Peer for [[WorkerService]] instances
+ * A set of concurrent Web Workers. Acts as a Communication Peer for {@link WorkerService} instances
  * running in Web Workers.
  *
  * Starts and manages a certain number of web workers and provides a means to communicate
  * with them using various communication schemes, such as:
- *  - [[addEventListener]] : receive a unidirectional messages
- *  - [[broadcastMessage]] : send unidirectional broadcast message
- *  - [[invokeRequest]] : send a request that waits for a response, with load balancing
- *  - [[postMessage]] : send a unidirectional message, with load balancing
+ *  - {@link addEventListener} : receive a unidirectional messages
+ *  - {@link broadcastMessage} : send unidirectional broadcast message
+ *  - {@link invokeRequest} : send a request that waits for a response, with load balancing
+ *  - {@link postMessage} : send a unidirectional message, with load balancing
  *
  * The request queue holds all requests before they are stuffed into the event queue, allows for
  * easy (and early) cancelling of requests. The workers now only get a single new RequestMessage
@@ -139,7 +139,7 @@ export class ConcurrentWorkerSet {
      * Adds an external reference and increments the internal reference counter by one.
      *
      * To implement a reference-count based automatic resource cleanup, use this function with
-     * [[removeReference]].
+     * {@link removeReference}.
      */
     addReference() {
         this.m_referenceCount += 1;
@@ -151,10 +151,10 @@ export class ConcurrentWorkerSet {
     /**
      * Decrements the internal reference counter by 1.
      *
-     * When the internal reference counter reaches 0, this function calls [[dispose]] to clear the
-     * resources.
+     * When the internal reference counter reaches 0, this function calls {@link dispose} to clear
+     * the resources.
      *
-     * Use with [[addReference]] to implement reference-count based automatic resource cleanup.
+     * Use with {@link addReference} to implement reference-count based automatic resource cleanup.
      */
     removeReference() {
         this.m_referenceCount -= 1;
@@ -166,9 +166,9 @@ export class ConcurrentWorkerSet {
     /**
      * Starts workers.
      *
-     * Use to start workers already stopped by [[stop]] or [[destroy]] calls.
+     * Use to start workers already stopped by {@link stop} or {@link destroy} calls.
      *
-     * Note: The worker set is implicitly started on construction - no need to call [[start]] on
+     * Note: The worker set is implicitly started on construction - no need to call {@link start} on
      * fresh instance.
      *
      * @param options optional, new worker set options
@@ -230,7 +230,7 @@ export class ConcurrentWorkerSet {
      *
      * Waits for all pending requests to be finished and stops all workers.
      *
-     * Use [[start]] to start this worker again.
+     * Use {@link start} to start this worker again.
      *
      * @returns `Promise` that resolves when all workers are destroyed.
      */
@@ -247,7 +247,7 @@ export class ConcurrentWorkerSet {
      *
      * Resolves all pending request promises with a `worker destroyed` error.
      *
-     * Use [[start]] to start this worker again.
+     * Use {@link start} to start this worker again.
      */
     destroy() {
         this.m_stopped = true;
@@ -268,7 +268,7 @@ export class ConcurrentWorkerSet {
     /**
      * Waits for `service` to be initialized in all workers.
      *
-     * Each service that starts in a worker sends an [[isInitializedMessage]] to confirm that
+     * Each service that starts in a worker sends an {@link isInitializedMessage} to confirm that
      * it has started successfully. This method resolves when all workers in a set have
      * `service` initialized.
      *
@@ -305,13 +305,13 @@ export class ConcurrentWorkerSet {
     /**
      * Invokes a request that expects a response from a random worker.
      *
-     * Sends [[RequestMessage]] and resolves when a matching [[ResponseMessage]] is received from
-     * workers. Use this function when interfacing with "RPC-like" calls to services.
+     * Sends {@link RequestMessage} and resolves when a matching {@link ResponseMessage} is received
+     * from workers. Use this function when interfacing with "RPC-like" calls to services.
      *
-     * @param serviceId The name of service, as registered with the [[WorkerClient]] instance.
+     * @param serviceId The name of service, as registered with the {@link WorkerClient} instance.
      * @param request The request to process.
      * @param transferList An optional array of `ArrayBuffer`s to transfer to the worker context.
-     * @param requestController An optional [[RequestController]] to store state of cancelling.
+     * @param requestController An optional {@link RequestController} to store state of cancelling.
      *
      * @returns A `Promise` that resolves with a response from the service.
      */
@@ -355,11 +355,11 @@ export class ConcurrentWorkerSet {
     /**
      * Invokes a request that expects responses from all workers.
      *
-     * Send [[RequestMessage]]  to all workers and resolves when all workers have sent a matching
-     * [[ResponseMessage]]. Use this function to wait on request that need to happen on all workers
-     * before proceeding (like synchronous worker service creation).
+     * Send {@link RequestMessage}  to all workers and resolves when all workers have sent a
+     * matching {@link ResponseMessage}. Use this function to wait on request that need to happen
+     * on all workers before proceeding (like synchronous worker service creation).
      *
-     * @param serviceId The name of service, as registered with the [[WorkerClient]] instance.
+     * @param serviceId The name of service, as registered with the {@link WorkerClient} instance.
      * @param request The request to process.
      * @param transferList An optional array of `ArrayBuffer`s to transfer to the worker context.
      *
@@ -535,12 +535,12 @@ export class ConcurrentWorkerSet {
     };
 
     /**
-     * Posts a [[WorkerServiceProtocol.RequestMessage]] to an available worker. If no worker is
+     * Posts a {@link WorkerServiceProtocol.RequestMessage} to an available worker. If no worker is
      * available, the request is put into a queue.
      *
      * @param message The message to send.
      * @param buffers Optional buffers to transfer to the worker.
-     * @param requestController An optional [[RequestController]] to store state of cancelling.
+     * @param requestController An optional {@link RequestController} to store state of cancelling.
      */
     private postRequestMessage(
         message: WorkerServiceProtocol.RequestMessage,

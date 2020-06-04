@@ -105,7 +105,7 @@ void main() {
 }`;
 
 /**
- * Parameters used when constructing a new [[EdgeMaterial]].
+ * Parameters used when constructing a new {@link EdgeMaterial}.
  */
 export interface EdgeMaterialParameters
     extends FadingFeatureParameters,

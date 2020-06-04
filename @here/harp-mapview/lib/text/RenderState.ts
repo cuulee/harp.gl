@@ -120,8 +120,8 @@ export class RenderState {
     }
 
     /**
-     * Updates the state to [[FadingState.FadingIn]].
-     * If previous state is [[FadingState.FadingIn]] or [[FadingState.FadedIn]] it remains
+     * Updates the state to {@link FadingState.FadingIn}.
+     * If previous state is {@link FadingState.FadingIn} or {@link FadingState.FadedIn} it remains
      * unchanged.
      *
      * @param time Current time.
@@ -146,8 +146,8 @@ export class RenderState {
     }
 
     /**
-     * Updates the state to [[FadingState.FadingOut]].
-     * If previous state is [[FadingState.FadingOut]] or [[FadingState.FadedOut]] it remains
+     * Updates the state to {@link FadingState.FadingOut}.
+     * If previous state is {@link FadingState.FadingOut} or {@link FadingState.FadedOut} it remains
      * unchanged.
      *
      * @param time Current time.
@@ -172,9 +172,9 @@ export class RenderState {
     }
 
     /**
-     * Updates opacity to current time, changing the state to [[FadingState.FadedOut]] or
-     * [[FadingState.FadedIn]] when the opacity becomes 0 or 1 respectively.
-     * It does nothing if [[isFading]] !== `true`.
+     * Updates opacity to current time, changing the state to {@link FadingState.FadedOut} or
+     * {@link FadingState.FadedIn} when the opacity becomes 0 or 1 respectively.
+     * It does nothing if {@link isFading} !== `true`.
      *
      * @param time Current time.
      * @param disableFading `true` if fading is disabled, `false` otherwise.

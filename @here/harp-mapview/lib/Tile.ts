@@ -26,7 +26,7 @@ const logger = LoggerManager.instance.create("Tile");
 
 export type TileObject = THREE.Object3D & {
     /**
-     * Distance of this object from the [[Tile]]'s center.
+     * Distance of this object from the {@link Tile}'s center.
      */
     displacement?: THREE.Vector3;
 
@@ -152,7 +152,7 @@ export interface TileResourceUsage {
 }
 
 /**
- * Simple information about resource usage by the [[Tile]]. Heap and GPU information are
+ * Simple information about resource usage by the {@link Tile}. Heap and GPU information are
  * estimations.
  */
 export interface TileResourceInfo {
@@ -165,16 +165,16 @@ export interface TileResourceInfo {
      */
     gpuSize: number;
     /**
-     * Number of [[THREE.Object3D]] in this tile.
+     * Number of {@link THREE.Object3D} in this tile.
      */
     num3dObjects: number;
     /**
-     * Number of [[TextElement]]s in this tile.
+     * Number of {@link TextElement}s in this tile.
      */
     numTextElements: number;
     /**
      * @deprecated This counter has been merged with numTextElements.
-     * Number of user [[TextElement]]s in this tile.
+     * Number of user {@link TextElement}s in this tile.
      */
     numUserTextElements: number;
 }
@@ -185,7 +185,7 @@ export interface TextElementIndex {
 }
 
 /**
- * The class that holds the tiled data for a [[DataSource]].
+ * The class that holds the tiled data for a {@link DataSource}.
  */
 export class Tile implements CachedResource {
     /**
@@ -210,10 +210,10 @@ export class Tile implements CachedResource {
     copyrightInfo?: CopyrightInfo[];
 
     /**
-     * Keeping some stats for the individual [[Tile]]s to analyze caching behavior.
+     * Keeping some stats for the individual {@link Tile}s to analyze caching behavior.
      *
-     * The frame the [[Tile]] was last requested. This is required to know when the given [[Tile]]
-     * can be removed from the cache.
+     * The frame the {@link Tile} was last requested. This is required to know when the given
+     * {@link Tile} can be removed from the cache.
      */
     frameNumLastRequested: number = -1;
 
@@ -235,8 +235,8 @@ export class Tile implements CachedResource {
     numFramesVisible: number = 0;
 
     /**
-     * Version stamp of the visibility set in the [[TileManager]]. If the counter is different, the
-     * visibility of the Tile's objects has to be calculated. Optimization to reduce overhead of
+     * Version stamp of the visibility set in the {@link TileManager}. If the counter is different,
+     * the visibility of the Tile's objects has to be calculated. Optimization to reduce overhead of
      * computing visibility.
      */
     visibilityCounter: number = -1;
@@ -248,14 +248,14 @@ export class Tile implements CachedResource {
      *
      * levelOffset is in in the range [-quadTreeSearchDistanceUp,
      * quadTreeSearchDistanceDown], where these values come from the
-     * [[VisibleTileSetOptions]]
+     * {@link VisibleTileSetOptions}
      */
     levelOffset: number = 0;
 
     /**
      * If the tile should not be rendered, this is used typically when the tile in question
      * is completely covered by another tile and therefore can be skipped without any visual
-     * impact. Setting this value directly affects the [[willRender]] method, unless
+     * impact. Setting this value directly affects the {@link willRender} method, unless
      * overriden by deriving classes.
      */
     skipRendering = false;
@@ -281,14 +281,14 @@ export class Tile implements CachedResource {
     private m_decodedTile?: DecodedTile;
     private m_tileGeometryLoader?: TileGeometryLoader;
 
-    // Used for [[TextElement]]s that are stored in the data, and that are placed explicitly,
+    // Used for {@link TextElement}s that are stored in the data, and that are placed explicitly,
     // fading in and out.
     private m_textElementGroups = new TextElementGroupPriorityList();
 
     // Blocks other labels from showing.
     private readonly m_pathBlockingElements: PathBlockingElement[] = [];
 
-    // If `true`, the text content of the [[Tile]] changed after the last time it was rendered.
+    // If `true`, the text content of the {@link Tile} changed after the last time it was rendered.
     // It's `Undefined` when no text content has been added yet.
     private m_textElementsChanged: boolean | undefined;
 
@@ -311,10 +311,10 @@ export class Tile implements CachedResource {
     private m_uniqueKey: number;
     private m_offset: number;
     /**
-     * Creates a new [[Tile]].
+     * Creates a new {@link Tile}.
      *
-     * @param dataSource The [[DataSource]] that created this [[Tile]].
-     * @param tileKey The unique identifier for this [[Tile]]. Currently only up to level 24 is
+     * @param dataSource The {@link DataSource} that created this {@link Tile}.
+     * @param tileKey The unique identifier for this {@link Tile}. Currently only up to level 24 is
      * supported, because of the use of the upper bits for the offset.
      * @param offset The optional offset, this is an integer which represents what multiple of 360
      * degrees to shift, only useful for flat projections, hence optional.
@@ -336,13 +336,14 @@ export class Tile implements CachedResource {
     }
 
     /**
-     * The visibility status of the [[Tile]]. It is actually visible or planned to become visible.
+     * The visibility status of the {@link Tile}. It is actually visible or planned to become
+     * visible.
      */
     get isVisible(): boolean {
         // Tiles are not evaluated as invisible until the second frame they aren't requested.
-        // This happens in order to prevent that, during [[VisibleTileSet]] visibility evaluation,
-        // visible tiles that haven't yet been evaluated for the current frame are preemptively
-        // removed from [[DataSourceCache]].
+        // This happens in order to prevent that, during {@link VisibleTileSet} visibility
+        // evaluation, visible tiles that haven't yet been evaluated for the current frame are
+        // preemptively removed from {@link DataSourceCache}.
         return this.frameNumLastRequested >= this.dataSource.mapView.frameNumber - 1;
     }
 
@@ -351,14 +352,14 @@ export class Tile implements CachedResource {
     }
 
     /**
-     * The [[Projection]] currently used by the [[MapView]].
+     * The {@link Projection} currently used by the {@link MapView}.
      */
     get projection(): Projection {
         return this.dataSource.projection;
     }
 
     /**
-     * The [[MapView]] this `Tile` belongs to.
+     * The {@link MapView} this `Tile` belongs to.
      */
     get mapView(): MapView {
         return this.dataSource.mapView;
@@ -367,8 +368,8 @@ export class Tile implements CachedResource {
     /**
      * Whether the data of this tile is in local tangent space or not.
      * If the data is in local tangent space (i.e. up vector is (0,0,1) for high zoomlevels) then
-     * [[MapView]] will rotate the objects before rendering using the rotation matrix of the
-     * oriented [[boundingBox]].
+     * {@link MapView} will rotate the objects before rendering using the rotation matrix of the
+     * oriented {@link boundingBox}.
      */
     get localTangentSpace(): boolean {
         return this.m_localTangentSpace;
@@ -392,9 +393,10 @@ export class Tile implements CachedResource {
     }
 
     /**
-     * Gets the key to uniquely represent this tile (based on the [[tileKey]] and [[offset]]), note
-     * this key is only unique within the given [[DataSource]], to get a key which is unique across
-     * [[DataSource]]s see [[DataSourceCache.getKeyForTile]].
+     * Gets the key to uniquely represent this tile (based on the {@link tileKey} and
+     * {@link offset}), note this key is only unique within the given {@link DataSource},
+     * to get a key which is unique across
+     * {@link DataSource}s see {@link DataSourceCache.getKeyForTile}.
      */
     get uniqueKey(): number {
         return this.m_uniqueKey;
@@ -411,7 +413,7 @@ export class Tile implements CachedResource {
     /**
      * The optional offset, this is an integer which represents what multiple of 360 degrees to
      * shift, only useful for flat projections, hence optional.
-     * @param offset Which multiple of 360 degrees to apply to the [[Tile]].
+     * @param offset Which multiple of 360 degrees to apply to the {@link Tile}.
      */
     set offset(offset: number) {
         if (this.m_offset !== offset) {
@@ -421,7 +423,7 @@ export class Tile implements CachedResource {
     }
 
     /**
-     * Compute [[TileResourceInfo]] of this `Tile`. May be using a cached value. The method
+     * Compute {@link TileResourceInfo} of this `Tile`. May be using a cached value. The method
      * `invalidateResourceInfo` can be called beforehand to force a recalculation.
      *
      * @returns `TileResourceInfo` for this `Tile`.
@@ -434,7 +436,7 @@ export class Tile implements CachedResource {
     }
 
     /**
-     * Force invalidation of the cached [[TileResourceInfo]]. Useful after the `Tile` has been
+     * Force invalidation of the cached {@link TileResourceInfo}. Useful after the `Tile` has been
      * modified.
      */
     invalidateResourceInfo(): void {
@@ -454,7 +456,7 @@ export class Tile implements CachedResource {
      * @internal
      * @deprecated
      *
-     * Gets the list of developer-defined [[TextElement]] in this `Tile`. This list is always
+     * Gets the list of developer-defined {@link TextElement} in this `Tile`. This list is always
      * rendered first.
      */
     get userTextElements(): TextElementGroup {
@@ -467,10 +469,10 @@ export class Tile implements CachedResource {
     }
 
     /**
-     * Adds a developer-defined [[TextElement]] to this `Tile`. The [[TextElement]] is always
-     * visible, if it's in the map's currently visible area.
+     * Adds a developer-defined {@link TextElement} to this `Tile`. The {@link TextElement} is
+     * always visible, if it's in the map's currently visible area.
      *
-     * @deprecated use [[addTextElement]].
+     * @deprecated use {@link addTextElement}.
      *
      * @param textElement The Text element to add.
      */
@@ -480,9 +482,9 @@ export class Tile implements CachedResource {
     }
 
     /**
-     * Removes a developer-defined [[TextElement]] from this `Tile`.
+     * Removes a developer-defined {@link TextElement} from this `Tile`.
      *
-     * @deprecated use [[removeTextElement]].
+     * @deprecated use {@link removeTextElement}.
      *
      * @param textElement A developer-defined TextElement to remove.
      * @returns `true` if the element has been removed successfully; `false` otherwise.
@@ -493,8 +495,8 @@ export class Tile implements CachedResource {
     }
 
     /**
-     * Adds a [[TextElement]] to this `Tile`, which is added to the visible set of
-     * [[TextElement]]s based on the capacity and visibility. The [[TextElement]]'s priority
+     * Adds a {@link TextElement} to this `Tile`, which is added to the visible set of
+     * {@link TextElement}s based on the capacity and visibility. The {@link TextElement}'s priority
      * controls if or when it becomes visible.
      *
      * To ensure that a TextElement is visible, use a high value for its priority, such as
@@ -516,9 +518,9 @@ export class Tile implements CachedResource {
     }
 
     /**
-     * Adds a [[PathBlockingElement]] to this `Tile`. This path has the highest priority and blocks
-     * all other labels. There maybe in future a use case to give it a priority, but as that isn't
-     * yet required, it is left to be implemented later if required.
+     * Adds a {@link PathBlockingElement} to this `Tile`. This path has the highest priority and
+     * blocks all other labels. There maybe in future a use case to give it a priority, but as
+     * that isn't yet required, it is left to be implemented later if required.
      * @param blockingElement Element which should block all other labels.
      */
     addBlockingElement(blockingElement: PathBlockingElement) {
@@ -526,8 +528,8 @@ export class Tile implements CachedResource {
     }
 
     /**
-     * Removes a [[TextElement]] from this `Tile`. For the element to be removed successfully, the
-     * priority of the [[TextElement]] has to be equal to its priority when it was added.
+     * Removes a {@link TextElement} from this `Tile`. For the element to be removed successfully,
+     * the priority of the {@link TextElement} has to be equal to its priority when it was added.
      *
      * @param textElement The TextElement to remove.
      * @returns `true` if the TextElement has been removed successfully; `false` otherwise.
@@ -550,16 +552,16 @@ export class Tile implements CachedResource {
     /**
      * @internal
      *
-     * Gets the current [[GroupedPriorityList]] which contains a list of all [[TextElement]]s to be
-     * selected and placed for rendering.
+     * Gets the current {@link GroupedPriorityList} which contains a list of all
+     * {@link TextElement}s to be selected and placed for rendering.
      */
     get textElementGroups(): TextElementGroupPriorityList {
         return this.m_textElementGroups;
     }
 
     /**
-     * Gets the current modification state for the list of [[TextElement]]s in the `Tile`. If the
-     * value is `true` the TextElement is placed for rendering during the next frame.
+     * Gets the current modification state for the list of {@link TextElement}s in the `Tile`.
+     * If the value is `true` the TextElement is placed for rendering during the next frame.
      */
     get textElementsChanged(): boolean {
         return this.m_textElementsChanged ?? false;
@@ -584,18 +586,18 @@ export class Tile implements CachedResource {
     }
 
     /**
-     * Called before [[MapView]] starts rendering this `Tile`.
+     * Called before {@link MapView} starts rendering this `Tile`.
      *
      * @param zoomLevel The current zoom level.
      * @returns Returns `true` if this `Tile` should be rendered. Influenced directly by the
-     * [[skipRendering]] property unless specifically overriden in deriving classes.
+     * {@link skipRendering} property unless specifically overriden in deriving classes.
      */
     willRender(_zoomLevel: number): boolean {
         return !this.skipRendering;
     }
 
     /**
-     * Called after [[MapView]] has rendered this `Tile`.
+     * Called after {@link MapView} has rendered this `Tile`.
      */
     didRender(): void {
         // to be overridden by subclasses
@@ -707,8 +709,8 @@ export class Tile implements CachedResource {
     }
 
     /**
-     * Called by the [[TileLoader]] after the `Tile` has finished loading its map data. Can be used
-     * to add content to the `Tile`. The [[DecodedTile]] should still be available.
+     * Called by the {@link TileLoader} after the `Tile` has finished loading its map data.
+     * Can be used to add content to the `Tile`. The {@link DecodedTile} should still be available.
      */
     loadingFinished() {
         // To be used in subclasses.
@@ -757,17 +759,17 @@ export class Tile implements CachedResource {
     }
 
     /**
-     * Gets the [[TileGeometryLoader]] that manages this tile.
+     * Gets the {@link TileGeometryLoader} that manages this tile.
      */
     get tileGeometryLoader(): TileGeometryLoader | undefined {
         return this.m_tileGeometryLoader;
     }
 
     /**
-     * Sets the [[TileGeometryLoader]] to manage this tile.
+     * Sets the {@link TileGeometryLoader} to manage this tile.
      *
-     * @param tileGeometryLoader A [[TileGeometryLoader]] instance to manage the geometry creation
-     *      for this tile.
+     * @param tileGeometryLoader A {@link TileGeometryLoader} instance to manage the geometry
+     *        creation for this tile.
      */
     set tileGeometryLoader(tileGeometryLoader: TileGeometryLoader | undefined) {
         this.m_tileGeometryLoader = tileGeometryLoader;
@@ -794,8 +796,8 @@ export class Tile implements CachedResource {
     /**
      * MapView checks if this `Tile` is ready to be rendered while culling.
      *
-     * By default, MapView checks if the [[objects]] list is not empty. However, you can override
-     * this check by manually setting this property.
+     * By default, MapView checks if the {@link objects} list is not empty. However, you can
+     * override this check by manually setting this property.
      */
     get hasGeometry(): boolean {
         if (this.m_forceHasGeometry === undefined) {
@@ -806,9 +808,9 @@ export class Tile implements CachedResource {
     }
 
     /**
-     * Overrides the default value for [[hasGeometry]] if value is not `undefined`.
+     * Overrides the default value for {@link hasGeometry} if value is not `undefined`.
      *
-     * @param value A new value for the [[hasGeometry]] flag.
+     * @param value A new value for the {@link hasGeometry} flag.
      */
     forceHasGeometry(value: boolean | undefined) {
         this.m_forceHasGeometry = value;
@@ -823,16 +825,16 @@ export class Tile implements CachedResource {
     }
 
     /**
-     * Gets the [[ITileLoader]] that manages this tile.
+     * Gets the {@link ITileLoader} that manages this tile.
      */
     get tileLoader(): ITileLoader | undefined {
         return this.m_tileLoader;
     }
 
     /**
-     * Sets the [[ITileLoader]] to manage this tile.
+     * Sets the {@link ITileLoader} to manage this tile.
      *
-     * @param tileLoader A [[ITileLoader]] instance to manage the loading process for this tile.
+     * @param tileLoader A {@link ITileLoader} instance to manage the loading process for this tile.
      */
     set tileLoader(tileLoader: ITileLoader | undefined) {
         this.m_tileLoader = tileLoader;
@@ -889,7 +891,7 @@ export class Tile implements CachedResource {
      * The default implementation of this method frees the geometries and the materials for all the
      * reachable objects.
      * Textures are freed if they are owned by this `Tile` (i.e. if they where created by this
-     * `Tile`or if the ownership was explicitely set to this `Tile` by [[addOwnedTexture]]).
+     * `Tile`or if the ownership was explicitely set to this `Tile` by {@link addOwnedTexture}).
      */
     clear() {
         const disposeMaterial = (material: THREE.Material) => {
@@ -954,7 +956,7 @@ export class Tile implements CachedResource {
     }
 
     /**
-     * Removes all [[TextElement]] from the tile.
+     * Removes all {@link TextElement} from the tile.
      */
     clearTextElements() {
         if (!this.hasTextElements()) {
@@ -988,7 +990,7 @@ export class Tile implements CachedResource {
 
     /**
      * Computes the offset in the x world coordinates corresponding to this tile, based on
-     * its [[offset]].
+     * its {@link offset}.
      * @returns The x offset.
      */
     computeWorldOffsetX(): number {

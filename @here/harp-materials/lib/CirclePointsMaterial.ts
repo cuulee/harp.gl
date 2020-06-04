@@ -37,7 +37,7 @@ void main() {
 }`;
 
 /**
- * Parameters used when constructing a new [[HighPrecisionPointMaterial]].
+ * Parameters used when constructing a new {@link HighPrecisionPointMaterial}.
  */
 export interface CirclePointsMaterialParameters extends THREE.ShaderMaterialParameters {
     /**
@@ -118,6 +118,7 @@ export class CirclePointsMaterial extends THREE.ShaderMaterial {
 
     /**
      * Get circle opacity.
+     *
      */
     get opacity(): number {
         return this.m_opacity;
@@ -125,6 +126,7 @@ export class CirclePointsMaterial extends THREE.ShaderMaterial {
 
     /**
      * Set circle opacity.
+     *
      */
     set opacity(opacity: number) {
         this.m_opacity = opacity;

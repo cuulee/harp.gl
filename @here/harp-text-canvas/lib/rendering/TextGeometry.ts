@@ -29,7 +29,7 @@ const NUM_BYTES_PER_FLOAT = 4;
 const NUM_BYTES_PER_INT32 = 4;
 
 /**
- * Interface containing user-supplied picking data, as well as the [[TextGeometry]] range it's
+ * Interface containing user-supplied picking data, as well as the {@link TextGeometry} range it's
  * assigned to.
  */
 interface PickingData {
@@ -39,7 +39,7 @@ interface PickingData {
 }
 
 /**
- * Procedural geometry that holds vertex attribute data for all glyphs in a [[TextCanvas]].
+ * Procedural geometry that holds vertex attribute data for all glyphs in a {@link TextCanvas}.
  */
 export class TextGeometry {
     /**
@@ -182,12 +182,12 @@ export class TextGeometry {
     /**
      * Add a new glyph to the `TextGeometry`.
      *
-     * @param glyphData [[GlyphData]] holding the glyph description.
+     * @param glyphData {@link GlyphData} holding the glyph description.
      * @param corners Transformed glyph corners.
      * @param weight Foreground glyph sampling weight.
      * @param bgWeight Foreground glyph sampling weight.
      * @param mirrored If `true`, UVs will be horizontally mirrored (needed for RTL punctuation).
-     * @param style Currently set [[TextRenderStyle]].
+     * @param style Currently set {@link TextRenderStyle}.
      *
      * @returns Result of the addition.
      */
@@ -257,12 +257,12 @@ export class TextGeometry {
      *
      * @param buffer Target buffer where glyph attributes will be stored.
      * @param offset Offset of the target buffer.
-     * @param glyphData [[GlyphData]] holding the glyph description.
+     * @param glyphData {@link GlyphData} holding the glyph description.
      * @param corners Transformed glyph corners.
      * @param weight Foreground glyph sampling weight.
      * @param bgWeight Foreground glyph sampling weight.
      * @param mirrored If `true`, UVs will be mirrored (needed for RTL punctuation).
-     * @param style Currently set [[TextRenderStyle]].
+     * @param style Currently set {@link TextRenderStyle}.
      */
     addToBuffer(
         buffer: Float32Array,
@@ -300,10 +300,10 @@ export class TextGeometry {
     }
 
     /**
-     * Add a previously computed [[TextBufferObject]] to the `TextGeometry`. Extra parameters can
-     * be passed to override the passed attribute data.
+     * Add a previously computed {@link TextBufferObject} to the `TextGeometry`. Extra parameters
+     * can be passed to override the passed attribute data.
      *
-     * @param textBufferObject [[TextBufferObject]] containing computed glyphs.
+     * @param textBufferObject {@link TextBufferObject} containing computed glyphs.
      * @param position Override position value.
      * @param scale Override scale value.
      * @param rotation Override rotation value.

@@ -21,7 +21,7 @@ export interface ValueMap {
  */
 export class Env {
     /**
-     * Returns `true` if the given object is an instance of [[Env]].
+     * Returns `true` if the given object is an instance of {@link Env}.
      *
      * @param object The object to test.
      */
@@ -30,7 +30,7 @@ export class Env {
     }
 
     /**
-     * Returns property in [[Env]] by name.
+     * Returns property in {@link Env} by name.
      *
      * @param name Name of property.
      */
@@ -53,7 +53,7 @@ export class MapEnv extends Env {
         super();
     }
     /**
-     * Returns property in [[Env]] by name.
+     * Returns property in {@link Env} by name.
      *
      * @param name Name of property.
      * @override

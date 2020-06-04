@@ -42,7 +42,7 @@ enum SearchDirection {
 }
 
 /**
- * Limited set of [[MapViewOptions]] used for [[VisibleTileSet]].
+ * Limited set of {@link MapViewOptions} used for {@link VisibleTileSet}.
  */
 export interface VisibleTileSetOptions {
     /**
@@ -61,7 +61,8 @@ export interface VisibleTileSetOptions {
     maxVisibleDataSourceTiles: number;
 
     /**
-     * In addition to the simple frustum culling also do additional checks with [[MapTileCuller]].
+     * In addition to the simple frustum culling also do additional checks with
+     * {@link MapTileCuller}.
      */
     extendedFrustumCulling: boolean;
 
@@ -91,14 +92,14 @@ const MB_FACTOR = 1.0 / (1024.0 * 1024.0);
 type TileCacheId = string;
 
 /**
- * Wrapper for LRU cache that encapsulates tiles caching for any [[DataSource]] used.
+ * Wrapper for LRU cache that encapsulates tiles caching for any {@link DataSource} used.
  *
  * Provides LRU based caching mechanism where each tile is identified by its tile key
  * (morton code) and data source name.
  * Tiles are kept in the cache based on last recently used policy, cached tile may be evicted
  * only when cache reaches full saturation and tile is no longer visible.
  * @note Currently cached entries (tiles) are identified by unique tile code (morton code) and
- * data source name, thus it is required that each [[DataSource]] used should have unique
+ * data source name, thus it is required that each {@link DataSource} used should have unique
  * name, but implementation could be improved to omit this limitation.
  */
 class DataSourceCache {
@@ -107,7 +108,7 @@ class DataSourceCache {
      *
      * @param mortonCode The tile morton code.
      * @param offset The tile offset.
-     * @param dataSource The [[DataSource]] from which tile was loaded.
+     * @param dataSource The {@link DataSource} from which tile was loaded.
      */
     static getKey(mortonCode: number, offset: number, dataSource: DataSource): TileCacheId {
         return `${dataSource.name}_${mortonCode}_${offset}`;
@@ -156,15 +157,15 @@ class DataSourceCache {
      * Get information how cached tiles affects cache space available.
      *
      * The way how cache evaluates the __resources size__ have a big influence on entire
-     * caching mechanism, if [[resourceComputationType]] is set to:
-     * [[ResourceComputationType.EstimationInMb]] then each tiles contributes to cache size
+     * caching mechanism, if {@link resourceComputationType} is set to:
+     * {@link ResourceComputationType.EstimationInMb} then each tiles contributes to cache size
      * differently depending on the memory consumed, on other side
-     * [[ResourceComputationType.NumberOfTiles]] says each tile occupies single slot in cache,
+     * {@link ResourceComputationType.NumberOfTiles} says each tile occupies single slot in cache,
      * so its real memory consumed does not matter affect caching behavior. Of course in
      * the second scenario cache may grow significantly in terms of memory usage and thus it
      * is out of control.
      *
-     * @return [[ResourceComputationType]] enum that describes if resources are counted by
+     * @return {@link ResourceComputationType} enum that describes if resources are counted by
      * space occupied in memory or just by number of them.
      */
     get resourceComputationType(): ResourceComputationType {
@@ -219,7 +220,7 @@ class DataSourceCache {
      *
      * @param mortonCode An unique tile morton code.
      * @param offset Tile offset.
-     * @param dataSource A [[DataSource]] the tile comes from.
+     * @param dataSource A {@link DataSource} the tile comes from.
      */
     get(mortonCode: number, offset: number, dataSource: DataSource): Tile | undefined {
         return this.m_tileCache.get(DataSourceCache.getKey(mortonCode, offset, dataSource));
@@ -230,7 +231,7 @@ class DataSourceCache {
      *
      * @param mortonCode En unique tile code (morton code).
      * @param offset The tile offset.
-     * @param dataSource A [[DataSource]] the tile comes from.
+     * @param dataSource A {@link DataSource} the tile comes from.
      * @param tile The tile reference.
      */
     set(mortonCode: number, offset: number, dataSource: DataSource, tile: Tile) {
@@ -252,7 +253,7 @@ class DataSourceCache {
      * Delete tile using its unique identifier.
      *
      * @note Tile identifier its constructed using information about tile code (morton code) and its
-     * [[DataSource]].
+     * {@link DataSource}.
      * @note This is explicit removal thus eviction callback will not be processed.
      * @see DataSourceCache.getKey.
      * @param tileKey The unique tile identifier.
@@ -303,10 +304,10 @@ class DataSourceCache {
     /**
      * Call functor (callback) on each tile store in cache.
      *
-     * Optionally you may specify from which [[DataSource]] tiles should be processed.
-     * This limits the tiles visited to a sub-set originating from single [[DataSource]].
+     * Optionally you may specify from which {@link DataSource} tiles should be processed.
+     * This limits the tiles visited to a sub-set originating from single {@link DataSource}.
      * @param callback The function to be called for each visited tile.
-     * @param inDataSource The optional [[DataSource]] to which tiles should belong.
+     * @param inDataSource The optional {@link DataSource} to which tiles should belong.
      */
     forEach(callback: (tile: Tile, key: TileCacheId) => void, inDataSource?: DataSource): void {
         this.m_tileCache.forEach((entry: Tile, key: TileCacheId) => {
@@ -318,7 +319,7 @@ class DataSourceCache {
 }
 
 /**
- * List of visible tiles for a [[DataSource]].
+ * List of visible tiles for a {@link DataSource}.
  */
 export interface DataSourceTileList {
     /**
@@ -327,7 +328,7 @@ export interface DataSourceTileList {
     dataSource: DataSource;
 
     /**
-     * The current [[MapView]] zoom level.
+     * The current {@link MapView} zoom level.
      */
     zoomLevel: number;
 
@@ -338,7 +339,7 @@ export interface DataSourceTileList {
     storageLevel: number;
 
     /**
-     * True if all [[visibleTiles]] are loaded.
+     * True if all {@link visibleTiles} are loaded.
      */
     allVisibleTileLoaded: boolean;
 
@@ -349,21 +350,21 @@ export interface DataSourceTileList {
 
     /**
      * List of tiles we want to render (i.e. the tiles computed from the zoom level and view
-     * frustum). However some might not be renderable yet (e.g. loading). See [[renderedTiles]] for
-     * the actual list of tiles that the user will see.
+     * frustum). However some might not be renderable yet (e.g. loading). See {@link renderedTiles}
+     * for the actual list of tiles that the user will see.
      */
     visibleTiles: Tile[];
 
     /**
      * Map of tiles that will be rendered, key is the the combination of tile key and offset, see
-     * [[getKeyForTileKeyAndOffset]]. This includes tiles that are not in the [[visibleTiles]]
-     * list but that are used as fallbacks b/c they are still in the cache.
+     * {@link getKeyForTileKeyAndOffset}. This includes tiles that are not in the
+     * {@link visibleTiles} list but that are used as fallbacks b/c they are still in the cache.
      */
     renderedTiles: Map<number, Tile>;
 }
 
 /**
- * Manages visible [[Tile]]s for [[MapView]].
+ * Manages visible {@link Tile}s for {@link MapView}.
  *
  * Responsible for election of rendered tiles:
  *  - quad-tree traversal
@@ -416,8 +417,8 @@ export class VisibleTileSet {
      * Sets cache size.
      *
      * @param size cache size
-     * @param computationType Optional value specifying the way a [[Tile]]s cache usage is computed,
-     *      either based on size in MB (mega bytes) or in number of tiles. Defaults to
+     * @param computationType Optional value specifying the way a {@link Tile}s cache usage is
+     *      computed, either based on size in MB (mega bytes) or in number of tiles. Defaults to
      *      `ResourceComputationType.EstimationInMb`.
      */
     setDataSourceCacheSize(
@@ -487,7 +488,7 @@ export class VisibleTileSet {
 
     /**
      * Calculates a new set of visible tiles.
-     * @param storageLevel The camera storage level, see [[MapView.storageLevel]].
+     * @param storageLevel The camera storage level, see {@link MapView.storageLevel}.
      * @param zoomLevel The camera zoom level.
      * @param dataSources The data sources for which the visible tiles will be calculated.
      * @param elevationRangeSource Source of elevation range data if any.
@@ -550,7 +551,7 @@ export class VisibleTileSet {
                 } else {
                     tile.numFramesVisible++;
                     // If this tile's data source is "covering" then other tiles beneath it have
-                    // their rendering skipped, see [[Tile.willRender]].
+                    // their rendering skipped, see {@link Tile.willRender}.
                     this.skipOverlappedTiles(dataSource, tile);
 
                     if (tile.frameNumVisible < 0) {
@@ -762,7 +763,7 @@ export class VisibleTileSet {
     /**
      * Removes all internal bookkeeping entries and cache related to specified datasource.
      *
-     * Called by [[MapView]] when [[DataSource]] has been removed from [[MapView]].
+     * Called by {@link MapView} when {@link DataSource} has been removed from {@link MapView}.
      */
     removeDataSource(dataSource: DataSource) {
         this.clearTileCache(dataSource);
@@ -774,10 +775,11 @@ export class VisibleTileSet {
     /**
      * Clear the tile cache.
      *
-     * Remove the [[Tile]] objects created by cacheable [[DataSource]]. If a [[DataSource]] name is
-     * provided, this method restricts the eviction the [[DataSource]] with the given name.
+     * Remove the {@link Tile} objects created by cacheable {@link DataSource}. If a
+     * {@link DataSource} name is provided, this method restricts the eviction the
+     * {@link DataSource} with the given name.
      *
-     * @param dataSourceName The name of the [[DataSource]].
+     * @param dataSourceName The name of the {@link DataSource}.
      */
     clearTileCache(dataSource?: DataSource) {
         if (dataSource !== undefined) {
@@ -795,8 +797,8 @@ export class VisibleTileSet {
      *  * Visible and temporarily rendered tiles will be marked for update and retained.
      *  * Cached but not rendered/visible will be evicted.
      *
-     * @param dataSource If passed, only the tiles from this [[DataSource]] instance are processed.
-     *     If `undefined`, tiles from all [[DataSource]]s are processed.
+     * @param dataSource If passed, only the tiles from this {@link DataSource} instance are
+     * processed. If `undefined`, tiles from all {@link DataSource}s are processed.
      */
     markTilesDirty(dataSource?: DataSource) {
         if (dataSource === undefined) {
@@ -813,14 +815,14 @@ export class VisibleTileSet {
     }
 
     /**
-     * Dispose tiles that are marked for removal by [[LRUCache]] algorithm.
+     * Dispose tiles that are marked for removal by {@link LRUCache} algorithm.
      */
     disposePendingTiles() {
         this.m_dataSourceCache.disposeTiles();
     }
 
     /**
-     * Process callback function [[fun]] with each visible tile in set.
+     * Process callback function {@link fun} with each visible tile in set.
      *
      * @param fun The callback function to be called.
      */
@@ -831,9 +833,9 @@ export class VisibleTileSet {
     }
 
     /**
-     * Process callback function [[fun]] with each tile in the cache.
+     * Process callback function {@link fun} with each tile in the cache.
      *
-     * Optional [[dataSource]] parameter limits processing to the tiles that belongs to
+     * Optional {@link dataSource} parameter limits processing to the tiles that belongs to
      * DataSource passed in.
      *
      * @param fun The callback function to be called.
@@ -853,8 +855,8 @@ export class VisibleTileSet {
     }
 
     /**
-     * Skips rendering of tiles that are overlapped. The overlapping [[Tile]] comes from a
-     * [[DataSource]] which is fully covering, i.e. there it is fully opaque.
+     * Skips rendering of tiles that are overlapped. The overlapping {@link Tile} comes from a
+     * {@link DataSource} which is fully covering, i.e. there it is fully opaque.
      **/
     private skipOverlappedTiles(dataSource: DataSource, tile: Tile) {
         if (this.options.projection.type === ProjectionType.Spherical) {
@@ -871,8 +873,8 @@ export class VisibleTileSet {
                 tile.skipRendering = false;
                 this.m_coveringMap.set(key, tile);
             } else {
-                // Skip the [[Tile]] if either the stored entry or the tile to consider is from the
-                // [[BackgroundDataSource]]
+                // Skip the {@link Tile} if either the stored entry or the tile to consider is from
+                // the {@link BackgroundDataSource}
                 if (entry.dataSource instanceof BackgroundDataSource) {
                     entry.skipRendering = true;
                 } else if (dataSource instanceof BackgroundDataSource) {
@@ -911,10 +913,10 @@ export class VisibleTileSet {
      * are an exact match are added straight to the list, tiles that are still loading are replaced
      * with tiles in the cache that are either a parent or child of the requested tile. This helps
      * to prevent flickering when zooming in / out. The distance to search is based on the options
-     * [[quadTreeSearchDistanceDown]] and [[quadTreeSearchDistanceUp]].
+     * {@link quadTreeSearchDistanceDown} and {@link quadTreeSearchDistanceUp}.
      *
-     * Each [[DataSource]] can also switch this behaviour on / off using the
-     * [[allowOverlappingTiles]] flag.
+     * Each {@link DataSource} can also switch this behaviour on / off using the
+     * {@link allowOverlappingTiles} flag.
      *
      */
     private populateRenderedTiles() {

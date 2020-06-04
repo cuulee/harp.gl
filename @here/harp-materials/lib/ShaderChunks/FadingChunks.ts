@@ -7,7 +7,7 @@
 /**
  * The shader chunks have their lines "#ifdef USE_FADING" commented out, because currently the
  * mesh materials use individually created shader strings based on the materials settings.
- * @see [[FadingMeshBasicMaterial]]
+ * @see {@link FadingMeshBasicMaterial}
  **/
 
 export default {

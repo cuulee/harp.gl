@@ -184,7 +184,7 @@ export class TextElementStateCache {
      * @param textElementGroup The group of which the state will be obtained.
      * @param tileKey The key of the tile to which the group belongs.
      * @param textElementFilter Filter used to decide if a text element must be initialized,
-     * @see [[TextElementGroupState]] construction.
+     * @see {@link TextElementGroupState} construction.
      * @returns Tuple with the group state as first element and a boolean indicating whether the
      * state was found in cache (`true`) or newly created (`false`) as second element.
      */

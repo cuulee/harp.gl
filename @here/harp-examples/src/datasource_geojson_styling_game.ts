@@ -17,30 +17,30 @@ import { apikey, copyrightInfo } from "../config";
 import * as geojson from "../resources/italy.json";
 
 /**
- * In this example showcases how to use the styling of a [[OmvDataSource]] that using a
- * [[GeoJsonDataProvider]] with a dynamic [[StyleSet]] to generate a quiz game. First, we generate a
- * [[MapView]], without [[MapControls]] this time, and then we also attach an additional base map
- * from an [[OmvDataSource]].
+ * In this example showcases how to use the styling of a {@link OmvDataSource} that using a
+ * {@link GeoJsonDataProvider} with a dynamic {@link StyleSet} to generate a quiz game. First,
+ * we generate a {@link MapView}, without {@link MapControls} this time, and then we also attach
+ * an additional base map from an {@link OmvDataSource}.
  * ```typescript
  * [[include:harp_gl_initmapview.ts]]
  * ```
  *
- * We then create the map of Italy via a [[OmvDataSource]] that only serves one GeoJson.
+ * We then create the map of Italy via a {@link OmvDataSource} that only serves one GeoJson.
  * This is performed via a custom class, `GeoJsonDataProvider`. When the datasource is linked we
- * then set its [[StyleSet]] and add the click listener on the canvas to handle the quiz logic.
+ * then set its {@link StyleSet} and add the click listener on the canvas to handle the quiz logic.
  * ```typescript
  * [[include:harp_gl_staticgeojson.ts]]
  * ```
  *
  * The quiz logic is performed when a region is picked. The name of the picked
  * region is compared to the expected name, and if they match, an update to the
- * [[OmvDataSource]]'s [[StyleSet]] is performed.
+ * {@link OmvDataSource}'s {@link StyleSet} is performed.
  * ```typescript
  * [[include:harp_gl_gamelogic.ts]]
  * ```
  *
  * The custom styling of the map given a feature property, like `name` in this example, is achieved
- * in the `when` expression of a [[Style]].
+ * in the `when` expression of a {@link Style}.
  * ```typescript
  * [[include:harp_gl_gamestyleset.ts]]
  * ```

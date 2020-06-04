@@ -12,7 +12,7 @@ declare const global: any;
 //    lots of stubs are needed which are just placeholders and are empty
 
 /**
- * Fake `Worker` class to be used in Node environment with [[stubGlobalConstructor]].
+ * Fake `Worker` class to be used in Node environment with {@link stubGlobalConstructor}.
  */
 export class FakeWebWorker {
     addEventListener() {}
@@ -82,7 +82,7 @@ interface FakeWorkerData extends Worker {
 }
 
 /**
- * Fake worker script `self` executed by stubs creates using [[willExecuteWorkerScript]]
+ * Fake worker script `self` executed by stubs creates using {@link willExecuteWorkerScript}
  * implements basic functionality via this interface.
  */
 export interface LimitedWorkerScope {
@@ -104,7 +104,7 @@ export interface LimitedWorkerScope {
  * Executes `workerScript` in context that looks like Web Worker context.
  *
  * Execution of `workerScript` and `setTimeout`, `setInterval` callbacks scheduled from within
- * "worker script" has `self` faked using [[FakeWebWorker.fakeSelf]] .
+ * "worker script" has `self` faked using {@link FakeWebWorker.fakeSelf} .
  *
  * Perfect for race condition testing, because it starts worker script immediately in next
  * 'microtask' after construction (which indeed can happen in real environment, when worker code is
@@ -199,7 +199,7 @@ class FakeWorkerSelf {
      * Also, fakes `setTimeout` and `setInterval` so any callback registered when `self` is faked
      * will have also `self` faked when it's run.
      *
-     * Call to [[restoreSelf]] call is mandatory, otherwise strange things happen.
+     * Call to {@link restoreSelf} call is mandatory, otherwise strange things happen.
      *
      * @param newSelf
      */

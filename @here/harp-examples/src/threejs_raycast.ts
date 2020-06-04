@@ -14,8 +14,8 @@ import { apikey, copyrightInfo } from "../config";
 /**
  * This example shows how we can pick the scene and add a [three.js](https://threejs.org/) object.
  *
- * The first step is to call the [[intersectMapObjects]] method using the x and y position of the
- * click event.
+ * The first step is to call the {@link intersectMapObjects} method using the x and y position of
+ * the click event.
  *
  * ```typescript
  * [[include:harp_gl_threejs_raycast_0.ts]]
@@ -27,7 +27,7 @@ import { apikey, copyrightInfo } from "../config";
  * ```
  *
  * Finally, we add the cube and reposition it during rendering as demonstrated in the
- * [[ThreejsAddSimpleObject]] example.
+ * {@link ThreejsAddSimpleObject} example.
  */
 export namespace ThreejsRaycast {
     const scale = 100;
@@ -102,8 +102,8 @@ export namespace ThreejsRaycast {
             // Add a callback to execute before the items are rendered.
             map.addEventListener(MapViewEventNames.Render, () => {
                 // Set the cube position relative to the world center. Note, we don't subtract the
-                // [[worldCenter]] from the worldMousePosition, because we need to keep the cubes
-                // world position untouched.
+                // {@link worldCenter} from the worldMousePosition, because we need to keep the
+                // cubes world position untouched.
                 cube.position.copy(worldPoint).sub(map.worldCenter);
             });
 

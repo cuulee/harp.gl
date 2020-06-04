@@ -203,7 +203,7 @@ export interface PolygonFadingParameters extends FadingParameters {
 }
 
 /**
- * Support class to create geometry for a [[Tile]] from a [[DecodedTile]].
+ * Support class to create geometry for a {@link Tile} from a {@link DecodedTile}.
  */
 export class TileGeometryCreator {
     private static m_instance: TileGeometryCreator;
@@ -229,9 +229,9 @@ export class TileGeometryCreator {
      * technique is identified as disabled, its property `enabled` is set to `false`.
      *
      * @param decodedTile The decodedTile containing the actual tile map data.
-     * @param enabledKinds Optional [[GeometryKindSet]] used to specify which object kinds should be
+     * @param enabledKinds Optional {@link GeometryKindSet} used to specify which object kinds should be
      *      created.
-     * @param disabledKinds Optional [[GeometryKindSet]] used to filter objects that should not be
+     * @param disabledKinds Optional {@link GeometryKindSet} used to filter objects that should not be
      *      created.
      */
     initDecodedTile(
@@ -269,7 +269,7 @@ export class TileGeometryCreator {
      *
      * @see [[TileGeometryCreator#initDecodedTile]]
      *
-     * @param tile The [[Tile]] to process.
+     * @param tile The {@link Tile} to process.
      * @param decodedTile The decodedTile containing the actual tile map data.
      */
     createAllGeometries(tile: Tile, decodedTile: DecodedTile) {
@@ -371,15 +371,15 @@ export class TileGeometryCreator {
     }
 
     /**
-     * Adds a THREE object to the root of the tile and register [[MapObjectAdapter]].
+     * Adds a THREE object to the root of the tile and register {@link MapObjectAdapter}.
      *
      * Sets the owning tiles datasource.name and the `tileKey` in the `userData` property of the
      * object, such that the tile it belongs to can be identified during picking.
      *
-     * @param tile The [[Tile]] to add the object to.
+     * @param tile The {@link Tile} to add the object to.
      * @param object The object to add to the root of the tile.
      * @param geometryKind The kind of object. Can be used for filtering.
-     * @param custom additional parameters for [[MapObjectAdapter]]
+     * @param custom additional parameters for {@link MapObjectAdapter}
      */
     registerTileObject(
         tile: Tile,
@@ -417,7 +417,7 @@ export class TileGeometryCreator {
     /**
      * Splits the text paths that contain sharp corners.
      *
-     * @param tile The [[Tile]] to process paths on.
+     * @param tile The {@link Tile} to process paths on.
      * @param textPathGeometries The original path geometries that may have defects.
      * @param textFilter: Optional filter. Should return true for any text technique that is
      *      applicable.
@@ -451,11 +451,11 @@ export class TileGeometryCreator {
     }
 
     /**
-     * Creates [[TextElement]] objects from the decoded tile and list of materials specified. The
-     * priorities of the [[TextElement]]s are updated to simplify label placement.
+     * Creates {@link TextElement} objects from the decoded tile and list of materials specified. The
+     * priorities of the {@link TextElement}s are updated to simplify label placement.
      *
-     * @param tile The [[Tile]] to create the testElements on.
-     * @param decodedTile The [[DecodedTile]].
+     * @param tile The {@link Tile} to create the testElements on.
+     * @param decodedTile The {@link DecodedTile}.
      * @param textFilter: Optional filter. Should return true for any text technique that is
      *      applicable.
      */
@@ -649,8 +649,8 @@ export class TileGeometryCreator {
     /**
      * Creates `Tile` objects from the decoded tile and list of materials specified.
      *
-     * @param tile The [[Tile]] to create the geometry on.
-     * @param decodedTile The [[DecodedTile]].
+     * @param tile The {@link Tile} to create the geometry on.
+     * @param decodedTile The {@link DecodedTile}.
      * @param techniqueFilter: Optional filter. Should return true for any technique that is
      *      applicable.
      */
@@ -898,7 +898,7 @@ export class TileGeometryCreator {
                 const extrudedObjects: Array<{
                     object: THREE.Object3D;
                     /**
-                     * If set to `true`, an [[ExtrusionFeature]] that injects extrusion shader
+                     * If set to `true`, an {@link ExtrusionFeature} that injects extrusion shader
                      * chunk will be applied to the material. Otherwise, extrusion should
                      * be added in the material's shader manually.
                      */
@@ -1198,7 +1198,7 @@ export class TileGeometryCreator {
     }
 
     /**
-     * Prepare the [[Tile]]s pois. Uses the [[PoiManager]] in [[MapView]].
+     * Prepare the {@link Tile}s pois. Uses the {@link PoiManager} in {@link MapView}.
      */
     preparePois(tile: Tile, decodedTile: DecodedTile) {
         if (decodedTile.poiGeometries !== undefined) {
@@ -1292,7 +1292,7 @@ export class TileGeometryCreator {
             const enableMixedLod = mapView.enableMixedLod || mapView.enableMixedLod === undefined;
 
             if (enableMixedLod) {
-                // Use a [[LodMesh]] to adapt tesselation of tile depending on zoom level
+                // Use a {@link LodMesh} to adapt tesselation of tile depending on zoom level
                 for (let zoomLevelOffset = 0; zoomLevelOffset < 4; ++zoomLevelOffset) {
                     const subdivision = Math.pow(2, zoomLevelOffset);
                     const zoomLevelGeometry = geometry.clone();
@@ -1365,9 +1365,9 @@ export class TileGeometryCreator {
     }
 
     /**
-     * Gets the attachments of the given [[DecodedTile]].
+     * Gets the attachments of the given {@link DecodedTile}.
      *
-     * @param decodedTile The [[DecodedTile]].
+     * @param decodedTile The {@link DecodedTile}.
      */
     private *getAttachments(decodedTile: DecodedTile): Generator<AttachmentInfo> {
         const cache = new AttachmentCache();
@@ -1394,10 +1394,10 @@ export class TileGeometryCreator {
     }
 
     /**
-     * Process the given [[Tile]] and assign default values to render orders
+     * Process the given {@link Tile} and assign default values to render orders
      * and label priorities.
      *
-     * @param tile The [[Tile]] to process.
+     * @param tile The {@link Tile} to process.
      */
     private processPriorities(tile: Tile) {
         const decodedTile = tile.decodedTile;

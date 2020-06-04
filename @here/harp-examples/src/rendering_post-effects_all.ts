@@ -13,15 +13,15 @@ import { apikey, copyrightInfo } from "../config";
 
 /**
  * Harp's effects playground example with GUI to tweak values in one's own map. The effects are
- * adapted from ThreeJS's original effects. They can be tailored from [[MapView]]'s
- * [[MapRenderingManager]]:
+ * adapted from ThreeJS's original effects. They can be tailored from {@link MapView}'s
+ * {@link MapRenderingManager}:
  *
  * ```typescript
  * [[include:effects_example.ts]]
  * ```
  *
- * Note that a [[PostEffect]] configuration file can also be written and loaded with a [[Theme]], as
- * visible in the `effects_all` example.
+ * Note that a {@link PostEffect} configuration file can also be written and loaded with a
+ * {@link Theme}, as visible in the `effects_all` example.
  * ```typescript
  * [[include:effects_example2.ts]]
  * ```

@@ -20,7 +20,7 @@ export interface WorkerBootstrapRequest {
 export interface WorkerBootstrapResponse {
     type: "worker-bootstrap-response";
 
-    /// Actual URL scripts requested in [[WorkerBootstrapRequest]].
+    /// Actual URL scripts requested in {@link WorkerBootstrapRequest}.
     resolvedDependencies: string[];
 }
 

@@ -22,7 +22,7 @@ const tmpV2 = new THREE.Vector3();
 const tmpV3 = new THREE.Vector3();
 const tmpV4 = new THREE.Vector3();
 
-// Strides to access the index buffer. See [[createLineGeometry]].
+// Strides to access the index buffer. See {@link createLineGeometry}.
 // Stride between the start vertex indices of consecutive segments, each one made of 2 triangles.
 const SEGMENT_STRIDE = 6;
 // Stride between the start and end vertex indices of a segment. Vertices are duplicated so that
@@ -359,13 +359,13 @@ function intersectGroup(
 
 /**
  * Mesh formed by extruding a polyline in the shaders. Overrides raycasting behaviour to account for
- * extrusion, see [[SolidLineMaterial]].
+ * extrusion, see {@link SolidLineMaterial}.
  * @internal
  */
 export class SolidLineMesh extends THREE.Mesh {
     /**
      * Finds the intersections of a ray with a mesh, assuming the mesh is a polyline extruded in
-     * the shaders (see [[SolidLineMaterial]]).
+     * the shaders (see {@link SolidLineMaterial}).
      * @param mesh The mesh whose intersections will be found.
      * @param raycaster Contains the intersection ray.
      * @param intersections Array where all intersections found between ray and mesh will be pushed.
@@ -424,7 +424,7 @@ export class SolidLineMesh extends THREE.Mesh {
      * Creates an instance of SolidLineMesh.
      * @param geometry Mesh geometry.
      * @param material Material(s) to be used by the mesh. They must be instances of
-     * [[SolidLineMaterial]].
+     * {@link SolidLineMaterial}.
      */
     constructor(geometry: THREE.BufferGeometry, material: THREE.Material | THREE.Material[]) {
         super(geometry, material);

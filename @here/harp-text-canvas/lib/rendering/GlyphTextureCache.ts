@@ -27,7 +27,7 @@ const MAX_TEXTURE_SIZE = 4096;
 
 /**
  * @hidden
- * Information stored for every entry in a [[GlyphTextureCache]].
+ * Information stored for every entry in a {@link GlyphTextureCache}.
  */
 export interface GlyphCacheEntry {
     glyphData: GlyphData;
@@ -36,7 +36,7 @@ export interface GlyphCacheEntry {
 
 /**
  * @hidden
- * Unified glyph SDF bitmap storage for all fonts in a [[FontCatalog]].
+ * Unified glyph SDF bitmap storage for all fonts in a {@link FontCatalog}.
  * Implemented as an abstraction layer on top of an LRUCache and WebGLRenderTarget.
  */
 export class GlyphTextureCache {

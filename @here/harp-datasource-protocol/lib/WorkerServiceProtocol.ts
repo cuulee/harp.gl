@@ -5,11 +5,11 @@
  */
 
 /**
- * Common communication protocol for [[WorkerService]].
+ * Common communication protocol for {@link WorkerService}.
  */
 export namespace WorkerServiceProtocol {
     /**
-     * Service id of worker manager ([[WorkerServiceManager]]) used to create/destroy service
+     * Service id of worker manager ({@link WorkerServiceManager}) used to create/destroy service
      * instances in workers.
      */
     export const WORKER_SERVICE_MANAGER_SERVICE_ID = "worker-service-manager";
@@ -61,18 +61,18 @@ export namespace WorkerServiceProtocol {
 
     /**
      * This is an internal general interface used in communication with workers.
-     * Check [[ConcurrentWorkerSet]]'s invokeRequest function for exemplary usage.
+     * Check {@link ConcurrentWorkerSet}'s invokeRequest function for exemplary usage.
      */
     export interface ServiceRequest {
         type: string;
     }
 
     /**
-     * This message is sent by the main thread to [[WorkerServiceManager]] to dynamically create a
-     * new service.
+     * This message is sent by the main thread to {@link WorkerServiceManager} to dynamically create
+     * a new service.
      *
-     * May throw `UnknownServiceError` if service of given type is not registered in
-     * [[WorkerServiceManager]], see [[isUnknownServiceError]].
+     * May throw {@link UnknownServiceError} if service of given type is not registered in
+     * {@link WorkerServiceManager}, see {@link isUnknownServiceError}.
      */
     export interface CreateServiceRequest extends ServiceRequest {
         type: Requests.CreateService;
@@ -80,7 +80,7 @@ export namespace WorkerServiceProtocol {
         /**
          * Type of service to be created.
          *
-         * @see [[WorkerServiceManager.register]]
+         * @see {@link WorkerServiceManager.register}
          */
         targetServiceType: string;
 
@@ -91,15 +91,15 @@ export namespace WorkerServiceProtocol {
     }
 
     /**
-     * Test if `error` thrown by [[CreateServiceRequest]] was caused by unknown type of service.
+     * Test if `error` thrown by {@link CreateServiceRequest} was caused by unknown type of service.
      */
     export function isUnknownServiceError(error: Error): boolean {
         return /unknown targetServiceType requested: /.test(error.message);
     }
 
     /**
-     * This message is sent by the main thread to [[WorkerServiceManager]] to dynamically destroy a
-     * service.
+     * This message is sent by the main thread to {@link WorkerServiceManager} to dynamically
+     * destroy a service.
      */
     export interface DestroyServiceRequest extends ServiceRequest {
         type: Requests.DestroyService;

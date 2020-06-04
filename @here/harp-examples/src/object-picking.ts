@@ -14,9 +14,9 @@ import { apikey, copyrightInfo } from "../config";
  * This example showcases how picking works.
  *
  * To enable polygon picking set `gatherFeatureAttributes: true` in
- * [[OmvWithRestClientParams]] or in [[OmvWithCustomDataProvider]].
+ * {@link OmvWithRestClientParams} or in {@link OmvWithCustomDataProvider}.
  * To enable text element picking set `gatherFeatureAttributes: true` in
- * [[OmvWithRestClientParams]] or in [[OmvWithCustomDataProvider]].
+ * {@link OmvWithRestClientParams} or in {@link OmvWithCustomDataProvider}.
  *
  * Now, let's write an event that fires when the user clicks the map canvas:
  * ```typescript

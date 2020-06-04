@@ -14,7 +14,7 @@ import { baseUrl, UriResolver } from "@here/harp-utils";
 export const DEFAULT_DECODER_SCRIPT_URL = "harp.js-bundle://harp-decoders.js";
 
 /**
- * Basename of map bundle script - used by [[getBundleScriptUrl]] as fallback, when
+ * Basename of map bundle script - used by {@link getBundleScriptUrl} as fallback, when
  * `document.currentScript` is not present.
  *
  * @hidden
@@ -55,7 +55,7 @@ export function getBundleScriptUrl(): string | undefined | null {
 }
 
 /**
- * Memoizes result of [[getBundleScriptUrl]].
+ * Memoizes result of {@link getBundleScriptUrl}.
  * @hidden
  */
 let bundleScriptUrl: string | undefined | null;
@@ -143,7 +143,7 @@ const getActualDecoderScriptUrl = () => {
  * it's URL.
  *
  * Minified version of `harp.js` bundle loads minified version of decoder.
- * Hooks in [[ConcurrentDecoderFacade]] to use this URL as default `defaultScriptUrl`.
+ * Hooks in {@link ConcurrentDecoderFacade} to use this URL as default `defaultScriptUrl`.
  *
  * @hidden
  */
@@ -179,7 +179,7 @@ function installDefaultDecoderUrlHook() {
 /**
  * Initialize `harp.gl` bundle.
  *
- * Install specific default decoder urls into [[ConcurrentDecoderFacade]].
+ * Install specific default decoder urls into {@link ConcurrentDecoderFacade}.
  * @hidden
  */
 export function mapBundleMain() {

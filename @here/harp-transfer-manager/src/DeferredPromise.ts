@@ -6,7 +6,7 @@
 
 /**
  *
- * DeferredPromise takes an executor function for executing it later, when [[exec]] is called.
+ * DeferredPromise takes an executor function for executing it later, when {@link exec} is called.
  * This class allows wrapping other promises or long running functions for later execution.
  * @internal
  * @hidden
@@ -20,7 +20,7 @@ export class DeferredPromise<T> {
     private rejectFunc?: (reason?: any) => void;
 
     /**
-     * Constructs a new [[DeferredPromise]]
+     * Constructs a new {@link DeferredPromise}
      * @param executor Async function that should be executed at a later point in time.
      */
     constructor(private readonly executor: () => Promise<T>) {

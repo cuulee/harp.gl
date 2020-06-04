@@ -43,7 +43,7 @@ void main() {
 }`;
 
 /**
- * Parameters used when constructing a new [[IconMaterial]].
+ * Parameters used when constructing a new {@link IconMaterial}.
  */
 export interface IconMaterialParameters {
     /**
@@ -53,7 +53,7 @@ export interface IconMaterialParameters {
 }
 
 /**
- * 2D material for icons, similar to [[TextMaterial]]. Uses component in texture coordinates to
+ * 2D material for icons, similar to {@link TextMaterial}. Uses component in texture coordinates to
  * apply opacity.
  */
 export class IconMaterial extends THREE.RawShaderMaterial {

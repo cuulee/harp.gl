@@ -179,8 +179,8 @@ export class ScreenCollisions {
     }
 
     /**
-     * Test whether a given [[CollisionBox]] intersects with any of the details in the specified
-     * [[IBox]]es.
+     * Test whether a given {@link CollisionBox} intersects with any of the details in the specified
+     * {@link IBox}es.
      *
      * @param testBox The box to test for intersection.
      * @param boxes The candidate boxes the test box may intersect with. It's assumed that the
@@ -209,7 +209,7 @@ export class ScreenCollisions {
 
     /**
      * Computes the intersection between the supplied CollisionBox and the LineWithBound.
-     * @note The [[CollisionBox]] is in Screen Bounds space, whereas the line must be
+     * @note The {@link CollisionBox} is in Screen Bounds space, whereas the line must be
      * in Screen Coordinate space
      */
     private intersectsLine(bbox: CollisionBox, boundedLine: LineWithBound): boolean {

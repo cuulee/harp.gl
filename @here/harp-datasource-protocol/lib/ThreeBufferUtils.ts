@@ -21,8 +21,8 @@ import {
 /**
  * Collection of helper methods to convert
  * {@link https://threejs.org/docs/index.html#api/en/core/BufferGeometry|three.js BufferGeometry}
- * to [[Geometry]] that allows creation and transfering of THREE BufferGeometry in webworkers.
- * See also [[CustomDatasourceExample]].
+ * to {@link Geometry} that allows creation and transfering of THREE BufferGeometry in webworkers.
+ * See also {@link CustomDatasourceExample}.
  */
 export namespace ThreeBufferUtils {
     export function getBufferElementType(buffer: TypedArray): BufferElementType {

@@ -18,15 +18,16 @@ export interface OptionsMap {
  * Allows to cancel and prioritize requests inside the requestQueue. Useful to optimize the order of
  * decoding tiles during animations and camera movements.
  *
- * `RequestController` is not extending [[AbortController]], because this is not supported in ES5.
+ * {@link RequestController} is not extending {@link AbortController}, because this is not supported
+ * in ES5.
  */
 export class RequestController implements AbortController {
     /**
      * Creates an instance of `RequestController`.
      *
      * @param {number} priority
-     * @param {AbortController} abortController Optional [[AbortController]] used internally, since
-     *      [[AbortController]]s should not be subclassed.
+     * @param {AbortController} abortController Optional {@link AbortController} used internally,
+     *                          since {@link AbortController}s should not be subclassed.
      */
     constructor(
         public priority: number = 0,
@@ -47,7 +48,7 @@ export class RequestController implements AbortController {
 }
 
 /**
- * Communication protocol with [[ITileDecoder]].
+ * Communication protocol with {@link ITileDecoder}.
  */
 export namespace WorkerDecoderProtocol {
     /**
@@ -67,7 +68,7 @@ export namespace WorkerDecoderProtocol {
 
     /**
      * Interface for a ConfigurationMessage that is sent from the datasource to the decoder. The
-     * message used to configure the [[ITileDecoder]].
+     * message used to configure the {@link ITileDecoder}.
      */
     export interface ConfigurationMessage extends DecoderMessage {
         type: DecoderMessageName.Configuration;
@@ -99,7 +100,7 @@ export namespace WorkerDecoderProtocol {
 
     /**
      * This object is sent to the decoder asking to decode a specific tile. The expected response
-     * type is a [[DecodedTile]].
+     * type is a {@link DecodedTile}.
      */
     export interface DecodeTileRequest extends WorkerServiceProtocol.ServiceRequest {
         type: Requests.DecodeTileRequest;
@@ -121,7 +122,7 @@ export namespace WorkerDecoderProtocol {
 
     /**
      * This object is sent to the decoder asking for a tile info of a specific tile. The expected
-     * response type is a [[DecodedTile]].
+     * response type is a {@link DecodedTile}.
      */
     export interface TileInfoRequest extends WorkerServiceProtocol.ServiceRequest {
         type: Requests.TileInfoRequest;

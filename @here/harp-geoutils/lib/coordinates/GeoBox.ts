@@ -168,7 +168,7 @@ export class GeoBox implements GeoBoxExtentLike {
 
     /**
      * Returns the latitude span in degrees.
-     * @deprecated Use [[latitudeSpan]] instead.
+     * @deprecated Use {@link latitudeSpan} instead.
      */
     get latitudeSpanInDegrees(): number {
         return this.latitudeSpan;
@@ -176,7 +176,7 @@ export class GeoBox implements GeoBoxExtentLike {
 
     /**
      * Returns the longitude span in degrees.
-     * @deprecated Use [[longitudeSpan]] instead.
+     * @deprecated Use {@link longitudeSpan} instead.
      */
     get longitudeSpanInDegrees(): number {
         return this.longitudeSpan;

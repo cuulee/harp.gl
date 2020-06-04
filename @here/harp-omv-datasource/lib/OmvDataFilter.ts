@@ -20,7 +20,7 @@ import {
  * layer or feature.
  *
  * The `OmvFeatureFilter` is an "early-opt-out" filter, which cannot filter individual features,
- * because at that point the features are not really decoded. Use the [[OmvFeatureModifier]] to
+ * because at that point the features are not really decoded. Use the {@link OmvFeatureModifier} to
  * filter for individual features.
  */
 export interface OmvFeatureFilter {
@@ -74,11 +74,11 @@ export interface OmvFeatureFilter {
 }
 
 /**
- * The `OmvFeatureModifier` can be used to filter individual features. It gets passed in the [[Env]]
- * of the feature, which contains all the values that can be searched for in a style. If a filter
- * function returns false, the feature is ignored, and no geometry is being created.
+ * The `OmvFeatureModifier` can be used to filter individual features. It gets passed in the
+ * {@link Env} of the feature, which contains all the values that can be searched for in a style.
+ * If a filter function returns false, the feature is ignored, and no geometry is being created.
  *
- * In addition to pure filtering, the `OmvFeatureModifier` can also modify the [[Env]] of the
+ * In addition to pure filtering, the `OmvFeatureModifier` can also modify the {@link Env} of the
  * feature, or even add new properties to the feature, for example, traffic states. The
  * `OmvFeatureModifier` is executed before the styles are selected, so the geometry is created with
  * the modified feature properties.
@@ -119,8 +119,8 @@ export interface OmvFeatureModifier {
 }
 
 /**
- * Builds an `OmvFilterDescription` (internal type) that specifies an [[OmvFeatureFilter]] as well
- * as an [[OmvFeatureModifier]].
+ * Builds an `OmvFilterDescription` (internal type) that specifies an {@link OmvFeatureFilter}
+ * as well as an {@link OmvFeatureModifier}.
  *
  */
 export class OmvFeatureFilterDescriptionBuilder {
@@ -142,8 +142,8 @@ export class OmvFeatureFilterDescriptionBuilder {
     private m_kindsToIgnore: string[] = [];
 
     /**
-     * Builds an `OmvFilterDescription` (internal type) that specifies an [[OmvFeatureFilter]] as
-     * well as an [[OmvFeatureModifier]].
+     * Builds an `OmvFilterDescription` (internal type) that specifies an {@link OmvFeatureFilter}
+     * as well as an {@link OmvFeatureModifier}.
      *
      * @param processLayersDefault If `true`, all unspecified layers will be processed. If `false`,
      * all unspecified layers will be ignored.
@@ -336,7 +336,7 @@ export class OmvFeatureFilterDescriptionBuilder {
     }
 
     /**
-     * Create a filter description that can be passed as an option to the [[OmvDataSource]].
+     * Create a filter description that can be passed as an option to the {@link OmvDataSource}.
      */
     createDescription(): OmvFeatureFilterDescription {
         return {
@@ -683,7 +683,7 @@ export class OmvGenericFeatureFilter implements OmvFeatureFilter {
 }
 
 /**
- * An [[OmvFeatureFilter]] implementation that delegates all filter decision
+ * An {@link OmvFeatureFilter} implementation that delegates all filter decision
  * returning `true` for any predicate if all delegates return `true`.
  */
 export class ComposedDataFilter implements OmvFeatureFilter {

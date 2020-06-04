@@ -16,12 +16,12 @@ import { apikey } from "../config";
  * https://1.base.maps.ls.hereapi.com/maptile/2.1/maptile/newest/normal.day/${level}/${column}/${row}/512/png8?apikey=${apikey}
  * ```
  *
- * A [[WebTileDataSource]] is created with specified applications' apikey passed
- * as [[WebTileDataSourceOptions]]
+ * A {@link WebTileDataSource} is created with specified applications' apikey passed
+ * as {@link WebTileDataSourceOptions}
  * ```typescript
  * [[include:harp_gl_datasource_webtile_1.ts]]
  * ```
- * Then added to the [[MapView]]
+ * Then added to the {@link MapView}
  * ```typescript
  * [[include:harp_gl_datasource_webtile_2.ts]]
  * ```

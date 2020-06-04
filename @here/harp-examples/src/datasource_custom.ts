@@ -32,18 +32,18 @@ import { CUSTOM_DECODER_SERVICE_TYPE } from "../decoder/custom_decoder_defs";
  * A decoder is a class that encapsulates all the work that should be done in
  * a web-worker (i.e. decoding and processing).
  *
- * In this example we derive from [[ThemedTileDecoder]] b/c we also want to use
+ * In this example we derive from {@link ThemedTileDecoder} b/c we also want to use
  * the styling capabilities of harp.gl. If styling is not needed one could also
- * derive from [[ITileDecoder]] directly.
+ * derive from {@link ITileDecoder} directly.
  *
- * The main entrypoint for the decoder is the [[ThemedTileDecoder.decodeThemedTile]]
- * method (or [[ITileDecoder.decodeTile]] if no styling is needed). All CPU intensive
+ * The main entrypoint for the decoder is the {@link ThemedTileDecoder.decodeThemedTile}
+ * method (or {@link ITileDecoder.decodeTile} if no styling is needed). All CPU intensive
  * work, like decoding and processing, should go here, because this method is executed
  * in a web-worker. The input to this method (`data`) is comming from the main-thread
- * and is the result of the [[DataProvider.getTile]] method.
+ * and is the result of the {@link DataProvider.getTile} method.
  *
- * The [[DataProvider]] is the component that is telling harp.gl where to get the data from.
- * The main method that has to be implemented is the [[DataProvider.getTile]] method.
+ * The {@link DataProvider} is the component that is telling harp.gl where to get the data from.
+ * The main method that has to be implemented is the {@link DataProvider.getTile} method.
  * This method is executed in the main thread and should not do any CPU intense work.
  * Normaly you would just do a fetch here. The result is passed to a web-worker and gets
  * processed further. In this example we don't fetch any data, but just create some data on the
@@ -56,7 +56,7 @@ import { CUSTOM_DECODER_SERVICE_TYPE } from "../decoder/custom_decoder_defs";
  * ```typescript
  * [[include:custom_datasource_example_custom_data_source.ts]]
  * ```
- * As you can see there is no functionality added but everything is used from [[TileDataSource]].
+ * As you can see there is no functionality added but everything is used from {@link TileDataSource}.
  * It is not mandatory to create a derived class but most likely it is needed at some point to
  * add custom logic.
  *
@@ -64,7 +64,7 @@ import { CUSTOM_DECODER_SERVICE_TYPE } from "../decoder/custom_decoder_defs";
  * ```typescript
  * [[include:custom_datasource_example_custom_data_source_create.ts]]
  * ```
- * There are two ways to tell the [[DataSource]] about our decoder. Either by setting a
+ * There are two ways to tell the {@link DataSource} about our decoder. Either by setting a
  * [[TileDataSourceOptions.decoder|decoder]] instance or by specifying a
  * [[TileDataSourceOptions.concurrentDecoderServiceName|concurrentDecoderServiceName]].
  * The first approach would result in decoding the data in the main thread. That might
@@ -76,7 +76,7 @@ import { CUSTOM_DECODER_SERVICE_TYPE } from "../decoder/custom_decoder_defs";
  * [[TileDataSourceOptions.concurrentDecoderServiceName|concurrentDecoderServiceName]]
  * parameter we have to first understand the decoder bundle. All web-workers that are
  * created by harp.gl are loading the decoder bundle that
- * was specified in [[MapViewOptions.decoderUrl]] when creating the [[MapView]]:
+ * was specified in {@link MapViewOptions.decoderUrl} when creating the {@link MapView}:
  * ```typescript
  * [[include:custom_datasource_example_map_view_decoder_bundle.ts]]
  * ```
@@ -85,12 +85,12 @@ import { CUSTOM_DECODER_SERVICE_TYPE } from "../decoder/custom_decoder_defs";
  * (Assuming you created your app with the
  * {@link https://github.com/heremaps/harp.gl/blob/master/docs/GettingStartedGuide.md#yeoman|Yeoman generator}).
  *
- * The [[CustomDecoder]] has to be registered in the [[WorkerServiceManager]] during the
- * initialization of the decoder bundle. This is done in [[CustomDecoderService.start]]
+ * The {@link CustomDecoder} has to be registered in the {@link WorkerServiceManager} during the
+ * initialization of the decoder bundle. This is done in {@link CustomDecoderService.start}
  * ```typescript
  * [[include:custom_datasource_example_custom_decoder_service.ts]]
  * ```
- * We call [[CustomDecoderService.start]] in the previously mentioned decoder.ts.
+ * We call {@link CustomDecoderService.start} in the previously mentioned decoder.ts.
  * ```typescript
  * [[include:custom_datasource_example_custom_decoder_service_start.ts]]
  * ```
@@ -114,7 +114,7 @@ export namespace CustomDatasourceExample {
         getTile(tileKey: TileKey, abortSignal?: AbortSignal): Promise<ArrayBufferLike | {}> {
             // Generate some artifical data. Normally you would do a fetch here.
             // In this example we create some geometry in geo space that will be converted to
-            // local world space by [[CustomDecoder.convertToLocalWorldCoordinates]]
+            // local world space by {@link CustomDecoder.convertToLocalWorldCoordinates}
 
             const data = new Array<number>();
             // Do some scaling so that the data fits into the tile.

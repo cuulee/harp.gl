@@ -23,7 +23,7 @@ export enum SubdivisionMode {
 }
 
 /**
- * The [[EdgeLengthGeometrySubdivisionModifier]] subdivides triangle mesh depending on
+ * The {@link EdgeLengthGeometrySubdivisionModifier} subdivides triangle mesh depending on
  * length of edges.
  */
 export class EdgeLengthGeometrySubdivisionModifier extends SubdivisionModifier {
@@ -33,7 +33,7 @@ export class EdgeLengthGeometrySubdivisionModifier extends SubdivisionModifier {
     private m_maxLengthY: number;
 
     /**
-     * Constructs a new [[EdgeLengthGeometrySubdivisionModifier]].
+     * Constructs a new {@link EdgeLengthGeometrySubdivisionModifier}.
      *
      * @param subdivision The subdivision factor
      * @param geoBox The geo bounding box of a tile

@@ -101,10 +101,10 @@ export const getCurrentTime = getNowFunc();
  * Executes `test` code `repeats` times and measures: `min`, `med` (median), `sum` and `avg`
  * (average) execution times.
  *
- * [[performance.now]] is used as time provider, with fallback to `new Date().getTime()`.
+ * {@link performance.now} is used as time provider, with fallback to `new Date().getTime()`.
  *
  * Measurement reports are saved for later and logged after all tests (if in Mocha environment). See
- * [[reportPerformanceAndReset]].
+ * {@link reportPerformanceAndReset}.
  *
  * Example:
  *
@@ -159,10 +159,10 @@ export async function measurePerformanceSync(name: string, repeats: number, test
  * Executes `test` code for `timeout` milliseconds and reports throughput and aggregated times:
  * `min`, `med` (median), `sum` and `avg` (average) execution times.
  *
- * [[performance.now]] is used as time provider, with fallback to `new Date().getTime()`.
+ * {@link performance.now} is used as time provider, with fallback to `new Date().getTime()`.
  *
  * Measurement reports are saved for later and logged after all tests (if in Mocha environment). See
- * [[reportPerformanceAndReset]].
+ * {@link reportPerformanceAndReset}.
  *
  * Example:
  *
@@ -470,7 +470,7 @@ export function getPerformanceTestResults(): PerformanceTestResults {
  * Report and reset performance measurement results.
  *
  * Designed to be called after round of tests. Shows results of all performance tests executed by
- * [[measurePerformanceSync]] and [[measureThroughputSync]].
+ * {@link measurePerformanceSync} and {@link measureThroughputSync}.
  *
  * It resets results afterwards.
  *
@@ -531,7 +531,7 @@ function sleepPromised(time: number = 1): Promise<void> {
  * of calls when measuring performance.
  *
  * Call counts are logged after all tests (if in Mocha environment). See
- * [[reportCallCountsAndReset]].
+ * {@link reportCallCountsAndReset}.
  *
  * Usage:
  *
@@ -558,7 +558,7 @@ export function countCall(name: string, delta = 1) {
  * of calls when measuring performance.
  *
  * Call counts are logged after all tests (if in Mocha environment). See
- * [[reportCallCountsAndReset]].
+ * {@link reportCallCountsAndReset}.
  *
  * Usage - basic functional composition:
  *
@@ -618,9 +618,9 @@ export function countCalls(): any {
 }
 
 /**
- * Report and reset [[countCall]] results.
+ * Report and reset {@link countCall} results.
  *
- * Designed to be called after round of tests. Shows counters from all [[countCall]] calls.
+ * Designed to be called after round of tests. Shows counters from all {@link countCall} calls.
  *
  * It resets results afterwards.
  *

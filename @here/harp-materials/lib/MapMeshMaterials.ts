@@ -19,17 +19,17 @@ import { simpleLightingShadowChunk } from "./ShaderChunks/ShadowChunks";
 const emptyTexture = new THREE.Texture();
 
 /**
- * The MapMeshMaterials [[MapMeshBasicMaterial]] and [[MapMeshStandardMaterial]] are the standard
- * [[THREE.MeshBasicMaterial]] and [[THREE.MeshStandardMaterial]], with the addition functionality
- * of fading out the geometry between a fadeNear and fadeFar value.
+ * The MapMeshMaterials {@link MapMeshBasicMaterial} and {@link MapMeshStandardMaterial} are the
+ * standard {@link THREE.MeshBasicMaterial} and {@link THREE.MeshStandardMaterial}, with the
+ * addition functionality of fading out the geometry between a fadeNear and fadeFar value.
  *
- * The implementation is designed around a mixin class [[FadingFeatureMixin]], which requires
+ * The implementation is designed around a mixin class {@link FadingFeatureMixin}, which requires
  * a bit of care when adding the FadingFeature to the existing mesh classes, but it is safe to use
  * and also reduces code duplication.
  */
 
 /**
- * Parameters used when constructing a new implementor of [[FadingFeature]].
+ * Parameters used when constructing a new implementor of {@link FadingFeature}.
  */
 export interface FadingFeatureParameters {
     /**
@@ -56,7 +56,7 @@ export interface ShadowFeatureParameters {
 }
 
 /**
- * Parameters used when constructing a new implementor of [[ExtrusionFeature]].
+ * Parameters used when constructing a new implementor of {@link ExtrusionFeature}.
  */
 export interface ExtrusionFeatureParameters {
     /**
@@ -66,7 +66,7 @@ export interface ExtrusionFeatureParameters {
 
     /**
      * Enable z-fighting workaround that doesn't animate buildings with `height <
-     * [[ExtrusionFeatureDefs.MIN_BUILDING_HEIGHT]]`.
+     * {@link ExtrusionFeatureDefs.MIN_BUILDING_HEIGHT}`.
      *
      * Should be applied to `polygon` materials using this feature.
      */
@@ -100,8 +100,8 @@ export interface HiddenThreeJSMaterialProperties {
 
     /**
      * Hidden ThreeJS value that is made public here. Required to add new uniforms to subclasses of
-     * [[THREE.MeshBasicMaterial]]/[[THREE.MeshStandardMaterial]], basically all materials that are
-     * not THREE.ShaderMaterial.
+     * {@link THREE.MeshBasicMaterial}/{@link THREE.MeshStandardMaterial}, basically all materials
+     * that are not THREE.ShaderMaterial.
      * @deprecated
      */
     uniformsNeedUpdate?: boolean;
@@ -161,7 +161,7 @@ function cameraToWorldDistance(distance: number, visibilityRange: ViewRanges): n
  *
  * Call this function just after [THREE.Material] is constructed, so in derived classes after
  * super c-tor call.
- * @param mixin The mixin that will add features to [[THREE.Material]].
+ * @param mixin The mixin that will add features to {@link THREE.Material}.
  * @param material The material that mixin feature is being applied.
  */
 function linkMixinWithMaterial(
@@ -188,16 +188,16 @@ function linkMixinWithMaterial(
 }
 
 /**
- * Links mixin [[MixinShaderProperties.shaderUniforms]] with actual material shader uniforms.
+ * Links mixin {@link MixinShaderProperties.shaderUniforms} with actual material shader uniforms.
  *
  * Function injects features (mixin) specific shader uniforms to material's shader, it also
- * updates uniforms references so [[MixinShaderProperties.shaderUniforms]] will contain full
+ * updates uniforms references so {@link MixinShaderProperties.shaderUniforms} will contain full
  * uniforms map (both feature specific and internal ones).
  * This function should be called before material's shader is pre-compiled, so the new uniforms
  * from the mixin feature are known to shader processor. The best place to use is
- * [[Material.onBeforeCompile]].
+ * {@link Material.onBeforeCompile}.
  * @param mixin The mixin feature being applied to the material.
- * @param shader The actual shader linked to the [[THREE.Material]].
+ * @param shader The actual shader linked to the {@link THREE.Material}.
  */
 function linkMixinWithShader(mixin: MixinShaderProperties, shader: THREE.Shader) {
     Object.assign(shader.uniforms, mixin.shaderUniforms);
@@ -206,7 +206,7 @@ function linkMixinWithShader(mixin: MixinShaderProperties, shader: THREE.Shader)
 
 /**
  * Base interface for all objects that should fade in the distance. The implementation of the actual
- * FadingFeature is done with the help of the mixin class [[FadingFeatureMixin]] and a set of
+ * FadingFeature is done with the help of the mixin class {@link FadingFeatureMixin} and a set of
  * supporting functions in the namespace of the same name.
  */
 export interface FadingFeature extends HiddenThreeJSMaterialProperties, MixinShaderProperties {
@@ -224,8 +224,9 @@ export interface FadingFeature extends HiddenThreeJSMaterialProperties, MixinSha
 
 /**
  * Base interface for all objects that should have animated extrusion effect. The implementation of
- * the actual ExtrusionFeature is done with the help of the mixin class [[ExtrusionFeatureMixin]]
- * and a set of supporting functions in the namespace of the same name.
+ * the actual ExtrusionFeature is done with the help of the mixin class
+ * {@link ExtrusionFeatureMixin} and a set of supporting functions in the namespace of the
+ * same name.
  */
 export interface ExtrusionFeature extends HiddenThreeJSMaterialProperties, MixinShaderProperties {
     /**
@@ -247,7 +248,7 @@ namespace DisplacementFeature {
 
     /**
      * Update the internals of the `DisplacementFeature` depending on the value of
-     * [[displacementMap]].
+     * {@link displacementMap}.
      *
      * @param displacementMaterial DisplacementFeature
      */
@@ -283,7 +284,7 @@ namespace DisplacementFeature {
      * apply displacement maps.
      *
      * @param displacementMaterial Material to add uniforms to.
-     * @param shader [[THREE.WebGLShader]] containing the vertex and fragment shaders to add the
+     * @param shader {@link THREE.WebGLShader} containing the vertex and fragment shaders to add the
      *                  special includes to.
      */
     export function onBeforeCompile(
@@ -335,13 +336,13 @@ export class DisplacementFeatureMixin implements DisplacementFeature, MixinShade
     private m_displacementMap: THREE.Texture | null = null;
 
     // This is here to keep tslint from reporting a missing property, the getter that's actually
-    // used by materials is added in [[addDisplacementProperties]].
+    // used by materials is added in {@link addDisplacementProperties}.
     get displacementMap(): THREE.Texture | null {
         return this.m_displacementMap;
     }
 
     // This is here to keep tslint from reporting a missing property, the setter that's actually
-    // used by materials is added in [[addDisplacementProperties]].
+    // used by materials is added in {@link addDisplacementProperties}.
     set displacementMap(map: THREE.Texture | null) {
         this.setDisplacementMap(map);
     }
@@ -357,7 +358,7 @@ export class DisplacementFeatureMixin implements DisplacementFeature, MixinShade
         }
     }
     /**
-     * The mixin class should call this method to register the property [[displacementMap]]
+     * The mixin class should call this method to register the property {@link displacementMap}
      */
     protected addDisplacementProperties(): void {
         Object.defineProperty(this, "displacementMap", {
@@ -449,7 +450,7 @@ export namespace FadingFeature {
     }
 
     /**
-     * Update the internals of the `FadingFeature` depending on the value of [[fadeNear]]. The
+     * Update the internals of the `FadingFeature` depending on the value of {@link fadeNear}. The
      * fading feature will be disabled if fadeFar <= 0.0.
      *
      * @param fadingMaterial FadingFeature
@@ -500,7 +501,7 @@ export namespace FadingFeature {
      * uniforms that control fading based on view distance.
      *
      * @param fadingMaterial Material to add uniforms to.
-     * @param shader [[THREE.WebGLShader]] containing the vertex and fragment shaders to add the
+     * @param shader {@link THREE.WebGLShader} containing the vertex and fragment shaders to add the
      *                  special includes to.
      */
     export function onBeforeCompile(fadingMaterial: FadingFeature, shader: THREE.Shader) {
@@ -548,17 +549,17 @@ export namespace FadingFeature {
 
     /**
      * As three.js is rendering the transparent objects last (internally), regardless of their
-     * renderOrder value, we set the transparent value to false in the [[onAfterRenderCall]]. In
-     * [[onBeforeRender]], the function [[calculateDepthFromCameraDistance]] sets it to true if the
-     * fade distance value is less than 1.
+     * renderOrder value, we set the transparent value to false in the {@link onAfterRenderCall}. In
+     * {@link onBeforeRender}, the function {@link calculateDepthFromCameraDistance} sets it to true
+     * if the fade distance value is less than 1.
      *
-     * @param object [[THREE.Object3D]] to prepare for rendering.
+     * @param object {@link THREE.Object3D} to prepare for rendering.
      * @param viewRanges The visibility ranges (clip planes and maximum visible distance) for
      * actual camera setup.
      * @param fadeNear The fadeNear value to set in the material.
      * @param fadeFar The fadeFar value to set in the material.
      * @param updateUniforms If `true`, the fading uniforms are set. Not required if material is
-     *          handling the uniforms already, like in a [[THREE.ShaderMaterial]].
+     *          handling the uniforms already, like in a {@link THREE.ShaderMaterial}.
      * @param additionalCallback If defined, this function will be called before the function will
      *          return.
      */
@@ -656,8 +657,8 @@ export class FadingFeatureMixin implements FadingFeature {
     }
 
     /**
-     * The mixin classes should call this method to register the properties [[fadeNear]] and
-     * [[fadeFar]].
+     * The mixin classes should call this method to register the properties {@link fadeNear} and
+     * {@link fadeFar}.
      */
     protected addFadingProperties(): void {
         Object.defineProperty(this, "fadeNear", {
@@ -730,7 +731,7 @@ export class FadingFeatureMixin implements FadingFeature {
 
 export namespace ExtrusionFeature {
     /**
-     * Checks if feature is enabled based on [[ExtrusionFeature]] properties.
+     * Checks if feature is enabled based on {@link ExtrusionFeature} properties.
      *
      * @param extrusionMaterial
      */
@@ -751,7 +752,8 @@ export namespace ExtrusionFeature {
     }
 
     /**
-     * Update the internals of the `ExtrusionFeature` depending on the value of [[extrusionRatio]].
+     * Update the internals of the `ExtrusionFeature` depending on the value of
+     * {@link extrusionRatio}.
      *
      * @param ExtrusionMaterial ExtrusionFeature
      */
@@ -789,7 +791,7 @@ export namespace ExtrusionFeature {
      * uniforms that control extrusion.
      *
      * @param extrusionMaterial Material to add uniforms to.
-     * @param shader [[THREE.WebGLShader]] containing the vertex and fragment shaders to add the
+     * @param shader {@link THREE.WebGLShader} containing the vertex and fragment shaders to add the
      *                  special includes to.
      */
     export function onBeforeCompile(extrusionMaterial: ExtrusionFeature, shader: THREE.Shader) {
@@ -842,7 +844,7 @@ export namespace ExtrusionFeature {
  * Mixin class for extended THREE materials. Adds new properties required for `extrusionRatio`.
  *
  * There is some special handling for the extrusionRatio property, which is animated via
- * [[AnimatedExtrusionHandler]] that is using [[extrusionRatio]] setter and getter to update
+ * {@link AnimatedExtrusionHandler} that is using {@link extrusionRatio} setter and getter to update
  * extrusion in a way that works well with the mixin and EdgeMaterial.
  */
 export class ExtrusionFeatureMixin implements ExtrusionFeature {
@@ -872,7 +874,7 @@ export class ExtrusionFeatureMixin implements ExtrusionFeature {
     }
 
     /**
-     * The mixin class should call this method to register the property [[extrusionRatio]]
+     * The mixin class should call this method to register the property {@link extrusionRatio}
      */
     protected addExtrusionProperties(): void {
         Object.defineProperty(this, "extrusionRatio", {
@@ -933,11 +935,11 @@ export class ExtrusionFeatureMixin implements ExtrusionFeature {
 }
 
 /**
- * Subclass of [[THREE.MeshBasicMaterial]]. Adds new properties required for [[fadeNear]] and
- * [[fadeFar]]. In addition to the new properties (which update their respective uniforms), it is
- * also required to update the material in their objects [[onBeforeRender]] and [[OnAfterRender]]
- * calls, where their flag [[transparent]] is set and the internal fadeNear/fadeFar values are
- * updated to world space distances.
+ * Subclass of {@link THREE.MeshBasicMaterial}. Adds new properties required for {@link fadeNear}
+ * and {@link fadeFar}. In addition to the new properties (which update their respective uniforms),
+ * it is also required to update the material in their objects {@link onBeforeRender} and
+ * {@link OnAfterRender} calls, where their flag {@link transparent} is set and the internal
+ * fadeNear/fadeFar values are updated to world space distances.
  *
  * @see [[Tile#addRenderHelper]]
  */
@@ -983,7 +985,8 @@ export class MapMeshBasicMaterial extends THREE.MeshBasicMaterial
     }
 
     // Only here to make the compiler happy, these methods will be overriden: The actual
-    // implementations are those in [[FadingFeatureMixin]] and [[ExtrusionFeatureMixin]], see below:
+    // implementations are those in {@link FadingFeatureMixin} and {@link ExtrusionFeatureMixin},
+    // see below:
     //
     // applyMixinsWithoutProperties(FadingMeshBasicMaterial, [FadingFeatureMixin]);
     // applyMixinsWithoutProperties(ExtrudionMeshBasicMaterial, [ExtrusionFeatureMixin]);
@@ -1088,7 +1091,7 @@ export class MapMeshDepthMaterial extends THREE.MeshDepthMaterial implements Ext
     }
 
     // Only here to make the compiler happy, these methods will be overriden: The actual
-    // implementations are those in[[ExtrusionFeatureMixin]], see below:
+    // implementations are those in{@link ExtrusionFeatureMixin}, see below:
     //
     // applyMixinsWithoutProperties(...);
     //
@@ -1197,7 +1200,8 @@ export class MapMeshStandardMaterial extends THREE.MeshStandardMaterial
     }
 
     // Only here to make the compiler happy, these methods will be overriden: The actual
-    // implementations are those in [[FadingFeatureMixin]] and [[ExtrusionFeatureMixin]], see below:
+    // implementations are those in {@link FadingFeatureMixin} and {@link ExtrusionFeatureMixin},
+    // see below:
     //
     // applyMixinsWithoutProperties(FadingMeshBasicMaterial, [FadingFeatureMixin]);
     // applyMixinsWithoutProperties(ExtrudionMeshBasicMaterial, [ExtrusionFeatureMixin]);

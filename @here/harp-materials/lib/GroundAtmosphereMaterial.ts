@@ -364,7 +364,7 @@ export class GroundAtmosphereMaterial extends THREE.RawShaderMaterial {
     /**
      * Set maximum outer radius of atmosphere.
      *
-     * @default [[EarthConstants.EQUATORIAL_RADIUS]] * 1.025
+     * @default {@link EarthConstants.EQUATORIAL_RADIUS} * 1.025
      */
     set outerRadius(radius: number) {
         this.uniforms.u_atmosphereEnv.value.y = radius;
@@ -377,7 +377,7 @@ export class GroundAtmosphereMaterial extends THREE.RawShaderMaterial {
     /**
      * Set maximum inner radius of atmosphere.
      *
-     * @default [[EarthConstants.EQUATORIAL_RADIUS]] * 1.001.
+     * @default {@link EarthConstants.EQUATORIAL_RADIUS} * 1.001.
      */
     set innerRadius(radius: number) {
         this.uniforms.u_atmosphereEnv.value.x = radius;

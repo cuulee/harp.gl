@@ -23,7 +23,7 @@ const INVALID_RENDER_BATCH = -1;
 const tempPos = new THREE.Vector3(0);
 
 /**
- * Neutral color used as `vColor` attribute of [[IconMaterial]] if no `iconColor` color was
+ * Neutral color used as `vColor` attribute of {@link IconMaterial} if no `iconColor` color was
  * specified.
  */
 const neutralColor = new THREE.Color(1, 1, 1);
@@ -35,9 +35,9 @@ const tmpIconColor = new THREE.Color();
 
 /**
  * The `PoiRenderBufferBatch` contains the geometry and the material for all POIs that share the
- * same icon image ([[ImageTexture]]). If the image is the same, all the objects in this batch can
- * share the same material, which makes them renderable in the same draw call, whatever the number
- * of actual objects (WebGL limits apply!).
+ * same icon image ({@link ImageTexture}). If the image is the same, all the objects in this batch
+ * can share the same material, which makes them renderable in the same draw call, whatever the
+ * number of actual objects (WebGL limits apply!).
  *
  * There is a `PoiRenderBufferBatch` for every icon in a texture atlas, since the size of the icon
  * in the atlas as well as the texture coordinates are specified in the `PoiRenderBufferBatch`.
@@ -53,10 +53,10 @@ class PoiRenderBufferBatch {
     /**
      * Create the `PoiRenderBufferBatch`.
      *
-     * @param mapView The [[MapView]] instance.
+     * @param mapView The {@link MapView} instance.
      * @param scene The three.js scene to add the POIs to.
      * @param imageItem The icon that will have his material shared.
-     * @param renderOrder RenderOrder of the batch geometry's [[Mesh]].
+     * @param renderOrder RenderOrder of the batch geometry's {@link Mesh}.
      */
     constructor(
         readonly mapView: MapView,
@@ -66,9 +66,9 @@ class PoiRenderBufferBatch {
     ) {}
 
     /**
-     * Initialize with the [[ImageTexture]]. Loads the image and sets up the icon size, the texture
-     * coordinates and material of the batch. Since image loading is done asynchronously, this
-     * batch cannot be rendered right away. MapView#update is being triggered if it loaded
+     * Initialize with the {@link ImageTexture}. Loads the image and sets up the icon size, the
+     * texture coordinates and material of the batch. Since image loading is done asynchronously,
+     * this batch cannot be rendered right away. MapView#update is being triggered if it loaded
      * successfully.
      */
     init() {
@@ -151,7 +151,8 @@ class PoiRenderBufferBatch {
 }
 
 /**
- * Contains all [[PoiRenderBufferBatch]]es. Selects (and initializes) the correct batch for a POI.
+ * Contains all {@link PoiRenderBufferBatch}es. Selects (and initializes) the correct batch for a
+ * POI.
  */
 class PoiRenderBuffer {
     readonly batches: PoiRenderBufferBatch[] = [];
@@ -160,15 +161,18 @@ class PoiRenderBuffer {
     /**
      * Create the `PoiRenderBuffer`.
      *
-     * @param mapView The [[MapView]] to be rendered to.
-     * @param textCanvas The [[TextCanvas]] to which scenes this `PoiRenderBuffer` adds geometry to.
-     * The actual scene a [[TextElement]] is added to is specified by the renderOrder of the
-     * [[TextElement]].
+     * @remarks
+     * The actual scene a {@link TextElement} is added to is specified by the renderOrder of the
+     * {@link TextElement}.
+     *
+     * @param mapView The {@link MapView} to be rendered to.
+     * @param textCanvas The {@link TextCanvas} to which scenes this `PoiRenderBuffer`
+     *                   adds geometry to.
      */
     constructor(readonly mapView: MapView, readonly textCanvas: TextCanvas) {}
 
     /**
-     * Register the POI and prepare the [[PoiRenderBufferBatch]] for the POI at first usage.
+     * Register the POI and prepare the {@link PoiRenderBufferBatch} for the POI at first usage.
      *
      * @param poiInfo Describes the POI icon.
      */
@@ -269,8 +273,8 @@ class PoiRenderBuffer {
     }
 
     /**
-     * Retrieve the [[PoiRenderBufferBatch]] from the array at the specified index. May be invalid
-     * if the imageTexture could not be found
+     * Retrieve the {@link PoiRenderBufferBatch} from the array at the specified index.
+     * May be invalid if the imageTexture could not be found
      *
      * @param index Index into batch array.
      */
@@ -284,8 +288,8 @@ class PoiRenderBuffer {
     }
 
     /**
-     * Reset all batches, removing all content from the [[PoiRenderBufferBatch]]es. Called at the
-     * beginning of a frame before the POIs are placed.
+     * Reset all batches, removing all content from the {@link PoiRenderBufferBatch}es.
+     * Called at the beginning of a frame before the POIs are placed.
      */
     reset(): void {
         for (const batch of this.batches) {
@@ -294,7 +298,7 @@ class PoiRenderBuffer {
     }
 
     /**
-     * Update the geometry of all [[PoiRenderBufferBatch]]es. Called before rendering.
+     * Update the geometry of all {@link PoiRenderBufferBatch}es. Called before rendering.
      */
     update(): void {
         for (const batch of this.batches) {
@@ -304,7 +308,7 @@ class PoiRenderBuffer {
 
     /**
      * Fill the picking results for the pixel with the given screen coordinate. If multiple
-     * [[PoiInfo]]s are found, the order of the results is unspecified.
+     * {@link PoiInfo}s are found, the order of the results is unspecified.
      *
      * @param screenPosition Screen coordinate of picking position.
      * @param pickCallback Callback to be called for every picked element.
@@ -342,8 +346,8 @@ class PoiRenderBuffer {
 }
 
 /**
- * Manage POI rendering. Uses a [[PoiRenderBuffer]] to actually create the geometry that is being
- * rendered.
+ * Manage POI rendering. Uses a {@link PoiRenderBuffer} to actually create the geometry that is
+ * being rendered.
  */
 export class PoiRenderer {
     /**
@@ -395,11 +399,11 @@ export class PoiRenderer {
     private m_tempScreenBox = new Math2D.Box();
 
     /**
-     * Create the `PoiRenderer` for the specified [[MapView]].
+     * Create the `PoiRenderer` for the specified {@link MapView}.
      *
      * @param mapView The MapView to be rendered to.
-     * @param textCanvas The [[TextCanvas]] this `PoiRenderer` is associated to. POIs are added to
-     * the different layers of this [[TextCanvas]] based on renderOrder.
+     * @param textCanvas The {@link TextCanvas} this `PoiRenderer` is associated to. POIs are added
+     *        to the different layers of this {@link TextCanvas} based on renderOrder.
      */
     constructor(readonly mapView: MapView, readonly textCanvas: TextCanvas) {
         this.m_renderBuffer = new PoiRenderBuffer(mapView, textCanvas);
@@ -410,7 +414,7 @@ export class PoiRenderer {
      * `poiRenderBatch` is assigned, the POI is ready to be rendered.
      *
      * @param pointLabel TextElement with PoiInfo for rendering the POI icon.
-     * @param env TODO! The current zoomLevel level of [[MapView]]
+     * @param env TODO! The current zoomLevel level of {@link MapView}
      *
      * @returns `True` if the space is not already allocated by another object (text label or POI)
      */
@@ -426,7 +430,7 @@ export class PoiRenderer {
     }
 
     /**
-     * Reset all batches, removing all content from the [[PoiRenderBuffer]]es. Called at the
+     * Reset all batches, removing all content from the {@link PoiRenderBuffer}es. Called at the
      * beginning of a frame before the POIs are placed.
      */
     reset(): void {
@@ -466,7 +470,7 @@ export class PoiRenderer {
     }
 
     /**
-     * Update the geometry of all [[PoiRenderBuffer]]es. Called before rendering.
+     * Update the geometry of all {@link PoiRenderBuffer}es. Called before rendering.
      */
     update(): void {
         this.m_renderBuffer.update();
@@ -474,7 +478,7 @@ export class PoiRenderer {
 
     /**
      * Fill the picking results for the pixel with the given screen coordinate. If multiple
-     * [[PoiInfo]]s are found, the order of the results is unspecified.
+     * {@link PoiInfo}s are found, the order of the results is unspecified.
      *
      * @param screenPosition Screen coordinate of picking position.
      * @param pickCallback Callback to be called for every picked element.
@@ -496,8 +500,8 @@ export class PoiRenderer {
     }
 
     /**
-     * Register the POI at the [[PoiRenderBuffer]] which may require some setup, for example loading
-     * of the actual image.
+     * Register the POI at the {@link PoiRenderBuffer} which may require some setup, for example
+     * loading of the actual image.
      */
     private preparePoi(pointLabel: TextElement, env: Env): void {
         const poiInfo = pointLabel.poiInfo;
@@ -576,10 +580,10 @@ export class PoiRenderer {
     /**
      * Setup texture and material for the batch.
      *
-     * @param poiInfo [[PoiInfo]] to initialize.
-     * @param imageTexture Shared [[ImageTexture]], defines used area in atlas.
-     * @param imageItem Shared [[ImageItem]], contains cached image for texture.
-     * @param env The current zoom level of [[MapView]]
+     * @param poiInfo {@link PoiInfo} to initialize.
+     * @param imageTexture Shared {@link ImageTexture}, defines used area in atlas.
+     * @param imageItem Shared {@link ImageItem}, contains cached image for texture.
+     * @param env The current zoom level of {@link MapView}
      */
     private setupPoiInfo(
         poiInfo: PoiInfo,

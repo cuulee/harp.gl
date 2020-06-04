@@ -94,14 +94,14 @@ export abstract class CameraAnimation {
     protected repeat: number = 0;
 
     /**
-     * Easing function that control acceleration. Defaults to [[EasingFunction.Linear]].
+     * Easing function that control acceleration. Defaults to {@link EasingFunction.Linear}.
      */
     protected easing = TWEEN.Easing.Linear.None;
 
     /**
      * Creates a new `CameraAnimation` object.
      *
-     * @param mapView [[MapView]] which will be affected by the animation.
+     * @param mapView {@link MapView} which will be affected by the animation.
      * @param name Animation's name.
      */
     constructor(protected mapView: MapView, public name?: string) {
@@ -150,7 +150,7 @@ export interface CameraRotationAnimationOptions {
     duration?: number;
     /** Number of times the animation should be repeated. Defaults to `0`. */
     repeat?: number;
-    /** Easing function that control acceleration. Defaults to [[EasingFunction.Linear]]. */
+    /** Easing function that control acceleration. Defaults to {@link EasingFunction.Linear}. */
     easing?: EasingFunction | ((k: number) => number);
 }
 
@@ -176,8 +176,8 @@ export class CameraRotationAnimation extends CameraAnimation {
     /**
      * Creates a new `CameraRotationAnimation` object.
      *
-     * @param mapView [[MapView]] which will be affected by the animation.
-     * @param m_mapControls [[MapControls]] this animation will be taking control of.
+     * @param mapView {@link MapView} which will be affected by the animation.
+     * @param m_mapControls {@link MapControls} this animation will be taking control of.
      * @param options Animation's options.
      * @param name Animation's name.
      */
@@ -294,7 +294,7 @@ export class CameraRotationAnimation extends CameraAnimation {
 
     /**
      * Internal start of tween. Required because the tween may be interrupted by the
-     * [[MapControls]].
+     * {@link MapControls}.
      */
     private startTween(time?: number): void {
         const rotZ = new THREE.Quaternion();
@@ -332,7 +332,8 @@ export class CameraRotationAnimation extends CameraAnimation {
     }
 
     /**
-     * Internal stop of tween. Required because the tween may be interrupted by the [[MapControls]].
+     * Internal stop of tween. Required because the tween may be interrupted by the
+     * {@link MapControls}.
      */
     private stopTween(): void {
         if (this.tween) {
@@ -351,10 +352,10 @@ export interface CameraPanAnimationOptions {
     /** Number of times the animation should be repeated. Defaults to `0`. */
     repeat?: number;
 
-    /** Easing function that control acceleration. Defaults to [[EasingFunction.Linear]]. */
+    /** Easing function that control acceleration. Defaults to {@link EasingFunction.Linear}. */
     easing?: EasingFunction | ((k: number) => number);
 
-    /** Specifies interpolation. Defaults to [[InterpolationFunction.Linear]] */
+    /** Specifies interpolation. Defaults to {@link InterpolationFunction.Linear} */
     interpolation?: InterpolationFunction | ((v: number[], k: number) => number);
 }
 
@@ -364,7 +365,7 @@ export interface CameraPanAnimationOptions {
  */
 export class CameraPanAnimation extends CameraAnimation {
     /**
-     * Specifies interpolation. Defaults to [[InterpolationFunction.CatmullRom]]
+     * Specifies interpolation. Defaults to {@link InterpolationFunction.CatmullRom}
      */
     readonly interpolation = TWEEN.Interpolation.CatmullRom;
 
@@ -373,7 +374,7 @@ export class CameraPanAnimation extends CameraAnimation {
     /**
      * Creates a new `CameraPanAnimation` object.
      *
-     * @param mapView [[MapView]] which will be affected by the animation.
+     * @param mapView {@link MapView} which will be affected by the animation.
      * @param options Animation's options.
      * @param name Animation's name.
      */

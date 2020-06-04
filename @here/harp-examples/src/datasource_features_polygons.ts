@@ -19,17 +19,17 @@ import { apikey, copyrightInfo } from "../config";
 import { COUNTRIES } from "../resources/countries";
 
 /**
- * This example illustrates how to add user polygons in [[MapView]]. As custom features, they are
- * handled through a [[FeaturesDataSource]].
+ * This example illustrates how to add user polygons in {@link MapView}. As custom features,
+ * they are handled through a {@link FeaturesDataSource}.
  *
  * First we create a base map. For more details, check the `hello` example.
  * ```typescript
  * [[include:harp_demo_features_polygons_0.ts]]
  * ```
  *
- * Then we generate a custom [[StyleSet]] for the countries, with a color gradient based on the
- * year that the country joined the EU. The [[Style]]s are all an [[ExtrudedPolygonStyle]] with only
- * a variation in the color.
+ * Then we generate a custom {@link StyleSet} for the countries, with a color gradient based on the
+ * year that the country joined the EU. The {@link Style}s are all an {@link ExtrudedPolygonStyle}
+ * with only a variation in the color.
  * ```typescript
  * [[include:harp_demo_features_polygons_1.ts]]
  * ```
@@ -37,8 +37,8 @@ import { COUNTRIES } from "../resources/countries";
  * In order to have the extrusion animation for all the individual sets of countries joining, we
  * group them and handle them in separate datasources, so that the various datasources' tiles will
  * get animated independently and highlight new territories. The following snippet highlights the
- * core part of the application's logic: we create these individual [[FeaturesDataSource]] for each
- * set of countries, and create the [[MapViewMultiPolygonFeature]]s for the countries.
+ * core part of the application's logic: we create these individual {@link FeaturesDataSource} for
+ * each set of countries, and create the {@link MapViewMultiPolygonFeature}s for the countries.
  * ```typescript
  * [[include:harp_demo_features_polygons_2.ts]]
  * ```

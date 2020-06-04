@@ -6,8 +6,8 @@
 
 /**
  * Class that can be used to track long presses on an HTML Element. A long press is a press that
- * lasts a minimum duration (see the [[timeout]] member) while the mouse is not moved more than a
- * certain threshold (see the [[moveThreshold]] member).
+ * lasts a minimum duration (see the {@link timeout} member) while the mouse is not moved more than
+ * a certain threshold (see the {@link moveThreshold} member).
  */
 export class LongPressHandler {
     /**

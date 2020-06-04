@@ -299,7 +299,7 @@ void main() {
 }`;
 
 /**
- * Parameters used when constructing a new [[SolidLineMaterial]].
+ * Parameters used when constructing a new {@link SolidLineMaterial}.
  */
 export interface SolidLineMaterialParameters
     extends FadingFeatureParameters,
@@ -646,7 +646,7 @@ export class SolidLineMaterial extends THREE.RawShaderMaterial
     /**
      * Outline color.
      *
-     * @note The width of outline ([[outlineWidth]]) need to be also set to enable outlining.
+     * @note The width of outline ({@link outlineWidth}) need to be also set to enable outlining.
      */
     get outlineColor(): THREE.Color {
         return this.uniforms.outlineColor.value as THREE.Color;
@@ -658,7 +658,7 @@ export class SolidLineMaterial extends THREE.RawShaderMaterial
     /**
      * Dash color.
      *
-     * @note The property [[gapSize]] need to be set to enable dashed line.
+     * @note The property {@link gapSize} need to be set to enable dashed line.
      */
     get dashColor(): THREE.Color {
         return this.uniforms.dashColor.value as THREE.Color;
@@ -692,7 +692,7 @@ export class SolidLineMaterial extends THREE.RawShaderMaterial
     /**
      * Size of the dashed segments.
      *
-     * @note Ths [[gapSize]] need to be also set to enable dashed line.
+     * @note Ths {@link gapSize} need to be also set to enable dashed line.
      * @see gapSize.
      */
     get dashSize(): number {
@@ -705,7 +705,7 @@ export class SolidLineMaterial extends THREE.RawShaderMaterial
     /**
      * Size of the gaps between dashed segments.
      *
-     * @note You may also need to set [[dashSize]].
+     * @note You may also need to set {@link dashSize}.
      * @see dashSize.
      */
     get gapSize(): number {

@@ -85,7 +85,7 @@ export class OmvDebugLabelsTile extends OmvTile {
     }
 
     /**
-     * Create [[TextElement]] objects from the given decoded [[Tile]] and list of materials.
+     * Create {@link TextElement} objects from the given decoded {@link Tile} and list of materials.
      */
     private addLabelDebugInfo() {
         // activate in the browser with:

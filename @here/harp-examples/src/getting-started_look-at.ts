@@ -9,10 +9,10 @@ import { GUI } from "dat.gui";
 import { HelloWorldExample } from "./getting-started_hello-world_npm";
 
 /**
- * This example builds on top of the [[HelloWorldExample]], so please consult that first for any
+ * This example builds on top of the {@link HelloWorldExample}, so please consult that first for any
  * questions regarding basic setup of the map.
  *
- * In this example we show use the of [[MapView.lookAt]] method to focus camera on certain
+ * In this example we show use the of {@link MapView.lookAt} method to focus camera on certain
  * world features (continents, countries, cities).
  *
  * Here a GUI is also set up so as to fiddle with the tilt and distance from the page.
@@ -81,7 +81,7 @@ export namespace LookAtExample {
             new GeoCoordinates(66.548263, 44.121094)
         ),
 
-        // These features are defined by random points surrouding them to show that [[lookAt]]
+        // These features are defined by random points surrouding them to show that {@link lookAt}
         // can work with arbitrary point clouds too.
         ["Africa"]: [
             new GeoCoordinates(32.66827, 36.15456),

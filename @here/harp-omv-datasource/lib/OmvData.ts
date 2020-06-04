@@ -358,8 +358,8 @@ function asGeometryType(feature: com.mapbox.pb.Tile.IFeature | undefined): OmvGe
 }
 
 /**
- * The class [[OmvProtobufDataAdapter]] converts OMV protobuf geo data
- * to geometries for the given [[IGeometryProcessor]].
+ * The class {@link OmvProtobufDataAdapter} converts OMV protobuf geo data
+ * to geometries for the given {@link IGeometryProcessor}.
  */
 export class OmvProtobufDataAdapter implements OmvDataAdapter, OmvVisitor {
     id = "omv-protobuf";
@@ -373,11 +373,11 @@ export class OmvProtobufDataAdapter implements OmvDataAdapter, OmvVisitor {
     private m_layer!: com.mapbox.pb.Tile.ILayer;
 
     /**
-     * Constructs a new [[OmvProtobufDataAdapter]].
+     * Constructs a new {@link OmvProtobufDataAdapter}.
      *
-     * @param processor The [[IGeometryProcessor]] used to process the data.
-     * @param dataFilter The [[OmvFeatureFilter]] used to filter features.
-     * @param logger The [[ILogger]] used to log diagnostic messages.
+     * @param processor The {@link IGeometryProcessor} used to process the data.
+     * @param dataFilter The {@link OmvFeatureFilter} used to filter features.
+     * @param logger The {@link ILogger} used to log diagnostic messages.
      */
     constructor(processor: IGeometryProcessor, dataFilter?: OmvFeatureFilter, logger?: ILogger) {
         this.m_processor = processor;
@@ -386,31 +386,31 @@ export class OmvProtobufDataAdapter implements OmvDataAdapter, OmvVisitor {
     }
 
     /**
-     * The [[OmvFeatureFilter]] used to filter features.
+     * The {@link OmvFeatureFilter} used to filter features.
      */
     get dataFilter(): OmvFeatureFilter | undefined {
         return this.m_dataFilter;
     }
 
     /**
-     * The [[OmvFeatureFilter]] used to filter features.
+     * The {@link OmvFeatureFilter} used to filter features.
      */
     set dataFilter(dataFilter: OmvFeatureFilter | undefined) {
         this.m_dataFilter = dataFilter;
     }
 
     /**
-     * Checks that the given data can be processed by this [[OmvProtobufDataAdapter]].
+     * Checks that the given data can be processed by this {@link OmvProtobufDataAdapter}.
      */
     canProcess(data: ArrayBufferLike | {}): boolean {
         return isArrayBufferLike(data);
     }
 
     /**
-     * Processes the given data payload using this adapter's [[IGeometryProcessor]].
+     * Processes the given data payload using this adapter's {@link IGeometryProcessor}.
      *
      * @param data The data payload to process.
-     * @param decodeInfo The [[DecodedInfo]] of the tile to proceess.
+     * @param decodeInfo The {@link DecodedInfo} of the tile to proceess.
      */
     process(data: ArrayBufferLike, decodeInfo: DecodeInfo) {
         const { tileKey } = decodeInfo;

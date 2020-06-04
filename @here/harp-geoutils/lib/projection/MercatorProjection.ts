@@ -201,8 +201,8 @@ class MercatorProjection extends Projection {
         worldPos: Vector3Like,
         result?: Vector3Like
     ): Vector3Like {
-        // this implementation of [[reprojectPoint]] supports both
-        // [[WebMercatorProjection]] and [[MercatorProjection]]. The only
+        // this implementation of {@link reprojectPoint} supports both
+        // {@link WebMercatorProjection} and {@link MercatorProjection}. The only
         // difference betweeen these two variants of WEB Mercator
         // is in the orientation of the Y axis, so we just flip Y coordinates
         // when reprojecting between them.
@@ -245,7 +245,7 @@ class WebMercatorProjection extends MercatorProjection {
         }
 
         /*
-         * The following tslint:disable is due to the fact that the [[WorldCoordinates]]
+         * The following tslint:disable is due to the fact that the {@link WorldCoordinates}
          * might be a concrete class which is not available at runtime.
          * Consider the following example:
          *
@@ -343,14 +343,15 @@ export class MercatorConstants {
 }
 
 /**
- * Mercator [[Projection]] used to convert geo coordinates to world coordinates and vice versa.
+ * Mercator {@link Projection} used to convert geo coordinates to world coordinates and vice versa.
  */
 export const mercatorProjection: Projection = new MercatorProjection(
     EarthConstants.EQUATORIAL_CIRCUMFERENCE
 );
 
 /**
- * Web Mercator [[Projection]] used to convert geo coordinates to world coordinates and vice versa.
+ * Web Mercator {@link Projection} used to convert geo coordinates to world coordinates and
+ * vice versa.
  */
 export const webMercatorProjection: Projection = new WebMercatorProjection(
     EarthConstants.EQUATORIAL_CIRCUMFERENCE

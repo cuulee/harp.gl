@@ -22,7 +22,7 @@ export enum StringEncodedNumeralType {
 }
 
 /**
- * Interface containing information about a [[StringEncodedNumeral]] format, component size and
+ * Interface containing information about a {@link StringEncodedNumeral} format, component size and
  * evaluation.
  */
 export interface StringEncodedNumeralFormat {
@@ -145,7 +145,8 @@ const StringEncodedHSL: StringEncodedNumeralFormat = {
 };
 
 /**
- * Array of all supported [[StringEncodedNumeralFormat]]s describing sizes, lengths and distances.
+ * Array of all supported {@link StringEncodedNumeralFormat}s describing sizes,
+ * lengths and distances.
  */
 export const StringEncodedMetricFormats: StringEncodedNumeralFormat[] = [
     StringEncodedMeters,
@@ -158,7 +159,7 @@ const StringEncodedMetricFormatMaxSize = StringEncodedMetricFormats.reduce(
 );
 
 /**
- * Array of all supported [[StringEncodedNumeralFormat]]s describing color data.
+ * Array of all supported {@link StringEncodedNumeralFormat}s describing color data.
  */
 export const StringEncodedColorFormats: StringEncodedNumeralFormat[] = [
     StringEncodedHex,
@@ -173,8 +174,8 @@ const StringEncodedColorFormatMaxSize = StringEncodedColorFormats.reduce(
 );
 
 /**
- * Array of supported [[StringEncodedNumeralFormat]]s (intended to be indexed with
- * [[StringEncodedNumeralType]] enum).
+ * Array of supported {@link StringEncodedNumeralFormat}s (intended to be indexed with
+ * {@link StringEncodedNumeralType} enum).
  */
 export const StringEncodedNumeralFormats: StringEncodedNumeralFormat[] = [
     ...StringEncodedMetricFormats,
@@ -189,12 +190,12 @@ export const StringEncodedNumeralFormatMaxSize = Math.max(
 const tmpBuffer: number[] = new Array(StringEncodedNumeralFormatMaxSize);
 
 /**
- * Parse string encoded numeral values using all known [[StringEncodedNumeralFormats]].
+ * Parse string encoded numeral values using all known {@link StringEncodedNumeralFormats}.
  *
  * @param numeral The string representing numeric value.
  * @param pixelToMeters The ratio used to convert from meters to pixels (default 1.0).
  * @returns Number parsed or __undefined__ if non of the numeral patterns matches the expression
- * provided in [[numeral]].
+ * provided in {@link numeral}.
  */
 export function parseStringEncodedNumeral(
     numeral: string,
@@ -236,11 +237,11 @@ export function parseStringEncodedNumeral(
 }
 
 /**
- * Parse string encoded color value using all known [[StringEncodedColorFormats]].
+ * Parse string encoded color value using all known {@link StringEncodedColorFormats}.
  *
  * @param color The string encoded color expression (i.e. '#FFF', 'rgb(255, 0, 0)', etc.).
  * @returns The color parsed or __undefined__ if non of the known representations matches
- * the expression provided in [[color]].
+ * the expression provided in {@link color}.
  */
 export function parseStringEncodedColor(color: string): number | undefined {
     const matchedFormat = matchFormat(StringEncodedColorFormats, color, tmpBuffer);

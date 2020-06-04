@@ -8,7 +8,7 @@ import { FontCatalog } from "../rendering/FontCatalog";
 import { SdfTextMaterial } from "../rendering/TextMaterials";
 
 /**
- * Material parameters passed on [[SdfTextMaterial]] creation when using the `
+ * Material parameters passed on {@link SdfTextMaterial} creation when using the `
  * `createSdfTextMaterial` helper function.
  */
 export interface SdfTextMaterialParameters {
@@ -19,8 +19,8 @@ export interface SdfTextMaterialParameters {
 }
 
 /**
- * Helper function designed to create [[SdfTextMaterials]] that can be rendered using
- * [[TextCanvas]].
+ * Helper function designed to create {@link SdfTextMaterials} that can be rendered using
+ * {@link TextCanvas}.
  *
  * @param params Material parameters.
  *

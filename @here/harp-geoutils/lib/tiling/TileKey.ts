@@ -68,28 +68,29 @@ const powerOfTwo = [
  * single tile. On every level, each tile is divided into four children (therefore the name
  * quadtree).
  *
- * Within each [[level]], any particular tile is addressed with [[row]] and [[column]]. The number
- * of rows and columns in each level is 2 to the power of the level. This means: On level 0, only
- * one tile exists, [[columnsAtLevel]]() and [[rowsAtLevel]]() are both 1. On level 1, 4 tiles
- * exist, in 2 rows and 2 columns. On level 2 we have 16 tiles, in 4 rows and 4 columns. And so on.
+ * Within each {@link level}, any particular tile is addressed with {@link row} and {@link column}.
+ * The number of rows and columns in each level is 2 to the power of the level. This means: On level
+ * 0, only one tile exists, {@link columnsAtLevel}() and {@link rowsAtLevel}() are both 1. On level
+ * 1, 4 tiles exist, in 2 rows and 2 columns. On level 2 we have 16 tiles, in 4 rows and 4 columns.
+ * And so on.
  *
- * A tile key is usually created using [[fromRowColumnLevel]]() method.
+ * A tile key is usually created using {@link fromRowColumnLevel}() method.
  *
  * `TileKey` instances are immutable, all members return new instances of `TileKey` and do not
  * modify the original object.
  *
- * Utility functions like [[parent]](), [[changedLevelBy]](), and [[changedLevelTo]]() allow for
- * easy vertical navigation of the tree. The number of available rows and columns in the tile's
- * level is given with [[rowCount]]() and [[columnCount]]().
+ * Utility functions like {@link parent}(), {@link changedLevelBy}(), and {@link changedLevelTo}()
+ * allow for easy vertical navigation of the tree. The number of available rows and columns in the
+ * tile's level is given with {@link rowCount}() and {@link columnCount}().
  *
  * Tile keys can be created from and converted into various alternative formats:
  *
- *  - [[toQuadKey]]() / [[fromQuadKey]]() - string representation 4-based
- *  - [[toHereTile]]() / [[fromHereTile]]() - string representation 10-based
- *  - [[mortonCode]]() / [[fromMortonCode]]() - number representation
+ *  - {@link toQuadKey}() / {@link fromQuadKey}() - string representation 4-based
+ *  - {@link toHereTile}() / {@link fromHereTile}() - string representation 10-based
+ *  - {@link mortonCode}() / {@link fromMortonCode}() - number representation
  *
  * Note - as JavaScript's number type can hold 53 bits in its mantissa, only levels up to 26 can be
- * represented in the number representation returned by [[mortonCode]]().
+ * represented in the number representation returned by {@link mortonCode}().
  */
 export class TileKey {
     /**
@@ -106,7 +107,7 @@ export class TileKey {
     /**
      * Creates a tile key from a quad string.
      *
-     * The quad string can be created with [[toQuadKey]].
+     * The quad string can be created with {@link toQuadKey}.
      *
      * @param quadkey The quadkey to convert.
      * @returns A new instance of `TileKey`.
@@ -132,10 +133,10 @@ export class TileKey {
     /**
      * Creates a tile key from a numeric Morton code representation.
      *
-     * You can convert a tile key into a numeric Morton code with [[mortonCode]].
+     * You can convert a tile key into a numeric Morton code with {@link mortonCode}.
      *
      * @param quadKey64 The Morton code to be converted.
-     * @returns A new instance of [[TileKey]].
+     * @returns A new instance of {@link TileKey}.
      */
     static fromMortonCode(quadKey64: number): TileKey {
         let level = 0;
@@ -165,7 +166,7 @@ export class TileKey {
     /**
      * Creates a tile key from a heretile code string.
      *
-     * The string can be created with [[toHereTile]].
+     * The string can be created with {@link toHereTile}.
      *
      * @param quadkey64 The string representation of the HERE tile key.
      * @returns A new instance of `TileKey`.
@@ -229,7 +230,7 @@ export class TileKey {
      *
      * Note: The parent key of the root key is the root key itself.
      *
-     * @param mortonCode A Morton code, for example, obtained from [[mortonCode]].
+     * @param mortonCode A Morton code, for example, obtained from {@link mortonCode}.
      * @returns The Morton code of the parent tile.
      */
     static parentMortonCode(mortonCode: number): number {
@@ -242,7 +243,7 @@ export class TileKey {
     /**
      * Constructs a new immutable instance of a `TileKey`.
      *
-     * For the better readability, [[TileKey.fromRowColumnLevel]] should be preferred.
+     * For the better readability, {@link TileKey.fromRowColumnLevel} should be preferred.
      *
      * Note - row and column must not be greater than the maximum rows/columns for the given level.
      *
@@ -309,7 +310,7 @@ export class TileKey {
     /**
      * Converts the tile key to a numeric code representation.
      *
-     * You can create a tile key from a numeric Morton code with [[fromMortonCode]].
+     * You can create a tile key from a numeric Morton code with {@link fromMortonCode}.
      *
      * Note - only levels <= 26 are supported.
      */
@@ -342,7 +343,7 @@ export class TileKey {
      *
      * The string is a quadkey Morton code representation as a string.
      *
-     * You can convert back from a quadkey string with [[fromHereTile]].
+     * You can convert back from a quadkey string with {@link fromHereTile}.
      */
     toHereTile(): string {
         if (this.m_hereTile === undefined) {
@@ -360,7 +361,7 @@ export class TileKey {
      *  2. removing the last digit gives the parent tile's quadkey string, i.e. appending 0,1,2,3
      *     to a quadkey string gives the tiles's children.
      *
-     * You can convert back from a quadkey string with [[fromQuadKey]].
+     * You can convert back from a quadkey string with {@link fromQuadKey}.
      */
     toQuadKey(): string {
         let result: string = "";
@@ -458,7 +459,7 @@ export class TileKey {
     }
 
     /**
-     * Returns the number of available rows in the tile's [[level]].
+     * Returns the number of available rows in the tile's {@link level}.
      *
      * This is 2 to the power of the level.
      */
@@ -467,7 +468,7 @@ export class TileKey {
     }
 
     /**
-     * Returns the number of available columns in the tile's [[level]].
+     * Returns the number of available columns in the tile's {@link level}.
      *
      * This is 2 to the power of the level.
      */

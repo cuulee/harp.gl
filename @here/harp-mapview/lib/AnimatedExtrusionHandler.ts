@@ -23,7 +23,7 @@ export enum AnimatedExtrusionState {
 }
 
 /**
- * Handles animated extrusion effect of the buildings in [[MapView]].
+ * Handles animated extrusion effect of the buildings in {@link MapView}.
  */
 export class AnimatedExtrusionHandler {
     /**
@@ -36,7 +36,7 @@ export class AnimatedExtrusionHandler {
     duration: number = 750;
     /**
      * If `forceEnabled` is set to `true` then `animateExtrusion` and `animateExtrusionDuration`
-     * values from [[extrudedPolygonTechnique]] will be ignored in [[Tile]] and
+     * values from {@link extrudedPolygonTechnique} will be ignored in {@link Tile} and
      * `AnimatedExtrusionHandler.enabled` with `AnimatedExtrusionHandler.duration` will be used
      */
     forceEnabled: boolean = false;
@@ -48,9 +48,9 @@ export class AnimatedExtrusionHandler {
     private m_forceAnimatedExtrusionDuration: number | undefined;
 
     /**
-     * Creates an [[AnimatedExtrusionHandler]] in [[MapView]].
+     * Creates an {@link AnimatedExtrusionHandler} in {@link MapView}.
      *
-     * @param m_mapView Instance of [[MapView]] that passes `zoomLevel`
+     * @param m_mapView Instance of {@link MapView} that passes `zoomLevel`
      * through the `zoom` property update
      */
     constructor(private m_mapView: MapView) {
@@ -66,8 +66,8 @@ export class AnimatedExtrusionHandler {
     }
 
     /**
-     * [[MapView]] updates zoom level. Then [[AnimatedExtrusionTileHandler]] calculates actual
-     * extrusion ratio and trigger animation
+     * {@link MapView} updates zoom level. Then {@link AnimatedExtrusionTileHandler} calculates
+     * actual extrusion ratio and trigger animation
      */
     set zoom(zoomLevel: number) {
         // if zoomLevel has been changed since last render
@@ -86,7 +86,7 @@ export class AnimatedExtrusionHandler {
     }
 
     /**
-     * Checks whether animated extrusion effect was forcibly turned off/on in [[MapView]]
+     * Checks whether animated extrusion effect was forcibly turned off/on in {@link MapView}
      */
     get forceAnimatedExtrusion(): boolean | undefined {
         return this.m_forceAnimatedExtrusion;
@@ -101,23 +101,23 @@ export class AnimatedExtrusionHandler {
     }
 
     /**
-     * Returns `animatedExtrusionDuration` value that was set in [[MapView]].
+     * Returns `animatedExtrusionDuration` value that was set in {@link MapView}.
      */
     get forceAnimatedExtrusionDuration(): number | undefined {
         return this.m_forceAnimatedExtrusionDuration;
     }
 
     /**
-     * If value is set, it will overlap in [[Tile]] with
-     * `animatedExtrusionDuration` property from [[ExtrudedPolygonTechnique]]
-     * and `DEFAULT_DURATION` from [[AnimatedExtrusionTileHandler]].
+     * If value is set, it will overlap in {@link Tile} with
+     * `animatedExtrusionDuration` property from {@link ExtrudedPolygonTechnique}
+     * and `DEFAULT_DURATION` from {@link AnimatedExtrusionTileHandler}.
      */
     set forceAnimatedExtrusionDuration(extrusionDuration: number | undefined) {
         this.m_forceAnimatedExtrusionDuration = extrusionDuration;
     }
 
     /**
-     * Adds an [[AnimatedExtrusionTileHandler]] to [[AnimatedExtrusionHandler]]
+     * Adds an {@link AnimatedExtrusionTileHandler} to {@link AnimatedExtrusionHandler}
      */
     add(tileHandler: AnimatedExtrusionTileHandler): void {
         this.m_tileHandlerMap.set(tileHandler.tile, tileHandler);
@@ -131,7 +131,7 @@ export class AnimatedExtrusionHandler {
     }
 
     /**
-     * Returns first [[AnimatedExtrusionTileHandler]] existed from the list of [[Tile]]s
+     * Returns first {@link AnimatedExtrusionTileHandler} existed from the list of {@link Tile}s
      */
     find(tileKeys: Array<TileKey | undefined>): AnimatedExtrusionTileHandler | undefined {
         for (const tileHandler of this.m_tileHandlerMap) {
@@ -161,7 +161,7 @@ export class AnimatedExtrusionHandler {
 }
 
 /**
- * Implements animated extrusion effect for the extruded objects in the [[Tile]]
+ * Implements animated extrusion effect for the extruded objects in the {@link Tile}
  */
 export class AnimatedExtrusionTileHandler {
     private m_extrudedObjects: THREE.Object3D[] = [];
@@ -186,8 +186,8 @@ export class AnimatedExtrusionTileHandler {
     }
 
     /**
-     * Set an extrusion ratio value for the materials [[MapMeshBasicMaterial]]
-     * and [[EdgeMaterial]]. Controlled by [[AnimatedExtrusionHandler]]
+     * Set an extrusion ratio value for the materials {@link MapMeshBasicMaterial}
+     * and {@link EdgeMaterial}. Controlled by {@link AnimatedExtrusionHandler}
      * for extrusion animation effect.
      */
     set extrusionRatio(value: number) {
@@ -208,7 +208,7 @@ export class AnimatedExtrusionTileHandler {
     }
 
     /**
-     * Returns the [[Tile]] related to [[AnimatedExtrusionTileHandler]]
+     * Returns the {@link Tile} related to {@link AnimatedExtrusionTileHandler}
      */
     get tile(): Tile {
         return this.m_tile;
@@ -229,7 +229,7 @@ export class AnimatedExtrusionTileHandler {
     }
 
     /**
-     * Cancel animation and remove from [[AnimatedExtrusionHandler]]
+     * Cancel animation and remove from {@link AnimatedExtrusionHandler}
      */
     dispose() {
         this.stopExtrusionAnimation();
@@ -269,7 +269,7 @@ export class AnimatedExtrusionTileHandler {
         return result;
     }
 
-    // search for the [[Tile]] with extrusion animation started
+    // search for the {@link Tile} with extrusion animation started
     private startExtrusionAnimationIfNeeded(zoomDirection?: number) {
         const {
             quadTreeSearchDistanceUp,

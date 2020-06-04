@@ -22,8 +22,8 @@ import {
 } from "@here/harp-text-canvas";
 
 /**
- * This example showcases how [[TextCanvas]] can handle dynamic loading of multiple [[FontCatalog]]
- * assets, as well as dynamic real-time text styling.
+ * This example showcases how {@link TextCanvas} can handle dynamic loading of multiple
+ * {@link FontCatalog} assets, as well as dynamic real-time text styling.
  *
  */
 export namespace TextCanvasDynamicExample {

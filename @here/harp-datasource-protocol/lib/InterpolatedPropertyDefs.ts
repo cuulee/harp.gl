@@ -7,7 +7,8 @@
 import { JsonExpr } from "./Expr";
 
 /**
- * Interpolation mode used when computing a [[InterpolatedProperty]] value for a given zoom level.
+ * Interpolation mode used when computing a {@link InterpolatedProperty} value for a given
+ * zoom level.
  */
 export enum InterpolationMode {
     Discrete,
@@ -58,9 +59,9 @@ export function isInterpolatedPropertyDefinition<T>(
 }
 
 /**
- * Converts an [[InterpolatedPropertyDefinition]] to a [[JsonExpr]].
+ * Converts an {@link InterpolatedPropertyDefinition} to a {@link JsonExpr}.
  *
- * @param property A valid [[InterpolatedPropertyDefinition]]
+ * @param property A valid {@link InterpolatedPropertyDefinition}
  */
 export function interpolatedPropertyDefinitionToJsonExpr(
     property: InterpolatedPropertyDefinition<any>

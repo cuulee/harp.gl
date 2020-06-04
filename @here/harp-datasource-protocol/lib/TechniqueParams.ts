@@ -80,7 +80,7 @@ export enum StandardGeometryKind {
 }
 
 /**
- * Geometry kind used for use by [[BaseTechniqueParams.kind]].
+ * Geometry kind used for use by {@link BaseTechniqueParams.kind}.
  *
  * @remarks
  * The kind of geometry is used to group objects together,
@@ -126,7 +126,7 @@ export type StyleLength = string | number;
 export type StyleColor = string | number;
 
 /**
- * A set of [[GeometryKind]]s.
+ * A set of {@link GeometryKind}s.
  */
 export class GeometryKindSet extends Set {
     /**
@@ -178,7 +178,7 @@ export class GeometryKindSet extends Set {
 }
 
 /**
- * Common attributes or all [[Technique]]s.
+ * Common attributes or all {@link Technique}s.
  */
 export interface BaseTechniqueParams {
     /**
@@ -189,16 +189,16 @@ export interface BaseTechniqueParams {
     /**
      * The render order of the objects created using this technique.
      *
-     * If not specified in style file, [[StyleSetEvaluator]] will assign monotonically increasing
-     * values according to style position in file.
+     * If not specified in style file, {@link StyleSetEvaluator} will assign monotonically
+     * increasing svalues according to style position in file.
      */
     renderOrder?: DynamicProperty<number>;
 
     /**
      * The category of this technique.
      *
-     * The category is used in conjunction with [[Theme.priorities]]
-     * to assign render orders to the objects created by this [[Style]].
+     * The category is used in conjunction with {@link Theme.priorities}
+     * to assign render orders to the objects created by this {@link Style}.
      */
     category?: DynamicProperty<string>;
 
@@ -223,7 +223,7 @@ export interface BaseTechniqueParams {
      * Specified kind of geometry. One kind is set as default in the technique, and can be
      * overridden in the style.
      *
-     * @deprecated Use [[enabled]] with expressions based on `['dynamic-properties']` operator.
+     * @deprecated Use {@link enabled} with expressions based on `['dynamic-properties']` operator.
      */
     kind?: GeometryKind | GeometryKindSet;
 
@@ -232,7 +232,7 @@ export interface BaseTechniqueParams {
      *
      * Use with `['dynamic-properties']` operator for dynamic feature highlight, highlighig etc.
      *
-     * @see Picking example - [[PickingExample]]
+     * @see Picking example - {@link PickingExample}
      */
     enabled?: DynamicProperty<boolean>;
 }
@@ -405,7 +405,7 @@ export interface StandardTechniqueParams extends BaseTechniqueParams {
 }
 
 /**
- * Possible parameters of [[PointTechnique]].
+ * Possible parameters of {@link PointTechnique}.
  */
 export interface PointTechniqueParams extends BaseTechniqueParams {
     /**
@@ -457,7 +457,7 @@ export enum PoiStackMode {
 }
 
 /**
- * Defines options (tokens) supported for text placements defined via [[placements]] attribute.
+ * Defines options (tokens) supported for text placements defined via {@link placements} attribute.
  *
  * Possible values are defined as vertical placement letter and horizontal letter, where
  * one of the axis may be ignored and then assumed centered. Moving clock-wise, we have:
@@ -488,8 +488,8 @@ export enum PlacementToken {
 }
 
 /**
- * Technique that describes icons with labels. Used in [[PoiTechnique]] and [[LineMarkerTechnique]]
- * (for road shields).
+ * Technique that describes icons with labels. Used in {@link PoiTechnique}
+ * and {@link LineMarkerTechnique} (for road shields).
  */
 export interface MarkerTechniqueParams extends BaseTechniqueParams {
     /**
@@ -502,7 +502,7 @@ export interface MarkerTechniqueParams extends BaseTechniqueParams {
      *  - `["get", "name:$LANGUAGE"]` for each specified language
      *  - `["get", "name"]`
      *
-     * See [[ExtendedTileInfo.getFeatureText]]
+     * See {@link ExtendedTileInfo.getFeatureText}
      */
     text?: DynamicProperty<string>;
 
@@ -673,7 +673,7 @@ export interface MarkerTechniqueParams extends BaseTechniqueParams {
      */
     poiNameField?: string;
     /**
-     * Name of [[ImageTexture]] definition to use.
+     * Name of {@link ImageTexture} definition to use.
      */
     imageTexture?: DynamicProperty<string>;
     /**
@@ -693,7 +693,7 @@ export interface MarkerTechniqueParams extends BaseTechniqueParams {
      */
     style?: string;
     /**
-     * Name of the preferred [[Font]] to be used when rendering.
+     * Name of the preferred {@link Font} to be used when rendering.
      */
     fontName?: string;
     /**
@@ -705,11 +705,11 @@ export interface MarkerTechniqueParams extends BaseTechniqueParams {
      */
     backgroundSize?: DynamicProperty<number>;
     /**
-     * Glyph style to apply for the currently active [[Font]].
+     * Glyph style to apply for the currently active {@link Font}.
      */
     fontStyle?: "Regular" | "Bold" | "Italic" | "BoldItalic";
     /**
-     * Glyph variant to apply for the currently active [[Font]].
+     * Glyph variant to apply for the currently active {@link Font}.
      */
     fontVariant?: "Regular" | "AllCaps" | "SmallCaps";
     /**
@@ -754,7 +754,7 @@ export interface MarkerTechniqueParams extends BaseTechniqueParams {
      */
     lineWidth?: DynamicProperty<number>;
     /**
-     * [[TextCanvas]] rotation (radians).
+     * {@link TextCanvas} rotation (radians).
      */
     canvasRotation?: DynamicProperty<number>;
     /**
@@ -768,13 +768,13 @@ export interface MarkerTechniqueParams extends BaseTechniqueParams {
     /**
      * Text position regarding the baseline.
      *
-     * @note The [[placements]] attribute may override the alignment settings.
+     * @note The {@link placements} attribute may override the alignment settings.
      */
     hAlignment?: DynamicProperty<"Left" | "Center" | "Right">;
     /**
      * Text position inside a line.
      *
-     * @note The [[placements]] attribute may supersede it.
+     * @note The {@link placements} attribute may supersede it.
      */
     vAlignment?: DynamicProperty<"Above" | "Center" | "Below">;
     /**
@@ -787,7 +787,7 @@ export interface MarkerTechniqueParams extends BaseTechniqueParams {
      * will be the same as `Left` aligned by deduction. On other side vertical placement is quite
      * similar to vertical alignment so `T` placement corresponds with `Above` alignment.
      *
-     * @note This attribute may override [[hAlignment]] and [[vAlignment]] if defined.
+     * @note This attribute may override {@link hAlignment} and {@link vAlignment} if defined.
      */
     placements?: string;
 
@@ -1168,13 +1168,13 @@ export interface ExtrudedPolygonTechniqueParams extends StandardTechniqueParams 
      * In some data sources, for example Tilezen, building extrusion information might be missing.
      * This attribute allows to define a default height of an extruded polygon in the theme.
      *
-     * @deprecated use [[height]]
+     * @deprecated use {@link height}
      */
     defaultHeight?: number;
 
     /**
      * Default color used if feature doesn't provide color attribute
-     * and [[MapEnv]] did not return it too.
+     * and {@link MapEnv} did not return it too.
      * @format color-hex
      */
     defaultColor?: DynamicProperty<StyleColor>;
@@ -1210,7 +1210,7 @@ export interface ExtrudedPolygonTechniqueParams extends StandardTechniqueParams 
      * a mesh are actually rendered, removing artifacts caused by blending with internal faces of
      * the mesh. This method is used for drawing translucent buildings over map background.
      *
-     * By default, each [[DataSource]] determines how/if enable the depth pre-pass. A value of
+     * By default, each {@link DataSource} determines how/if enable the depth pre-pass. A value of
      * `false` forcefully disables depth prepass.
      */
     enableDepthPrePass?: boolean;
@@ -1284,7 +1284,7 @@ export interface TextTechniqueParams extends BaseTechniqueParams {
      *  - `["get", "name:$LANGUAGE"]` for each specified language;
      *  - `["get", "name"]`.
      *
-     * See [[ExtendedTileInfo.getFeatureText]].
+     * See {@link ExtendedTileInfo.getFeatureText}.
      */
     text?: DynamicProperty<string>;
 
@@ -1351,7 +1351,7 @@ export interface TextTechniqueParams extends BaseTechniqueParams {
      */
     style?: string;
     /**
-     * Name of the preferred [[Font]] to be used when rendering.
+     * Name of the preferred {@link Font} to be used when rendering.
      */
     fontName?: string;
     /**
@@ -1363,11 +1363,11 @@ export interface TextTechniqueParams extends BaseTechniqueParams {
      */
     backgroundSize?: DynamicProperty<number>;
     /**
-     * Glyph style to apply for the currently active [[Font]].
+     * Glyph style to apply for the currently active {@link Font}.
      */
     fontStyle?: "Regular" | "Bold" | "Italic" | "BoldItalic";
     /**
-     * Glyph variant to apply for the currently active [[Font]].
+     * Glyph variant to apply for the currently active {@link Font}.
      */
     fontVariant?: "Regular" | "AllCaps" | "SmallCaps";
     /**
@@ -1412,7 +1412,7 @@ export interface TextTechniqueParams extends BaseTechniqueParams {
      */
     lineWidth?: DynamicProperty<number>;
     /**
-     * [[TextCanvas]] rotation (radians).
+     * {@link TextCanvas} rotation (radians).
      */
     canvasRotation?: DynamicProperty<number>;
     /**
@@ -1519,7 +1519,7 @@ export interface TextureProperties {
 
 /**
  * Interface containing the definition of different colors to be used at different heights with the
- * [[TerrainTechnique]].
+ * {@link TerrainTechnique}.
  */
 export interface HeightBasedColors {
     heightArray: number[];

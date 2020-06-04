@@ -23,8 +23,8 @@ import { DataProvider } from "./DataProvider";
 const logger = LoggerManager.instance.create("TileLoader");
 
 /**
- * The [[TileLoader]] manages the different states of loading and decoding for a [[Tile]]. Used by
- * the [[TileDataSource]].
+ * The {@link TileLoader} manages the different states of loading and decoding for a {@link Tile}.
+ * Used by the {@link TileDataSource}.
  */
 export class TileLoader {
     /**
@@ -38,22 +38,22 @@ export class TileLoader {
     error?: Error;
 
     /**
-     * The binary data in form of [[ArrayBufferLike]], or any object.
+     * The binary data in form of {@link ArrayBufferLike}, or any object.
      */
     payload?: ArrayBufferLike | {};
 
     /**
-     * The result of decoding the `payload`: The [[DecodedTile]].
+     * The result of decoding the `payload`: The {@link DecodedTile}.
      */
     decodedTile?: DecodedTile;
 
     /**
-     * The abort controller notifying the [[DataProvider]] to cancel loading.
+     * The abort controller notifying the {@link DataProvider} to cancel loading.
      */
     protected loadAbortController = new AbortController();
 
     /**
-     * The  notifying the [[ITileDecoder]] to cancel decoding.
+     * The  notifying the {@link ITileDecoder} to cancel decoding.
      */
     protected requestController?: RequestController;
 
@@ -73,12 +73,13 @@ export class TileLoader {
     protected rejectedDonePromise?: (state: TileLoaderState) => void;
 
     /**
-     * Set up loading of a single [[Tile]].
+     * Set up loading of a single {@link Tile}.
      *
-     * @param dataSource The [[DataSource]] the tile belongs to.
-     * @param tileKey The quadtree address of a [[Tile]].
-     * @param dataProvider The [[DataProvider]] that retrieves the binary tile data.
-     * @param tileDecoder The [[ITileDecoder]] that decodes the binary tile to a [[DecodeTile]].
+     * @param dataSource The {@link DataSource} the tile belongs to.
+     * @param tileKey The quadtree address of a {@link Tile}.
+     * @param dataProvider The {@link DataProvider} that retrieves the binary tile data.
+     * @param tileDecoder The {@link ITileDecoder} that decodes the binary tile to a
+     *                    {@link DecodeTile}.
      * @param priority The priority given to the loading job. Highest number will be served first.
      */
     constructor(
@@ -92,7 +93,7 @@ export class TileLoader {
     /**
      * Start loading and/or proceed through the various states of loading of this tile.
      *
-     * @returns A promise which resolves the [[TileLoaderState]].
+     * @returns A promise which resolves the {@link TileLoaderState}.
      */
     loadAndDecode(): Promise<TileLoaderState> {
         switch (this.state) {
@@ -116,7 +117,7 @@ export class TileLoader {
      * Return the current state in form of a promise. Caller can then wait for the promise to be
      * resolved.
      *
-     * @returns A promise which resolves the current [[TileLoaderState]].
+     * @returns A promise which resolves the current {@link TileLoaderState}.
      */
     waitSettled(): Promise<TileLoaderState> {
         if (!this.donePromise) {
@@ -126,7 +127,7 @@ export class TileLoader {
     }
 
     /**
-     * Cancel loading of the [[Tile]].
+     * Cancel loading of the {@link Tile}.
      * Cancellation token is notified, an internal state is cleaned up.
      */
     cancel() {
@@ -148,7 +149,7 @@ export class TileLoader {
     }
 
     /**
-     * Return `true` if [[Tile]] is still loading, `false` otherwise.
+     * Return `true` if {@link Tile} is still loading, `false` otherwise.
      */
     get isFinished(): boolean {
         return (
@@ -159,8 +160,8 @@ export class TileLoader {
     }
 
     /**
-     * Update the priority of this [[Tile]]'s priority. Is effective to sort the decoding requests
-     * in the request queue (used during heavy load).
+     * Update the priority of this {@link Tile}'s priority. Is effective to sort the decoding
+     * requests in the request queue (used during heavy load).
      */
     updatePriority(priority: number): void {
         this.priority = priority;
@@ -205,7 +206,7 @@ export class TileLoader {
     /**
      * Called when binary data has been loaded. The loading state is now progressing to decoding.
      *
-     * @param payload Binary data in form of [[ArrayBufferLike]], or any object.
+     * @param payload Binary data in form of {@link ArrayBufferLike}, or any object.
      */
     protected onLoaded(payload: ArrayBufferLike | {}) {
         this.state = TileLoaderState.Loaded;
@@ -265,9 +266,9 @@ export class TileLoader {
     }
 
     /**
-     * Called when the decoding is finished, and the [[DecodedTile]] has been created.
+     * Called when the decoding is finished, and the {@link DecodedTile} has been created.
      *
-     * @param decodedTile The [[DecodedTile]].
+     * @param decodedTile The {@link DecodedTile}.
      */
     protected onDecoded(decodedTile: DecodedTile) {
         this.decodedTile = decodedTile;
@@ -327,8 +328,8 @@ export class TileLoader {
 }
 
 /**
- * Subclass of [[TileLoader]] which is used by [[TileDataSource]] to load the [[TileInfo]] meta
- * data, not the tile data itself.
+ * Subclass of {@link TileLoader} which is used by {@link TileDataSource} to load the
+ * {@link TileInfo} meta data, not the tile data itself.
  */
 export class TileInfoLoader extends TileLoader {
     tileInfo?: TileInfo;

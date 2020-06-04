@@ -19,7 +19,7 @@ import {
 const logger = LoggerManager.instance.create("OlpDataProvider");
 
 /**
- * [[OlpDataProvider]] initialization parameters.
+ * {@link OlpDataProvider} initialization parameters.
  */
 export interface OlpDataProviderParams {
     /** OLP catalog HRN. */
@@ -39,7 +39,7 @@ export interface OlpDataProviderParams {
 }
 
 /**
- * [[DataProvider]] implementation for OLP catalogs.
+ * {@link DataProvider} implementation for OLP catalogs.
  */
 export class OlpDataProvider implements DataProvider {
     private m_versionLayerClient: VersionedLayerClient | undefined;
@@ -83,11 +83,11 @@ export class OlpDataProvider implements DataProvider {
     }
 
     /**
-     * Load the data of a [[Tile]] asynchronously in form of an [[ArrayBufferLike]].
+     * Load the data of a {@link Tile} asynchronously in form of an {@link ArrayBufferLike}.
      *
      * @param tileKey Address of a tile.
      * @param abortSignal Optional AbortSignal to cancel the request.
-     * @returns A promise delivering the data as an [[ArrayBufferLike]], or any object.
+     * @returns A promise delivering the data as an {@link ArrayBufferLike}, or any object.
      */
     async getTile(tileKey: TileKey, abortSignal?: AbortSignal): Promise<ArrayBufferLike | {}> {
         if (this.m_versionLayerClient === undefined) {

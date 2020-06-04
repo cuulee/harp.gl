@@ -16,7 +16,7 @@ import {
 } from "@here/harp-datasource-protocol";
 
 /**
- * Returns `three.js` pixel format object basing on a [[PixelFormat]] specified.
+ * Returns `three.js` pixel format object basing on a {@link PixelFormat} specified.
  */
 export function toPixelFormat(format: PixelFormat): THREE.PixelFormat {
     switch (format) {
@@ -44,7 +44,7 @@ export function toPixelFormat(format: PixelFormat): THREE.PixelFormat {
 }
 
 /**
- * Returns `three.js` texture data types based on a [[TextureDataType]] specified.
+ * Returns `three.js` texture data types based on a {@link TextureDataType} specified.
  */
 export function toTextureDataType(dataType: TextureDataType): THREE.TextureDataType {
     switch (dataType) {
@@ -70,7 +70,7 @@ export function toTextureDataType(dataType: TextureDataType): THREE.TextureDataT
 }
 
 /**
- * Returns `three.js` wrapping mode object based on a [[WrappingMode]] specified.
+ * Returns `three.js` wrapping mode object based on a {@link WrappingMode} specified.
  */
 export function toWrappingMode(mode: WrappingMode): THREE.Wrapping {
     switch (mode) {
@@ -86,7 +86,8 @@ export function toWrappingMode(mode: WrappingMode): THREE.Wrapping {
 }
 
 /**
- * Returns `three.js` texture filter object based on a [[MagFilter]] or [[MinFilter]] specified.
+ * Returns `three.js` texture filter object based on a {@link MagFilter} or {@link MinFilter}
+ * specified.
  */
 export function toTextureFilter(filter: MagFilter | MinFilter): THREE.TextureFilter {
     switch (filter) {

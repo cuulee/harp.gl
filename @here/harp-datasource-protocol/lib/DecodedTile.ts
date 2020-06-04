@@ -41,7 +41,7 @@ export interface DecodedTile {
     decodeTime?: number; // time used to decode (in ms)
 
     /**
-     * The default bounding box in [[Tile]] is based on the geo box of the tile.
+     * The default bounding box in {@link Tile} is based on the geo box of the tile.
      * For data-sources that have 3d data this is not sufficient so the data-source can provide a
      * more accurate bounding box once the data is decoded.
      */
@@ -59,7 +59,7 @@ export interface DecodedTile {
      * `id`s should be unique. It is recommended to build them from unique identifiers like
      * registered domain names.
      *
-     * @see [[CopyrightInfo]]
+     * @see {@link CopyrightInfo}
      */
     copyrightHolderIds?: string[];
 }
@@ -128,7 +128,7 @@ export interface InterleavedBufferAttribute {
 }
 
 /**
- * Geometry types supported by [[Geometry]] objects.
+ * Geometry types supported by {@link Geometry} objects.
  */
 export enum GeometryType {
     Unspecified = 0,
@@ -170,29 +170,29 @@ export interface Geometry {
     objInfos?: AttributeMap[];
 
     /**
-     * Optional [[Array]] of [[Attachment]]s.
+     * Optional {@link Array} of {@link Attachment}s.
      */
     attachments?: Attachment[];
 }
 
 /**
- * Attachments together with [[Geometry]] define the meshes and the objects
- * of a [[Scene]].
+ * Attachments together with {@link Geometry} define the meshes and the objects
+ * of a {@link Scene}.
  */
 export interface Attachment {
     /**
-     * The unique uuid of this [[Attachment]].
+     * The unique uuid of this {@link Attachment}.
      */
     uuid?: string;
 
     /**
-     * The name of this [[Attachment]].
+     * The name of this {@link Attachment}.
      */
     name?: string;
 
     /**
-     * The index [[BufferAttribute]]. If not provided the index
-     * buffer of the [[Geometry]] will be used.
+     * The index {@link BufferAttribute}. If not provided the index
+     * buffer of the {@link Geometry} will be used.
      */
     index?: BufferAttribute;
 
@@ -202,7 +202,7 @@ export interface Attachment {
     edgeIndex?: BufferAttribute;
 
     /**
-     * The draw [[Group]]]s of this [[Attachment]].
+     * The draw {@link Group}]s of this {@link Attachment}.
      */
     groups: Group[];
 }
@@ -271,7 +271,7 @@ export interface Group {
     technique: number;
 
     /**
-     * Contains tile offsets if its [[Geometry]] has been created.
+     * Contains tile offsets if its {@link Geometry} has been created.
      */
     createdOffsets?: number[];
 }

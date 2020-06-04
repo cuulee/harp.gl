@@ -91,7 +91,7 @@ export const DEFAULT_TEXT_DISTANCE_SCALE = 0.5;
 /**
  * Maximum number of recommended labels. If more labels are encountered, the "overloaded" mode is
  * set, which modifies the behavior of label placement and rendering, trying to keep delivering an
- * interactive performance. The overloaded mode should not be activated if the [[MapView]] is
+ * interactive performance. The overloaded mode should not be activated if the {@link MapView} is
  * rendering a static image (camera not moving and no animation running).
  */
 const OVERLOAD_LABEL_LIMIT = 20000;
@@ -100,7 +100,7 @@ const OVERLOAD_LABEL_LIMIT = 20000;
  * If "overloaded" is `true`:
  *
  * Default number of labels/POIs updated in a frame. They are rendered only if they fit. If the
- * camera is not moving, it is ignored. See [[TextElementsRenderer.isDynamicFrame]].
+ * camera is not moving, it is ignored. See {@link TextElementsRenderer.isDynamicFrame}.
  */
 const OVERLOAD_UPDATED_LABEL_LIMIT = 100;
 
@@ -108,7 +108,7 @@ const OVERLOAD_UPDATED_LABEL_LIMIT = 100;
  * If "overloaded" is `true`:
  *
  * Maximum time in milliseconds available for placement. If value is <= 0, or if the camera is not
- * moving, it is ignored. See [[TextElementsRenderer.isDynamicFrame]].
+ * moving, it is ignored. See {@link TextElementsRenderer.isDynamicFrame}.
  */
 const OVERLOAD_UPDATE_TIME_LIMIT = 5;
 
@@ -116,7 +116,7 @@ const OVERLOAD_UPDATE_TIME_LIMIT = 5;
  * If "overloaded" is `true`:
  *
  * Maximum time in milliseconds available for rendering. If value is <= 0, or if the camera is not
- * moving, it is ignored. See [[TextElementsRenderer.isDynamicFrame]].
+ * moving, it is ignored. See {@link TextElementsRenderer.isDynamicFrame}.
  */
 const OVERLOAD_PLACE_TIME_LIMIT = 10;
 
@@ -330,7 +330,7 @@ export class TextElementsRenderer {
     /**
      * Create the `TextElementsRenderer` which selects which labels should be placed on screen as
      * a preprocessing step, which is not done every frame, and also renders the placed
-     * [[TextElement]]s every frame.
+     * {@link TextElement}s every frame.
      *
      * @param m_viewState State of the view for which this renderer will draw text.
      * @param m_viewCamera Camera used by the view for which this renderer will draw text.
@@ -344,7 +344,7 @@ export class TextElementsRenderer {
      * @param m_fontCatalogLoader To load font catalogs.
      * @param m_theme Theme defining  text styles.
      * @param options Configuration options for the text renderer. See
-     * [[TextElementsRendererOptions]].
+     * {@link TextElementsRendererOptions}.
      */
     constructor(
         private m_viewState: ViewState,
@@ -412,7 +412,7 @@ export class TextElementsRenderer {
     }
 
     /**
-     * Forces update of text elements in the next call to [[placeText]].
+     * Forces update of text elements in the next call to {@link placeText}.
      */
     invalidateCache() {
         this.m_cacheInvalidated = true;
@@ -438,7 +438,7 @@ export class TextElementsRenderer {
     }
 
     /**
-     * Is `true` if number of [[TextElement]]s in visible tiles is larger than the recommended
+     * Is `true` if number of {@link TextElement}s in visible tiles is larger than the recommended
      * number `OVERLOAD_LABEL_LIMIT`.
      */
     get overloaded(): boolean {
@@ -500,7 +500,7 @@ export class TextElementsRenderer {
     /**
      * Adds new overlay text elements to this `MapView`.
      *
-     * @param textElements Array of [[TextElement]] to be added.
+     * @param textElements Array of {@link TextElement} to be added.
      */
     addOverlayText(textElements: TextElement[]): void {
         if (textElements.length === 0) {
@@ -515,7 +515,7 @@ export class TextElementsRenderer {
     /**
      * Adds new overlay text elements to this `MapView`.
      *
-     * @param textElements Array of [[TextElement]] to be added.
+     * @param textElements Array of {@link TextElement} to be added.
      */
     clearOverlayText(): void {
         this.m_overlayTextElements = [];
@@ -534,10 +534,10 @@ export class TextElementsRenderer {
 
     /**
      * Fill the picking results for the pixel with the given screen coordinate. If multiple
-     * [[TextElement]]s are found, the order of the results is unspecified.
+     * {@link TextElement}s are found, the order of the results is unspecified.
      *
-     * Note: [[TextElement]]s with identical `featureId` or identical `userData` will only appear
-     * once in the list `pickResults`.
+     * Note: {@link TextElement}s with identical `featureId` or identical `userData` will only
+     * appear once in the list `pickResults`.
      *
      * @param screenPosition Screen coordinate of picking position.
      * @param pickResults Array filled with pick results.
@@ -615,8 +615,8 @@ export class TextElementsRenderer {
     }
 
     /**
-     * Reset the current text render states of all visible tiles. All [[TextElement]]s will fade in
-     * after that as if they have just been added.
+     * Reset the current text render states of all visible tiles. All {@link TextElement}s will
+     * fade in after that as if they have just been added.
      */
     clearRenderStates() {
         this.m_textElementStateCache.clear();
@@ -705,7 +705,7 @@ export class TextElementsRenderer {
     }
 
     /**
-     * Fills the screen with lines projected from world space, see [[Tile.blockingElements]].
+     * Fills the screen with lines projected from world space, see {@link Tile.blockingElements}.
      * @note These boxes have highest priority, so will block all other labels.
      * @param dataSourceTileList List of tiles to be rendered for each data source.
      */
@@ -1080,11 +1080,12 @@ export class TextElementsRenderer {
 
     /**
      * Visit all visible tiles and add/ their text elements to cache. The update of
-     * [[TextElement]]s is a time consuming process, and cannot be done every frame, but should only
-     * be done when the camera moved (a lot) of whenever the set of visible tiles change.
+     * {@link TextElement}s is a time consuming process, and cannot be done every frame, but should
+     * only be done when the camera moved (a lot) of whenever the set of visible tiles change.
      *
-     * The actually rendered [[TextElement]]s are stored internally until the next update is done
-     * to speed up rendering when no camera movement was detected.
+     * The actually rendered {@link TextElement}s are stored internally until the next update is
+     * done to speed up rendering when no camera movement was detected.
+     *
      * @param dataSourceTileList List of tiles to be rendered for each data source.
      */
     private updateTextElements(dataSourceTileList: DataSourceTileList[]) {

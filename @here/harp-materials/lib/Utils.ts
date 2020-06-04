@@ -52,7 +52,7 @@ export interface ForcedBlending {
 
  * @param material `Material` that should use blending
  * @note This function should not be used in frame update after material has been passed to WebGL.
- * In such cases use [[enableBlending]] instead.
+ * In such cases use {@link enableBlending} instead.
  */
 export function enforceBlending(
     material: (THREE.Material | THREE.ShaderMaterialParameters) & ForcedBlending
@@ -70,9 +70,9 @@ export function enforceBlending(
  * Enable alpha blending using THREE.CustomBlending setup.
  *
  * Function enables blending using one of predefined modes, for both color and alpha components:
- * - Src: [[THREE.SrcAlphaFactor]], Dst: [[THREE.OneMinusSrcAlphaFactor]]
- * - Src: [[THREE.OneFactor]], Dst: [[THREE.OneMinusSrcAlphaFactor]]
- * The second blending equation is used when [[THREE.Material.premultipliedAlpha]] is enabled
+ * - Src: {@link THREE.SrcAlphaFactor}, Dst: {@link THREE.OneMinusSrcAlphaFactor}
+ * - Src: {@link THREE.OneFactor}, Dst: {@link THREE.OneMinusSrcAlphaFactor}
+ * The second blending equation is used when {@link THREE.Material.premultipliedAlpha} is enabled
  * for this material.
  * @note Blending mode change does not require material update.
  * @see THREE.Material.needsUpdate.
@@ -101,7 +101,7 @@ export function enableBlending(
 }
 
 /**
- * Disable alpha blending using THREE.CustomBlending mode, switches to [[THREE.NormalBlending]].
+ * Disable alpha blending using THREE.CustomBlending mode, switches to {@link THREE.NormalBlending}.
  *
  * @note Blending mode change does not require material update.
  * @see THREE.Material.needsUpdate.
@@ -123,15 +123,15 @@ export function disableBlending(
  * Setup material shader _define_ using two allowable semantics.
  *
  * Function accepts two types of values for shader preprocessor _define_:
- * - [[boolean]], simple [[true]] or [[false]] which causes _define_ to be set with empty string,
- * such defines may be handled in the shader using __#ifdef__ semantics:
+ * - {@link boolean}, simple {@link true} or {@link false} which causes _define_ to be set with
+ * empty string, such defines may be handled in the shader using __#ifdef__ semantics:
  * ```
  * #ifdef SOME_DEFINE && !defined(OTHER_DEFINE)
  * // do something
  * #endif
  * ```
  *
- * - [[number]] which sets _define_ to explicit value. You may use it to enable/disable some
+ * - {@link number} which sets _define_ to explicit value. You may use it to enable/disable some
  * code or even set compile time constants affecting shaders math:
  * ```
  * #if SOME_DEFINE_SWITCH && OTHER_DEFINE_SWITCH == 0
@@ -140,12 +140,12 @@ export function disableBlending(
  * ```
  * @note Setting _define_ with `false` value is not the same as setting is with number value of `0`.
  *
- * @param material The [[THREE.ShaderMaterial]] which shader _define_ will be set.
+ * @param material The {@link THREE.ShaderMaterial} which shader _define_ will be set.
  * @param key Name of shader _define_ as used in shader, i.e. `USE_FOG`, `COLOR_ALPHA`, etc.
  * @param value The value to be set as number or boolean specifying if preprocessor define
  * should be defined or not.
- * @returns [[true]] if material has been forced to update (re-compile) due to define changes,
- * return [[false]] whenever define has not been changed.
+ * @returns {@link true} if material has been forced to update (re-compile) due to define changes,
+ * return {@link false} whenever define has not been changed.
  */
 export function setShaderMaterialDefine(
     material: THREE.ShaderMaterial,
@@ -168,19 +168,19 @@ export function setShaderMaterialDefine(
 }
 
 /**
- * Acquire value of [[THREE.ShaderMaterial]] GPU shader preprocessor define.
+ * Acquire value of {@link THREE.ShaderMaterial} GPU shader preprocessor define.
  *
  * The semantic used in entire engine assumes that preprocessor defines may have only binary
  * (defined / not defined) or numerical values, this ensures consistency in the shaders and
  * materials code.
- * @note If _define_ with [[key]] is _undefined_ function returns [[false]], if defined but
- * not numerical value it returns [[true]], otherwise returns number.
+ * @note If _define_ with {@link key} is _undefined_ function returns {@link false}, if defined but
+ * not numerical value it returns {@link true}, otherwise returns number.
  * @see setShaderMaterialDefine.
  *
  * @param material The material which shader defines are accessed.
  * @param key The _define_ name (identifier).
  * @param fallbackValue The value returned when material `defines` are not initialized yet,
- * specified by default as [[false]], provide your own default if you expect numeric value.
+ * specified by default as {@link false}, provide your own default if you expect numeric value.
  */
 export function getShaderMaterialDefine(
     material: THREE.ShaderMaterial,
@@ -197,13 +197,13 @@ export function getShaderMaterialDefine(
  * Sets new value of 'define' regardless of current value set.
  *
  * Update `defines` map with new key and value, if key is already occupied it overrides its value.
- * Helper function that may be used to setup [[THREE.ShaderMaterialParameters]] before
+ * Helper function that may be used to setup {@link THREE.ShaderMaterialParameters} before
  * material is create (i.e. in c-tor).
  *
  * @param defines Shader `defines` stored in key-value map.
  * @param key The key used to identify _define_.
  * @param value The value to be stored.
- * @returns [[true]] if define has actually changed, false is stayed the same.
+ * @returns {@link true} if define has actually changed, false is stayed the same.
  * @see setShaderMaterialDefine.
  */
 export function setShaderDefine(
@@ -229,7 +229,7 @@ export function setShaderDefine(
 /**
  * Acquire shader 'define' value from `defines` map.
  *
- * If there is no value under [[key]] specified, function returns false, otherwise result is
+ * If there is no value under {@link key} specified, function returns false, otherwise result is
  * true or numeric value if there is a number stored.
  * @param defines The `defines` map.
  * @param key The identifier of the _define_.

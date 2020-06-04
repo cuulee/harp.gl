@@ -11,7 +11,7 @@ declare let self: Worker & {
 };
 
 /**
- * Async bootstrap using "worker bootstrap protocol" defined in [[WorkerBootstrapDefs]] and
+ * Async bootstrap using "worker bootstrap protocol" defined in {@link WorkerBootstrapDefs} and
  * supported by `WorkerLoader`
  *
  * Resolves, when all the dependencies are loaded.

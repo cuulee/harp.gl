@@ -37,12 +37,12 @@ export enum PickObjectType {
     Area,
 
     /**
-     * The text part of a [[TextElement]]
+     * The text part of a {@link TextElement}
      */
     Text,
 
     /**
-     * The Icon of a [[TextElement]].
+     * The Icon of a {@link TextElement}.
      */
     Icon,
 
@@ -54,8 +54,8 @@ export enum PickObjectType {
 
 /**
  * A general pick result. You can access the details of a picked geometry from the property
- * `intersection`, which is available if a geometry was hit. If a road was hit, a [[RoadPickResult]]
- * is returned, which has additional information, but no `intersection`.
+ * `intersection`, which is available if a geometry was hit. If a road was hit, a
+ * {@link RoadPickResult} is returned, which has additional information, but no `intersection`.
  */
 export interface PickResult {
     /**
@@ -91,8 +91,8 @@ export interface PickResult {
 
     /**
      * Optional user data that has been defined in the picked object. This object points directly to
-     * information contained in the original [[TileFeatureData]] stored in [[MapView]], and should
-     * not be modified.
+     * information contained in the original {@link TileFeatureData} stored in {@link MapView}, and
+     * should not be modified.
      */
     userData?: any;
 }

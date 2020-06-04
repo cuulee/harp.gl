@@ -14,7 +14,7 @@ import {
 } from "@here/olp-sdk-dataservice-read";
 
 /**
- * [[OlpCopyrightProvider]] initialization parameters.
+ * {@link OlpCopyrightProvider} initialization parameters.
  */
 export interface OlpCopyrightProviderParams {
     /** OLP catalog HRN. */

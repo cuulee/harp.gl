@@ -12,7 +12,7 @@ const logger = LoggerManager.instance.create("WorkerService", { enabled: true })
 declare let self: Worker;
 
 /**
- * Response for [[WorkerService]] procession results.
+ * Response for {@link WorkerService} procession results.
  */
 export interface WorkerServiceResponse {
     /**
@@ -21,14 +21,14 @@ export interface WorkerServiceResponse {
     response: any;
 
     /**
-     * Transfer list containing a list of [[ArrayBuffer]] which transfer ownership from web worker
-     * to UI thread.
+     * Transfer list containing a list of {@link ArrayBuffer} which transfer ownership from
+     * web worker to UI thread.
      */
     transferList?: ArrayBuffer[];
 }
 
 /**
- * Header information for a [[RequestMessage]].
+ * Header information for a {@link RequestMessage}.
  */
 interface RequestEntry {
     /**
@@ -50,14 +50,14 @@ interface RequestEntry {
 /**
  * Worker Service communication helper.
  *
- * Listens to Web Worker messages from [[ConcurrentWorkerSet]] and implements:
+ * Listens to Web Worker messages from {@link ConcurrentWorkerSet} and implements:
  *  - worker service initialization
  *  - request/response scheme
  *  - error handling.
  *
- * This class should be subclassed to provide concrete like [[TileDecoderService]].
+ * This class should be subclassed to provide concrete like {@link TileDecoderService}.
  *
- * Communication peer for [[ConcurrentWorkerSet]].
+ * Communication peer for {@link ConcurrentWorkerSet}.
  */
 export abstract class WorkerService {
     private m_pendingRequests: Map<number, RequestEntry> = new Map();
@@ -99,7 +99,7 @@ export abstract class WorkerService {
     /**
      * Call request handler to be overridden by implementation.
      *
-     * @param request [[RequestMessage.request]] as received by `WorkerService`.
+     * @param request {@link RequestMessage.request} as received by `WorkerService`.
      */
     protected handleRequest(request: any): Promise<WorkerServiceResponse> {
         throw new Error(`ServiceAdapter[${this.serviceId}]: Invalid request '${request.type}'`);
@@ -157,7 +157,7 @@ export abstract class WorkerService {
     };
 
     /**
-     * Safety belt over [[handleMessage]] for correct exception handling & logging.
+     * Safety belt over {@link handleMessage} for correct exception handling & logging.
      */
     private tryHandleMessage(message: any): void {
         try {
@@ -168,7 +168,7 @@ export abstract class WorkerService {
     }
 
     /**
-     * Safety belt over [[handleRequest]] for correct exception handling in promise chain.
+     * Safety belt over {@link handleRequest} for correct exception handling in promise chain.
      */
     private tryHandleRequest(request: any): Promise<WorkerServiceResponse> {
         try {

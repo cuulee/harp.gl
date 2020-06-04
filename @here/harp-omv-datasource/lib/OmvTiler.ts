@@ -12,7 +12,7 @@ import { OMV_TILER_SERVICE_TYPE } from "./OmvDecoderDefs";
  */
 export class OmvTilerService {
     /**
-     * Register[[OmvTiler]] service class in [[WorkerServiceManager]].
+     * Register{@link OmvTiler} service class in {@link WorkerServiceManager}.
      *
      * Has to be called during initialization of decoder bundle.
      */

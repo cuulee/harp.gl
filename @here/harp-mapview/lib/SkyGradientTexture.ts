@@ -39,7 +39,8 @@ const cameraUp = [
 ];
 
 /**
- * Class tha generates a texture containing a linear gradient, to be used with [[SkyBackground]].
+ * Class tha generates a texture containing a linear gradient, to be used with
+ * {@link SkyBackground}.
  *
  * The gradient is mapped onto a sphere, where `topColor` maps to the top of the upper hemisphere,
  * `bottomColor` to the bottom of the upper hemisphere, and `groundColor` fills the bottom
@@ -62,8 +63,8 @@ export class SkyGradientTexture {
     /**
      * Constructs a new `SkyGradientTexture`.
      *
-     * @param sky Initial [[GradientSky]] configuration.
-     * @param m_projectionType [[MapView]]'s projection type.
+     * @param sky Initial {@link GradientSky} configuration.
+     * @param m_projectionType {@link MapView}'s projection type.
      * @param m_height Optional height parameter.
      */
     constructor(
@@ -120,7 +121,7 @@ export class SkyGradientTexture {
 
     /**
      * `SkyGradientTexture`'s texture resource (simple texture or cubemap depending on
-     * [[MapView]]'s projection).
+     * {@link MapView}'s projection).
      */
     get texture(): Texture {
         return this.m_projectionType === ProjectionType.Planar ? this.m_faces[0] : this.m_skybox!;
@@ -141,7 +142,7 @@ export class SkyGradientTexture {
     /**
      * Updates the `SkyGradientTexture` with new parameters.
      *
-     * @param params New [[GradientSky]] configuration.
+     * @param params New {@link GradientSky} configuration.
      */
     updateTexture(sky: GradientSky) {
         for (let i = 0; i < this.m_faceCount; ++i) {

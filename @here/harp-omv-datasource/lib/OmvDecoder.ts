@@ -53,11 +53,11 @@ export class Ring {
     readonly winding: boolean;
 
     /**
-     * Constructs a new [[Ring]].
+     * Constructs a new {@link Ring}.
      *
      * @param extents The extents of the enclosing layer.
      * @param vertexStride The stride of this elements stored in 'contour'.
-     * @param contour The [[Array]] containing the projected world coordinates.
+     * @param contour The {@link Array} containing the projected world coordinates.
      */
     constructor(
         readonly extents: number,
@@ -113,8 +113,8 @@ export interface IOmvEmitter {
 }
 
 /**
- * The class [[OmvDataAdapter]] prepares protobuf encoded OMV data so they
- * can be processed by [[OmvDecoder]].
+ * The class {@link OmvDataAdapter} prepares protobuf encoded OMV data so they
+ * can be processed by {@link OmvDecoder}.
  */
 export interface OmvDataAdapter {
     /**
@@ -133,7 +133,7 @@ export interface OmvDataAdapter {
      * Process the given raw data.
      *
      * @param data The raw data to process.
-     * @param decodeInfo The [[DecodeInfo]] of the tile to process.
+     * @param decodeInfo The {@link DecodeInfo} of the tile to process.
      */
     process(data: ArrayBufferLike | {}, decodeInfo: DecodeInfo): void;
 }
@@ -176,7 +176,7 @@ export class OmvDecoder implements IGeometryProcessor {
      *
      * @param tileKey The tile to be decoded.
      * @param data The protobuffer to decode from.
-     * @returns A [[DecodedTile]]
+     * @returns A {@link DecodedTile}
      */
     getDecodedTile(tileKey: TileKey, data: ArrayBufferLike | {}): DecodedTile {
         let dataAdapter;
@@ -534,7 +534,7 @@ export class OmvTileDecoder extends ThemedTileDecoder {
  */
 export class OmvTileDecoderService {
     /**
-     * Register[[OmvTileDecoder]] service class in [[WorkerServiceManager]].
+     * Register{@link OmvTileDecoder} service class in {@link WorkerServiceManager}.
      *
      * Has to be called during initialization of decoder bundle.
      */
@@ -550,7 +550,7 @@ export class OmvTileDecoderService {
 /**
  * Starts an OMV decoder service.
  *
- * @deprecated Please use [[OmvTileDecoderService.start]].
+ * @deprecated Please use {@link OmvTileDecoderService.start}.
  */
 export default class OmvWorkerClient {
     // TODO(HARP-3651): remove this class when clients are ready

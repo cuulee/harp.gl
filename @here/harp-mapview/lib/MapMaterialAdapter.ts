@@ -14,14 +14,14 @@ import { MapView } from "./MapView";
 /**
  * @hidden
  *
- * Pick of [[MapView]] properties required to update materials used [[MapMaterialAdapter]].
+ * Pick of {@link MapView} properties required to update materials used {@link MapMaterialAdapter}.
  */
 export type MapAdapterUpdateEnv = Pick<MapView, "env" | "frameNumber">;
 
 /**
  * @hidden
  *
- * Custom, callback based property evaluator used by [[MapObjectAdapter]] to evaluate dynamic
+ * Custom, callback based property evaluator used by {@link MapObjectAdapter} to evaluate dynamic
  * properties of object/material.
  */
 export type StylePropertyEvaluator = (context: MapAdapterUpdateEnv) => Value;
@@ -29,7 +29,7 @@ export type StylePropertyEvaluator = (context: MapAdapterUpdateEnv) => Value;
 /**
  * @hidden
  *
- * Styled properties of material managed by [[MapMaterialAdapter]].
+ * Styled properties of material managed by {@link MapMaterialAdapter}.
  */
 export interface StyledProperties {
     [name: string]: Expr | StylePropertyEvaluator | Value | undefined;
@@ -38,9 +38,9 @@ export interface StyledProperties {
 /**
  * @hidden
  *
- * [[MapView]] specific data assigned to `THREE.Material` instance in installed in `userData`.
+ * {@link MapView} specific data assigned to `THREE.Material` instance in installed in `userData`.
  *
- * [[MapMaterialAdapter]] is registered in `usedData.mapAdapter` property of `THREE.Material`.
+ * {@link MapMaterialAdapter} is registered in `usedData.mapAdapter` property of `THREE.Material`.
  */
 export class MapMaterialAdapter {
     /**
@@ -85,7 +85,7 @@ export class MapMaterialAdapter {
     /**
      * Styled material properties.
      *
-     * Usually pick from [[Technique]] attributes that constitute material properties managed
+     * Usually pick from {@link Technique} attributes that constitute material properties managed
      * by this adapter.
      */
     readonly styledProperties: StyledProperties;
@@ -93,7 +93,7 @@ export class MapMaterialAdapter {
     /**
      * Current values of styled material properties.
      *
-     * Actual values valid for scope of one frame updated in [[ensureUpdated]].
+     * Actual values valid for scope of one frame updated in {@link ensureUpdated}.
      */
     readonly currentStyledProperties: { [name: string]: Value | undefined };
 
@@ -131,11 +131,11 @@ export class MapMaterialAdapter {
     }
 
     /**
-     * Ensure that underlying object is updated to current state of [[MapView]].
+     * Ensure that underlying object is updated to current state of {@link MapView}.
      *
      * Updates dynamically styled properties of material by evaluating scene dependent expressions.
      *
-     * Executes updates only once per frame basing on [[MapView.frameNumber]].
+     * Executes updates only once per frame basing on {@link MapView.frameNumber}.
      *
      * @returns `true` if object performed some kind of update, `false` if no update was needed.
      */

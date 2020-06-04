@@ -43,7 +43,7 @@ export interface OMVDecoderPerformanceTestOptions {
     /**
      * Theme url or object.
      *
-     * Will be resolved using [[ThemeLoader.load]].
+     * Will be resolved using {@link ThemeLoader.load}.
      */
     theme: Theme | string;
 
@@ -58,7 +58,7 @@ export interface OMVDecoderPerformanceTestOptions {
     tiles: number[];
 
     /**
-     * Requires settings for [[OmvRestClient]] to download tiles.
+     * Requires settings for {@link OmvRestClient} to download tiles.
      */
     omvRestClientOptions: OmvRestClientParameters;
 }

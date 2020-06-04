@@ -8,12 +8,12 @@ import { WorkerServiceProtocol } from "@here/harp-datasource-protocol";
 import { WorkerService, WorkerServiceResponse } from "./WorkerService";
 
 /**
- * Factory function that creates [[WorkerService]].
+ * Factory function that creates {@link WorkerService}.
  */
 export type WorkerServiceFactory = (serviceId: string) => WorkerService;
 
 /**
- * Worker service class definition as needed by [[WorkerServiceManager.register]].
+ * Worker service class definition as needed by {@link WorkerServiceManager.register}.
  */
 export interface WorkerServiceDescriptor {
     serviceType: string;
@@ -24,7 +24,7 @@ export interface WorkerServiceDescriptor {
  * Manages dynamic worker services in Web Worker context.
  *
  * Handles `CreateService` and `DestroyService` messages sent to Web Worker. Singleton (in scope of
- * one worker runtime!), starts automatically with first [[getInstance]] call.
+ * one worker runtime!), starts automatically with first {@link getInstance} call.
  */
 export class WorkerServiceManager extends WorkerService {
     /**
@@ -61,7 +61,7 @@ export class WorkerServiceManager extends WorkerService {
     }
 
     /**
-     * Register [[WorkerService]] class to this manager.
+     * Register {@link WorkerService} class to this manager.
      *
      * @param workerServiceDescriptor service type and factory
      */

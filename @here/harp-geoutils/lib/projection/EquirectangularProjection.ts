@@ -53,7 +53,7 @@ class EquirectangularProjection extends Projection {
     ): WorldCoordinates {
         if (result === undefined) {
             /*
-             * The following tslint:disable is due to the fact that the [[WorldCoordinates]]
+             * The following tslint:disable is due to the fact that the {@link WorldCoordinates}
              * might be a concrete class which is not available at runtime.
              * Consider the following example:
              *
@@ -165,13 +165,13 @@ class EquirectangularProjection extends Projection {
 }
 
 /**
- * Equirectangular [[Projection]] used to convert geo coordinates to unit coordinates and vice
+ * Equirectangular {@link Projection} used to convert geo coordinates to unit coordinates and vice
  * versa.
  */
 export const normalizedEquirectangularProjection: Projection = new EquirectangularProjection(1);
 
 /**
- * Equirectangular [[Projection]] used to convert geo coordinates to world coordinates and vice
+ * Equirectangular {@link Projection} used to convert geo coordinates to world coordinates and vice
  * versa.
  */
 export const equirectangularProjection: Projection = new EquirectangularProjection(

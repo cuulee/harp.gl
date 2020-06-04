@@ -11,7 +11,7 @@ import { Font } from "./FontCatalog";
 
 /**
  * Structure containing all the required information necessary to render a BMFont glyph using
- * [[TextCanvas]].
+ * {@link TextCanvas}.
  */
 export class GlyphData {
     /**

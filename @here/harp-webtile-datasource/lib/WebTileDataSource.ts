@@ -22,7 +22,7 @@ const logger = LoggerManager.instance.create("MapView");
 const textureLoader = new TextureLoader();
 
 /**
- * An interface for the rendering options that can be passed to the [[WebTileDataSource]].
+ * An interface for the rendering options that can be passed to the {@link WebTileDataSource}.
  */
 export interface WebTileRenderingOptions {
     /**
@@ -38,48 +38,48 @@ export interface WebTileRenderingOptions {
 export type AuthenticationProvider = () => Promise<string>;
 
 /**
- * Options for authentication with [[apikey]].
+ * Options for authentication with {@link apikey}.
  */
 interface ApiKeyAuthentication {
     /**
      * The `apikey` for the access of the Web Tile Data.
-     * @note Will not be used if [[authenticationCode]] is defined as well.
+     * @note Will not be used if {@link authenticationCode} is defined as well.
      */
     apikey: string;
 }
 
 /**
- * Options for authentication with [[appId]] and [[appCode]].
+ * Options for authentication with {@link appId} and {@link appCode}.
  */
 interface AppIdAuthentication {
     /**
      * The `appId` for the access of the Web Tile Data.
-     * @note Will not be used if [[apiKey]] or [[authenticationCode]] is defined as well.
+     * @note Will not be used if {@link apiKey} or {@link authenticationCode} is defined as well.
      */
     appId: string;
 
     /**
      * The `appCode` for the access of the Web Tile Data.
-     * @note Will not be used if [[apiKey]] or [[authenticationCode]] is defined as well.
+     * @note Will not be used if {@link apiKey} or {@link authenticationCode} is defined as well.
      */
     appCode: string;
 }
 
 /**
- * Options for authentication with [[authenticationCode]].
+ * Options for authentication with {@link authenticationCode}.
  */
 interface TokenAuthentication {
     /**
      * Authentication code used for the different APIs.
      *
-     * When [[AuthenticationProvider]] is is used as value, the provider is called before each
+     * When {@link AuthenticationProvider} is is used as value, the provider is called before each
      * to get currently valid authentication code/token.
      */
     authenticationCode: string | AuthenticationProvider;
 }
 
 /**
- * Options for [[WebTileDataSource]].
+ * Options for {@link WebTileDataSource}.
  */
 interface WebTileDataSourceOptions {
     // tslint:disable:max-line-length
@@ -106,15 +106,15 @@ interface WebTileDataSourceOptions {
      *
      *      base.maps.ls.hereapi.com/maptile/2.1/maptile/newest/normal.day
      *
-     * Rest of parameters are added by [[WebTileDataSource]].
+     * Rest of parameters are added by {@link WebTileDataSource}.
      *
      * @see [Map Tile API]
      * (https://developer.here.com/documentation/map-tile/topics/introduction.html)
-     * @default [[WebTileDataSource.TILE_BASE_NORMAL]]
-     * @see [[WebTileDataSource.TILE_BASE_NORMAL]]
-     * @see [[WebTileDataSource.TILE_AERIAL_HYBRID]]
-     * @see [[WebTileDataSource.TILE_AERIAL_SATELLITE]]
-     * @see [[WebTileDataSource.TILE_TRAFFIC_NORMAL]]
+     * @default {@link WebTileDataSource.TILE_BASE_NORMAL}
+     * @see {@link WebTileDataSource.TILE_BASE_NORMAL}
+     * @see {@link WebTileDataSource.TILE_AERIAL_HYBRID}
+     * @see {@link WebTileDataSource.TILE_AERIAL_SATELLITE}
+     * @see {@link WebTileDataSource.TILE_TRAFFIC_NORMAL}
      */
     tileBaseAddress?: string;
     // tslint:enable:max-line-length
@@ -153,7 +153,7 @@ interface WebTileDataSourceOptions {
 }
 
 /**
- * An interface for the type of options that can be passed to the [[WebTileDataSource]].
+ * An interface for the type of options that can be passed to the {@link WebTileDataSource}.
  */
 export type WebTileDataSourceParameters = WebTileDataSourceOptions &
     (ApiKeyAuthentication | AppIdAuthentication | TokenAuthentication);
@@ -236,7 +236,7 @@ interface MapTileParams {
 }
 
 /**
- * Instances of `WebTileDataSource` can be used to add Web Tile to [[MapView]].
+ * Instances of `WebTileDataSource` can be used to add Web Tile to {@link MapView}.
  *
  * Example:
  *
@@ -245,7 +245,7 @@ interface MapTileParams {
  *     authenticationCode: <authenticationCode>
  * });
  * ```
- * @see [[DataSource]], [[OmvDataSource]].
+ * @see {@link DataSource}, {@link OmvDataSource}.
  */
 export class WebTileDataSource extends DataSource {
     /**
@@ -294,7 +294,7 @@ export class WebTileDataSource extends DataSource {
     /**
      * Constructs a new `WebTileDataSource`.
      *
-     * @param m_options Represents the [[WebTileDataSourceParameters]].
+     * @param m_options Represents the {@link WebTileDataSourceParameters}.
      */
     constructor(private readonly m_options: WebTileDataSourceParameters) {
         super({ name: "webtile", minDataLevel: 1, maxDataLevel: 20 });

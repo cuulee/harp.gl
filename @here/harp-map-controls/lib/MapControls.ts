@@ -87,9 +87,9 @@ const MAX_TAP_DURATION = 120;
  */
 export class MapControls extends THREE.EventDispatcher {
     /**
-     * Creates MapControls object and attaches it specified [[MapView]].
+     * Creates MapControls object and attaches it specified {@link MapView}.
      *
-     * @param mapView - [[MapView]] object to which MapControls should be attached to.
+     * @param mapView - {@link MapView} object to which MapControls should be attached to.
      */
     static create(mapView: MapView) {
         return new MapControls(mapView);
@@ -303,7 +303,7 @@ export class MapControls extends THREE.EventDispatcher {
     /**
      * Constructs a new `MapControls` object.
      *
-     * @param mapView [[MapView]] this controller modifies.Z
+     * @param mapView {@link MapView} this controller modifies.Z
      */
     constructor(readonly mapView: MapView) {
         super();
@@ -1413,7 +1413,7 @@ export class MapControls extends THREE.EventDispatcher {
      * canvas scaling factor.
      *
      * @param event The mouse event.
-     * @returns [[THREE.Vector2]] containing _x_, _y_ mouse pointer position.
+     * @returns {@link THREE.Vector2} containing _x_, _y_ mouse pointer position.
      */
     private getPointerPosition(event: MouseEvent | Touch): THREE.Vector2 {
         const canvasSize = utils.getWidthAndHeightFromCanvas(this.domElement);

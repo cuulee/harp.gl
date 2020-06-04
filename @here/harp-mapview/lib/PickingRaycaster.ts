@@ -8,8 +8,8 @@ import * as THREE from "three";
 
 /**
  * Raycasting points is not supported as necessary in Three.js. This class extends a
- * [[THREE.Raycaster]] and adds the width / height of the canvas to allow picking of screen space
- * geometry.
+ * {@link THREE.Raycaster} and adds the width / height of the canvas to allow picking of
+ * screen space geometry.
  *
  * @internal
  */

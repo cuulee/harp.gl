@@ -16,7 +16,7 @@ export interface AttrEvaluationContext {
     /**
      * Optional, cache of expression results.
      *
-     * @see [[Expr.evaluate]]
+     * @see {@link Expr.evaluate}
      */
     cachedExprResults?: Map<Expr, Value>;
 }

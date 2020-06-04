@@ -26,7 +26,7 @@ export enum ImageOrigin {
  */
 export interface ImageOptions {
     /**
-     * The point of origin of the texture as supported in [[ImageOrigin]].
+     * The point of origin of the texture as supported in {@link ImageOrigin}.
      */
     origin?: ImageOrigin;
 

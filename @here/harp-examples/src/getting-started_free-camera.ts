@@ -49,11 +49,12 @@ export namespace FreeCameraAppDebuggingToolExample {
     }
 
     /**
-     * [[FreeCameraApp]] class adds a debug camera view which enables to see the rendered map view
-     * from a third person perspective as well as allows to freely modify the debug camera
+     * {@link FreeCameraApp} class adds a debug camera view which enables to see the rendered
+     * map view from a third person perspective as well as allows to freely modify the debug camera
      * position/rotation.
      *
-     * The parameters of the [[FreeCameraApp]] are set in the [[FreeCameraAppOptions]] object.
+     * The parameters of the {@link FreeCameraApp} are set in the {@link FreeCameraAppOptions}
+     * object.
      *
      * ```typescript
      * [[include:harp_gl_freecamera_app_0.ts]]
@@ -94,7 +95,7 @@ export namespace FreeCameraAppDebuggingToolExample {
         }
 
         /**
-         * Attaches the [[OmvDataSource]] and [[DebugTileDataSource]] to the map as well as
+         * Attaches the {@link OmvDataSource} and {@link DebugTileDataSource} to the map as well as
          * initializes the debug view (making the: `R`, `T` and `V` keys modify the camera's current
          * rotation (`R`), translation/postion (`T`) and changing the camera view to the one the
          * user is seeing (`V`).

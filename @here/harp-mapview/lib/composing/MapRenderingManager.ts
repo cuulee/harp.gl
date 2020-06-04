@@ -23,9 +23,9 @@ const DEFAULT_DYNAMIC_MSAA_SAMPLING_LEVEL = MSAASampling.Level_1;
 const DEFAULT_STATIC_MSAA_SAMPLING_LEVEL = MSAASampling.Level_4;
 
 /**
- * Interface for the antialias settings passed when instantiating a [[MapView]], and transferred to
- * the [[MapRenderingManager]] instance. These parameters can be changed at runtime as opposed to
- * the native WebGL antialiasing.
+ * Interface for the antialias settings passed when instantiating a {@link MapView}, and
+ * transferred to the {@link MapRenderingManager} instance. These parameters can be changed at
+ * runtime as opposed to the native WebGL antialiasing.
  */
 export interface IMapAntialiasSettings {
     /**
@@ -52,8 +52,8 @@ export interface IMapAntialiasSettings {
 
 /**
  * The `MapRenderingManager` class manages the map rendering (as opposed to text) by dispatching the
- * [[MapRenderingManager.render]] call to a set of internal [[Pass]] instances. It provides an API
- * to modify some of the rendering processes like the antialiasing behaviour at runtime.
+ * {@link MapRenderingManager.render} call to a set of internal {@link Pass} instances. It provides
+ * an API to modify some of the rendering processes like the antialiasing behaviour at runtime.
  */
 export interface IMapRenderingManager extends IPassManager {
     /**
@@ -91,7 +91,7 @@ export interface IMapRenderingManager extends IPassManager {
 
     /**
      * Enable or disable the MSAA. If disabled, `MapRenderingManager` will use the renderer provided
-     * in the [[MapRenderingManager.render]] method to render the scene.
+     * in the {@link MapRenderingManager.render} method to render the scene.
      */
     msaaEnabled: boolean;
 
@@ -127,7 +127,7 @@ export interface IMapRenderingManager extends IPassManager {
     /**
      * Updating the outline rebuilds the outline materials of every outlined mesh.
      *
-     * @param options outline options from the [[Theme]].
+     * @param options outline options from the {@link Theme}.
      */
     updateOutline(options: {
         thickness: number;
@@ -137,8 +137,8 @@ export interface IMapRenderingManager extends IPassManager {
 }
 
 /**
- * The implementation of [[IMapRenderingManager]] to instantiate in [[MapView]] and manage the map
- * rendering.
+ * The implementation of {@link IMapRenderingManager} to instantiate in {@link MapView} and manage
+ * the map rendering.
  */
 export class MapRenderingManager implements IMapRenderingManager {
     bloom = {
@@ -391,7 +391,7 @@ export class MapRenderingManager implements IMapRenderingManager {
 
     /**
      * Enable or disable the MSAA. If disabled, `MapRenderingManager` will use the renderer provided
-     * in the [[MapRenderingManager.render]] method to render the scene.
+     * in the {@link MapRenderingManager.render} method to render the scene.
      *
      * @param value If `true`, MSAA is enabled, disabled otherwise.
      */

@@ -16,11 +16,11 @@ import { StyleSetEvaluator } from "@here/harp-datasource-protocol/index-decoder"
 import { Projection, TileKey } from "@here/harp-geoutils";
 
 /**
- * `ThemedTileDecoder` implements an [[ITileDecoder]] which uses a [[Theme]] to apply styles to the
- * objects displayed in the map.
+ * `ThemedTileDecoder` implements an {@link ITileDecoder} which uses a {@link Theme} to apply styles
+ * to the objects displayed in the map.
  *
- * By default, decoders are executed in web workers (using [[TileDecoderService]]) for performance
- * reasons.
+ * By default, decoders are executed in web workers (using {@link TileDecoderService}) for
+ * performance reasons.
  */
 export abstract class ThemedTileDecoder implements ITileDecoder {
     languages?: string[];
@@ -73,13 +73,13 @@ export abstract class ThemedTileDecoder implements ITileDecoder {
     }
 
     /**
-     * Create a [[DecodedTile]] from binary tile data and a theme description in form of a
-     * [[StyleSetEvaluator]].
+     * Create a {@link DecodedTile} from binary tile data and a theme description in form of a
+     * {@link StyleSetEvaluator}.
      *
-     * @param data Binary data in form of [[ArrayBufferLike]], or any object.
+     * @param data Binary data in form of {@link ArrayBufferLike}, or any object.
      * @param tileKey Quadtree address of tile.
-     * @param styleSetEvaluator Processor of [[Theme]], identifies styling techniques applicable to
-     *      individual objects.
+     * @param styleSetEvaluator Processor of {@link Theme}, identifies styling techniques applicable
+     *                          to individual objects.
      * @param projection Projection used by the individual data sources.
      */
     abstract decodeThemedTile(

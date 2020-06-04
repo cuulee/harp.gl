@@ -34,9 +34,9 @@ const tmpColor = new THREE.Color();
  * with __transparency__ channel, which is simply opposite to alpha:
  * ```transparency = 0xFF - alpha```
  * Such channel value is stored on the oldest bits (octet) in the integral color (numeric) value,
- * so it is fully compatible with THREE.Color numerical representation (@see [[THREE.Color.getHex]],
- * [[THREE.Color.setHex]]).
- * See also [[getHexFromRgba]] and [[getRgbaFromHex]] for more info about conversion.
+ * so it is fully compatible with THREE.Color numerical representation
+ * (@see {@link THREE.Color.getHex}, {@link THREE.Color.setHex}).
+ * See also {@link getHexFromRgba} and {@link getRgbaFromHex} for more info about conversion.
  */
 export namespace ColorUtils {
     /**
@@ -44,7 +44,7 @@ export namespace ColorUtils {
      *
      * We do not use direct alpha channel mapping to hex in order to preserve compatibility
      * with THREE.js color format (0xRRGGBB). This is done by encoding transparency
-     * (255 - alpha) instead of alpha on the oldest bits, shifted by [[SHIFT_TRANSPARENCY]].
+     * (255 - alpha) instead of alpha on the oldest bits, shifted by {@link SHIFT_TRANSPARENCY}.
      * This way simple 0xRRGGBB color is equal to 0x00RRGGBB without transparency and
      * color defining transparency (alpha < 255) is always recognizable by the oldest
      * bit set:
@@ -54,7 +54,7 @@ export namespace ColorUtils {
      * @note All input components are floating points in <0, 1> range (inclusively).
      * @note Although method encodes transparency channel in single number value, it is still
      * compatible with THREE.js number based color coding (0xRRGGBB), so you may pass this value to
-     * [[THREE.Color]] c-tor, but keep in mind that transparency will be silently ignored.
+     * {@link THREE.Color} c-tor, but keep in mind that transparency will be silently ignored.
      */
     export function getHexFromRgba(r: number, g: number, b: number, a: number): number {
         assert(a >= 0 && a <= 1);
@@ -71,7 +71,7 @@ export namespace ColorUtils {
      * Encodes RGB all color channels in single number with format 0xRRGGBB.
      *
      * All input channels should be in <0, 1> range (inclusively).
-     * See also [[getHexFromRgba]] for more information about [[THREE.Color]] compatibility.
+     * See also {@link getHexFromRgba} for more information about {@link THREE.Color} compatibility.
      *
      * @note This method is fully compatible with THREE.js color encoding, so
      * you may pass this value directly to THREE.Color c-tor.

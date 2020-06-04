@@ -31,7 +31,7 @@ export class TextElementState {
      * @hidden
      * Used during rendering. The array type is used for line markers only, which have a points
      * array and multiple icon positions to render. Since line markers use the same renderState
-     * for text part and icon, there is no separate array of [[RenderState]]s for the text parts
+     * for text part and icon, there is no separate array of {@link RenderState}s for the text parts
      * of the line markers.
      */
     private m_iconRenderStates?: RenderState | RenderState[];
@@ -85,7 +85,7 @@ export class TextElementState {
      * If the text wasn't yet rendered or have no alternative placements it will fallback to
      * style/theme based placement.
      *
-     * @returns [[TextPlacement]] object containing vertical/horizontal align.
+     * @returns {@link TextPlacement} object containing vertical/horizontal align.
      */
     get textPlacement(): TextPlacement {
         const themeLayout = this.element.layoutStyle!;
@@ -107,7 +107,7 @@ export class TextElementState {
      *
      * This may be base text anchor placement as defined by style or alternative placement.
      *
-     * @param placement The new [[TextPlacement]] to be used.
+     * @param placement The new {@link TextPlacement} to be used.
      */
     set textPlacement(placement: TextPlacement) {
         if (this.m_textLayoutState === undefined && this.isBaseTextPlacement(placement) === true) {
@@ -126,10 +126,10 @@ export class TextElementState {
     /**
      * Returns information if the text placement provided is the base one defined in style (theme).
      *
-     * @param placement The [[TextPlacement]] to check.
-     * @returns [[true]] if the placement provided is exactly the same as in theme base layout,
-     * [[false]] if it differs from the basic layout provided in style or
-     * [[undefined]] if the layout style is not yet defined so it is hard to say.
+     * @param placement The {@link TextPlacement} to check.
+     * @returns {@link true} if the placement provided is exactly the same as in theme base layout,
+     * {@link false} if it differs from the basic layout provided in style or
+     * {@link undefined} if the layout style is not yet defined so it is hard to say.
      */
     isBaseTextPlacement(placement: TextPlacement): boolean | undefined {
         const themeLayout = this.element.layoutStyle;

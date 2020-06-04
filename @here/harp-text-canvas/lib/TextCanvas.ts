@@ -36,7 +36,7 @@ interface TextPlacementParameters {
 }
 
 /**
- * Optional parameters passed on [[TextCanvas]].`measureText` function call.
+ * Optional parameters passed on {@link TextCanvas}.`measureText` function call.
  */
 export interface MeasurementParameters {
     /**
@@ -62,7 +62,7 @@ export interface MeasurementParameters {
 }
 
 /**
- * Optional parameters passed on [[TextCanvas]].`addText` function call.
+ * Optional parameters passed on {@link TextCanvas}.`addText` function call.
  */
 export interface AdditionParameters {
     /**
@@ -99,7 +99,7 @@ export interface AdditionParameters {
 }
 
 /**
- * Optional parameters passed on [[TextCanvas]].`createTextBufferObject` function call.
+ * Optional parameters passed on {@link TextCanvas}.`createTextBufferObject` function call.
  */
 export interface TextBufferCreationParameters {
     /**
@@ -129,14 +129,14 @@ export interface TextBufferCreationParameters {
     letterCaseArray?: boolean[];
 
     /**
-     * If `true`, both the [[TextRenderStyle]] and [[TextLayoutStyle]] used to generate the
-     * [[TextBufferObject]] will be stored in it.
+     * If `true`, both the {@link TextRenderStyle} and {@link TextLayoutStyle} used to generate the
+     * {@link TextBufferObject} will be stored in it.
      */
     storeStyles?: boolean;
 }
 
 /**
- * Optional parameters passed on [[TextCanvas]].`addTextBufferObject` function call.
+ * Optional parameters passed on {@link TextCanvas}.`addTextBufferObject` function call.
  */
 export interface TextBufferAdditionParameters {
     layer?: number;
@@ -151,12 +151,12 @@ export interface TextBufferAdditionParameters {
 }
 
 /**
- * Default's [[TextCanvas]] layer identifier.
+ * Default's {@link TextCanvas} layer identifier.
  */
 export const DEFAULT_TEXT_CANVAS_LAYER = 0;
 
 /**
- * [[TextCanvas]] rendering layer.
+ * {@link TextCanvas} rendering layer.
  */
 export interface TextCanvasLayer {
     id: number;
@@ -164,7 +164,7 @@ export interface TextCanvasLayer {
 }
 
 /**
- * [[TextCanvas]] construction parameters.
+ * {@link TextCanvas} construction parameters.
  */
 export interface TextCanvasParameters {
     /**
@@ -173,17 +173,17 @@ export interface TextCanvasParameters {
     renderer: THREE.WebGLRenderer;
 
     /**
-     * Initial [[FontCatalog]].
+     * Initial {@link FontCatalog}.
      */
     fontCatalog: FontCatalog;
 
     /**
-     * Minimum amount of glyphs each [[TextCanvas]] layer can store.
+     * Minimum amount of glyphs each {@link TextCanvas} layer can store.
      */
     minGlyphCount: number;
 
     /**
-     * Maximum amount of glyphs each [[TextCanvas]] layer can store.
+     * Maximum amount of glyphs each {@link TextCanvas} layer can store.
      */
     maxGlyphCount: number;
 
@@ -214,12 +214,12 @@ export class TextCanvas {
     private static defaultTextRenderStyle: TextRenderStyle = new TextRenderStyle();
     private static defaultTextLayoutStyle: TextLayoutStyle = new TextLayoutStyle();
     /**
-     * Minimum amount of glyphs each [[TextCanvas]] layer can store.
+     * Minimum amount of glyphs each {@link TextCanvas} layer can store.
      */
     readonly minGlyphCount: number;
 
     /**
-     * Maximum amount of glyphs each [[TextCanvas]] layer can store.
+     * Maximum amount of glyphs each {@link TextCanvas} layer can store.
      */
     readonly maxGlyphCount: number;
 
@@ -295,7 +295,7 @@ export class TextCanvas {
     }
 
     /**
-     * Currently active [[FontCatalog]].
+     * Currently active {@link FontCatalog}.
      */
     get fontCatalog(): FontCatalog {
         return this.m_fontCatalog;
@@ -424,7 +424,7 @@ export class TextCanvas {
      *
      * @param layerId Desired layer identifier.
      *
-     * @returns Created [[TextCanvasLayer]].
+     * @returns Created {@link TextCanvasLayer}.
      */
     addLayer(layerId: number): TextCanvasLayer {
         let result = this.getLayer(layerId);
@@ -453,7 +453,7 @@ export class TextCanvas {
      *
      * @param layerId Desired layer identifier.
      *
-     * @returns Selected [[TextCanvasLayer]].
+     * @returns Selected {@link TextCanvasLayer}.
      */
     getLayer(layerId: number): TextCanvasLayer | undefined {
         return this.m_layers.find(layer => layer.id === layerId);
@@ -462,17 +462,17 @@ export class TextCanvas {
     /**
      * Retrieves all `TextCanvas` rendering layers.
      *
-     * @returns Array of [[TextCanvasLayer]]s.
+     * @returns Array of {@link TextCanvasLayer}s.
      */
     getAllLayers(): TextCanvasLayer[] {
         return this.m_layers;
     }
 
     /**
-     * Returns the computed bounding box for the input text. The current [[TextRenderStyle]] and
-     * [[TextLayoutStyle]] will influence the results of this function.
+     * Returns the computed bounding box for the input text. The current {@link TextRenderStyle} and
+     * {@link TextLayoutStyle} will influence the results of this function.
      *
-     * @param text Input text. Provide an array of [[GlyphData]] for better performance.
+     * @param text Input text. Provide an array of {@link GlyphData} for better performance.
      * @param outputBounds Output text bounding box.
      * @param params Optional measurement parameters.
      *
@@ -519,9 +519,10 @@ export class TextCanvas {
 
     /**
      * Adds the input text to this `TextCanvas` in the specified screen position. The current
-     * [[TextRenderStyle]] and [[TextLayoutStyle]] will influence the results of this function.
+     * {@link TextRenderStyle} and {@link TextLayoutStyle} will influence the results of this
+     * function.
      *
-     * @param text Input text. Provide an array of [[GlyphData]] for better performance.
+     * @param text Input text. Provide an array of {@link GlyphData} for better performance.
      * @param position Screen position.
      * @param params Optional addition parameters.
      *
@@ -583,14 +584,14 @@ export class TextCanvas {
     }
 
     /**
-     * Creates a new [[TextBufferObject]]. The computed text vertex buffer is equivalent to the
+     * Creates a new {@link TextBufferObject}. The computed text vertex buffer is equivalent to the
      * result of performing the `addText` function for the input text in the screen origin.
      *
-     * @param text Input text. Provide an array of [[GlyphData]] for better performance.
+     * @param text Input text. Provide an array of {@link GlyphData} for better performance.
      * @param params Optional creation parameters.
      *
-     * @returns New [[TextBufferObject]] (or `undefined` if requested text glyphs couldn't be
-     * retrieved from the current [[FontCatalog]]).
+     * @returns New {@link TextBufferObject} (or `undefined` if requested text glyphs couldn't be
+     * retrieved from the current {@link FontCatalog}).
      */
     createTextBufferObject(
         text: string | GlyphData[],
@@ -662,10 +663,10 @@ export class TextCanvas {
     }
 
     /**
-     * Adds a previously created [[TextBufferObject]] to the `TextCanvas`. Additional parameters can
-     * be provided to override the attributes stored in the buffer.
+     * Adds a previously created {@link TextBufferObject} to the `TextCanvas`. Additional parameters
+     * can be provided to override the attributes stored in the buffer.
      *
-     * @param textBufferObject [[TextBufferObject]] to add.
+     * @param textBufferObject {@link TextBufferObject} to add.
      * @param params Optional addition parameters.
      *
      * @returns Result of the addition. If `false`, some error occurred during execution and the
@@ -753,8 +754,8 @@ export class TextCanvas {
     }
 
     // Places all glyphs for input text. Depending on parameters, it can store the resulting glyphs
-    // in the current [[TextGeometry]] (or into a separate buffer) or compute the bounding box for
-    // the input (as a whole or on a per-character basis).
+    // in the current {@link TextGeometry} (or into a separate buffer) or compute the bounding box
+    // for the input (as a whole or on a per-character basis).
     private placeText(params: TextPlacementParameters): boolean {
         if (params.input.length === 0 || this.m_currentTextLayoutStyle.maxLines! === 0) {
             if (params.bounds !== undefined) {

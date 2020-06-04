@@ -62,7 +62,7 @@ interface StyleInternalParams {
     /**
      * These attributes are used to instantiate Technique variants.
      *
-     * @see [[TechiqueDescriptor.techniquePropNames]]
+     * @see {@link TechiqueDescriptor.techniquePropNames}
      */
     _dynamicTechniqueAttributes?: Array<[string, Expr]>;
 
@@ -71,7 +71,7 @@ interface StyleInternalParams {
      *
      * They are not propagated to rendering scope.
      *
-     * @see [[TechniqueAttrScope.Feature]]
+     * @see {@link TechniqueAttrScope.Feature}
      */
     _dynamicFeatureAttributes?: Array<[string, Expr]>;
 
@@ -80,8 +80,8 @@ interface StyleInternalParams {
      * directly in render loop.
      *
      * Will contain attributes from these lists
-     *  - interpolants from [[TechiqueDescriptor.techniquePropNames]]
-     *  - expressions [[TechniqueDescriptor.dynamicPropNames]] (Future)
+     *  - interpolants from {@link TechiqueDescriptor.techniquePropNames}
+     *  - expressions {@link TechniqueDescriptor.dynamicPropNames} (Future)
      */
     _dynamicForwardedAttributes?: Array<[string, Expr]>;
     _dynamicTechniques?: Map<string, IndexedTechnique>;
@@ -114,7 +114,7 @@ interface StyleInternalParams {
 type InternalStyle = Style & StyleSelector & StyleInternalParams;
 
 /**
- * [[StyleConditionClassifier]] searches for usages of `$layer` in `when` conditions
+ * {@link StyleConditionClassifier} searches for usages of `$layer` in `when` conditions
  * associated with styling rules.
  *
  * @hidden
@@ -185,7 +185,7 @@ class StyleConditionClassifier implements ExprVisitor<Expr | undefined, Expr | u
                     // found a subexpression `["==", ["get", "$layer"], "some layer name"]`
                     // enclosed in an `["all", e1...eN]` expression. Remove it from
                     // its parent expression and store the value of the expected $layer in
-                    // [[StyleInternalParams]].
+                    // {@link StyleInternalParams}.
 
                     this._style.layer = matched.value;
 
@@ -198,7 +198,7 @@ class StyleConditionClassifier implements ExprVisitor<Expr | undefined, Expr | u
                     // found a subexpression `["==", ["get", "$geometryType"], "geometry"]`
                     // enclosed in an `["all", e1...eN]` expression. Remove it from
                     // its parent expression and store the value of the expected $geometryType in
-                    // [[StyleInternalParams]].
+                    // {@link StyleInternalParams}.
 
                     this._style._geometryType = matched.value;
 
@@ -782,7 +782,7 @@ export class StyleSetEvaluator {
                 ];
 
                 if (attrScope === undefined) {
-                    // Use [[AttrScope.TechniqueGeometry]] as default scope for the attribute.
+                    // Use {@link AttrScope.TechniqueGeometry} as default scope for the attribute.
                     attrScope = AttrScope.TechniqueGeometry;
                 }
 
@@ -954,7 +954,7 @@ function resolveStyleReferences(
 /**
  * Create transferable representation of dynamic technique.
  *
- * Converts  non-transferable [[Expr]]instances back to JSON form.
+ * Converts  non-transferable {@link Expr}instances back to JSON form.
  */
 export function makeDecodedTechnique(technique: IndexedTechnique): IndexedTechnique {
     const result: Partial<IndexedTechnique> = {};

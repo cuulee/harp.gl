@@ -55,7 +55,7 @@ export interface ITransferManager {
  *   would otherwise stall the browser.
  * * Retries the downloads with an increasing timeout on HTTP 503 replies.
  *
- * The static method [[instance]] can be used to get a default constructed instance.
+ * The static method {@link instance} can be used to get a default constructed instance.
  */
 export class TransferManager implements ITransferManager {
     /**
@@ -69,7 +69,7 @@ export class TransferManager implements ITransferManager {
      */
     static readonly maxParallelDownloads = 16;
     /**
-     * Returns a default instance of [[TransferManager]].
+     * Returns a default instance of {@link TransferManager}.
      */
     static instance(): TransferManager {
         return TransferManager.defaultInstance;
@@ -107,7 +107,7 @@ export class TransferManager implements ITransferManager {
     private downloadQueue = new Array<DeferredPromise<Response>>();
     private activeDownloads = new Map<RequestInfo, Promise<any>>();
     /**
-     * Constructs a new [[TransferManager]].
+     * Constructs a new {@link TransferManager}.
      *
      * @param fetchFunction The default fetch function to use.
      * @param maxRetries The maximum amount to try to re-fetch a resource.
@@ -118,7 +118,7 @@ export class TransferManager implements ITransferManager {
      *
      * Note: This method merges multiple downloads of the same string URL to
      * only one request. The init parameter is ignored if the download is merged.
-     * Call [[download]] instead to download the resource without merging.
+     * Call {@link download} instead to download the resource without merging.
      *
      * @param url The URL to download
      * @param init Optional extra parameters for the download.
@@ -131,7 +131,7 @@ export class TransferManager implements ITransferManager {
      *
      * Note: This method merges multiple downloads of the same string URL to
      * only one request. The init parameter is ignored if the download is merged.
-     * Call [[download]] instead to download the resource without merging.
+     * Call {@link download} instead to download the resource without merging.
      *
      * @param url The URL to download
      * @param init Optional extra parameters for the download

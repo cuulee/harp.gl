@@ -5,12 +5,12 @@
  */
 
 /**
- * An [[Array]] following the order longitude, latitude, altitude.
+ * An {@link Array} following the order longitude, latitude, altitude.
  */
 export type GeoPointLike = [number, number, number?];
 
 /**
- * Type guard to assert that `object` conforms to [[GeoPointLike]] interface.
+ * Type guard to assert that `object` conforms to {@link GeoPointLike} interface.
  */
 export function isGeoPointLike(geoPoint: any): geoPoint is GeoPointLike {
     if (Array.isArray(geoPoint)) {

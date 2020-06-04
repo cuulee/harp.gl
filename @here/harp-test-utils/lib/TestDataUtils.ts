@@ -22,7 +22,7 @@ export const testResourcesRoot =
 /**
  * Get URL of test resource.
  *
- * Calculates URL of test resource in same way as [[loadTestResource]].
+ * Calculates URL of test resource in same way as {@link loadTestResource}.
  *
  * @param moduleName: module name, `@here/<module_name>` (e.g. @here/harp-omv-datasource)
  * @param fileName: file relative to module path (e.g. `test/resources/berlin.bin)`

@@ -46,7 +46,7 @@ export interface LinesGeometry {
 }
 
 export interface OmvTileFactory {
-    /** Create an instance of [[OmvTile]] or a subclass. */
+    /** Create an instance of {@link OmvTile} or a subclass. */
     createTile(dataSource: OmvDataSource, tileKey: TileKey): OmvTile;
 }
 
@@ -59,8 +59,8 @@ export interface OmvDataSourceParameters extends DataSourceOptions {
 
     /**
      * @deprecated Tile info is not decoded anymore. The same information can be generated
-     * implementing a [[IGeometryProcessor]] and using [[OmvProtobufDataAdapter]] to decode OMV
-     * data.
+     * implementing a {@link IGeometryProcessor} and using {@link OmvProtobufDataAdapter} to decode
+     * OMV data.
      */
     createTileInfo?: boolean;
 
@@ -81,7 +81,7 @@ export interface OmvDataSourceParameters extends DataSourceOptions {
 
     /**
      * Gather feature IDs from `OmvData`. Defaults to `false`.
-     * @deprecated, FeatureIds are always gathered, use [[gatherFeatureAttributes]] to gather
+     * @deprecated, FeatureIds are always gathered, use {@link gatherFeatureAttributes} to gather
      * all feature attributes.
      */
     gatherFeatureIds?: boolean;
@@ -93,8 +93,8 @@ export interface OmvDataSourceParameters extends DataSourceOptions {
 
     /**
      * @deprecated Tile info is not decoded anymore. The same information can be generated
-     * implementing a [[IGeometryProcessor]] and using [[OmvProtobufDataAdapter]] to decode OMV
-     * data.
+     * implementing a {@link IGeometryProcessor} and using {@link OmvProtobufDataAdapter} to decode
+     * OMV data.
      */
     gatherRoadSegments?: boolean;
 
@@ -106,26 +106,27 @@ export interface OmvDataSourceParameters extends DataSourceOptions {
 
     /**
      * A description for the feature filter that can be safely passed down to the web workers. It
-     * has to be generated with the help of the [[OmvFeatureFilterDescriptionBuilder]] (to guarantee
-     * correctness). This parameter gets applied to the decoder used in the [[OmvDataSource]]
-     * which might be shared between various [[OmvDataSource]]s.
+     * has to be generated with the help of the {@link OmvFeatureFilterDescriptionBuilder}
+     * (to guarantee correctness).
+     * This parameter gets applied to the decoder used in the {@link OmvDataSource}
+     * which might be shared between various {@link OmvDataSource}s.
      */
     filterDescr?: OmvFeatureFilterDescription;
 
     /**
-     * Optional, custom factory for [[Tile]] instances created by this [[OmvDataSource]].
+     * Optional, custom factory for {@link Tile} instances created by this {@link OmvDataSource}.
      */
     tileFactory?: TileFactory<OmvTile>;
 
     /**
-     * Identifier used to choose [[OmvFeatureModifier]]s to be applied.
+     * Identifier used to choose {@link OmvFeatureModifier}s to be applied.
      *
-     * If left `undefined` at least [[OmvGenericFeatureModifier]] will be applied.
+     * If left `undefined` at least {@link OmvGenericFeatureModifier} will be applied.
      * The list of feature modifiers may be extended internally by some data source options
-     * such as [[politicalView]] which adds [[OmvPoliticalViewFeatureModifier]].
+     * such as {@link politicalView} which adds {@link OmvPoliticalViewFeatureModifier}.
      *
-     * @note This parameter gets applied to the decoder used in the [[OmvDataSource]] which might
-     * be shared between various [[OmvDataSource]]s.
+     * @note This parameter gets applied to the decoder used in the {@link OmvDataSource} which
+     * might be shared between various {@link OmvDataSource}s.
      */
     featureModifierId?: FeatureModifierId;
 
@@ -152,9 +153,10 @@ export interface OmvDataSourceParameters extends DataSourceOptions {
     /**
      * Maximum geometry height above groud level this `OmvDataSource` can produce.
      *
-     * Used in first stage of frustum culling before [[Tile.maxGeometryHeight]] data is available.
+     * Used in first stage of frustum culling before {@link Tile.maxGeometryHeight} data is
+     * available.
      *
-     * @default [[EarthConstants.MAX_BUILDING_HEIGHT]].
+     * @default {@link EarthConstants.MAX_BUILDING_HEIGHT}.
      */
     maxGeometryHeight?: number;
 
@@ -172,7 +174,8 @@ export interface OmvDataSourceParameters extends DataSourceOptions {
 }
 
 /**
- * A helper function to retrieve the [[DataProvider]] from the [[OmvDataSource]]s parameters.
+ * A helper function to retrieve the {@link DataProvider} from the {@link OmvDataSource}s
+ * parameters.
  *
  * @param params The parameters passed into the OmvDataSource.
  */
@@ -263,11 +266,11 @@ export class OmvDataSource extends TileDataSource<OmvTile> {
     }
 
     /**
-     * Set a new data filter. Can also be done during the creation of an [[OmvDataSource]].
+     * Set a new data filter. Can also be done during the creation of an {@link OmvDataSource}.
      * Will be applied to the decoder, which might be shared with other omv datasources.
      *
      * @param filterDescription Data filter description created with
-     * [[OmvFeatureFilterDescriptionBuilder]].
+     * {@link OmvFeatureFilterDescriptionBuilder}.
      */
     setDataFilter(filterDescription: OmvFeatureFilterDescription): void {
         this.m_decoderOptions.filterDescription =

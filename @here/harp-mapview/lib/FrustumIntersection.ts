@@ -51,7 +51,7 @@ function getGeoBox(tilingScheme: TilingScheme, childTileKey: TileKey, offset: nu
 /**
  * Map tile keys to TileKeyEntry.
  * Keys are a combination of morton code and tile offset,
- * see [[TileOffsetUtils.getKeyForTileKeyAndOffset]].
+ * see {@link TileOffsetUtils.getKeyForTileKeyAndOffset}.
  */
 type TileKeyEntries = Map<number, TileKeyEntry>;
 
@@ -131,13 +131,13 @@ export class FrustumIntersection {
     }
 
     /**
-     * Computes the tiles intersected by the updated frustum, see [[updateFrustum]].
+     * Computes the tiles intersected by the updated frustum, see {@link updateFrustum}.
      *
      * @param tilingScheme The tiling scheme used to generate the tiles.
      * @param elevationRangeSource Source of elevation range data if any.
      * @param zoomLevels A list of zoom levels to render.
      * @param dataSources A list of data sources to render.
-     * @returns The computation result, see [[FrustumIntersection.Result]].
+     * @returns The computation result, see {@link FrustumIntersection.Result}.
      */
     compute(
         tilingScheme: TilingScheme,
@@ -316,8 +316,8 @@ export class FrustumIntersection {
 
     /**
      * Create a list of root nodes to test against the frustum. The root nodes each start at level 0
-     * and have an offset (see [[Tile]]) based on:
-     * - the current position [[worldCenter]].
+     * and have an offset (see {@link Tile}) based on:
+     * - the current position {@link worldCenter}.
      * - the height of the camera above the world.
      * - the field of view of the camera (the maximum value between the horizontal / vertical
      *   values)
@@ -396,8 +396,8 @@ export class FrustumIntersection {
             ),
             0,
             // We can store currently up to 16 unique keys(2^4, where 4 is the default bit-shift
-            // value which is used currently in the [[VisibleTileSet]] methods) hence we can have a
-            // maximum range of 7 (because 2*7+1 = 15).
+            // value which is used currently in the {@link VisibleTileSet} methods) hence we can
+            // have a smaximum range of 7 (because 2*7+1 = 15).
             7
         );
         for (

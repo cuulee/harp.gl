@@ -40,8 +40,8 @@ export enum AttrScope {
 }
 
 /**
- * Extract  property names from [[Technique]]-like interface (excluding `name`) as union of string
- * literals.
+ * Extract  property names from {@link Technique}-like interface (excluding `name`)
+ * as union of string literals.
  *
  * TechniquePropName<Base
  *

@@ -231,10 +231,10 @@ export function checkReadyForPlacement(
 /**
  * Computes the offset for a point text accordingly to text alignment (and icon, if any).
  * @param textElement The text element of which the offset will computed. It must be a point
- * label with [[layoutStyle]] and [[bounds]] already computed.
+ * label with {@link layoutStyle} and {@link bounds} already computed.
  * @param placement The relative anchor placement (may be different then original alignment).
  * @param scale The scaling factor (due to distance, etc.).
- * @param env The [[Env]] used to evaluate technique attributes.
+ * @param env The {@link Env} used to evaluate technique attributes.
  * @param offset The offset result.
  */
 function computePointTextOffset(
@@ -404,14 +404,14 @@ export function placeIcon(
  * @param screenPosition Position of the label in screen coordinates.
  * @param scale Scale factor to be applied to label dimensions.
  * @param textCanvas The text canvas where the label will be placed.
- * @param env The [[Env]] used to evaluate technique attributes.
+ * @param env The {@link Env} used to evaluate technique attributes.
  * @param screenCollisions Used to check collisions with other labels.
  * @param isRejected Whether the label is already rejected (e.g. because its icon was rejected). If
  * `true`, text won't be checked for collision, result will be either `PlacementResult.Invisible`
  * for newly placed (upcoming) label or `PlacementResult.Rejected` if the label was persistent.
  * @param outScreenPosition The final label screen position after applying any offsets.
  * @param multiAnchor The parameter decides if multi-anchor placement algorithm should be
- * used, be default [[false]] meaning try to place label using current alignment settings only.
+ * used, be default {@link false} meaning try to place label using current alignment settings only.
  * @returns `PlacementResult.Ok` if point __label can be placed__ at the base or any optional
  * anchor point. `PlacementResult.Rejected` if there's a collision for all placements or it's
  * __persistent label with icon rejected and text visible__. Finally `PlacementResult.Invisible`
@@ -473,13 +473,13 @@ export function placePointLabel(
  * Try to place a point label text using multiple optional placements.
  *
  * @note Function should be called only for labels with icons not rejected and for text alignments
- * different then [[HorizontalAlignment.Center]] and [[VerticalAlignment.Center]].
+ * different then {@link HorizontalAlignment.Center} and {@link VerticalAlignment.Center}.
  *
  * @param labelState State of the point label to place.
  * @param screenPosition Position of the label in screen coordinates.
  * @param scale Scale factor to be applied to label dimensions.
  * @param textCanvas The text canvas where the label will be placed.
- * @param env The [[Env]] used to evaluate technique attributes.
+ * @param env The {@link Env} used to evaluate technique attributes.
  * @param screenCollisions Used to check collisions with other labels.
  * @param outScreenPosition The final label screen position after applying any offsets.
  * @returns `PlacementResult.Ok` if label can be placed at the base or optional anchor point,
@@ -585,7 +585,7 @@ function placePointLabelChoosingAnchor(
  * @param screenPosition Position of the label in screen coordinates.
  * @param scale Scale factor to be applied to label dimensions.
  * @param textCanvas The text canvas where the label will be placed.
- * @param env The [[Env]] used to evaluate technique attributes.
+ * @param env The {@link Env} used to evaluate technique attributes.
  * @param screenCollisions Used to check collisions with other labels.
  * @param isRejected Whether the label is already rejected (e.g. because its icon was rejected). If
  * `true`, text won't be checked for collision, result will be either `PlacementResult.Invisible` or
@@ -635,7 +635,7 @@ function placePointLabelAtCurrentAnchor(
  * @param placement Text placement relative to the label position.
  * @param scale Scale factor to be applied to label dimensions.
  * @param textCanvas The text canvas where the label will be placed.
- * @param env The [[Env]] used to evaluate technique attributes.
+ * @param env The {@link Env} used to evaluate technique attributes.
  * @param screenCollisions Used to check collisions with other labels.
  * @param isRejected Whether the label is already rejected (e.g. because its icon was rejected). If
  * `true`, text won't be checked for collision, result will be either `PlacementResult.Invisible` or
@@ -919,7 +919,7 @@ const tmpOrientedBox = new OrientedBox3();
  * @param env The environment to extract the worldOffset needed to shift the icon in world space,
  * if configured in the style.
  * @param outWorldPosition Preallocated vector to store the result in
- * @returns the [[outWorldPosition]] vector.
+ * @returns the {@link outWorldPosition} vector.
  */
 export function getWorldPosition(
     poiLabel: TextElement,

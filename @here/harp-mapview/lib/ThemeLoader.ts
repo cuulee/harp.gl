@@ -38,28 +38,28 @@ import "@here/harp-fetch";
 export const DEFAULT_MAX_THEME_INTHERITANCE_DEPTH = 4;
 
 /**
- * Options to customize [[Theme]] loading process.
+ * Options to customize {@link Theme} loading process.
  *
- * @see [[ThemeLoader.load]]
+ * @see {@link ThemeLoader.load}
  */
 export interface ThemeLoadOptions {
     /**
      * Whether to resolve `ref` expressions in `definition` and `styles` elements.
      *
-     * @default `false`, as datasources resolve definitions in [[StyleSetEvaluator]].
+     * @default `false`, as datasources resolve definitions in {@link StyleSetEvaluator}.
      */
     resolveDefinitions?: boolean;
 
     /**
      * Resolve the URIs to resources like fonts, icons, ...
-     * If true, [[uriResolver]] will be used to resolve the URI
+     * If true, {@link uriResolver} will be used to resolve the URI
      * @default true
      */
     resolveResourceUris?: boolean;
 
     /**
      * Resolve the URIs of inherited themes (using `extends` feature).
-     * If true, [[uriResolver]] will be used to resolve the URI
+     * If true, {@link uriResolver} will be used to resolve the URI
      * @default true
      */
     resolveIncludeUris?: boolean;
@@ -76,16 +76,17 @@ export interface ThemeLoadOptions {
     signal?: AbortSignal;
 
     /**
-     * Maximum recursion depth when resolving base themes through [[[Theme]]s `extends` property.
+     * Maximum recursion depth when resolving base themes through {@link [Theme}s `extends`
+     * property.
      *
-     * @default [[DEFAULT_MAX_THEME_INTHERITANCE_DEPTH]]
+     * @default {@link DEFAULT_MAX_THEME_INTHERITANCE_DEPTH}
      */
     maxInheritanceDepth?: number;
 
     /**
      * Custom logging channel on which diagnostics and warnings will be reported.
      *
-     * If not specified, [[ThemeLoader.load]] will log to `console`.
+     * If not specified, {@link ThemeLoader.load} will log to `console`.
      */
     logger?: ISimpleChannel;
 
@@ -100,24 +101,24 @@ export interface ThemeLoadOptions {
  */
 export class ThemeLoader {
     /**
-     * Loads a [[Theme]] from a remote resource, provided as a URL that points to a
+     * Loads a {@link Theme} from a remote resource, provided as a URL that points to a
      * JSON-encoded theme.
      *
      * By default, resolves following features of theme:
      *
-     *  -  `extends` - loads and merges all inherited themes (see [[resolveBaseTheme]])
+     *  -  `extends` - loads and merges all inherited themes (see {@link resolveBaseTheme})
      *  -  `ref` - resolves all `ref` instances to their values defined in `definitions` section
-     *     of theme (see [[resolveThemeReferences]])
+     *     of theme (see {@link resolveThemeReferences})
      *
      * Relative URIs of reference resources are resolved to full URL using the document's base URL
-     * (see [[resolveUrls]]).
+     * (see {@link resolveUrls}).
      *
      * Custom URIs (of theme itself and of resources referenced by theme) may be resolved with by
-     * providing [[UriResolver]] using [[ThemeLoadOptions.uriResolver]] option.
+     * providing {@link UriResolver} using {@link ThemeLoadOptions.uriResolver} option.
      *
-     * @param theme [[Theme]] instance or theme URL to the theme.
-     * @param options Optional, a [[ThemeLoadOptions]] objects containing any custom settings for
-     *    this load request.
+     * @param theme {@link Theme} instance or theme URL to the theme.
+     * @param options Optional, a {@link ThemeLoadOptions} objects containing any custom settings
+     *                for this load request.
      */
     static async load(
         theme: string | Theme | FlatTheme,
@@ -172,7 +173,7 @@ export class ThemeLoader {
     /**
      * @deprecated Please use `ThemeLoader.load`
      *
-     * Loads a [[Theme]] from a remote resource, provided as a URL that points to a JSON-encoded
+     * Loads a {@link Theme} from a remote resource, provided as a URL that points to a JSON-encoded
      * theme.
      *
      * @param themeUrl The URL to the theme.
@@ -183,12 +184,12 @@ export class ThemeLoader {
     }
 
     /**
-     * Resolves all [[Theme]]'s relatives URLs to full URL using the [[Theme]]'s URL
+     * Resolves all {@link Theme}'s relatives URLs to full URL using the {@link Theme}'s URL
      * (see: https://www.w3.org/TR/WD-html40-970917/htmlweb.html#h-5.1.2).
      *
      * This method mutates original `theme` instance.
      *
-     * @param theme The [[Theme]] to resolve.
+     * @param theme The {@link Theme} to resolve.
      */
     private static resolveUrls(theme: Theme | FlatTheme, options?: ThemeLoadOptions): Theme {
         // Ensure that all resources referenced in theme by relative URIs are in fact relative to
@@ -256,7 +257,7 @@ export class ThemeLoader {
     }
 
     /**
-     * Expand all `ref` expressions in [[Theme]] basing on `definitions`.
+     * Expand all `ref` expressions in {@link Theme} basing on `definitions`.
      *
      * This method mutates original `theme` instance.
      */
@@ -314,7 +315,7 @@ export class ThemeLoader {
     }
 
     /**
-     * Expand all `ref` in [[StyleSet]] basing on `definitions`.
+     * Expand all `ref` in {@link StyleSet} basing on `definitions`.
      */
     private static resolveStyleSet(
         styleSet: StyleSet,
@@ -342,7 +343,7 @@ export class ThemeLoader {
     }
 
     /**
-     * Expand all `ref` in [[Style]] instance basing on `definitions`.
+     * Expand all `ref` in {@link Style} instance basing on `definitions`.
      */
     private static resolveStyle(
         style: StyleDeclaration,
@@ -463,11 +464,11 @@ export class ThemeLoader {
     }
 
     /**
-     * Realize `extends` clause by merging `theme` with its base [[Theme]].
+     * Realize `extends` clause by merging `theme` with its base {@link Theme}.
      *
      * @param theme [Theme] object
-     * @param options Optional, a [[ThemeLoadOptions]] objects containing any custom settings for
-     *    this load request.
+     * @param options Optional, a {@link ThemeLoadOptions} objects containing any custom settings
+     *        for this load request.
      */
     private static async resolveBaseThemes(
         theme: Theme,

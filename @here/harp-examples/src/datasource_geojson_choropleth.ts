@@ -18,25 +18,25 @@ import * as THREE from "three";
 import { apikey, copyrightInfo } from "../config";
 
 /**
- * This example demonstrates how to generate a heatmap-like [[StyleSet]] for a GeoJson. To do so,
- * each [[Style]] needs to define its own color shade, and they all need to be staggered on a
- * specific range of values. Here, the values are brought directly in the data of the GeoJson,
- * through the properties held in each feature. This GeoJson is a map of Italy, each feature
- * represents a region, and the properties bear the population density of that region. We can
- * narrow the `when` [[Expr]] condition of a [[Style]] to a value in a property, by simply writing
- * `propertyName` in the condition. The algorithm then reads:
+ * This example demonstrates how to generate a heatmap-like {@link StyleSet} for a GeoJson.
+ * To do so, each {@link Style} needs to define its own color shade, and they all need to be
+ * staggered on a specific range of values. Here, the values are brought directly in the data
+ * of the GeoJson, through the properties held in each feature. This GeoJson is a map of Italy,
+ * each feature represents a region, and the properties bear the population density of that region.
+ * We can narrow the `when` {@link Expr} condition of a {@link Style} to a value in a property,
+ * by simply writing `propertyName` in the condition. The algorithm then reads:
  * ```typescript
  * [[include:geojson_heatmap1.ts]]
  * ```
  *
- * The algorithm loops through a range of values to create the [[Style]]s based on a range of
+ * The algorithm loops through a range of values to create the {@link Style}s based on a range of
  * values, hence the variables in use. Externally it is wrapped in a more readable function where we
  * can simply describe the heatmap desired:
  * ```typescript
  * [[include:geojson_heatmap2.ts]]
  * ```
  *
- * Finally this [[StyleSet]] is assigned to the [[DataSource]]:
+ * Finally this {@link StyleSet} is assigned to the {@link DataSource}:
  * ```typescript
  * [[include:geojson_heatmap3.ts]]
  * ```
@@ -109,7 +109,7 @@ export namespace GeoJsonHeatmapExample {
     }
 
     /**
-     * A generator for a heatmap-like [[StyleSet]].
+     * A generator for a heatmap-like {@link StyleSet}.
      *
      * @param options Heatmap settings.
      */

@@ -74,7 +74,7 @@ export enum VerticalPlacement {
 /**
  * Horizontal position of text element relative to the placement context (point, line).
  *
- * @note [[HorizontalPlacement]] value is exactly opposite to [[HorizontalAlignment]] value,
+ * @note {@link HorizontalPlacement} value is exactly opposite to {@link HorizontalAlignment} value,
  * cause when you place text on the right side of point (or icon) it will be left-aligned.
  */
 export enum HorizontalPlacement {
@@ -102,7 +102,7 @@ export enum WrappingMode {
 /**
  * @hidden
  * @internal
- * Utility function that gets deduced [[HorizontalAlignment]] from [[HorizontalPlacement]].
+ * Utility function that gets deduced {@link HorizontalAlignment} from {@link HorizontalPlacement}.
  * Horizontal alignments are exactly opposite to the placements.
  */
 export function hAlignFromPlacement(hP: HorizontalPlacement): HorizontalAlignment {
@@ -112,7 +112,7 @@ export function hAlignFromPlacement(hP: HorizontalPlacement): HorizontalAlignmen
 /**
  * @hidden
  * @internal
- * Utility function that gets deduced [[VerticalAlignment]] from [[VerticalPlacement]].
+ * Utility function that gets deduced {@link VerticalAlignment} from {@link VerticalPlacement}.
  */
 export function vAlignFromPlacement(vP: VerticalPlacement): VerticalAlignment {
     return (vP as unknown) as VerticalAlignment;
@@ -121,7 +121,7 @@ export function vAlignFromPlacement(vP: VerticalPlacement): VerticalAlignment {
 /**
  * @hidden
  * @internal
- * Utility function that gets deduced [[HorizontalPlacement]] from [[HorizontalAlignment]].
+ * Utility function that gets deduced {@link HorizontalPlacement} from {@link HorizontalAlignment}.
  * Horizontal placements are exactly opposite to the alignment values.
  */
 export function hPlacementFromAlignment(hA: HorizontalAlignment): HorizontalPlacement {
@@ -131,15 +131,15 @@ export function hPlacementFromAlignment(hA: HorizontalAlignment): HorizontalPlac
 /**
  * @hidden
  * @internal
- * Utility function that gets deduced [[VerticalPlacement]] from [[VerticalAlignment]].
+ * Utility function that gets deduced {@link VerticalPlacement} from {@link VerticalAlignment}.
  */
 export function vPlacementFromAlignment(vA: VerticalAlignment): VerticalPlacement {
     return (vA as unknown) as VerticalPlacement;
 }
 
 /**
- * Namespace containing default values for all members of [[TextRenderParameters]] and
- * [[TextLayoutParameters]].
+ * Namespace containing default values for all members of {@link TextRenderParameters} and
+ * {@link TextLayoutParameters}.
  */
 export namespace DefaultTextStyle {
     export const DEFAULT_FONT_NAME: string = "";
@@ -169,7 +169,7 @@ export namespace DefaultTextStyle {
 }
 
 /**
- * [[TextCanvas]] text rendering parameters.
+ * {@link TextCanvas} text rendering parameters.
  */
 export interface TextRenderParameters {
     fontName?: string;
@@ -184,7 +184,7 @@ export interface TextRenderParameters {
 }
 
 /**
- * [[TextCanvas]] text rendering style.
+ * {@link TextCanvas} text rendering style.
  */
 export class TextRenderStyle {
     private m_params: TextRenderParameters;
@@ -192,7 +192,7 @@ export class TextRenderStyle {
     /**
      * Creates a new `TextRenderStyle`.
      *
-     * @param params Input [[TextRenderParameters]].
+     * @param params Input {@link TextRenderParameters}.
      *
      * @returns New `TextRenderStyle`.
      */
@@ -238,7 +238,7 @@ export class TextRenderStyle {
     }
 
     /**
-     * Current [[TextRenderParameters]] for this style.
+     * Current {@link TextRenderParameters} for this style.
      */
     get params(): TextRenderParameters {
         return this.m_params;
@@ -248,7 +248,7 @@ export class TextRenderStyle {
     }
 
     /**
-     * Name of the preferred [[Font]] to be used when rendering.
+     * Name of the preferred {@link Font} to be used when rendering.
      */
     get fontName(): string {
         return this.m_params.fontName!;
@@ -258,7 +258,7 @@ export class TextRenderStyle {
     }
 
     /**
-     * Collection of unit and sizes to apply for the currently active [[Font]].
+     * Collection of unit and sizes to apply for the currently active {@link Font}.
      */
     get fontSize(): FontSize {
         return this.m_params.fontSize!;
@@ -268,7 +268,7 @@ export class TextRenderStyle {
     }
 
     /**
-     * Glyph style to apply for the currently active [[Font]].
+     * Glyph style to apply for the currently active {@link Font}.
      */
     get fontStyle(): FontStyle {
         return this.m_params.fontStyle!;
@@ -278,7 +278,7 @@ export class TextRenderStyle {
     }
 
     /**
-     * Glyph variant to apply for the currently active [[Font]].
+     * Glyph variant to apply for the currently active {@link Font}.
      */
     get fontVariant(): FontVariant {
         return this.m_params.fontVariant!;
@@ -338,18 +338,18 @@ export class TextRenderStyle {
     }
 
     /**
-     * Clone this [[TextRenderStyle]].
+     * Clone this {@link TextRenderStyle}.
      *
-     * @param params Input [[TextRenderParameters]].
+     * @param params Input {@link TextRenderParameters}.
      *
-     * @returns Cloned [[TextRenderStyle]].
+     * @returns Cloned {@link TextRenderStyle}.
      */
     clone(params: TextRenderParameters = {}): TextRenderStyle {
         return new TextRenderStyle({ ...this.m_params, ...params });
     }
 
     /**
-     * Copy other [[TextRenderStyle]] properties into this object instance.
+     * Copy other {@link TextRenderStyle} properties into this object instance.
      *
      * @param source The source object to be copied.
      *
@@ -371,7 +371,7 @@ export class TextRenderStyle {
 }
 
 /**
- * [[TextCanvas]] text layout parameters.
+ * {@link TextCanvas} text layout parameters.
  */
 export interface TextLayoutParameters {
     tracking?: number;
@@ -387,7 +387,7 @@ export interface TextLayoutParameters {
 }
 
 /**
- * [[TextCanvas]] text rendering style.
+ * {@link TextCanvas} text rendering style.
  */
 export class TextLayoutStyle {
     private m_params: TextLayoutParameters;
@@ -395,7 +395,7 @@ export class TextLayoutStyle {
     /**
      * Creates a new `TextLayoutStyle`.
      *
-     * @param params Input [[TextLayoutParameters]].
+     * @param params Input {@link TextLayoutParameters}.
      *
      * @returns New `TextLayoutStyle`.
      */
@@ -438,7 +438,7 @@ export class TextLayoutStyle {
     }
 
     /**
-     * Current [[TextLayoutParameters]] for this style.
+     * Current {@link TextLayoutParameters} for this style.
      */
     get params(): TextLayoutParameters {
         return this.m_params;
@@ -448,7 +448,7 @@ export class TextLayoutStyle {
     }
 
     /**
-     * Inter-glyph spacing (pixels). Scaled by [[FontSize]].
+     * Inter-glyph spacing (pixels). Scaled by {@link FontSize}.
      */
     get tracking(): number {
         return this.m_params.tracking!;
@@ -458,7 +458,7 @@ export class TextLayoutStyle {
     }
 
     /**
-     * Inter-line spacing (pixels). Scaled by [[FontSize]].
+     * Inter-line spacing (pixels). Scaled by {@link FontSize}.
      */
     get leading(): number {
         return this.m_params.leading!;
@@ -468,7 +468,7 @@ export class TextLayoutStyle {
     }
 
     /**
-     * Maximum number of lines to be considered when using [[TextCanvas]].
+     * Maximum number of lines to be considered when using {@link TextCanvas}.
      */
     get maxLines(): number {
         return this.m_params.maxLines!;
@@ -488,7 +488,7 @@ export class TextLayoutStyle {
     }
 
     /**
-     * [[TextCanvas]] rotation (radians).
+     * {@link TextCanvas} rotation (radians).
      */
     get canvasRotation(): number {
         return this.m_params.canvasRotation!;
@@ -540,7 +540,7 @@ export class TextLayoutStyle {
     /**
      * Text placement options relative to label anchor (origin).
      *
-     * @note [[TextPlacement]]s options may override alignment settings.
+     * @note {@link TextPlacement}s options may override alignment settings.
      */
     get placements(): TextPlacements {
         return this.m_params.placements!;
@@ -557,18 +557,18 @@ export class TextLayoutStyle {
     }
 
     /**
-     * Clone this [[TextLayoutStyle]].
+     * Clone this {@link TextLayoutStyle}.
      *
-     * @param params Input [[TextLayoutParameters]].
+     * @param params Input {@link TextLayoutParameters}.
      *
-     * @returns Cloned [[TextLayoutStyle]].
+     * @returns Cloned {@link TextLayoutStyle}.
      */
     clone(params: TextLayoutParameters = {}): TextLayoutStyle {
         return new TextLayoutStyle({ ...this.m_params, ...params });
     }
 
     /**
-     * Copy other [[TextLayoutStyle]] properties into this object instance.
+     * Copy other {@link TextLayoutStyle} properties into this object instance.
      *
      * @param other The object to be copied.
      *

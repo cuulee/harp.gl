@@ -24,14 +24,14 @@ export enum APIFormat {
      *
      *     <OmvRestClientParams.baseUrl>/<zoom>/<X>/<Y>/omv
      *
-     * If [[OmvRestClientParams.authenticationToken]] is provided, it will be added as HTTP header:
+     * If {@link OmvRestClientParams.authenticationToken} is provided, it will be added as HTTP header:
      *
      *     Authorization: Bearer $authenticationToken
      *
      * Format definition:
      * `//http|s://<base-url>/{API version}/{layers}/{projection}/{z}/{x}/{y}/{format}`
      *
-     * Default authentication method used: [[AuthenticationTypeBearer]].
+     * Default authentication method used: {@link AuthenticationTypeBearer}.
      */
     HereV1,
 
@@ -47,7 +47,7 @@ export enum APIFormat {
      * Sample URL:
      * `http://a.tiles.mapbox.com/v4/mapbox.mapbox-streets-v7/14/4823/6160.mvt?access_token=your-mapbox-access-token`
      *
-     * Default authentication method used: [[AuthenticationTypeAccessToken]].
+     * Default authentication method used: {@link AuthenticationTypeAccessToken}.
      */
     MapboxV4,
 
@@ -63,7 +63,7 @@ export enum APIFormat {
      * Sample URL:
      * `https://xyz.api.here.com/tiles/osmbase/256/all/16/19293/24641.mvt?access_token=your-xyz-access-token`
      *
-     * Default authentication method used: [[AuthenticationTypeAccessToken]].
+     * Default authentication method used: {@link AuthenticationTypeAccessToken}.
      */
     XYZMVT,
 
@@ -79,7 +79,7 @@ export enum APIFormat {
      * Sample URL:
      * `https://xyz.api.here.com/tiles/osmbase/256/all/16/19293/24641.json?access_token=your-xyz-api-key`
      *
-     * Default authentication method used: [[AuthenticationTypeAccessToken]].
+     * Default authentication method used: {@link AuthenticationTypeAccessToken}.
      */
     XYZJson,
 
@@ -95,7 +95,7 @@ export enum APIFormat {
      * Sample URL:
      * `https://xyz.api.here.com/tiles/herebase.02/14/2649/6338/omv?access_token=your-xyz-access-token`
      *
-     * Default authentication method used: [[AuthenticationTypeAccessToken]].
+     * Default authentication method used: {@link AuthenticationTypeAccessToken}.
      */
     XYZOMV,
 
@@ -111,7 +111,7 @@ export enum APIFormat {
      * Sample URL:
      * `http://api.tomtom.com/map/1/tile/basic/main/0/0/0.pbf?key=<apiKey>`
      *
-     * Default authentication method used: [[AuthenticationTypeTomTomV1]].
+     * Default authentication method used: {@link AuthenticationTypeTomTomV1}.
      */
     TomtomV1,
 
@@ -127,15 +127,15 @@ export enum APIFormat {
      * Sample URL:
      * `https://xyz.api.here.com/hub/spaces/your-space-id/tile/web/{z}_{x}_{y}.mvt?access_token=your-access-token`
      *
-     * Default authentication method used: [[AuthenticationTypeAccessToken]].
+     * Default authentication method used: {@link AuthenticationTypeAccessToken}.
      */
     XYZSpace
 }
 // tslint:enable:max-line-length
 
 /**
- * Authentication token/code provider used by [[OmvRestClient]] before each call to currently valid
- * authentication code/token.
+ * Authentication token/code provider used by {@link OmvRestClient} before each call to currently
+ * valid authentication code/token.
  */
 export type AuthenticationCodeProvider = () => Promise<string>;
 
@@ -179,9 +179,9 @@ export interface OmvRestClientParameters {
      * `URL` pattern used to fetch tile files.
      *
      * `URL` with special keywords replaced to retrieve specific tile:
-     *  - `{z}` - zoom level of tile, @see [[TileKey.level]]
-     *  - `{x}` - horizontal coordinate of tile (column number), @see [[TileKey.column]]
-     *  - `{y}` - vertical coordinate of Tile (row number), @see [[TileKey.row]]
+     *  - `{z}` - zoom level of tile, @see {@link TileKey.level}
+     *  - `{x}` - horizontal coordinate of tile (column number), @see {@link TileKey.column}
+     *  - `{y}` - vertical coordinate of Tile (row number), @see {@link TileKey.row}
      *
      * Examples of `url` patterns:
      * ```
@@ -190,8 +190,8 @@ export interface OmvRestClientParameters {
      *   https://xyz.api.here.com/tiles/osmbase/512/all/{z}/{x}/{y}.mvt
      * ```
      *
-     * Note: To add authentication headers and/or query params, use [[authMethod]], [[urlParams]]
-     * properties or embed token directly in `url`.
+     * Note: To add authentication headers and/or query params, use {@link authMethod},
+     * {@link urlParams} properties or embed token directly in `url`.
      *
      * Complete examples:
      * ```
@@ -214,24 +214,24 @@ export interface OmvRestClientParameters {
 
     /**
      * The base URL of the REST Tile Service.
-     * @see [[APIFormat]] for the definition of `baseUrl`.
+     * @see {@link APIFormat} for the definition of `baseUrl`.
      */
     baseUrl?: string;
 
     /**
      * Authentication code used for the different APIs.
      *
-     * When [[AuthenticationCodeProvider]] is is used as value, the provider is called before each
-     * to get currently valid authentication code/token.
+     * When {@link AuthenticationCodeProvider} is is used as value, the provider is called before
+     * each to get currently valid authentication code/token.
      *
-     * @see [[APIFormat]] for the query parameter this is used with.
+     * @see {@link APIFormat} for the query parameter this is used with.
      */
     authenticationCode?: string | AuthenticationCodeProvider;
 
     /**
-     * Specifies [[AuthMethod]] to be used when requesting tiles.
+     * Specifies {@link AuthMethod} to be used when requesting tiles.
      *
-     * Defaults for each [[APIFormat]] are documented with each format type.
+     * Defaults for each {@link APIFormat} are documented with each format type.
      */
     authenticationMethod?: AuthenticationMethodInfo;
 
@@ -254,7 +254,7 @@ export interface OmvRestClientParameters {
     /**
      * Function to retrieve the Bearer Token
      *
-     * @deprecated Please use [[authenticationCode]].
+     * @deprecated Please use {@link authenticationCode}.
      */
     getBearerToken?: () => Promise<string>;
 

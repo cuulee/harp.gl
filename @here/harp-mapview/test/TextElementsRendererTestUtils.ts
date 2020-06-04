@@ -95,7 +95,7 @@ export function fadeOut(frames: number): FadeState[] {
 
 /**
  * Helper functions to generate boolean arrays used to indicate on what frames
- * an input test tile is visible (see [[InputTile]]).
+ * an input test tile is visible (see {@link InputTile}).
  */
 export function firstNFrames(frames: number[], n: number): boolean[] {
     return new Array<boolean>(frames.length).fill(false).fill(true, 0, n);

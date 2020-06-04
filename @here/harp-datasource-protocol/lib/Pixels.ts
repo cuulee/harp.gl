@@ -27,7 +27,7 @@ export class Pixels {
     }
 
     /**
-     * Constructs a [[Pixels]] literal
+     * Constructs a {@link Pixels} literal
      *
      * @param value The number of pixels.
      */

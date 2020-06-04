@@ -248,8 +248,8 @@ export class OmvDecodedTileEmitter implements IOmvEmitter {
      * @param layer Tile's layer to be processed.
      * @param extents Tile's layer extents.
      * @param geometry The current feature containing the main geometry.
-     * @param env The [[MapEnv]] containing the environment information for the map.
-     * @param techniques The array of [[Technique]] that will be applied to the geometry.
+     * @param env The {@link MapEnv} containing the environment information for the map.
+     * @param techniques The array of {@link Technique} that will be applied to the geometry.
      */
     processPointFeature(
         layer: string,
@@ -339,8 +339,8 @@ export class OmvDecodedTileEmitter implements IOmvEmitter {
      * @param layer Tile's layer to be processed.
      * @param extents Tile's layer extents.
      * @param geometry The current feature containing the main geometry.
-     * @param env The [[MapEnv]] containing the environment information for the map.
-     * @param techniques The array of [[Technique]] that will be applied to the geometry.
+     * @param env The {@link MapEnv} containing the environment information for the map.
+     * @param techniques The array of {@link Technique} that will be applied to the geometry.
      * @param featureId The id of the feature.
      */
     processLineFeature(
@@ -728,8 +728,8 @@ export class OmvDecodedTileEmitter implements IOmvEmitter {
      * @param layer Tile's layer to be processed.
      * @param extents Tile's layer extents.
      * @param geometry The current feature containing the main geometry.
-     * @param feature The [[MapEnv]] containing the environment information for the map.
-     * @param techniques The array of [[Technique]] that will be applied to the geometry.
+     * @param feature The {@link MapEnv} containing the environment information for the map.
+     * @param techniques The array of {@link Technique} that will be applied to the geometry.
      * @param featureId The id of the feature.
      */
     processPolygonFeature(
@@ -973,7 +973,7 @@ export class OmvDecodedTileEmitter implements IOmvEmitter {
     /**
      * Creates the geometries that belongs to the [[Tile].
      *
-     * @returns The [[DecodedTile]]
+     * @returns The {@link DecodedTile}
      */
     getDecodedTile(): DecodedTile {
         this.createGeometries();

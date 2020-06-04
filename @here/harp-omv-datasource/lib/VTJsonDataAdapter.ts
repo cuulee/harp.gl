@@ -68,13 +68,13 @@ interface VTJsonTileInterface {
 }
 
 /**
- * [[OmvDataAdapter]] id for [[VTJsonDataAdapter]].
+ * {@link OmvDataAdapter} id for {@link VTJsonDataAdapter}.
  */
 export const VTJsonDataAdapterId: string = "vt-json";
 
 /**
- * The class [[VTJsonDataAdapter]] converts VT-json data to geometries for the given
- * [[IGeometryProcessor]].
+ * The class {@link VTJsonDataAdapter} converts VT-json data to geometries for the given
+ * {@link IGeometryProcessor}.
  */
 export class VTJsonDataAdapter implements OmvDataAdapter {
     id = VTJsonDataAdapterId;

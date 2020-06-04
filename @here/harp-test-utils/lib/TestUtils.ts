@@ -63,7 +63,7 @@ export function stubGlobalConstructor(sandbox: sinon.SinonSandbox, name: string)
 /**
  * Last error encountered by `willEventually` that forbidden progress in test.
  *
- * Rethrown in [[maybeReportUnmetAssertion]] at the end of test.
+ * Rethrown in {@link maybeReportUnmetAssertion} at the end of test.
  * @hidden
  */
 let lastWaitedError: Error | undefined;
@@ -75,7 +75,7 @@ let lastWaitedError: Error | undefined;
 let afterHandlerInstalled: boolean = false;
 
 /**
- * Internal - current test instance used by [[willEventually]]
+ * Internal - current test instance used by {@link willEventually}
  *
  * @hidden
  */
@@ -89,7 +89,7 @@ let mochaCurrentTest: any; // any is used to skip import of whole 'Mocha' for on
  * to be repeated after 1ms delay.
  *
  * The last error that blocked `willEventually` from resolving will be rethrown in `afterEach` to
- * mark which assertion didn't hold (see [[reportWillEventuallyBlockingAssertion]]).
+ * mark which assertion didn't hold (see {@link reportWillEventuallyBlockingAssertion}).
  *
  * Use for APIs that are internally asynchronous without explicit means to monitor completion of
  * tasks.
@@ -277,7 +277,7 @@ let waitEventCleanup: (() => void) | undefined;
 let waitEventWaitedEvent: string | undefined;
 
 /**
- * Rethrows last assertion that blocked [[willEventually]] or [[waitForEvent]]. It is called
+ * Rethrows last assertion that blocked {@link willEventually} or {@link waitForEvent}. It is called
  * automatically after each `Mocha` test execution.
  *
  *  Note: Must be called only as `Mocha` `afterEach` hook. It expects `this` to be

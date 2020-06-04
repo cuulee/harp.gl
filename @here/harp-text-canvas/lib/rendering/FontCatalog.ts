@@ -31,7 +31,7 @@ interface SrcGlyphData {
 }
 
 /**
- * Metrics defining the placement and rendering of all glyphs in a given [[Font]].
+ * Metrics defining the placement and rendering of all glyphs in a given {@link Font}.
  */
 export interface FontMetrics {
     size: number;
@@ -44,7 +44,7 @@ export interface FontMetrics {
 }
 
 /**
- * Description of all assets, charset and metrics that define a font inside a [[FontCatalog]].
+ * Description of all assets, charset and metrics that define a font inside a {@link FontCatalog}.
  */
 export interface Font {
     name: string;
@@ -67,7 +67,7 @@ export interface UnicodeBlock {
 }
 
 /**
- * Collection of font assets used to render glyphs when using a [[TextCanvas]].
+ * Collection of font assets used to render glyphs when using a {@link TextCanvas}.
  *
  * @summary A `FontCatalog` works as a stack of SDF bitmap fonts (using the BMFont format) designed
  * to cover the widest Unicode code point range possible. In order to manage all these assets
@@ -176,7 +176,7 @@ export class FontCatalog {
      * @param unicodeBlocks Array of supported Unicode blocks.
      * @param maxCodePointCount Maximum number of unique code points bitmaps this `FontCatalog`'s
      * internal texture can store simultaneously.
-     * @param m_replacementGlyph [[GlyphData]] to be used whenever a Unicode code point is not
+     * @param m_replacementGlyph {@link GlyphData} to be used whenever a Unicode code point is not
      * supported by this `FontCatalog`.
      *
      * @returns New FontCatalog.
@@ -272,12 +272,12 @@ export class FontCatalog {
     }
 
     /**
-     * Loads the description file for a specific [[UnicodeBlock]]. This speeds up consequent calls
-     * to `FontCatalog`.loadCharset() that require glyphs from this block to be loaded.
+     * Loads the description file for a specific {@link UnicodeBlock}. This speeds up consequent
+     * calls to {@link FontCatalog.loadCharset} that require glyphs from this block to be loaded.
      *
-     * @param block Requested [[UnicodeBlock]].
-     * @param font [[Font]] to retrieve this Unicode block from.
-     * @param fontStyle [[FontStyle]] assets to load.
+     * @param block Requested {@link UnicodeBlock}.
+     * @param font {@link Font} to retrieve this Unicode block from.
+     * @param fontStyle {@link FontStyle} assets to load.
      * @param loadPages If `true`, all pages in this Unicode block will also be loaded.
      *
      * @returns Loaded Unicode Block json.
@@ -322,12 +322,12 @@ export class FontCatalog {
     }
 
     /**
-     * Releases the description file for a specific [[UnicodeBlock]] (and all downloaded pages).
+     * Releases the description file for a specific {@link UnicodeBlock} (and all downloaded pages).
      * Safe to call when no assets for this block have been loaded.
      *
-     * @param block Requested [[UnicodeBlock]].
-     * @param font [[Font]] to remove this Unicode block from.
-     * @param fontStyle [[FontStyle]] assets to remove.
+     * @param block Requested {@link UnicodeBlock}.
+     * @param font {@link Font} to remove this Unicode block from.
+     * @param fontStyle {@link FontStyle} assets to remove.
      */
     removeBlock(block: UnicodeBlock, font: Font, fontStyle: FontStyle): void {
         const assetsPath = this.getAssetsPath(fontStyle, font);
@@ -350,9 +350,9 @@ export class FontCatalog {
      * be loaded.
      *
      * @param input Input text.
-     * @param style Specific [[TextRenderStyle]] for which glyphs will be loaded.
+     * @param style Specific {@link TextRenderStyle} for which glyphs will be loaded.
      *
-     * @returns Promise containing an array of all loaded [[GlyphData]] for the input text.
+     * @returns Promise containing an array of all loaded {@link GlyphData} for the input text.
      */
     async loadCharset(input: string, style: TextRenderStyle): Promise<GlyphData[]> {
         const fontName = style.fontName;
@@ -418,14 +418,14 @@ export class FontCatalog {
     }
 
     /**
-     * Retrieves the loaded [[GlyphData]] for a specific character.
+     * Retrieves the loaded {@link GlyphData} for a specific character.
      * Returns `undefined` if the assets for this glyph haven't been loaded yet.
      *
      * @param codePoint Character's Unicode code point.
-     * @param font [[Font]] to get this glyph from.
-     * @param fontStyle Specific [[FontStyle]] to get glyphs for.
+     * @param font {@link Font} to get this glyph from.
+     * @param fontStyle Specific {@link FontStyle} to get glyphs for.
      *
-     * @returns [[GlyphData]] for this code point.
+     * @returns {@link GlyphData} for this code point.
      */
     getGlyph(codePoint: number, font: Font, fontStyle: FontStyle): GlyphData | undefined {
         const fontGlyphMap = this.m_loadedGlyphs.get(`${font.name}_${fontStyle}`);
@@ -436,14 +436,14 @@ export class FontCatalog {
     }
 
     /**
-     * Retrieves the loaded [[GlyphData]] for the specified text.
+     * Retrieves the loaded {@link GlyphData} for the specified text.
      * Returns `undefined` if the assets for these glyphs haven't been loaded yet.
      *
      * @param input Input text.
-     * @param style Specific [[TextRenderStyle]] to get glyphs for.
+     * @param style Specific {@link TextRenderStyle} to get glyphs for.
      * @param letterCaseArray Array containing the original letter case for the requested glyphs.
      *
-     * @returns Array containing [[GlyphData]] for each character of the input text.
+     * @returns Array containing {@link GlyphData} for each character of the input text.
      */
     getGlyphs(
         input: string,

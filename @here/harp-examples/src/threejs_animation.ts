@@ -15,7 +15,7 @@ import { HelloWorldExample } from "./getting-started_hello-world_npm";
 import "three/examples/js/loaders/FBXLoader";
 
 /**
- * This example builds on top of the [[ThreejsAddSimpleObject]].
+ * This example builds on top of the {@link ThreejsAddSimpleObject}.
  * Additionaly this example shows how to animate a [THREE.js](https://threejs.org/) object that
  * was added to the scene.
  *
@@ -25,12 +25,12 @@ import "three/examples/js/loaders/FBXLoader";
  * [[include:harp_gl_threejs_add_animated-object_load.ts]]
  * ```
  *
- * Once the object is loaded, we add it to the [[MapView.scene]] :
+ * Once the object is loaded, we add it to the {@link MapView.scene} :
  * ```typescript
  * [[include:harp_gl_threejs_add_animated-object_add_to_scene.ts]]
  * ```
  *
- * Similar to the [[ThreejsAddSimpleObject]] example we add an event listener to the map view
+ * Similar to the {@link ThreejsAddSimpleObject} example we add an event listener to the map view
  * that is called whenever the map is rendered to update the position of the object.
  * ```typescript
  * [[include:harp_gl_threejs_add_animated-object_add_listener.ts]]
@@ -41,9 +41,9 @@ import "three/examples/js/loaders/FBXLoader";
  * ```
  *
  * Normaly the map is only rendered when needed, i.e. when the user is interacting with the map.
- * Since we want to have a constant animation we have to tell [[MapView]] to always render.
- * We can do this via [[MapView.beginAnimation]]. We can stop the animation again with
- * [[MapView.endAnimation]].
+ * Since we want to have a constant animation we have to tell {@link MapView} to always render.
+ * We can do this via {@link MapView.beginAnimation}. We can stop the animation again with
+ * {@link MapView.endAnimation}.
  * ```typescript
  * [[include:harp_gl_threejs_add_animated-object_begin_animation.ts]]
  * ```

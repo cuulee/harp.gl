@@ -13,7 +13,7 @@ import { UnicodeUtils } from "../utils/UnicodeUtils";
 import { Typesetter, TypesettingParameters } from "./Typesetter";
 
 /**
- * [[Typesetter]] implementation that handles multi-line complex layout text.
+ * {@link Typesetter} implementation that handles multi-line complex layout text.
  */
 export class LineTypesetter implements Typesetter {
     private m_tempTransform: THREE.Matrix3;
@@ -50,8 +50,8 @@ export class LineTypesetter implements Typesetter {
 
     /**
      * Arranges the specified glyphs using this `LineTypesetter`. Text will be placed into multiple
-     * bidirectional lines, that will be generated taking into account [[textLayoutStyle]] features,
-     * such as:
+     * bidirectional lines, that will be generated taking into account {@link textLayoutStyle}
+     * features, such as:
      * - Maximum line width.
      * - Word and character wrapping.
      * - Maximum number of lines.

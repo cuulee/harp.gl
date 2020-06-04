@@ -51,7 +51,7 @@ export const TEXTURE_PROPERTY_KEYS = [
  */
 export const TRANSPARENCY_PROPERTY_KEYS = ["opacity", "transparent"];
 
-// TODO: Can be removed, when all when interpolators are implemented as [[Expr]]s
+// TODO: Can be removed, when all when interpolators are implemented as {@link Expr}s
 export type RemoveInterpolatedPropDef<T> = T | InterpolatedPropertyDefinition<any> extends T
     ? Exclude<T, InterpolatedPropertyDefinition<any>>
     : T;
@@ -100,8 +100,8 @@ export const pointTechniquePropTypes = mergeTechniqueDescriptor<PointTechniquePa
 );
 
 /**
- * Runtime representation of [[SquaresStyle]] as parsed by [[StyleSetEvaluator]].
- * For technique parameters see [[PointTechniqueParams]].
+ * Runtime representation of {@link SquaresStyle} as parsed by {@link StyleSetEvaluator}.
+ * For technique parameters see {@link PointTechniqueParams}.
  */
 export interface SquaresTechnique extends MakeTechniqueAttrs<PointTechniqueParams> {
     name: "squares";
@@ -114,8 +114,8 @@ export const squaresTechniquePropTypes = mergeTechniqueDescriptor<SquaresTechniq
 techniqueDescriptors.squares = squaresTechniquePropTypes;
 
 /**
- * Runtime representation of [[CirclesStyle]] as parsed by [[StyleSetEvaluator]].
- * For technique parameters see [[PointTechniqueParams]].
+ * Runtime representation of {@link CirclesStyle} as parsed by {@link StyleSetEvaluator}.
+ * For technique parameters see {@link PointTechniqueParams}.
  */
 export interface CirclesTechnique extends MakeTechniqueAttrs<PointTechniqueParams> {
     name: "circles";
@@ -128,16 +128,16 @@ export const circlesTechniquePropTypes = mergeTechniqueDescriptor<CirclesTechniq
 techniqueDescriptors.circles = circlesTechniquePropTypes;
 
 /**
- * Runtime representation of [[PoiStyle]] as parsed by [[StyleSetEvaluator]].
- * For technique parameters see [[MarkerTechniqueParams]].
+ * Runtime representation of {@link PoiStyle} as parsed by {@link StyleSetEvaluator}.
+ * For technique parameters see {@link MarkerTechniqueParams}.
  */
 export interface PoiTechnique extends MakeTechniqueAttrs<MarkerTechniqueParams> {
     name: "labeled-icon";
 }
 
 /**
- * Runtime representation of [[LineMarkerStyle]] as parsed by [[StyleSetEvaluator]].
- * For technique parameters see [[MarkerTechniqueParams]].
+ * Runtime representation of {@link LineMarkerStyle} as parsed by {@link StyleSetEvaluator}.
+ * For technique parameters see {@link MarkerTechniqueParams}.
  */
 export interface LineMarkerTechnique extends MakeTechniqueAttrs<MarkerTechniqueParams> {
     name: "line-marker";
@@ -214,8 +214,8 @@ techniqueDescriptors["line-marker"] = lineMarkerTechniquePropTypes;
 techniqueDescriptors["labeled-icon"] = lineMarkerTechniquePropTypes;
 
 /**
- * Runtime representation of [[SegmentsStyle]] as parsed by [[StyleSetEvaluator]].
- * For technique parameters see [[SegmentsTechniqueParams]].
+ * Runtime representation of {@link SegmentsStyle} as parsed by {@link StyleSetEvaluator}.
+ * For technique parameters see {@link SegmentsTechniqueParams}.
  */
 export interface SegmentsTechnique extends MakeTechniqueAttrs<SegmentsTechniqueParams> {
     name: "segments";
@@ -232,8 +232,8 @@ const polygonalTechniqueDescriptor: TechniqueDescriptor<PolygonalTechniqueParams
     }
 };
 /**
- * Runtime representation of [[BasicExtrudedLineStyle]] as parsed by [[StyleSetEvaluator]].
- * For technique parameters see [[BasicExtrudedLineTechniqueParams]].
+ * Runtime representation of {@link BasicExtrudedLineStyle} as parsed by {@link StyleSetEvaluator}.
+ * For technique parameters see {@link BasicExtrudedLineTechniqueParams}.
  */
 export interface BasicExtrudedLineTechnique
     extends MakeTechniqueAttrs<BasicExtrudedLineTechniqueParams> {
@@ -241,8 +241,9 @@ export interface BasicExtrudedLineTechnique
 }
 
 /**
- * Runtime representation of [[StandardExtrudedLineStyle]] as parsed by [[StyleSetEvaluator]].
- * For technique parameters see [[StandardExtrudedLineTechniqueParams]].
+ * Runtime representation of {@link StandardExtrudedLineStyle} as parsed
+ * by {@link StyleSetEvaluator}.
+ * For technique parameters see {@link StandardExtrudedLineTechniqueParams}.
  */
 export interface StandardExtrudedLineTechnique
     extends MakeTechniqueAttrs<StandardExtrudedLineTechniqueParams> {
@@ -250,8 +251,8 @@ export interface StandardExtrudedLineTechnique
 }
 
 /**
- * Runtime representation of [[SolidLineStyle]] as parsed by [[StyleSetEvaluator]].
- * For technique parameters see [[SolidLineTechniqueParams]].
+ * Runtime representation of {@link SolidLineStyle} as parsed by {@link StyleSetEvaluator}.
+ * For technique parameters see {@link SolidLineTechniqueParams}.
  */
 export interface SolidLineTechnique extends MakeTechniqueAttrs<SolidLineTechniqueParams> {
     name: "solid-line" | "dashed-line";
@@ -280,8 +281,8 @@ techniqueDescriptors["solid-line"] = solidLineTechniqueDescriptor;
 techniqueDescriptors["dashed-line"] = solidLineTechniqueDescriptor;
 
 /**
- * Runtime representation of [[LineStyle]] as parsed by [[StyleSetEvaluator]].
- * For technique parameters see [[LineTechniqueParams]].
+ * Runtime representation of {@link LineStyle} as parsed by {@link StyleSetEvaluator}.
+ * For technique parameters see {@link LineTechniqueParams}.
  */
 export interface LineTechnique extends MakeTechniqueAttrs<LineTechniqueParams> {
     name: "line";
@@ -303,8 +304,8 @@ export const lineTechniqueDescriptor = mergeTechniqueDescriptor<LineTechnique>(
 techniqueDescriptors.line = lineTechniqueDescriptor;
 
 /**
- * Runtime representation of [[FillStyle]] as parsed by [[StyleSetEvaluator]].
- * For technique parameters see [[FillTechniqueParams]].
+ * Runtime representation of {@link FillStyle} as parsed by {@link StyleSetEvaluator}.
+ * For technique parameters see {@link FillTechniqueParams}.
  */
 export interface FillTechnique extends MakeTechniqueAttrs<FillTechniqueParams> {
     name: "fill";
@@ -326,7 +327,7 @@ techniqueDescriptors.fill = fillTechniqueDescriptor;
 
 /**
  * Technique used to render a mesh geometry.
- * For technique parameters see [[StandardTechniqueParams]].
+ * For technique parameters see {@link StandardTechniqueParams}.
  */
 export interface StandardTechnique extends MakeTechniqueAttrs<StandardTechniqueParams> {
     name: "standard";
@@ -369,8 +370,8 @@ const standardTechniqueDescriptor = mergeTechniqueDescriptor<StandardTechnique>(
 techniqueDescriptors.standard = standardTechniqueDescriptor;
 
 /**
- * Runtime representation of [[ExtrudedPolygonStyle]] as parsed by [[StyleSetEvaluator]].
- * For technique parameters see [[ExtrudedPolygonTechniqueParams]].
+ * Runtime representation of {@link ExtrudedPolygonStyle} as parsed by {@link StyleSetEvaluator}.
+ * For technique parameters see {@link ExtrudedPolygonTechniqueParams}.
  */
 export interface ExtrudedPolygonTechnique
     extends MakeTechniqueAttrs<ExtrudedPolygonTechniqueParams> {
@@ -406,8 +407,8 @@ const extrudedPolygonTechniqueDescriptor = mergeTechniqueDescriptor<ExtrudedPoly
 );
 techniqueDescriptors["extruded-polygon"] = extrudedPolygonTechniqueDescriptor;
 /**
- * Runtime representation of [[TextStyle]] as parsed by [[StyleSetEvaluator]].
- * For technique parameters see [[TextTechniqueParams]].
+ * Runtime representation of {@link TextStyle} as parsed by {@link StyleSetEvaluator}.
+ * For technique parameters see {@link TextTechniqueParams}.
  */
 export interface TextTechnique extends MakeTechniqueAttrs<TextTechniqueParams> {
     name: "text";
@@ -458,7 +459,7 @@ techniqueDescriptors.text = textTechniqueDescriptor;
 
 /**
  * Special technique for user-defined shaders.
- * For technique parameters see [[ShaderTechniqueParams]].
+ * For technique parameters see {@link ShaderTechniqueParams}.
  */
 export interface ShaderTechnique extends MakeTechniqueAttrs<ShaderTechniqueParams> {
     name: "shader";
@@ -478,7 +479,7 @@ techniqueDescriptors.shader = shaderTechniqueDescriptor;
 
 /**
  * Technique used to render a terrain geometry with textures.
- * For technique parameters see [[TerrainTechniqueParams]].
+ * For technique parameters see {@link TerrainTechniqueParams}.
  */
 export interface TerrainTechnique extends MakeTechniqueAttrs<TerrainTechniqueParams> {
     name: "terrain";
@@ -486,7 +487,7 @@ export interface TerrainTechnique extends MakeTechniqueAttrs<TerrainTechniquePar
 
 /**
  * Technique to avoid label rendering on top of certain line geometries.
- * For technique parameters see [[BaseTechniqueParams]].
+ * For technique parameters see {@link BaseTechniqueParams}.
  */
 export interface LabelRejectionLineTechnique extends MakeTechniqueAttrs<BaseTechniqueParams> {
     name: "label-rejection-line";
@@ -518,32 +519,33 @@ export type Technique =
  */
 export interface IndexedTechniqueParams {
     /**
-     * Optimization: Index into table in [[StyleSetEvaluator]] or in [[DecodedTile]].
+     * Optimization: Index into table in {@link StyleSetEvaluator} or in {@link DecodedTile}.
      * @hidden
      */
     _index: number;
 
     /**
-     * Optimization: Unique [[Technique]] index of [[Style]] from which technique was derived.
+     * Optimization: Unique {@link Technique} index of {@link Style} from which technique
+     * was derived.
      * @hidden
      */
     _styleSetIndex: number;
 
     /**
-     * The styleSet associated to this [[Technique]].
+     * The styleSet associated to this {@link Technique}.
      * @hidden
      */
     _styleSet?: string;
 
     /**
-     * The category used to assign render orders to objects created using this [[Technique]].
+     * The category used to assign render orders to objects created using this {@link Technique}.
      * @hidden
      */
     _category?: string;
 
     /**
      * The category used to assign render orders to secondary objects
-     * created using this [[Technique]].
+     * created using this {@link Technique}.
      * @hidden
      */
     _secondaryCategory?: string;
@@ -557,61 +559,61 @@ export interface IndexedTechniqueParams {
     _usesFeatureState?: boolean;
 
     /**
-     * Last computed state derived from [[Technique.kind]].
+     * Last computed state derived from {@link Technique.kind}.
      */
     _kindState?: boolean;
 }
 
 /**
- * For efficiency, [[StyleSetEvaluator]] returns [[Techniques]] additional params as defined in
- * [[IndexedTechniqueParams]].
+ * For efficiency, {@link StyleSetEvaluator} returns {@link Techniques} additional params as
+ * defined in {@link IndexedTechniqueParams}.
  */
 export type IndexedTechnique = Technique & IndexedTechniqueParams;
 
 /**
- * Type guard to check if an object is an instance of [[CirclesTechnique]].
+ * Type guard to check if an object is an instance of {@link CirclesTechnique}.
  */
 export function isCirclesTechnique(technique: Technique): technique is CirclesTechnique {
     return technique.name === "circles";
 }
 
 /**
- * Type guard to check if an object is an instance of [[SquaresTechnique]].
+ * Type guard to check if an object is an instance of {@link SquaresTechnique}.
  */
 export function isSquaresTechnique(technique: Technique): technique is SquaresTechnique {
     return technique.name === "squares";
 }
 
 /**
- * Type guard to check if an object is an instance of [[PoiTechnique]].
+ * Type guard to check if an object is an instance of {@link PoiTechnique}.
  */
 export function isPoiTechnique(technique: Technique): technique is PoiTechnique {
     return technique.name === "labeled-icon";
 }
 
 /**
- * Type guard to check if an object is an instance of [[LineMarkerTechnique]].
+ * Type guard to check if an object is an instance of {@link LineMarkerTechnique}.
  */
 export function isLineMarkerTechnique(technique: Technique): technique is LineMarkerTechnique {
     return technique.name === "line-marker";
 }
 
 /**
- * Type guard to check if an object is an instance of [[LineTechnique]].
+ * Type guard to check if an object is an instance of {@link LineTechnique}.
  */
 export function isLineTechnique(technique: Technique): technique is LineTechnique {
     return technique.name === "line";
 }
 
 /**
- * Type guard to check if an object is an instance of [[SolidLineTechnique]].
+ * Type guard to check if an object is an instance of {@link SolidLineTechnique}.
  */
 export function isSolidLineTechnique(technique: Technique): technique is SolidLineTechnique {
     return technique.name === "solid-line" || technique.name === "dashed-line";
 }
 
 /**
- * Type guard to check if an object is an instance of [[SolidLineTechnique]] and is a kind that
+ * Type guard to check if an object is an instance of {@link SolidLineTechnique} and is a kind that
  * has special dashes.
  * @note Lines with special dashes need line caps to render properly.
  */
@@ -626,15 +628,15 @@ export function isSpecialDashesLineTechnique(
 }
 
 /**
- * Type guard to check if an object is an instance of [[SegmentsTechnique]].
+ * Type guard to check if an object is an instance of {@link SegmentsTechnique}.
  */
 export function isSegmentsTechnique(technique: Technique): technique is SegmentsTechnique {
     return technique.name === "segments";
 }
 
 /**
- * Type guard to check if an object is an instance of [[BasicExtrudedLineTechnique]]
- * or [[StandardExtrudedLineTechnique]].
+ * Type guard to check if an object is an instance of {@link BasicExtrudedLineTechnique}
+ * or {@link StandardExtrudedLineTechnique}.
  */
 export function isExtrudedLineTechnique(
     technique: Technique
@@ -643,7 +645,7 @@ export function isExtrudedLineTechnique(
 }
 
 /**
- * Type guard to check if an object is an instance of [[BasicExtrudedLineTechnique]].
+ * Type guard to check if an object is an instance of {@link BasicExtrudedLineTechnique}.
  */
 export function isBasicExtrudedLineTechnique(
     technique: Technique
@@ -652,7 +654,7 @@ export function isBasicExtrudedLineTechnique(
 }
 
 /**
- * Type guard to check if an object is an instance of [[StandardExtrudedLineTechnique]].
+ * Type guard to check if an object is an instance of {@link StandardExtrudedLineTechnique}.
  */
 export function isStandardExtrudedLineTechnique(
     technique: Technique
@@ -661,14 +663,14 @@ export function isStandardExtrudedLineTechnique(
 }
 
 /**
- * Type guard to check if an object is an instance of [[FillTechnique]].
+ * Type guard to check if an object is an instance of {@link FillTechnique}.
  */
 export function isFillTechnique(technique: Technique): technique is FillTechnique {
     return technique.name === "fill";
 }
 
 /**
- * Type guard to check if an object is an instance of [[ExtrudedPolygonTechnique]].
+ * Type guard to check if an object is an instance of {@link ExtrudedPolygonTechnique}.
  */
 export function isExtrudedPolygonTechnique(
     technique: Technique
@@ -677,28 +679,28 @@ export function isExtrudedPolygonTechnique(
 }
 
 /**
- * Type guard to check if an object is an instance of [[StandardTechnique]].
+ * Type guard to check if an object is an instance of {@link StandardTechnique}.
  */
 export function isStandardTechnique(technique: Technique): technique is StandardTechnique {
     return technique.name === "standard";
 }
 
 /**
- * Type guard to check if an object is an instance of [[TerrainTechnique]].
+ * Type guard to check if an object is an instance of {@link TerrainTechnique}.
  */
 export function isTerrainTechnique(technique: Technique): technique is TerrainTechnique {
     return technique.name === "terrain";
 }
 
 /**
- * Type guard to check if an object is an instance of [[TextTechnique]].
+ * Type guard to check if an object is an instance of {@link TextTechnique}.
  */
 export function isTextTechnique(technique: Technique): technique is TextTechnique {
     return technique.name === "text";
 }
 
 /**
- * Type guard to check if an object is an instance of [[ShaderTechnique]].
+ * Type guard to check if an object is an instance of {@link ShaderTechnique}.
  */
 export function isShaderTechnique(technique: Technique): technique is ShaderTechnique {
     return technique.name === "shader";

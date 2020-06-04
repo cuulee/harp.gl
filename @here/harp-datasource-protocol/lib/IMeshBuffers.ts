@@ -13,7 +13,8 @@ export interface IMeshBuffers {
     readonly positions: number[];
 
     /**
-     * Array of [[Group]], used to defines multiple geometries sharing the same position attribute.
+     * Array of {@link Group}, used to defines multiple geometries sharing the same
+     * position attribute.
      */
     readonly groups: Group[];
 

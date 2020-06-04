@@ -16,12 +16,12 @@ import { apikey } from "../config";
  * https://1.aerial.maps.ls.hereapi.com/maptile/2.1/maptile/newest/satellite.day/${level}/${column}/${row}/512/png8?apikey=${apikey}
  * ```
  *
- * A [[WebTileDataSource]] is created with specified applications' apikey passed
- * as [[WebTileDataSourceOptions]]
+ * A {@link WebTileDataSource} is created with specified applications' apikey passed
+ * as {@link WebTileDataSourceOptions}
  * ```typescript
  * [[include:harp_gl_datasource_satellitetile_1.ts]]
  * ```
- * Then added to the [[MapView]]
+ * Then added to the {@link MapView}
  * ```typescript
  * [[include:harp_gl_datasource_satellitetile_2.ts]]
  * ```

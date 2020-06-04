@@ -11,8 +11,8 @@ import { WorkerBasedDecoder } from "./WorkerBasedDecoder";
 /**
  * Default concurrent decoder helper.
  *
- * A convenient singleton that maintains a separate [[ConcurrentWorkerSet]] for each bundle
- * requested. Provides easy access to [[WorkerBasedDecoder]]s for data sources.
+ * A convenient singleton that maintains a separate {@link ConcurrentWorkerSet} for each bundle
+ * requested. Provides easy access to {@link WorkerBasedDecoder}s for data sources.
  */
 export class ConcurrentDecoderFacade {
     /**
@@ -27,7 +27,7 @@ export class ConcurrentDecoderFacade {
     static defaultWorkerCount?: number = undefined;
 
     /**
-     * Returns a [[WorkerBasedDecoder]] instance.
+     * Returns a {@link WorkerBasedDecoder} instance.
      *
      * @param decoderServiceType The name of the decoder service type.
      * @param scriptUrl The optional URL with the workers' script.
@@ -44,10 +44,10 @@ export class ConcurrentDecoderFacade {
     }
 
     /**
-     * Returns a [[ConcurrentWorkerSet]] instance based on the script URL specified.
+     * Returns a {@link ConcurrentWorkerSet} instance based on the script URL specified.
      *
      * @param scriptUrl The optional URL with the workers' script. If not specified,
-     * the function uses [[defaultScriptUrl]] instead.
+     * the function uses {@link defaultScriptUrl} instead.
      * @param workerCount The number of web workers to use.
      */
     static getWorkerSet(scriptUrl?: string, workerCount?: number): ConcurrentWorkerSet {
@@ -67,9 +67,10 @@ export class ConcurrentDecoderFacade {
     }
 
     /**
-     * Destroys a [[ConcurrentWorkerSet]] instance.
+     * Destroys a {@link ConcurrentWorkerSet} instance.
      *
-     * @param scriptUrl The worker script URL that was used to create the [[ConcurrentWorkerSet]].
+     * @param scriptUrl The worker script URL that was used to create the
+     *                  {@link ConcurrentWorkerSet}.
      */
     static destroyWorkerSet(scriptUrl: string) {
         const workerSet = this.workerSets[scriptUrl];
@@ -80,7 +81,7 @@ export class ConcurrentDecoderFacade {
     }
 
     /**
-     * Destroys all managed [[ConcurrentWorkerSet]]s.
+     * Destroys all managed {@link ConcurrentWorkerSet}s.
      */
     static destroy() {
         Object.keys(this.workerSets).forEach(name => {
@@ -90,7 +91,7 @@ export class ConcurrentDecoderFacade {
     }
 
     /**
-     * The [[ConcurrentWorkerSet]] instances which are stored by the script URL.
+     * The {@link ConcurrentWorkerSet} instances which are stored by the script URL.
      */
     private static workerSets: {
         [bundleUrl: string]: ConcurrentWorkerSet;

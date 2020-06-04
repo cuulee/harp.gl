@@ -40,7 +40,7 @@ export class ImageUtils {
      * @param offsetX offset that will be applied to the second image (not the base one).
      * @param offsetY offset in Y coordinates starting from base image left-top corner,
      * pointing downwards.
-     * @returns resulting image as new [[ImageEncoder]] instance.
+     * @returns resulting image as new {@link ImageEncoder} instance.
      */
     static combineImages(
         dstImage: ImageDecoder,
@@ -114,7 +114,7 @@ export class ImageUtils {
      * @param {*} srcImage
      * @param {*} offsetX
      * @param {*} offsetY
-     * @returns resulting image as new [[ImageEncoder]] instance.
+     * @returns resulting image as new {@link ImageEncoder} instance.
      */
     static blendImages(
         dstImage: ImageDecoder,
@@ -149,7 +149,7 @@ export class ImageUtils {
      * @param {*} maskImage
      * @param {*} offsetX
      * @param {*} offsetY
-     * @returns resulting image as new [[ImageEncoder]] instance.
+     * @returns resulting image as new {@link ImageEncoder} instance.
      */
     static maskImage(
         dstImage: ImageDecoder,
@@ -180,7 +180,7 @@ export class ImageUtils {
      * @param srcImage
      * @param colorOp
      * @param blendColor
-     * @returns resulting image as new [[ImageEncoder]] instance.
+     * @returns resulting image as new {@link ImageEncoder} instance.
      */
     static blendImageColor(
         srcImage: ImageDecoder | ImageEncoder,
@@ -208,7 +208,7 @@ export class ImageUtils {
      *
      * @param srcImage
      * @param colorOp
-     * @returns resulting image as new [[ImageEncoder]] instance.
+     * @returns resulting image as new {@link ImageEncoder} instance.
      */
     static processImageColor(
         srcImage: ImageDecoder | ImageEncoder,

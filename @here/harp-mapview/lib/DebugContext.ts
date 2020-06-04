@@ -28,8 +28,8 @@ import * as THREE from "three";
  */
 
 /**
- * Allows access to the global `window` object here. The constructor of [[DebugContext]] adds the
- * instance to `window`, so it is available from the browser console.
+ * Allows access to the global `window` object here. The constructor of {@link DebugContext}
+ * adds the instance to `window`, so it is available from the browser console.
  */
 
 interface DebugInfo {
@@ -67,7 +67,7 @@ class DebugOption extends THREE.EventDispatcher {
 }
 
 /**
- * Maintains a map of [[DebugOption]]s. You can add listeners to debug options by passing their
+ * Maintains a map of {@link DebugOption}s. You can add listeners to debug options by passing their
  * names.
  */
 export class DebugContext {

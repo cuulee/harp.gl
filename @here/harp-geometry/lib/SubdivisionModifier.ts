@@ -11,24 +11,24 @@ const tmpVectorB = new Vector3();
 const tmpVectorC = new Vector3();
 
 /**
- * The [[SubdivisionModifier]] subdivides triangle mesh geometries.
+ * The {@link SubdivisionModifier} subdivides triangle mesh geometries.
  */
 export abstract class SubdivisionModifier {
     /**
-     * Constructs a new [[SubdivisionModifier]].
+     * Constructs a new {@link SubdivisionModifier}.
      */
     constructor() {
         // nothing to do
     }
 
     /**
-     * Subdivides the faces of the given [[THREE.BufferGeometry]].
+     * Subdivides the faces of the given {@link THREE.BufferGeometry}.
      *
      * This method modifies (in-place) the vertices and the faces of the geometry.
      * Please note that only the vertex position and their UV coordinates are subdivided.
      * Normals, vertex colors and other attributes are left unmodified.
      *
-     * @param geometry The [[THREE.BufferGeometry]] to subdivide.
+     * @param geometry The {@link THREE.BufferGeometry} to subdivide.
      */
     modify(geometry: BufferGeometry): BufferGeometry {
         const positionAttr = geometry.getAttribute("position") as BufferAttribute;

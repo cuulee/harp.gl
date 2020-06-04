@@ -41,12 +41,12 @@ export class MapControlsUI {
     private m_buttonsElement: HTMLDivElement = document.createElement("div");
 
     /**
-     * Displays zoom level if [[MapControlsUIOptions.zoomLevel]] is defined.
+     * Displays zoom level if {@link MapControlsUIOptions.zoomLevel} is defined.
      */
     private m_zoomLevelElement: HTMLDivElement | HTMLInputElement | null = null;
 
     /**
-     * Displays zoom level if [[MapControlsUIOptions.projectionSwitch]] is defined.
+     * Displays zoom level if {@link MapControlsUIOptions.projectionSwitch} is defined.
      */
     private m_projectionSwitchElement: HTMLButtonElement | null = null;
 
@@ -63,7 +63,7 @@ export class MapControlsUI {
     /**
      * Constructor of the UI.
      *
-     * @param controls Controls referencing a [[MapView]].
+     * @param controls Controls referencing a {@link MapView}.
      */
     constructor(readonly controls: MapControls, options: MapControlsUIOptions = {}) {
         this.m_onMapViewRenderEvent = () => {
@@ -256,8 +256,8 @@ export class MapControlsUI {
     }
 
     /**
-     * Destroy this [[MapControlsUI]] instance. Unregisters all event handlers used. This method
-     * should be called when you stop using [[MapControlsUI]].
+     * Destroy this {@link MapControlsUI} instance. Unregisters all event handlers used. This method
+     * should be called when you stop using {@link MapControlsUI}.
      */
     dispose() {
         if (this.m_zoomLevelElement !== null && this.m_zoomLevelElement.tagName === "INPUT") {

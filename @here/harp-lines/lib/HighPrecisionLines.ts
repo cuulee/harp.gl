@@ -15,12 +15,12 @@ import { HighPrecisionUtils } from "./HighPrecisionUtils";
  */
 export interface HighPrecisionObject extends THREE.Object3D {
     /**
-     * Allow direct access to [[BufferGeometry]] without cast.
+     * Allow direct access to {@link BufferGeometry} without cast.
      */
     bufferGeometry: THREE.BufferGeometry;
 
     /**
-     * Allow direct access to [[ShaderMaterial]] without cast.
+     * Allow direct access to {@link ShaderMaterial} without cast.
      */
     shaderMaterial: THREE.ShaderMaterial;
 
@@ -51,8 +51,8 @@ export class HighPrecisionWireFrameLine extends THREE.Line implements HighPrecis
     /**
      * Creates a `HighPrecisionWireFrameLine` object.
      *
-     * @param geometry [[BufferGeometry]] used to render this object.
-     * @param material [[HighPrecisionLineMaterial]] used to render this object.
+     * @param geometry {@link BufferGeometry} used to render this object.
+     * @param material {@link HighPrecisionLineMaterial} used to render this object.
      *     instances.
      * @param positions Array of 2D/3D positions.
      * @param color Color of the rendered line.
@@ -106,6 +106,7 @@ export class HighPrecisionWireFrameLine extends THREE.Line implements HighPrecis
         };
     }
 
+    /**  */
     updateMatrixWorld(force: boolean) {
         const doUpdateMatrixWorldInverse = this.matrixWorldNeedsUpdate || force;
 
@@ -126,8 +127,8 @@ export class HighPrecisionLine extends THREE.Mesh implements HighPrecisionObject
     /**
      * Creates a `HighPrecisionLine` object.
      *
-     * @param geometry [[BufferGeometry]] used to render this object.
-     * @param material [[HighPrecisionLineMaterial]] used to render this object.
+     * @param geometry {@link BufferGeometry} used to render this object.
+     * @param material {@link HighPrecisionLineMaterial} used to render this object.
      *     instances.
      * @param positions Array of 2D/3D positions.
      * @param color Color of the rendered line.
@@ -181,6 +182,7 @@ export class HighPrecisionLine extends THREE.Mesh implements HighPrecisionObject
         };
     }
 
+    /**  */
     updateMatrixWorld(force: boolean) {
         const doUpdateMatrixWorldInverse = this.matrixWorldNeedsUpdate || force;
 

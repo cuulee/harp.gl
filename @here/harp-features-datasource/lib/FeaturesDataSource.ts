@@ -30,28 +30,28 @@ const DEFAULT_GEOJSON: FeatureCollection = {
 };
 
 /**
- * Options for [[FeaturesDataSource]].
+ * Options for {@link FeaturesDataSource}.
  */
 export interface FeatureDataSourceOptions
     extends OmvDataSourceParameters,
         GeoJsonDataProviderOptions {
     /**
-     * Initial set of features for new instance of [[FeaturesDataSource]].
+     * Initial set of features for new instance of {@link FeaturesDataSource}.
      *
-     * Shortcut for calling [[FeaturesDataSource.add]] after construction.
+     * Shortcut for calling {@link FeaturesDataSource.add} after construction.
      */
     features?: MapViewFeature[];
 
     /**
-     * Initial GeoJSON load for new instance of [[FeaturesDataSource]].
+     * Initial GeoJSON load for new instance of {@link FeaturesDataSource}.
      *
-     * Shortcut for calling [[FeaturesDataSource.setFromGeojson]] after construction.
+     * Shortcut for calling {@link FeaturesDataSource.setFromGeojson} after construction.
      */
     geojson?: FeatureCollection | GeometryCollection | Feature;
 }
 
 /**
- * [[DataSource]] implementation to use for the addition of custom features.
+ * {@link DataSource} implementation to use for the addition of custom features.
  */
 export class FeaturesDataSource extends OmvDataSource {
     private m_isAttached = false;
@@ -60,7 +60,7 @@ export class FeaturesDataSource extends OmvDataSource {
     /**
      * Builds a `FeaturesDataSource`.
      *
-     * @param options specify custom options using [[FeatureDataSourceOptions]] interface.
+     * @param options specify custom options using {@link FeatureDataSourceOptions} interface.
      */
     constructor(options?: FeatureDataSourceOptions) {
         super({
@@ -78,10 +78,10 @@ export class FeaturesDataSource extends OmvDataSource {
     }
 
     /**
-     * This method allows to directly add a GeoJSON without using [[MapViewFeature]] instances. It
-     * also overwrites existing features in this data source. To add a GeoJSON without overwriting
-     * the data source, one should loop through it to create [[MapViewFeature]] and add them with
-     * the `add` method.
+     * This method allows to directly add a GeoJSON without using {@link MapViewFeature} instances.
+     * It also overwrites existing features in this data source. To add a GeoJSON without
+     * overwriting the data source, one should loop through it to create {@link MapViewFeature} and
+     * add them with the `add` method.
      *
      * @param geojson A javascript object matching the GeoJSON specification.
      */
@@ -148,7 +148,7 @@ export class FeaturesDataSource extends OmvDataSource {
         }
     }
     /**
-     * Override [[DataSource.attach]] to know if we're really connected to [[MapView]].
+     * Override {@link DataSource.attach} to know if we're really connected to {@link MapView}.
      * @param mapView
      * @override
      */
@@ -158,7 +158,7 @@ export class FeaturesDataSource extends OmvDataSource {
     }
 
     /**
-     * Override [[DataSource.detach]] to know if we're really connected to [[MapView]].
+     * Override {@link DataSource.detach} to know if we're really connected to {@link MapView}.
      * @param mapView
      * @override
      */
@@ -168,7 +168,7 @@ export class FeaturesDataSource extends OmvDataSource {
     }
 
     /**
-     * Get [[GeoBox]] containing all the points in datasource.
+     * Get {@link GeoBox} containing all the points in datasource.
      *
      * Returns undefined if there were no features added to this DS.
      */

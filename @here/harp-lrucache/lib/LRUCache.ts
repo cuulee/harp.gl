@@ -26,7 +26,7 @@ export class LRUCache<Key, Value> {
      * Optional callback that is called on every item that is evicted from the cache.
      *
      * **Note**: This callback is not called when an item is explicitly deleted from the map via
-     * [[delete]] or [[clear]].
+     * {@link delete} or {@link clear}.
      */
     evictionCallback?: (key: Key, value: Value) => void;
 
@@ -39,7 +39,7 @@ export class LRUCache<Key, Value> {
      * items only, it may grow beyond its capacity.
      *
      * **Note**: This callback is not called when an item is explicitly deleted from the map via
-     * [[delete]] or [[clear]].
+     * {@link delete} or {@link clear}.
      */
     canEvict?: (key: Key, value: Value) => boolean;
     private m_capacity: number;
@@ -68,13 +68,13 @@ export class LRUCache<Key, Value> {
     /**
      * Creates a new instance of `LRUCache`.
      *
-     * The optional [[sizeFunction]] can be used to fine tune the memory consumption of all cached
-     * elements, thus [[cacheCapacity]] means then memory used (in MBs). Otherwise, if
-     * [[sizeFunction]] is not specified, the [[cacheCapacity]] accounts for the maximum
+     * The optional {@link sizeFunction} can be used to fine tune the memory consumption of all
+     * cached elements, thus {@link cacheCapacity} means then memory used (in MBs). Otherwise, if
+     * {@link sizeFunction} is not specified, the {@link cacheCapacity} accounts for the maximum
      * number of elements stored.
      *
      * @param cacheCapacity Number used to configure the maximum cache size, may express
-     * number of entries or memory consumed in megabytes depending on [[sizeFunction]].
+     * number of entries or memory consumed in megabytes depending on {@link sizeFunction}.
      * @param sizeFunction A function determining the size per element.
      */
     constructor(cacheCapacity: number, sizeFunction: (v: Value) => number = () => 1) {
@@ -86,7 +86,7 @@ export class LRUCache<Key, Value> {
      * Iterates over all items from the most recently used item to the least recently used one.
      *
      * **Note**: Results are undefined if the entire cache is modified during iteration. You may
-     * although modify the current element in [[callbackfn]] function.
+     * although modify the current element in {@link callbackfn} function.
      *
      * @param callbackfn The callback to call for each item.
      * @param thisArg Optional this argument for the callback.
@@ -170,7 +170,8 @@ export class LRUCache<Key, Value> {
     /**
      * Resets the cache capacity and function used to measure the element size.
      *
-     * @param newCapacity The new capacity masured in units returned from [[sizeMeasure]] funtion.
+     * @param newCapacity The new capacity masured in units returned from {@link sizeMeasure}
+     *                    funtion.
      * @param sizeMeasure Function that defines the size of element, if you want to measure
      * number of elements only always return 1 from this function (default), you may also
      * specify own function that measures entries by memory consumed, nubmer of sub-elements, etc.
@@ -272,7 +273,7 @@ export class LRUCache<Key, Value> {
     /**
      * Clears the cache and removes all stored key-value pairs.
      *
-     * Does not call the eviction callback. Use [[evictAll]] to clear the cache and call the
+     * Does not call the eviction callback. Use {@link evictAll} to clear the cache and call the
      * eviction callback.
      */
     clear(): void {
@@ -284,7 +285,7 @@ export class LRUCache<Key, Value> {
     /**
      * Evicts all items from the cache, calling the eviction callback on each item.
      *
-     * Use [[clear]] to remove all items without calling the eviction callback.
+     * Use {@link clear} to remove all items without calling the eviction callback.
      */
     evictAll(): void {
         const cb = this.evictionCallback;
@@ -295,7 +296,7 @@ export class LRUCache<Key, Value> {
     }
 
     /**
-     * Evict selected elements from the cache using [[selector]] function.
+     * Evict selected elements from the cache using {@link selector} function.
      *
      * @param selector The function for selecting elements for eviction.
      * @param thisArg Optional _this_ object reference.

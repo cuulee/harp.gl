@@ -10,10 +10,10 @@ import * as THREE from "three";
 import { HelloWorldExample } from "./getting-started_hello-world_npm";
 
 /**
- * This example builds on top of the [[HelloWorldExample]], so please consult that first for
+ * This example builds on top of the {@link HelloWorldExample}, so please consult that first for
  * any questions regarding basic setup of the map.
  *
- * This example shows how to use [[MapViewUtils]] to compute camera positions and orientations
+ * This example shows how to use {@link MapViewUtils} to compute camera positions and orientations
  * and use them to animate them with [THREE.js](https://threejs.org/).
  *
  * [CatmulRomCurve3](https://threejs.org/docs/index.html#api/en/extras/curves/CatmullRomCurve3) is

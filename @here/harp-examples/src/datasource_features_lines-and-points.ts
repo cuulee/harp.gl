@@ -19,39 +19,39 @@ import { apikey, copyrightInfo } from "../config";
 import { faults, hotspots } from "../resources/geology";
 
 /**
- * This example illustrates how to add user lines and points in [[MapView]]. As custom features,
- * they are handled through a [[FeaturesDataSource]].
+ * This example illustrates how to add user lines and points in {@link MapView}. As custom features,
+ * they are handled through a {@link FeaturesDataSource}.
  *
  * First we create a base map, but with customized theme which derives from default, but adds
- * custom [[StyleSet]] - `myStyleSet` - which will be used by datasource with our features.
+ * custom {@link StyleSet} - `myStyleSet` - which will be used by datasource with our features.
  *
  * For more details, check the `hello` example.
  * ```typescript
  * [[include:harp_demo_features_linespoints_0.ts]]
  * ```
  *
- * Then we generate all the [[MapViewLineFeature]]s, with the desired text string to use for the
+ * Then we generate all the {@link MapViewLineFeature}s, with the desired text string to use for the
  * text style, straight from the data:
  * ```typescript
  * [[include:harp_demo_features_linespoints_1.ts]]
  * ```
  *
- * We also add the hotspots in the earth's mantle as a [[MapViewMultiPointFeature]].
+ * We also add the hotspots in the earth's mantle as a {@link MapViewMultiPointFeature}.
  * ```typescript
  * [[include:harp_demo_features_linespoints_2.ts]]
  * ```
  *
- * Then we use the general [[DataSource]] mechanism: the [[FeaturesDataSource]] is created, added
- * to [[MapView]], the [[MapViewFeature]]s are added to it, and we specify [[StyleSet]] name set
- * previously in map theme.
+ * Then we use the general {@link DataSource} mechanism: the {@link FeaturesDataSource} is created,
+ * added to {@link MapView}, the {@link MapViewFeature}s are added to it, and we specify
+ * {@link StyleSet} name set previously in map theme.
  * ```typescript
  * [[include:harp_demo_features_linespoints_3.ts]]
  * ```
  *
- * Note how the [[StyleSet]] of this example creates the text paths out of the line features. Also,
- * we duplicate the line styles, one being a dashed line and the other a solid line, to have this
- * specific look for the ridges and trenches. The point style is also duplicated, so that a bigger
- * point is rendered below the first one, and creates an outline effect.
+ * Note how the {@link StyleSet} of this example creates the text paths out of the line features.
+ * Also, we duplicate the line styles, one being a dashed line and the other a solid line, to have
+ * this specific look for the ridges and trenches. The point style is also duplicated, so that a
+ * bigger point is rendered below the first one, and creates an outline effect.
  */
 export namespace LinesPointsFeaturesExample {
     // snippet:harp_demo_features_linespoints_0.ts

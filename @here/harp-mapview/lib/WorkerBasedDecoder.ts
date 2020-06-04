@@ -26,7 +26,7 @@ import { ConcurrentWorkerSet } from "./ConcurrentWorkerSet";
 let nextUniqueServiceId = 0;
 
 /**
- * Decoder based on [[ConcurrentWorkerSet]].
+ * Decoder based on {@link ConcurrentWorkerSet}.
  *
  * Decodes tiles using workers running in separate contexts (also known as `WebWorkers`):
  * - connection establishment,
@@ -40,7 +40,7 @@ export class WorkerBasedDecoder implements ITileDecoder {
     /**
      * Creates a new `WorkerBasedDecoder`.
      *
-     * @param workerSet [[ConcurrentWorkerSet]] this tiler will live in.
+     * @param workerSet {@link ConcurrentWorkerSet} this tiler will live in.
      * @param decoderServiceType Service type identifier.
      */
     constructor(
@@ -53,7 +53,7 @@ export class WorkerBasedDecoder implements ITileDecoder {
 
     /**
      * Dispose of dedicated tile decoder services in workers and remove reference to underlying
-     * [[ConcurrentWorkerSet]].
+     * {@link ConcurrentWorkerSet}.
      */
     dispose() {
         if (this.m_serviceCreated) {
@@ -71,8 +71,8 @@ export class WorkerBasedDecoder implements ITileDecoder {
     }
 
     /**
-     * Connects to [[WorkerServiceManager]]s in underlying [[ConcurrentWorkerSet]] and creates
-     * dedicated [[TileDecoderService]]s in all workers to serve decode requests.
+     * Connects to {@link WorkerServiceManager}s in underlying {@link ConcurrentWorkerSet} and
+     * creates dedicated {@link TileDecoderService}s in all workers to serve decode requests.
      */
     async connect(): Promise<void> {
         await this.workerSet.connect(WorkerServiceProtocol.WORKER_SERVICE_MANAGER_SERVICE_ID);
@@ -90,9 +90,9 @@ export class WorkerBasedDecoder implements ITileDecoder {
     }
 
     /**
-     * Get [[Tile]] from tile decoder service in worker.
+     * Get {@link Tile} from tile decoder service in worker.
      *
-     * Invokes [[DecodeTileRequest]] on [[TileDecoderService]] running in worker pool.
+     * Invokes {@link DecodeTileRequest} on {@link TileDecoderService} running in worker pool.
      */
     decodeTile(
         data: ArrayBufferLike,
@@ -120,9 +120,9 @@ export class WorkerBasedDecoder implements ITileDecoder {
     }
 
     /**
-     * Get [[TileInfo]] from tile decoder service in worker.
+     * Get {@link TileInfo} from tile decoder service in worker.
      *
-     * Invokes [[TileInfoRequest]] on [[TileDecoderService]] running in worker pool.
+     * Invokes {@link TileInfoRequest} on {@link TileDecoderService} running in worker pool.
      */
     getTileInfo(
         data: ArrayBufferLike,
@@ -151,9 +151,10 @@ export class WorkerBasedDecoder implements ITileDecoder {
     /**
      * Configure tile decoder service in workers.
      *
-     * Broadcasts [[ConfigurationMessage]] to all [[TileDecoderService]]s running in worker pool.
+     * Broadcasts {@link ConfigurationMessage} to all {@link TileDecoderService}s running in
+     * worker pool.
      *
-     * @param styleSet  new [[StyleSet]], undefined means no change
+     * @param styleSet  new {@link StyleSet}, undefined means no change
      * @param languages new list of languages
      * @param options   new options, undefined options are not changed
      */

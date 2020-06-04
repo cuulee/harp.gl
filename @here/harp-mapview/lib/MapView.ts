@@ -93,7 +93,7 @@ if (isProduction) {
     LoggerManager.instance.setLogLevelForAll(LogLevel.Log);
 }
 /**
- * An interface describing [[THREE.Object3D]]s anchored on given [[GeoCoordinates]].
+ * An interface describing {@link THREE.Object3D}s anchored on given {@link GeoCoordinates}.
  *
  * Example:
  * ```typescript
@@ -105,7 +105,7 @@ if (isProduction) {
  */
 export type MapAnchor<T extends THREE.Object3D = THREE.Object3D> = T & {
     /**
-     * The position of this [[MapAnchor]] in [[GeoCoordinates]].
+     * The position of this {@link MapAnchor} in {@link GeoCoordinates}.
      */
     geoPosition?: GeoCoordinates;
     /**
@@ -117,7 +117,7 @@ export type MapAnchor<T extends THREE.Object3D = THREE.Object3D> = T & {
 };
 
 /**
- * An interface describing [[THREE.Object3D]]s anchored on given world coordinates.
+ * An interface describing {@link THREE.Object3D}s anchored on given world coordinates.
  *
  * Example:
  * ```typescript
@@ -130,7 +130,7 @@ export type MapAnchor<T extends THREE.Object3D = THREE.Object3D> = T & {
  */
 export type WorldAnchor<T extends THREE.Object3D = THREE.Object3D> = T & {
     /**
-     * The position of this [[WorldAnchor]] in world coordinates (and units).
+     * The position of this {@link WorldAnchor} in world coordinates (and units).
      *
      * Word coordinates anchors may be used for objects that has not exact relation to the
      * place on the Earth globe or map. This may include light sources, special cameras, effects.
@@ -157,7 +157,7 @@ export enum MapViewEventNames {
     FirstFrame = "first-render",
     /** Called when the first view has all the necessary tiles loaded and rendered. */
     FrameComplete = "frame-complete",
-    /** Called when the theme has been loaded with the internal [[ThemeLoader]]. */
+    /** Called when the theme has been loaded with the internal {@link ThemeLoader}. */
     ThemeLoaded = "theme-loaded",
     /** Called when the animation mode has started. */
     AnimationStarted = "animation-started",
@@ -202,7 +202,7 @@ const DEFAULT_MAX_ZOOM_LEVEL = 20;
 const DEFAULT_MIN_CAMERA_HEIGHT = 20;
 
 /**
- * Style set used by [[PolarTileDataSource]] by default.
+ * Style set used by {@link PolarTileDataSource} by default.
  */
 const DEFAULT_POLAR_STYLE_SET_NAME = "polar";
 
@@ -272,28 +272,29 @@ const cache = {
  */
 export interface FovCalculation {
     /**
-     * How to interpret the [[fov]], can be either `fixed` or `dynamic`.
+     * How to interpret the {@link fov}, can be either `fixed` or `dynamic`.
      *
-     * `fixed` means that the FOV is fixed regardless of the [[viewportHeight]], such that shrinking
-     * the height causes the map to shrink to keep the content in view. The benefit is that,
-     * regardless of any resizes, the field of view is constant, which means there is no change in
-     * the distortion of buildings near the edges. However the trade off is that the zoom level
-     * changes, which means that the map will pull in new tiles, hence causing some flickering.
+     * `fixed` means that the FOV is fixed regardless of the {@link viewportHeight}, such that
+     * shrinking the height causes the map to shrink to keep the content in view. The benefit is
+     * that, regardless of any resizes, the field of view is constant, which means there is no
+     * change in the distortion of buildings near the edges. However the trade off is that the
+     * zoom level changes, which means that the map will pull in new tiles, hence causing some
+     * flickering.
      *
-     * `dynamic` means that the focal length is calculated based on the supplied [[fov]] and
-     * [[viewportHeight]], this means that the map doesn't scale (the image is essentially cropped
-     * but not shrunk) when the [[viewportHeight]] or [[viewportWidth]] is changed. The benefit is
-     * that the zoom level is (currently) stable during resize, because the focal length is used,
-     * however the tradeoff is that changing from a small to a big height will cause the fov to
-     * change a lot, and thus introduce distortion.
+     * `dynamic` means that the focal length is calculated based on the supplied {@link fov} and
+     * {@link viewportHeight}, this means that the map doesn't scale (the image is essentially
+     * cropped but not shrunk) when the {@link viewportHeight} or {@link viewportWidth} is changed.
+     * The benefit is that the zoom level is (currently) stable during resize, because the focal
+     * length is used, however the tradeoff is that changing from a small to a big height will
+     * cause the fov to change a lot, and thus introduce distortion.
      */
     type: "fixed" | "dynamic";
 
     /**
-     * If [[type]] is `fixed` then the supplied [[fov]] is fixed regardless of
-     * [[viewportHeight]] or [[viewportWidth]].
+     * If {@link type} is `fixed` then the supplied {@link fov} is fixed regardless of
+     * {@link viewportHeight} or {@link viewportWidth}.
      *
-     * If [[type]] is `dynamic` then the supplied [[fov]] is applied to the
+     * If {@link type} is `dynamic` then the supplied {@link fov} is applied to the
      * first frame, and the focal length calculated. Changes to the viewport
      * height no longer shrink the content because the field of view is updated
      * dynamically.
@@ -316,7 +317,7 @@ export enum MapViewPowerPreference {
 }
 
 /**
- * User configuration for the [[MapView]].
+ * User configuration for the {@link MapView}.
  */
 export interface MapViewOptions extends TextElementsRendererOptions, Partial<LookAtParams> {
     /**
@@ -359,7 +360,7 @@ export interface MapViewOptions extends TextElementsRendererOptions, Partial<Loo
     /**
      * `Projection` used by the `MapView`.
      *
-     * The default value is [[mercatorProjection]].
+     * The default value is {@link mercatorProjection}.
      */
     projection?: Projection;
 
@@ -379,7 +380,7 @@ export interface MapViewOptions extends TextElementsRendererOptions, Partial<Loo
     decoderCount?: number;
 
     /**
-     * The [[Theme]] used by Mapview.
+     * The {@link Theme} used by Mapview.
      *
      * This Theme can be one of the following:
      *  - `string` : the URI of the theme file used to style this map
@@ -394,9 +395,9 @@ export interface MapViewOptions extends TextElementsRendererOptions, Partial<Loo
      * (see: https://www.w3.org/TR/WD-html40-970917/htmlweb.html#h-5.1.2).
      *
      * Custom URIs (of theme itself and of resources referenced by theme) may be resolved with help
-     * of [[uriResolver]].
+     * of {@link uriResolver}.
      *
-     * @see [[ThemeLoader.load]] for details how theme is loaded
+     * @see {@link ThemeLoader.load} for details how theme is loaded
      */
     theme?: string | Theme | Promise<Theme>;
 
@@ -418,8 +419,8 @@ export interface MapViewOptions extends TextElementsRendererOptions, Partial<Loo
      * })
      * ```
      *
-     * @see [[UriResolver]]
-     * @See [[PrefixMapUriResolver]]
+     * @see {@link UriResolver}
+     * @See {@link PrefixMapUriResolver}
      */
     uriResolver?: UriResolver;
 
@@ -440,9 +441,9 @@ export interface MapViewOptions extends TextElementsRendererOptions, Partial<Loo
 
     /**
      * User-defined camera clipping planes distance evaluator.
-     * If not defined, [[TiltViewClipPlanesEvaluator]] will be used by [[MapView]].
+     * If not defined, {@link TiltViewClipPlanesEvaluator} will be used by {@link MapView}.
      *
-     * @default [[TiltViewClipPlanesEvaluator]]
+     * @default {@link TiltViewClipPlanesEvaluator}
      */
     clipPlanesEvaluator?: ClipPlanesEvaluator;
 
@@ -457,47 +458,47 @@ export interface MapViewOptions extends TextElementsRendererOptions, Partial<Loo
     /**
      * The maximum number of tiles rendered from one data source at a time.
      *
-     * @default See [[MapViewDefaults.maxVisibleDataSourceTiles]].
+     * @default See {@link MapViewDefaults.maxVisibleDataSourceTiles}.
      */
     maxVisibleDataSourceTiles?: number;
 
     /**
      * Size of a tile cache for one data source.
      *
-     * @default See [[MapViewDefaults.tileCacheSize]].
+     * @default See {@link MapViewDefaults.tileCacheSize}.
      */
     tileCacheSize?: number;
 
     /**
      * Specify if the cache should be counted in tiles or in megabytes.
      *
-     * @see [[MapViewDefaults.resourceComputationType]].
+     * @see {@link MapViewDefaults.resourceComputationType}.
      */
     resourceComputationType?: ResourceComputationType;
 
     /**
      * Limits the number of reduced zoom levels (lower detail) to be searched for fallback tiles.
      *
-     * When zooming in, newly elected tiles may have not yet loaded. [[MapView]] searches through
-     * the tile cache for tiles ready to be displayed in lower zoom levels. The tiles may be
+     * When zooming in, newly elected tiles may have not yet loaded. {@link MapView} searches
+     * through the tile cache for tiles ready to be displayed in lower zoom levels. The tiles may be
      * located shallower in the quadtree.
      *
      * To disable a cache search, set the value to `0`.
      *
-     * @default [[MapViewDefaults.quadTreeSearchDistanceUp]]
+     * @default {@link MapViewDefaults.quadTreeSearchDistanceUp}
      */
     quadTreeSearchDistanceUp?: number;
 
     /**
      * Limits the number of higher zoom levels (more detailed) to be searched for fallback tiles.
      *
-     * When zooming out, newly elected tiles may have not yet loaded. [[MapView]] searches through
-     * the tile cache for tiles ready to be displayed in higher zoom levels. These tiles may be
-     * located deeper in the quadtree.
+     * When zooming out, newly elected tiles may have not yet loaded. {@link MapView} searches
+     * through the tile cache for tiles ready to be displayed in higher zoom levels. These tiles
+     * may be located deeper in the quadtree.
      *
      * To disable a cache search, set the value to `0`.
      *
-     * @default [[MapViewDefaults.quadTreeSearchDistanceDown]]
+     * @default {@link MapViewDefaults.quadTreeSearchDistanceDown}
      */
     quadTreeSearchDistanceDown?: number;
 
@@ -509,7 +510,7 @@ export interface MapViewOptions extends TextElementsRendererOptions, Partial<Loo
     /**
      * Preserve the buffers until they are cleared manually or overwritten.
      *
-     * Set to `true` in order to copy [[MapView]] canvas contents to an image or another canvas.
+     * Set to `true` in order to copy {@link MapView} canvas contents to an image or another canvas.
      *
      * @default `false`.
      * @see https://threejs.org/docs/#api/renderers/WebGLRenderer.preserveDrawingBuffer
@@ -532,14 +533,14 @@ export interface MapViewOptions extends TextElementsRendererOptions, Partial<Loo
     collisionDebugCanvas?: HTMLCanvasElement;
 
     /**
-     * Maximum timeout, in milliseconds, before a [[MOVEMENT_FINISHED_EVENT]] is sent after the
+     * Maximum timeout, in milliseconds, before a {@link MOVEMENT_FINISHED_EVENT} is sent after the
      * latest frame with a camera movement. The default is 300ms.
      */
     movementThrottleTimeout?: number;
 
     /**
      * How to calculate the Field of View, if not specified, then
-     * [[DEFAULT_FOV_CALCULATION]] is used.
+     * {@link DEFAULT_FOV_CALCULATION} is used.
      */
     fovCalculation?: FovCalculation;
 
@@ -609,25 +610,25 @@ export interface MapViewOptions extends TextElementsRendererOptions, Partial<Loo
     tileWrappingEnabled?: boolean;
 
     /**
-     * Set tiling scheme for [[BackgroundDataSource]]
+     * Set tiling scheme for {@link BackgroundDataSource}
      */
     backgroundTilingScheme?: TilingScheme;
 
     /**
-     * Should be the [[PolarTileDataSource]] used on spherical projection.
+     * Should be the {@link PolarTileDataSource} used on spherical projection.
      * Default is `true`.
      */
     enablePolarDataSource?: boolean;
 
     /**
-     * The name of the [[StyleSet]] used by [[PolarTileDataSource]] to evaluate for the decoding.
-     * Default is `"polar"`.
+     * The name of the {@link StyleSet} used by {@link PolarTileDataSource} to evaluate for the
+     * decoding. Default is `"polar"`.
      */
     polarStyleSetName?: string;
 
     /**
      * Storage level offset of regular tiles from reference datasource to align
-     * [[PolarTileDataSource]] tiles to.
+     * {@link PolarTileDataSource} tiles to.
      * Default is `-1`.
      */
     polarGeometryLevelOffset?: number;
@@ -644,7 +645,7 @@ export interface MapViewOptions extends TextElementsRendererOptions, Partial<Loo
      * `update` method requests redraw and waits for the next animation frame.
      *
      * You need to set up your own render loop controller.
-     * Event `MapViewEventNames.Update` fired when [[MapView]] requests for an redraw.
+     * Event `MapViewEventNames.Update` fired when {@link MapView} requests for an redraw.
      * E.g.: When tiles loaded asynchronously and ready for rendering.
      *
      * @note Internal `maxFps` will be overridden and may not work properly as `renderSync`
@@ -672,7 +673,7 @@ export interface MapViewOptions extends TextElementsRendererOptions, Partial<Loo
 }
 
 /**
- * Default settings used by [[MapView]] collected in one place.
+ * Default settings used by {@link MapView} collected in one place.
  * @internal
  */
 const MapViewDefaults = {
@@ -699,19 +700,19 @@ const MapViewDefaults = {
 };
 
 /**
- * Parameters for [[MapView.lookAt]].
+ * Parameters for {@link MapView.lookAt}.
  */
 export interface LookAtParams {
     /**
      * Target/look at point of the MapView.
      *
-     * @note If the given point is not on the ground (altitude != 0) [[MapView]] will do a
+     * @note If the given point is not on the ground (altitude != 0) {@link MapView} will do a
      * raycasting internally to find a target on the ground.
      *
-     * As a consequence [[MapView.target]] and [[MapView.zoomLevel]] will not match the values
-     * that were passed into the [[MapView.lookAt]] method.
-     * @default `new GeoCoordinates(25, 0)` in [[MapView.constructor]] context.
-     * @default [[MapView.target]] in [[MapView.lookAt]] context.
+     * As a consequence {@link MapView.target} and {@link MapView.zoomLevel} will not match
+     * the values that were passed into the {@link MapView.lookAt} method.
+     * @default `new GeoCoordinates(25, 0)` in {@link MapView.constructor} context.
+     * @default {@link MapView.target} in {@link MapView.lookAt} context.
      */
     target: GeoCoordLike;
 
@@ -721,20 +722,20 @@ export interface LookAtParams {
      * If specified, `zoomLevel` and `distance` parameters are ignored and `lookAt` calculates best
      * `zoomLevel` to fit given bounds.
      *
-     * * if `bounds` is [[GeoBox]], then `lookAt` use [[LookAtParams.target]] or `bounds.target` and
-     *   ensure whole box is visible
+     * * if `bounds` is {@link GeoBox}, then `lookAt` use {@link LookAtParams.target} or
+     * `bounds.target` and ensure whole box is visible
      *
-     * * if `bounds` is [[GeoBoxExtentLike]], then `lookAt` will use [[LookAtParams.target]] or
-     *   current [[MapView.target]] and ensure whole extents are visible
+     * * if `bounds` is {@link GeoBoxExtentLike}, then `lookAt` will use {@link LookAtParams.target}
+     *   or current {@link MapView.target} and ensure whole extents are visible
      *
-     * * if `bounds` is [[GeoCoordLike]][], then `lookAt` will use [[LookAtParams.target]] or
-     *   calculated `target` as center of world box covering given points and ensure all points are
-     *   visible
+     * * if `bounds` is {@link GeoCoordLike}[], then `lookAt` will use {@link LookAtParams.target}
+     *   or calculated `target` as center of world box covering given points and ensure all points
+     *   are visible
      *
      * Note in sphere projection some points are not visible if you specify bounds that span more
      * than 180 degreess in any direction.
      *
-     * @see [[MapView.lookAt]] for defails how `bounds` interact with `target` parameter
+     * @see {@link MapView.lookAt} for defails how `bounds` interact with `target` parameter
      */
     bounds: GeoBox | GeoBoxExtentLike | GeoCoordLike[];
 
@@ -747,23 +748,23 @@ export interface LookAtParams {
     /**
      * Zoomlevel of the MapView.
      * @note Takes precedence over distance.
-     * @default 5 in [[MapView.constructor]] context.
-     * @default [[MapView.zoomLevel]] in [[MapView.lookAt]] context.
+     * @default 5 in {@link MapView.constructor} context.
+     * @default {@link MapView.zoomLevel} in {@link MapView.lookAt} context.
      */
     zoomLevel: number;
 
     /**
      * Tilt angle in degrees. 0 is top down view.
-     * @default 0 in [[MapView.constructor]] context.
-     * @default [[MapView.tilt]] in [[MapView.lookAt]] context.
+     * @default 0 in {@link MapView.constructor} context.
+     * @default {@link MapView.tilt} in {@link MapView.lookAt} context.
      * @note Maximum supported tilt is 89°
      */
     tilt: number;
 
     /**
      * Heading angle in degrees and clockwise. 0 is north-up.
-     * @default 0 in [[MapView.constructor]] context.
-     * @default [[MapView.heading]] in [[MapView.lookAt]] context.
+     * @default 0 in {@link MapView.constructor} context.
+     * @default {@link MapView.heading} in {@link MapView.lookAt} context.
      */
     heading: number;
 }
@@ -785,7 +786,7 @@ export class MapView extends THREE.EventDispatcher {
     maxFps: number;
 
     /**
-     * The instance of [[MapRenderingManager]] managing the rendering of the map. It is a public
+     * The instance of {@link MapRenderingManager} managing the rendering of the map. It is a public
      * property to allow access and modification of some parameters of the rendering process at
      * runtime.
      */
@@ -1140,7 +1141,7 @@ export class MapView extends THREE.EventDispatcher {
 
     /**
      * @returns The lights configured by the theme, this is just a convenience method, because the
-     * lights can still be accessed by traversing the children of the [[scene]].
+     * lights can still be accessed by traversing the children of the {@link scene}.
      */
     get lights(): THREE.Light[] {
         return this.m_createdLights ?? [];
@@ -1179,7 +1180,7 @@ export class MapView extends THREE.EventDispatcher {
 
     /**
      * @hidden
-     * The [[TextElementsRenderer]] select the visible [[TextElement]]s and renders them.
+     * The {@link TextElementsRenderer} select the visible {@link TextElement}s and renders them.
      */
     get textElementsRenderer(): TextElementsRenderer {
         return this.m_textElementsRenderer;
@@ -1187,7 +1188,7 @@ export class MapView extends THREE.EventDispatcher {
 
     /**
      * @hidden
-     * The [[CameraMovementDetector]] detects camera movements. Made available for performance
+     * The {@link CameraMovementDetector} detects camera movements. Made available for performance
      * measurements.
      */
     get cameraMovementDetector(): CameraMovementDetector {
@@ -1195,16 +1196,16 @@ export class MapView extends THREE.EventDispatcher {
     }
 
     /**
-     * The [[AnimatedExtrusionHandler]] controls animated extrusion effect
-     * of the extruded objects in the [[Tile]]
+     * The {@link AnimatedExtrusionHandler} controls animated extrusion effect
+     * of the extruded objects in the {@link Tile}
      */
     get animatedExtrusionHandler(): AnimatedExtrusionHandler {
         return this.m_animatedExtrusionHandler;
     }
 
     /**
-     * The [[TileGeometryManager]] manages geometry during loading and handles hiding geometry of
-     * specified [[GeometryKind]]s.
+     * The {@link TileGeometryManager} manages geometry during loading and handles hiding geometry
+     * of specified {@link GeometryKind}s.
      */
     get tileGeometryManager(): TileGeometryManager | undefined {
         return this.m_tileGeometryManager;
@@ -1359,7 +1360,7 @@ export class MapView extends THREE.EventDispatcher {
     }
 
     /**
-     * The abstraction of the [[MapRenderingManager]] API for post effects.
+     * The abstraction of the {@link MapRenderingManager} API for post effects.
      */
     get postEffects(): PostEffects | undefined {
         return this.m_postEffects;
@@ -1451,7 +1452,7 @@ export class MapView extends THREE.EventDispatcher {
     }
 
     /**
-     * [[UriResolver]] used to resolve application/deployment specific `URI`s into actual `URLs`
+     * {@link UriResolver} used to resolve application/deployment specific `URI`s into actual `URLs`
      * that can be loaded with `fetch`.
      */
     get uriResolver(): UriResolver | undefined {
@@ -1560,7 +1561,7 @@ export class MapView extends THREE.EventDispatcher {
      * Adds an event listener. There are various events that are sent before or after a new frame
      * is rendered.
      *
-     * @see [[MapViewEventNames]].
+     * @see {@link MapViewEventNames}.
      *
      * @example
      * ```TypeScript
@@ -1570,7 +1571,7 @@ export class MapView extends THREE.EventDispatcher {
      * });
      * ```
      *
-     * @param type One of the [[MapViewEventNames]] strings.
+     * @param type One of the {@link MapViewEventNames} strings.
      * @param listener The callback invoked when the `MapView` needs to render a new frame.
      */
     addEventListener(type: MapViewEventNames, listener: (event: RenderEvent) => void): void;
@@ -1583,14 +1584,14 @@ export class MapView extends THREE.EventDispatcher {
      * Removes an event listener. There are various events that are sent before or after a new frame
      * is rendered.
      *
-     * @see [[MapViewEventNames]].
+     * @see {@link MapViewEventNames}.
      *
      * @example
      * ```TypeScript
      * mapView.removeEventListener(MapViewEventNames.Render, listener);
      * ```
      *
-     * @param type One of the [[MapViewEventNames]] strings.
+     * @param type One of the {@link MapViewEventNames} strings.
      * @param listener The callback invoked when the `MapView` needs to render a new frame.
      */
     removeEventListener(type: MapViewEventNames, listener: (event: RenderEvent) => void): void;
@@ -1623,10 +1624,10 @@ export class MapView extends THREE.EventDispatcher {
     /**
      * The THREE.js camera used by this `MapView` to render the main scene.
      * @note When modifying the camera all derived properties like:
-     * - [[MapView.target]]
-     * - [[MapView.zoomLevel]]
-     * - [[MapView.tilt]]
-     * - [[MapView.heading]]
+     * - {@link MapView.target}
+     * - {@link MapView.zoomLevel}
+     * - {@link MapView.tilt}
+     * - {@link MapView.heading}
      * could change.
      * These properties are cached internaly and will only be updated in the next animation frame.
      * FIXME: Unfortunatley THREE.js is not dispatching any events when camera properties change
@@ -1683,7 +1684,7 @@ export class MapView extends THREE.EventDispatcher {
     /**
      * Changes the projection at run time.
      *
-     * @param projection The [[Projection]] instance to use.
+     * @param projection The {@link Projection} instance to use.
      */
     set projection(projection: Projection) {
         // Remember tilt and heading before setting the projection.
@@ -1723,7 +1724,7 @@ export class MapView extends THREE.EventDispatcher {
     /**
      * Get geo coordinates of camera focus (target) point.
      * This point is not necessarily on the ground, i.e.:
-     *  - if the tilt is high and projection is [[sphereProjection]]
+     *  - if the tilt is high and projection is {@link sphereProjection}
      *  - if the camera was modified directly and is not pointing to the ground.
      * In any case the projection of the target point will be in the center of the screen.
      *
@@ -1764,7 +1765,7 @@ export class MapView extends THREE.EventDispatcher {
      * Near and far plane distance are self explanatory while minimum and maximum visibility range
      * describes the extreme near/far planes distances that may be achieved with current camera
      * settings, meaning at current zoom level (ground distance) and any possible orientation.
-     * @note Visibility is directly related to camera [[ClipPlaneEvaluator]] used and determines
+     * @note Visibility is directly related to camera {@link ClipPlaneEvaluator} used and determines
      * the maximum possible distance of camera far clipping plane regardless of tilt, but may change
      * whenever zoom level changes. Distance is measured in world units which may be approximately
      * equal to meters, but this depends on the distortion related to projection type used.
@@ -1803,9 +1804,9 @@ export class MapView extends THREE.EventDispatcher {
     }
 
     /**
-     * The node in this MapView's scene containing the user [[MapAnchor]]s.
+     * The node in this MapView's scene containing the user {@link MapAnchor}s.
      * All (first level) children of this node will be positioned in world space according to the
-     * [[MapAnchor.geoPosition]].
+     * {@link MapAnchor.geoPosition}.
      * Deeper level children can be used to position custom objects relative to the anchor node.
      */
     get mapAnchors(): THREE.Object3D {
@@ -1834,14 +1835,14 @@ export class MapView extends THREE.EventDispatcher {
     }
 
     /**
-     * Get the [[PickHandler]] for this `mapView`.
+     * Get the {@link PickHandler} for this `mapView`.
      */
     get pickHandler(): PickHandler {
         return this.m_pickHandler;
     }
 
     /**
-     * Get the [[ImageCache]] that belongs to this `MapView`.
+     * Get the {@link ImageCache} that belongs to this `MapView`.
      */
     get imageCache(): MapViewImageCache {
         return this.m_imageCache;
@@ -1849,7 +1850,7 @@ export class MapView extends THREE.EventDispatcher {
 
     /**
      * @hidden
-     * Get the [[PoiManager]] that belongs to this `MapView`.
+     * Get the {@link PoiManager} that belongs to this `MapView`.
      */
     get poiManager(): PoiManager {
         return this.m_poiManager;
@@ -1857,7 +1858,7 @@ export class MapView extends THREE.EventDispatcher {
 
     /**
      * @hidden
-     * Get the array of [[PoiTableManager]] that belongs to this `MapView`.
+     * Get the array of {@link PoiTableManager} that belongs to this `MapView`.
      */
     get poiTableManager(): PoiTableManager {
         return this.m_poiTableManager;
@@ -1950,7 +1951,8 @@ export class MapView extends THREE.EventDispatcher {
 
     /**
      * Returns the storage level for the given camera setup.
-     * Actual storage level of the rendered data also depends on [[DataSource.storageLevelOffset]].
+     * Actual storage level of the rendered data also depends on
+     * {@link DataSource.storageLevelOffset}.
      */
     get storageLevel(): number {
         return THREE.MathUtils.clamp(
@@ -1979,7 +1981,7 @@ export class MapView extends THREE.EventDispatcher {
     }
 
     /**
-     * Returns [[DataSource]]s displayed by this `MapView`.
+     * Returns {@link DataSource}s displayed by this `MapView`.
      */
     get dataSources(): DataSource[] {
         return this.m_tileDataSources;
@@ -1998,21 +2000,21 @@ export class MapView extends THREE.EventDispatcher {
     }
 
     /**
-     * Returns the unique [[DataSource]] matching the given name.
+     * Returns the unique {@link DataSource} matching the given name.
      */
     getDataSourceByName(dataSourceName: string): DataSource | undefined {
         return this.m_tileDataSources.find(ds => ds.name === dataSourceName);
     }
 
     /**
-     * Returns the array of [[DataSource]]s referring to the same [[StyleSet]].
+     * Returns the array of {@link DataSource}s referring to the same {@link StyleSet}.
      */
     getDataSourcesByStyleSetName(styleSetName: string): DataSource[] {
         return this.m_tileDataSources.filter(ds => ds.styleSetName === styleSetName);
     }
 
     /**
-     * Returns true if the specified [[DataSource]] is enabled.
+     * Returns true if the specified {@link DataSource} is enabled.
      */
     isDataSourceEnabled(dataSource: DataSource): boolean {
         return (
@@ -2024,8 +2026,8 @@ export class MapView extends THREE.EventDispatcher {
     }
 
     /**
-     * Adds a new [[DataSource]] to this `MapView`. `MapView` needs at least one [[DataSource]] to
-     * display something.
+     * Adds a new {@link DataSource} to this `MapView`. `MapView` needs at least one
+     * {@link DataSource} to display something.
      *
      * @param dataSource The data source.
      */
@@ -2097,7 +2099,7 @@ export class MapView extends THREE.EventDispatcher {
     }
 
     /**
-     * Removes [[DataSource]] from this `MapView`.
+     * Removes {@link DataSource} from this `MapView`.
      *
      * @param dataSource The data source to be removed
      */
@@ -2130,7 +2132,7 @@ export class MapView extends THREE.EventDispatcher {
     /**
      * Adds new overlay text elements to this `MapView`.
      *
-     * @param textElements Array of [[TextElement]] to be added.
+     * @param textElements Array of {@link TextElement} to be added.
      */
     addOverlayText(textElements: TextElement[]): void {
         this.m_textElementsRenderer.addOverlayText(textElements);
@@ -2140,7 +2142,7 @@ export class MapView extends THREE.EventDispatcher {
     /**
      * Adds new overlay text elements to this `MapView`.
      *
-     * @param textElements Array of [[TextElement]] to be added.
+     * @param textElements Array of {@link TextElement} to be added.
      */
     clearOverlayText(): void {
         this.m_textElementsRenderer.clearOverlayText();
@@ -2159,17 +2161,17 @@ export class MapView extends THREE.EventDispatcher {
      *
      * | `bounds`             | `target`    | actual `target`
      * | ------               | ------      | --------
-     * | [[GeoBox]]           | _defined_   | `params.target` is used
-     * | [[GeoBox]]           | `undefined` | `bounds.center` is used as new `target`
-     * | [[GeoBoxExtentLike]] | `undefined` | current `MapView.target` is used
-     * | [[GeoBoxExtentLike]] | _defined_   | `params.target` is used
-     * | [[GeoCoordLike]][]   | `undefined` | new `target` is calculated as center of world box covering given points
-     * | [[GeoCoordLike]][]   | _defined_   | `params.target` is used and zoomLevel is adjusted to view all given geo points
+     * | {@link GeoBox}           | _defined_   | `params.target` is used
+     * | {@link GeoBox}           | `undefined` | `bounds.center` is used as new `target`
+     * | {@link GeoBoxExtentLike} | `undefined` | current `MapView.target` is used
+     * | {@link GeoBoxExtentLike} | _defined_   | `params.target` is used
+     * | {@link GeoCoordLike}[]   | `undefined` | new `target` is calculated as center of world box covering given points
+     * | {@link GeoCoordLike}[]   | _defined_   | `params.target` is used and zoomLevel is adjusted to view all given geo points
      *
      * In each case, `lookAt` finds minimum `zoomLevel` that covers given extents or geo points.
      *
      * With flat projection, if `bounds` represents points on both sides of antimeridian, and
-     * [[MapViewOptions.tileWrappingEnabled]] is used, `lookAt` will use this knowledge and find
+     * {@link MapViewOptions.tileWrappingEnabled} is used, `lookAt` will use this knowledge and find
      * minimal view that may cover "next" or "previous" world.
      *
      * With sphere projection if `bounds` represents points on both sides of globe, best effort
@@ -2188,9 +2190,9 @@ export class MapView extends THREE.EventDispatcher {
      *    // look at current `target`, but extending zoomLevel so we see 10 degrees of lat/long span
      * ```
      *
-     * @see More examples in [[LookAtExample]].
+     * @see More examples in {@link LookAtExample}.
      *
-     * @param params [[LookAtParams]]
+     * @param params {@link LookAtParams}
      */
     lookAt(params: Partial<LookAtParams>): void;
     // tslint:enable: max-line-length
@@ -2206,7 +2208,7 @@ export class MapView extends THREE.EventDispatcher {
      * @param headingDeg The camera heading angle in degrees and clockwise (as opposed to yaw)
      *                   @default 0
      * starting north.
-     * @deprecated Use lookAt version with [[LookAtParams]] object parameter.
+     * @deprecated Use lookAt version with {@link LookAtParams} object parameter.
      */
     lookAt(target: GeoCoordLike, distance: number, tiltDeg?: number, headingDeg?: number): void;
 
@@ -2235,17 +2237,17 @@ export class MapView extends THREE.EventDispatcher {
     }
 
     /**
-     * Moves the camera to the specified [[GeoCoordinates]], sets the desired `zoomLevel` and
+     * Moves the camera to the specified {@link GeoCoordinates}, sets the desired `zoomLevel` and
      * adjusts the yaw and pitch. The pitch of the camera is always curbed so that the camera cannot
-     * look above the horizon. This paradigm is necessary in [[MapControls]], where the center of \
-     * the screen is used for the orbiting interaction (3 fingers / right mouse button).
+     * look above the horizon. This paradigm is necessary in {@link MapControls}, where the center
+     * of the screen is used for the orbiting interaction (3 fingers / right mouse button).
      *
      * @param geoPos Geolocation to move the camera to.
      * @param zoomLevel Desired zoom level.
      * @param yawDeg Camera yaw in degrees, counter-clockwise (as opposed to heading), starting
      * north.
      * @param pitchDeg Camera pitch in degrees.
-     * @deprecated Use [[MapView.lookAt]] instead.
+     * @deprecated Use {@link MapView.lookAt} instead.
      */
     setCameraGeolocationAndZoom(
         geoPos: GeoCoordinates,
@@ -2292,7 +2294,7 @@ export class MapView extends THREE.EventDispatcher {
     }
 
     /**
-     * Removes the given dynamic property from this [[MapView]].
+     * Removes the given dynamic property from this {@link MapView}.
      *
      * Property names starting with a `$`-sign are reserved and any attempt to change their value
      * will result in an error.
@@ -2499,7 +2501,7 @@ export class MapView extends THREE.EventDispatcher {
     }
 
     /**
-     * Returns the [[GeoCoordinates]] from the given screen position. The return value can be
+     * Returns the {@link GeoCoordinates} from the given screen position. The return value can be
      * `null`, in case the camera is facing the horizon and the given `(x, y)` value is not
      * intersecting the ground plane.
      *
@@ -2532,11 +2534,12 @@ export class MapView extends THREE.EventDispatcher {
      * THREE.js can raycast, the solid lines that get their geometry in the shader cannot be tested
      * for intersection.
      *
-     * Note, if a [[DataSource]] adds an [[Object3D]] to a [[Tile]], it will be only pickable once
-     * [[MapView.render]] has been called, this is because [[MapView.render]] method creates the
-     * internal three.js root [[Object3D]] which is used in the [[PickHandler]] internally.
+     * Note, if a {@link DataSource} adds an {@link Object3D} to a {@link Tile}, it will be only
+     * pickable once {@link MapView.render} has been called, this is because {@link MapView.render}
+     * method creates the internal three.js root {@link Object3D} which is used in the
+     * {@link PickHandler} internally.
      * This method will not test for intersection custom objects added to the scene by for
-     * example calling directly the [[scene.add]] method from THREE.
+     * example calling directly the {@link scene.add} method from THREE.
      *
      * @param x The X position in css/client coordinates (without applied display ratio).
      * @param y The Y position in css/client coordinates (without applied display ratio).
@@ -2583,7 +2586,7 @@ export class MapView extends THREE.EventDispatcher {
      * Redraws scene immediately
      *
      * @note Before using this method, set `synchronousRendering` to `true`
-     * in the [[MapViewOptions]]
+     * in the {@link MapViewOptions}
      *
      * @param frameStartTime Optional timestamp for start of frame.
      * Default: [[PerformanceTimer.now()]]
@@ -2622,7 +2625,7 @@ export class MapView extends THREE.EventDispatcher {
 
     /**
      * Requests a redraw of the scene.
-     * @deprecated Use the [[update]] method instead.
+     * @deprecated Use the {@link update} method instead.
      */
     requestUpdateIfNeeded() {
         this.update();
@@ -2631,10 +2634,11 @@ export class MapView extends THREE.EventDispatcher {
     /**
      * Clear the tile cache.
      *
-     * Remove the [[Tile]] objects created by cacheable [[DataSource]]s. If a [[DataSource]] name is
-     * provided, this method restricts the eviction the [[DataSource]] with the given name.
+     * Remove the {@link Tile} objects created by cacheable {@link DataSource}s. If a
+     * {@link DataSource} name is provided, this method restricts the eviction the
+     * {@link DataSource} with the given name.
      *
-     * @param dataSourceName The name of the [[DataSource]].
+     * @param dataSourceName The name of the {@link DataSource}.
      */
     clearTileCache(dataSourceName?: string) {
         if (this.m_visibleTiles === undefined) {
@@ -2682,8 +2686,9 @@ export class MapView extends THREE.EventDispatcher {
      *  * Visible and temporarily rendered tiles will be marked for update and retained.
      *  * Cached but not rendered/visible will be evicted.
      *
-     * @param dataSource If passed, only the tiles from this [[DataSource]] instance are processed.
-     * If `undefined`, tiles from all [[DataSource]]s are processed.
+     * @param dataSource If passed, only the tiles from this {@link DataSource} instance are
+     *        processed.
+     * If `undefined`, tiles from all {@link DataSource}s are processed.
      */
     markTilesDirty(dataSource?: DataSource) {
         this.m_visibleTiles.markTilesDirty(dataSource);
@@ -2691,11 +2696,11 @@ export class MapView extends THREE.EventDispatcher {
 
     /**
      * Sets the DataSource which contains the elevations, the elevation range source, and the
-     * elevation provider. Only a single elevation source is possible per [[MapView]]
+     * elevation provider. Only a single elevation source is possible per {@link MapView}
      *
      * If the terrain-datasource is merged with this repository, we could internally construct
-     * the [[ElevationRangeSource]] and the [[ElevationProvider]] and access would be granted to
-     * the application when it asks for it, to simplify the API.
+     * the {@link ElevationRangeSource} and the {@link ElevationProvider} and access would be
+     * granted to the application when it asks for it, to simplify the API.
      *
      * @param elevationSource The datasource containing the terrain tiles.
      * @param elevationRangeSource Allows access to the elevation min / max per tile.
@@ -2749,7 +2754,7 @@ export class MapView extends THREE.EventDispatcher {
     }
 
     /**
-     * Public access to [[MapViewFog]] allowing to toggle it by setting its `enabled` property.
+     * Public access to {@link MapViewFog} allowing to toggle it by setting its `enabled` property.
      */
     get fog(): MapViewFog {
         return this.m_fog;
@@ -2983,7 +2988,7 @@ export class MapView extends THREE.EventDispatcher {
      * note, setupCamera must be called before this is called.
      * @param viewRanges optional parameter that supplies new view ranges, most importantly
      * near/far clipping planes distance. If parameter is not provided view ranges will be
-     * calculated from [[ClipPlaneEvaluator]] used in [[VisibleTileSet]].
+     * calculated from {@link ClipPlaneEvaluator} used in {@link VisibleTileSet}.
      */
     private updateCameras(viewRanges?: ViewRanges) {
         // Update look at settings first, so that other components (e.g. ClipPlanesEvaluator) get
@@ -3181,8 +3186,10 @@ export class MapView extends THREE.EventDispatcher {
     }
 
     /**
-     * Render loop callback that should only be called by [[requestAnimationFrame]].
-     * Will trigger [[requestAnimationFrame]] again if updates are pending or  animation is running.
+     * Render loop callback that should only be called by {@link requestAnimationFrame}.
+     * Will trigger {@link requestAnimationFrame} again if updates are pending or  animation is
+     * running.
+     *
      * @param frameStartTime The start time of the current frame
      */
     private renderLoop(frameStartTime: number) {
@@ -3275,7 +3282,7 @@ export class MapView extends THREE.EventDispatcher {
 
             // We store the last frame statistics at the beginning of the next frame b/c additional
             // work (i.e. geometry creation) is done outside of the animation frame but still needs
-            // to be added to the `fullFrameTime` (see [[TileGeometryLoader]]).
+            // to be added to the `fullFrameTime` (see {@link TileGeometryLoader}).
             stats.storeAndClearFrameInfo();
 
             currentFrameEvent = currentFrameEvent as FrameStats;
@@ -3566,7 +3573,7 @@ export class MapView extends THREE.EventDispatcher {
     }
 
     /**
-     * Process dynamic updates of [[TileObject]]'s style.
+     * Process dynamic updates of {@link TileObject}'s style.
      *
      * @returns `true` if object shall be used in scene, `false` otherwise
      */
@@ -3588,11 +3595,11 @@ export class MapView extends THREE.EventDispatcher {
     }
 
     /**
-     * Process the features owned by the given [[TileObject]].
+     * Process the features owned by the given {@link TileObject}.
      *
-     * @param tile The [[Tile]] owning the [[TileObject]]'s features.
-     * @param object The [[TileObject]] to process.
-     * @returns `false` if the given [[TileObject]] should not be added to the scene.
+     * @param tile The {@link Tile} owning the {@link TileObject}'s features.
+     * @param object The {@link TileObject} to process.
+     * @returns `false` if the given {@link TileObject} should not be added to the scene.
      */
     private processTileObjectFeatures(tile: Tile, object: TileObject): boolean {
         const technique: IndexedTechnique = object.userData.technique;
@@ -3619,7 +3626,7 @@ export class MapView extends THREE.EventDispatcher {
         const geometry: THREE.BufferGeometry | undefined = (object as any).geometry;
 
         if (!geometry || !geometry.isBufferGeometry) {
-            // Nothing to do, the geometry is not a [[THREE.BufferGeometry]]
+            // Nothing to do, the geometry is not a {@link THREE.BufferGeometry}
             // and we can't generate groups.
             return true;
         }
@@ -3643,7 +3650,7 @@ export class MapView extends THREE.EventDispatcher {
                 // the state of current feature.
                 const featureState = tile.dataSource.getFeatureState(featureId);
 
-                // create a new [[Env]] that can be used
+                // create a new {@link Env} that can be used
                 // to evaluate expressions that access the feature state.
                 const $state = featureState ? new MapEnv(featureState) : null;
 
@@ -4104,8 +4111,9 @@ export class MapView extends THREE.EventDispatcher {
 
     /**
      * Sets the focal length based on the supplied fov and the height of the canvas. This must be
-     * called at least once. This is necessary to be recalled when the [[FovCalculation]]'s type is
-     * fixed. In such cases, when the height changes, the focal length must be readjusted whereas
+     * called at least once. This is necessary to be recalled when the {@link FovCalculation}'s type
+     * is fixed.
+     * In such cases, when the height changes, the focal length must be readjusted whereas
      * the FOV stays the same. The opposite is true for the dynamic case, where the focal length is
      * fixed but the FOV changes.
      * @param height Height of the canvas in css / client pixels.

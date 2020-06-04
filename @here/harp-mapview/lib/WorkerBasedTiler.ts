@@ -20,7 +20,7 @@ import { ConcurrentWorkerSet } from "./ConcurrentWorkerSet";
 let nextUniqueServiceId = 0;
 
 /**
- * Tiler based on [[ConcurrentWorkerSet]].
+ * Tiler based on {@link ConcurrentWorkerSet}.
  *
  * Tiles payloads using workers running in separate contexts (also known as `WebWorkers`):
  * - connection establishment,
@@ -34,7 +34,7 @@ export class WorkerBasedTiler implements ITiler {
     /**
      * Creates a new `WorkerBasedTiler`.
      *
-     * @param workerSet [[ConcurrentWorkerSet]] this tiler will live in.
+     * @param workerSet {@link ConcurrentWorkerSet} this tiler will live in.
      * @param tilerServiceType Service type identifier.
      */
     constructor(
@@ -47,7 +47,7 @@ export class WorkerBasedTiler implements ITiler {
 
     /**
      * Dispose of dedicated tiler services in workers and remove reference to underlying
-     * [[ConcurrentWorkerSet]].
+     * {@link ConcurrentWorkerSet}.
      */
     dispose() {
         if (this.m_serviceCreated) {
@@ -65,8 +65,8 @@ export class WorkerBasedTiler implements ITiler {
     }
 
     /**
-     * Connects to [[WorkerServiceManager]]s in underlying [[ConcurrentWorkerSet]] and creates
-     * dedicated [[TilerService]]s in all workers to serve tiling requests.
+     * Connects to {@link WorkerServiceManager}s in underlying {@link ConcurrentWorkerSet} and
+     * creates dedicated {@link TilerService}s in all workers to serve tiling requests.
      */
     async connect(): Promise<void> {
         await this.workerSet.connect(WorkerServiceProtocol.WORKER_SERVICE_MANAGER_SERVICE_ID);
@@ -120,7 +120,7 @@ export class WorkerBasedTiler implements ITiler {
      * Retrieves a tile for a previously registered index.
      *
      * @param indexId Index identifier.
-     * @param tileKey The [[TileKey]] that identifies the tile.
+     * @param tileKey The {@link TileKey} that identifies the tile.
      */
     getTile(indexId: string, tileKey: TileKey): Promise<{}> {
         const tileKeyCode = tileKey.mortonCode();

@@ -16,7 +16,7 @@ export class LodMesh extends THREE.Mesh {
     private m_geometries: Array<THREE.Geometry | THREE.BufferGeometry> | undefined;
 
     /**
-     * Creates a [[LodMesh]] with given geometries and materials
+     * Creates a {@link LodMesh} with given geometries and materials
      * @param geometries A list of geometries with different levels of detail
      * @param material Material for the mesh
      */

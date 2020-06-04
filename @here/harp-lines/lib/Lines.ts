@@ -31,7 +31,7 @@ interface VertexDescriptor {
 }
 
 /**
- * Declares all the vertex attributes used for rendering a line using the [[SolidLineMaterial]].
+ * Declares all the vertex attributes used for rendering a line using the {@link SolidLineMaterial}.
  */
 
 /** Base line vertex attributes. */
@@ -66,7 +66,7 @@ const LINE_VERTEX_ATTRIBUTES_NUV: VertexDescriptor = {
 
 /**
  * Declares all the vertex attributes used for rendering a line using the
- * [[HighPrecisionLineMaterial]].
+ * {@link HighPrecisionLineMaterial}.
  */
 const HP_LINE_VERTEX_ATTRIBUTES: VertexDescriptor = {
     attributes: [
@@ -89,7 +89,7 @@ const HP_LINE_VERTEX_ATTRIBUTES_NUV: VertexDescriptor = {
 };
 
 /**
- * Class that holds the vertex and index attributes for a [[Lines]] object.
+ * Class that holds the vertex and index attributes for a {@link Lines} object.
  */
 export class LineGeometry {
     vertices: number[] = [];
@@ -106,14 +106,14 @@ function getVertexDescriptor(hasNormalsAndUvs: boolean, highPrecision: boolean):
 }
 
 /**
- * Creates a [[LineGeometry]] object out of a polyline.
+ * Creates a {@link LineGeometry} object out of a polyline.
  *
  * @param center Center of the polyline.
  * @param polyline Array of `numbers` describing a polyline.
  * @param offsets Array of `numbers` representing line segment offsets.
  * @param uvs Array of `numbers` representing texture coordinates.
  * @param colors Array of `numbers` describing a polyline's colors.
- * @param geometry [[LineGeometry]] object used to store the vertex and index attributes.
+ * @param geometry {@link LineGeometry} object used to store the vertex and index attributes.
  * @param highPrecision If `true` will create high-precision vertex information.
  */
 export function createLineGeometry(
@@ -276,11 +276,11 @@ export function createLineGeometry(
 }
 
 /**
- * Creates a [[LineGeometry]] object out of a polyline.
+ * Creates a {@link LineGeometry} object out of a polyline.
  *
  * @param polyline Array of `numbers` describing a polyline.
  * @param colors Array of `numbers` describing a polyline's colors.
- * @param geometry [[LineGeometry]] object used to store the vertex and index attributes.
+ * @param geometry {@link LineGeometry} object used to store the vertex and index attributes.
  */
 export function createSimpleLineGeometry(
     polyline: ArrayLike<number>,
@@ -319,12 +319,13 @@ export function createSimpleLineGeometry(
  */
 export class LineGroup {
     /**
-     * Adds all the attribute data needed to a [[BufferGeometry]] object for rendering `Lines`.
+     * Adds all the attribute data needed to a {@link BufferGeometry} object for rendering `Lines`.
      *
      * @param vertices Array of vertex attributes.
      * @param colors Array of vertex colors.
      * @param indices Array of vertex indices.
-     * @param geometry [[BufferGeometry]] object which will store all the `Lines` attribute data.
+     * @param geometry {@link BufferGeometry} object which will store all the `Lines`
+     *                 attribute data.
      * @param hasNormalsAnUvs Whether vertices have normal and uv coordinates as attributes.
      * @param highPrecision If `true` will create high-precision vertex information.
      * @param isSimple `true` to create simple (nonsolid, nonextruded) lines. Defaults to `false`.
@@ -456,7 +457,7 @@ export class LineGroup {
     }
 
     /**
-     * Returns the list of [[VertexAttributeDescriptor]]s.
+     * Returns the list of {@link VertexAttributeDescriptor}s.
      */
     get vertexAttributes(): VertexAttributeDescriptor[] {
         return getVertexDescriptor(this.hasNormalsAndUvs, this.highPrecision).attributes;

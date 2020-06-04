@@ -11,7 +11,7 @@ import { CubeTexture, CubeTextureLoader, Texture } from "three";
 const logger = LoggerManager.instance.create("SkyCubemapTexture");
 
 /**
- * Number of faces that form a [[SkyCubemapTexture]].
+ * Number of faces that form a {@link SkyCubemapTexture}.
  */
 export const SKY_CUBEMAP_FACE_COUNT = 6;
 
@@ -28,7 +28,8 @@ export enum SkyCubemapFaceId {
 }
 
 /**
- * Class that handles loading all 6 faces of a [[CubeTexture]], to be used with [[SkyBackground]].
+ * Class that handles loading all 6 faces of a {@link CubeTexture}, to be used with
+ * {@link SkyBackground}.
  */
 export class SkyCubemapTexture {
     private m_skybox: CubeTexture;
@@ -36,7 +37,7 @@ export class SkyCubemapTexture {
     /**
      * Constructs a new `SkyCubemapTexture`.
      *
-     * @param sky Initial [[CubemapSky]] configuration.
+     * @param sky Initial {@link CubemapSky} configuration.
      */
     constructor(sky: CubemapSky) {
         const faces = this.createCubemapFaceArray(sky);
@@ -61,7 +62,7 @@ export class SkyCubemapTexture {
     /**
      * Updates the `SkyCubemapTexture` with new parameters.
      *
-     * @param params New [[CubemapSky]] configuration.
+     * @param params New {@link CubemapSky} configuration.
      */
     updateTexture(sky: CubemapSky) {
         const faces = this.createCubemapFaceArray(sky);

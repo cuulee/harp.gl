@@ -20,21 +20,21 @@ import { WorkerService, WorkerServiceResponse } from "./WorkerService";
 const logger = LoggerManager.instance.create("TileDecoderService");
 
 /**
- * An extension to [[WorkerService]], the `TileDecoderService` implements an asynchronous
+ * An extension to {@link WorkerService}, the `TileDecoderService` implements an asynchronous
  * (message based) service to decode tile content in web workers. The `TileDecoderService` itself
- * lives in the web worker, and communicates with messages by means of a [[ConcurrentWorkerSet]]
+ * lives in the web worker, and communicates with messages by means of a {@link ConcurrentWorkerSet}
  * with the application.
  *
- * The `TileDecoderService` handles a [[DecodeTileRequest]], which contains a tile and its freshly
- * loaded binary data, decodes the content with the [[ITileDecoder]] that the service is configured
- * to use, and sends the data back in form of a [[WorkerServiceResponse]].
+ * The `TileDecoderService` handles a {@link DecodeTileRequest}, which contains a tile and its
+ * freshly loaded binary data, decodes the content with the {@link ITileDecoder} that the service
+ * is configured to use, and sends the data back in form of a {@link WorkerServiceResponse}.
  */
 export class TileDecoderService extends WorkerService {
     /**
-     * Start a [[TileDecoderService]] with a given decoder.
+     * Start a {@link TileDecoderService} with a given decoder.
      *
      * @param serviceId Service id. Must be unique.
-     * @param decoder   [[TileDecoder]] instance.
+     * @param decoder   {@link TileDecoder} instance.
      */
     static start(serviceId: string, decoder: ITileDecoder) {
         return new TileDecoderService(serviceId, decoder);
@@ -55,7 +55,7 @@ export class TileDecoderService extends WorkerService {
      * Handle incoming request messages. Identifies message type and processes the request.
      *
      * @param request Message that is either a DecodeTileRequest or a TileInfoRequest.
-     * @returns A promise which resolves to a [[WorkerServiceResponse]].
+     * @returns A promise which resolves to a {@link WorkerServiceResponse}.
      * @override
      */
     protected handleRequest(request: any): Promise<WorkerServiceResponse> {
@@ -71,7 +71,7 @@ export class TileDecoderService extends WorkerService {
     /**
      * Handle incoming configuration message. Configuration message is passed on to decoder.
      *
-     * @param request Message of type [[ConfigurationMessage]].
+     * @param request Message of type {@link ConfigurationMessage}.
      * @override
      */
     protected handleMessage(message: any) {

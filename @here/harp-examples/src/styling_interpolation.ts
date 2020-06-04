@@ -13,7 +13,7 @@ import { APIFormat, AuthenticationMethod, OmvDataSource } from "@here/harp-omv-d
 import { apikey, copyrightInfo } from "../config";
 
 /**
- * This example showcases interpolated [[MapView]] techniques.
+ * This example showcases interpolated {@link MapView} techniques.
  */
 export namespace TiledGeoJsonTechniquesExample {
     document.body.innerHTML += `

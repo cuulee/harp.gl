@@ -12,7 +12,7 @@ import { MapAdapterUpdateEnv, MapMaterialAdapter } from "./MapMaterialAdapter";
 /**
  * @hidden
  *
- * Construction params of [[MapObjectAdapter]].
+ * Construction params of {@link MapObjectAdapter}.
  */
 export interface MapObjectAdapterParams {
     technique?: Technique;
@@ -25,9 +25,9 @@ export interface MapObjectAdapterParams {
 /**
  * @hidden
  *
- * [[MapView]] specific data assigned to `THREE.Object3D` instance in installed in `userData`.
+ * {@link MapView} specific data assigned to `THREE.Object3D` instance in installed in `userData`.
  *
- * [[MapObjectAdapter]] is registered in `usedData.mapAdapter` property of `THREE.Object3D`.
+ * {@link MapObjectAdapter} is registered in `usedData.mapAdapter` property of `THREE.Object3D`.
  */
 export class MapObjectAdapter {
     /**
@@ -60,12 +60,12 @@ export class MapObjectAdapter {
     readonly object: THREE.Object3D;
 
     /**
-     * [[Technique]] that constituted this object.
+     * {@link Technique} that constituted this object.
      */
     readonly technique?: Technique;
 
     /**
-     * [[GeometryKind]] of `object`.
+     * {@link GeometryKind} of `object`.
      */
     readonly kind: GeometryKind[] | undefined;
 
@@ -92,14 +92,14 @@ export class MapObjectAdapter {
     }
 
     /**
-     * Ensure that underlying object is updated to current state of [[MapView]].
+     * Ensure that underlying object is updated to current state of {@link MapView}.
      *
      * Updates object and attachments like materials to current state by evaluating scene dependent
      * expressions.
      *
-     * Executes updates only once per frame basing on [[MapView.frameNumber]].
+     * Executes updates only once per frame basing on {@link MapView.frameNumber}.
      *
-     * Delegates updates of materials to [[MapMaterialAdapter.ensureUpdated]].
+     * Delegates updates of materials to {@link MapMaterialAdapter.ensureUpdated}.
      *
      * @returns `true` if object performed some kind of update, `false` if no update was needed.
      */

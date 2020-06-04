@@ -12,7 +12,7 @@ import { apikey, copyrightInfo } from "../config";
 
 /**
  * MapView initialization sequence enables setting all the necessary elements on a map  and returns
- * a [[MapView]] object. Looking at the function's definition:
+ * a {@link MapView} object. Looking at the function's definition:
  *
  * ```typescript
  * function initializeMapView(id: string): MapView {
@@ -26,13 +26,14 @@ import { apikey, copyrightInfo } from "../config";
  * ```
  *
  * During the initialization, canvas element with a given `id` is searched for first. Than a
- * [[MapView]] object is created and set to initial values of camera settings and map's geo center.
+ * {@link MapView} object is created and set to initial values of camera settings and map's
+ * geo center.
  *
  * ```typescript
  * [[include:harp_gl_hello_world_example_1.ts]]
  * ```
- * As a map needs controls to allow any interaction with the user (e.g. panning), a [[MapControls]]
- * object is created.
+ * As a map needs controls to allow any interaction with the user (e.g. panning),
+ * a {@link MapControls} object is created.
  *
  * ```typescript
  * [[include:harp_gl_hello_world_example_map_controls.ts]]
@@ -49,8 +50,8 @@ import { apikey, copyrightInfo } from "../config";
  * ```typescript
  * [[include:harp_gl_hello_world_example_3.ts]]
  * ```
- * At the end of the initialization a [[MapView]] object is returned. To show map tiles an exemplary
- * datasource is used, [[OmvDataSource]]:
+ * At the end of the initialization a {@link MapView} object is returned. To show map tiles an
+ * exemplary datasource is used, {@link OmvDataSource}:
  *
  * ```typescript
  * [[include:harp_gl_hello_world_example_4.ts]]

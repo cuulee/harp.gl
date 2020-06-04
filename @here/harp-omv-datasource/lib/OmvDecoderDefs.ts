@@ -12,8 +12,8 @@ export enum FeatureModifierId {
     /**
      * Generic feature modifier used when no other modifiers are defined.
      *
-     * @note You do not need to specify it in [[OmvDataSourceParameters]] as it is added by default
-     * if no other feature modifier is used.
+     * @note You do not need to specify it in {@link OmvDataSourceParameters} as it is added by
+     * default if no other feature modifier is used.
      */
     default,
     /**
@@ -116,7 +116,8 @@ export interface OmvFilterDescription {
 }
 
 /**
- * Internal type of a complete [[OmvFeatureFilter]] description, should not be publicly available.
+ * Internal type of a complete {@link OmvFeatureFilter} description, should not be publicly
+ * available.
  *
  * @hidden
  */
@@ -141,7 +142,7 @@ export interface OmvFeatureFilterDescription {
 }
 
 /**
- * Internal interface for options passed from the [[OmvDataSource]] to the decoder.
+ * Internal interface for options passed from the {@link OmvDataSource} to the decoder.
  *
  * @hidden
  */
@@ -153,26 +154,26 @@ export interface OmvDecoderOptions {
     showMissingTechniques?: boolean;
 
     /**
-     * Gather feature attributes from [[OmvData]]. Defaults to false.
+     * Gather feature attributes from {@link OmvData}. Defaults to false.
      */
     gatherFeatureAttributes?: boolean;
 
     /**
      * @deprecated Tile info is not decoded anymore. The same information can be generated
-     * implementing a [[IGeometryProcessor]] and using [[OmvProtobufDataAdapter]] to decode OMV
-     * data.
+     * implementing a {@link IGeometryProcessor} and using {@link OmvProtobufDataAdapter} to decode
+     * OMV data.
      */
     createTileInfo?: boolean;
 
     /**
      * @deprecated Tile info is not decoded anymore. The same information can be generated
-     * implementing a [[IGeometryProcessor]] and using [[OmvProtobufDataAdapter]] to decode OMV
-     * data.
+     * implementing a {@link IGeometryProcessor} and using {@link OmvProtobufDataAdapter} to decode
+     * OMV data.
      */
     gatherRoadSegments?: boolean;
 
     /**
-     * Optional storage level offset for [[Tile]]s. Default is -2.
+     * Optional storage level offset for {@link Tile}s. Default is -2.
      */
     storageLevelOffset?: number;
 
@@ -184,7 +185,7 @@ export interface OmvDecoderOptions {
 
     /**
      * A description for the feature filter which can be safely passed down to the web workers.
-     * It has to be generated with the help of the [[OmvFeatureFilterDescriptionBuilder]] (to
+     * It has to be generated with the help of the {@link OmvFeatureFilterDescriptionBuilder} (to
      * guarantee the correctness).
      */
     filterDescription?: OmvFeatureFilterDescription | null;
@@ -193,10 +194,11 @@ export interface OmvDecoderOptions {
     // get rid of politicalView property as properly configured feature modifier (with country
     // code), would be already defined here.
     /**
-     * List of user specified [[OmvFeatureModifier]]s, list order declares the order of processing.
+     * List of user specified {@link OmvFeatureModifier}s, list order declares the order of
+     * processing.
      *
      * Each identifier is used to choose corresponding OmvFeatureModifier, if undefined at least
-     * [[OmvGenericFeatureModifier]] is added to decoder.
+     * {@link OmvGenericFeatureModifier} is added to decoder.
      */
     featureModifiers?: FeatureModifierId[];
 
@@ -213,13 +215,13 @@ export interface OmvDecoderOptions {
 /**
  * Default OMV tile decoder service type.
  *
- * Used for requesting decoder services using [[WorkerServiceManager]].
+ * Used for requesting decoder services using {@link WorkerServiceManager}.
  */
 export const OMV_TILE_DECODER_SERVICE_TYPE = "omv-tile-decoder";
 
 /**
  * Default OMV tiler service type.
  *
- * Used for requesting tiler services using [[WorkerServiceManager]].
+ * Used for requesting tiler services using {@link WorkerServiceManager}.
  */
 export const OMV_TILER_SERVICE_TYPE = "omv-tiler";

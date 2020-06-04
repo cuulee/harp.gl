@@ -46,8 +46,8 @@ export interface Theme {
     extends?: string | Theme | Array<string | Theme>;
 
     //
-    // TODO: We support also [[FlatTheme]], but it's not exposed here since ts-json-schema-generator
-    // fails with too complex typing.
+    // TODO: We support also {@link FlatTheme}, but it's not exposed here since
+    // `ts-json-schema-generator` fails with too complex typing.
     // See: https://github.com/vega/ts-json-schema-generator/issues/192
     // Typing should look like this:
     // extends?: string | Theme | FlatTheme| Array<string | Theme | FlatTheme>;
@@ -121,18 +121,18 @@ export interface Theme {
     imageTextures?: ImageTexture[];
 
     /**
-     * Optional list of [[ThemePoiTableDef]]s.
+     * Optional list of {@link ThemePoiTableDef}s.
      */
     poiTables?: PoiTableRef[];
 
     /**
      * Optional list of symbolic priorities for the object
-     * created using this [[Theme]].
+     * created using this {@link Theme}.
      *
      * @remarks
-     * The attribute `styleSet` and `category` of the [[Technique]]
-     * are used together with [[Theme.priorities]] to sort
-     * the objects created using this [[Theme]], for example:
+     * The attribute `styleSet` and `category` of the {@link Technique}
+     * are used together with {@link Theme.priorities} to sort
+     * the objects created using this {@link Theme}, for example:
      *
      * ```json
      * {
@@ -158,7 +158,7 @@ export interface Theme {
      * @remarks
      * The name of the `category` attribute of the screen-space
      * technique (e.g. `"text"`) must match on the strings
-     * defined by this [[Theme.labelPriorities]], for example:
+     * defined by this {@link Theme.labelPriorities}, for example:
      *
      * ```json
      * {
@@ -184,21 +184,21 @@ export interface Theme {
  */
 export interface StylePriority {
     /**
-     * The group of this [[StylePriority]].
+     * The group of this {@link StylePriority}.
      */
     group: string;
 
     /**
-     * The category of this [[StylePriority]].
+     * The category of this {@link StylePriority}.
      */
     category?: string;
 }
 
 /**
  * A type representing HARP themes with all the styleset declarations
- * grouped in one [[Array]].
+ * grouped in one {@link Array}.
  *
- * @internal This type will merge with [[Theme]].
+ * @internal This type will merge with {@link Theme}.
  */
 export type FlatTheme = Omit<Theme, "styles"> & {
     /**
@@ -208,7 +208,7 @@ export type FlatTheme = Omit<Theme, "styles"> & {
 };
 
 /**
- * Checks if the given definition implements the [[BoxedDefinition]] interface.
+ * Checks if the given definition implements the {@link BoxedDefinition} interface.
  */
 export function isBoxedDefinition(def: Definition): def is BoxedDefinition {
     const bdef = def as BoxedDefinition;
@@ -244,7 +244,7 @@ export interface BaseValueDefinition {
 }
 
 /**
- * Possible types of unboxed literal values carried by [[Definition]].
+ * Possible types of unboxed literal values carried by {@link Definition}.
  */
 export type LiteralValue = string | number | boolean;
 
@@ -330,7 +330,7 @@ export interface BoxedSelectorDefinition extends BaseValueDefinition {
     /**
      * The value of the definition.
      *
-     * See [[BaseStyle.when]].
+     * See {@link BaseStyle.when}.
      */
     value: string | JsonExpr;
 }
@@ -352,7 +352,7 @@ export type BoxedDefinition =
 export type Definition = LiteralValue | JsonExpr | BoxedDefinition | StyleDeclaration;
 
 /**
- * An array of [[Definition]]s.
+ * An array of {@link Definition}s.
  */
 export interface Definitions {
     [name: string]: Definition;
@@ -361,14 +361,14 @@ export interface Definitions {
 /**
  * Base [StyleSelector] attributes required to match [Style] object against given feature.
  *
- * Contains [Style]'s members related to feature matching in [[StyleSetEvaluator]].
+ * Contains [Style]'s members related to feature matching in {@link StyleSetEvaluator}.
  */
 export interface StyleSelector {
     /**
      * Condition when this style rule applies.
      *
      * @remarks
-     * Condition that is applied to feature properties to check if given [[Style]] this feature
+     * Condition that is applied to feature properties to check if given {@link Style} this feature
      * should emit geometry of this style.
      */
     when: string | JsonExpr;
@@ -401,18 +401,18 @@ export function isJsonExprReference(value: any): value is JsonExprReference {
 }
 
 /**
- * Like [[StyleDeclaration]], but without [[Reference]] type.
+ * Like {@link StyleDeclaration}, but without {@link Reference} type.
  */
 export type ResolvedStyleDeclaration = Style & StyleSelector;
 
 /**
- * Like [[StyleSet]], but without [[Reference]] type.
+ * Like {@link StyleSet}, but without {@link Reference} type.
  */
 export type ResolvedStyleSet = ResolvedStyleDeclaration[];
 
 /**
  * Compound type that merges all raw [Style] with selector arguments from [BaseSelector], optionally
- * a [[Reference]].
+ * a {@link Reference}.
  */
 export type StyleDeclaration = (Style & StyleSelector) | JsonExpr;
 
@@ -427,17 +427,17 @@ export function isActualSelectorDefinition(def: Definition): def is Style & Styl
 }
 
 /**
- * An array of [[StyleSelector]]s that are used together to define how a [[DataSource]] should be
- * rendered. `StyleSet`s are applied to sources providing vector tiles via their method
- * `setStyleSet`. This is also handle internally when a whole theme is passed to a [[MapView]] via
- * `mapview.theme`.
+ * An array of {@link StyleSelector}s that are used together to define how a {@link DataSource}
+ * should be rendered. {@link StyleSet}s are applied to sources providing vector tiles via
+ * their method {@link DataSource.setStyleSet}`. This is also handle internally when a whole theme
+ * is passed to a {@link MapView} via {@link MapView.theme}.
  */
 export type StyleSet = StyleDeclaration[];
 
 /**
- * The object that defines what way an item of a [[DataSource]] should be decoded to assemble a
- * tile. [[Style]] is describing which features are shown on a map and in what way they are being
- * shown.
+ * The object that defines what way an item of a {@link DataSource} should be decoded to assemble a
+ * tile. {@link Style} is describing which features are shown on a map and in what way they are
+ * being shown.
  */
 export type BaseStyle<Technique, Params> = Partial<Params> & {
     /**
@@ -532,7 +532,7 @@ export type Style =
     | NoneStyle;
 
 /**
- * A dictionary of [[StyleSet]]s.
+ * A dictionary of {@link StyleSet}s.
  */
 export interface Styles {
     [styleSetName: string]: StyleSet;
@@ -570,28 +570,28 @@ export type Attr<T> = { [P in keyof T]?: T[P] | JsonExpr };
 /**
  * Render feature as set of squares rendered in screen space.
  *
- * @see [[PointTechniqueParams]].
+ * @see {@link PointTechniqueParams}.
  */
 export type SquaresStyle = BaseStyle<"squares", PointTechniqueParams>;
 
 /**
  * Render feature as set of circles rendered in screen space.
  *
- * @see [[PointTechniqueParams]].
+ * @see {@link PointTechniqueParams}.
  */
 export type CirclesStyle = BaseStyle<"circles", PointTechniqueParams>;
 
 /**
  * Render feature as POIs (icons and text) rendered in screen space.
  *
- * @see [[MarkerTechniqueParams]].
+ * @see {@link MarkerTechniqueParams}.
  */
 export type PoiStyle = BaseStyle<"labeled-icon", MarkerTechniqueParams>;
 
 /**
  * Render feature as line markers, which is a recurring marker along a line (usually road).
  *
- * @see [[MarkerTechniqueParams]].
+ * @see {@link MarkerTechniqueParams}.
  */
 export type LineMarkerStyle = BaseStyle<"line-marker", MarkerTechniqueParams>;
 
@@ -747,7 +747,7 @@ export interface TextStyleDefinition {
     vAlignment?: "Above" | "Center" | "Below";
     /**
      * @format comma separated list of placement tokens, i.e. "TR, TL, C"
-     * @see [[PlacementToken]]
+     * @see {@link PlacementToken}
      */
     placements?: string;
 }
@@ -856,15 +856,15 @@ export interface ImageTexture {
 }
 
 /**
- * Definition for a [[PoiTable]] reference as part of the [[Theme]] object.
+ * Definition for a {@link PoiTable} reference as part of the {@link Theme} object.
  */
 export interface PoiTableRef {
-    /** Required name of the [[PoiTable]] for later reference. */
+    /** Required name of the {@link PoiTable} for later reference. */
     name: string;
     /**
-     * Required URL from where to load [[PoiTable]].
+     * Required URL from where to load {@link PoiTable}.
      *
-     * Should refer to JSON that is matched [[PoiTableDef]] interface.
+     * Should refer to JSON that is matched {@link PoiTableDef} interface.
      */
     url: string;
     /**
@@ -875,20 +875,21 @@ export interface PoiTableRef {
 }
 
 /**
- * Interface for the JSON description of the [[PoiTable]]. It is being implemented in [[PoiTable]].
+ * Interface for the JSON description of the {@link PoiTable}. It is being implemented in
+ * {@link PoiTable}.
  */
 export interface PoiTableDef {
     /** Name of the `PoiTable`. Must be unique. */
     name?: string;
     /**
-     * Stores the list of [[PoiTableEntry]]s.
+     * Stores the list of {@link PoiTableEntry}s.
      */
     poiList?: PoiTableEntryDef[];
 }
 
 /**
- * Interface for the JSON description of the [[PoiTableEntry]]. The interface is being implemented
- * as [[PoiTableEntry]].
+ * Interface for the JSON description of the {@link PoiTableEntry}. The interface is being
+ * implemented as {@link PoiTableEntry}.
  */
 export interface PoiTableEntryDef {
     /** Default name of the POI as the key for looking it up. */

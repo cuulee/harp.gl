@@ -159,7 +159,7 @@ const sdfTextFragmentSource: string = `
 
 /**
  * @hidden
- * Material used for clearing glyphs from a [[GlyphTextureCache]].
+ * Material used for clearing glyphs from a {@link GlyphTextureCache}.
  */
 export class GlyphClearMaterial extends THREE.RawShaderMaterial {
     /**
@@ -182,7 +182,7 @@ export class GlyphClearMaterial extends THREE.RawShaderMaterial {
 
 /**
  * @hidden
- * Material used for copying glyphs into a [[GlyphTextureCache]].
+ * Material used for copying glyphs into a {@link GlyphTextureCache}.
  */
 export class GlyphCopyMaterial extends THREE.RawShaderMaterial {
     /**
@@ -215,7 +215,7 @@ export class GlyphCopyMaterial extends THREE.RawShaderMaterial {
 
 /**
  * @hidden
- * Material parameters passed on [[SdfTextMaterial]] creation.
+ * Material parameters passed on {@link SdfTextMaterial} creation.
  */
 export interface SdfTextMaterialParameters {
     texture: THREE.Texture;

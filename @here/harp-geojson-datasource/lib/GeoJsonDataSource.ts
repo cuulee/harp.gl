@@ -13,7 +13,7 @@ import {
 /**
  * `GeoJsonDataSource` is used for the visualization of geometric objects provided in the GeoJSON
  * format. To be able to render GeoJSON data, a `GeoJsonDataSource` instance must be added to the
- * [[MapView]] instance.
+ * {@link MapView} instance.
  *
  * ```typescript
  *    const geoJsonDataProvider = new GeoJsonDataProvider(

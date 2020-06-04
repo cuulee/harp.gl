@@ -12,8 +12,8 @@ let referenceImageResovler: (imageProps: TestImageProps) => string = defaultRefe
 /**
  * Get URL of reference image.
  *
- * Uses resolver set by [[setReferenceImageResolver]], by default, use
- * [[defaultReferenceImageResolver]].
+ * Uses resolver set by {@link setReferenceImageResolver}, by default, use
+ * {@link defaultReferenceImageResolver}.
  */
 export function getReferenceImageUrl(imageProps: TestImageProps) {
     return referenceImageResovler(imageProps);

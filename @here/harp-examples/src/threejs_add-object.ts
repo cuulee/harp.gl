@@ -10,7 +10,7 @@ import * as THREE from "three";
 import { HelloWorldExample } from "./getting-started_hello-world_npm";
 
 /**
- * This example builds on top of the [[HelloWorldExample]], so please consult that first for any
+ * This example builds on top of the {@link HelloWorldExample}, so please consult that first for any
  * questions regarding basic setup of the map.
  *
  * This example shows how to add a [THREE.js](https://threejs.org/) object to the scene.
@@ -20,13 +20,13 @@ import { HelloWorldExample } from "./getting-started_hello-world_npm";
  * [[include:harp_gl_threejs_add_simple_object_0.ts]]
  * ```
  * Next we need to find the position to place the cube, we use the helpful method
- * [[getGeoCoordinatesAt]] to get the geo space position under the mouse when it is clicked, this
- * is shown here:
+ * {@link getGeoCoordinatesAt} to get the geo space position under the mouse when it is clicked,
+ * this is shown here:
  * ```typescript
  * [[include:harp_gl_threejs_add_simple_object_1.ts]]
  * ```
  *
- * Here the object is created and added to the [[mapAnchors]] node of the [[MapView]] scene.
+ * Here the object is created and added to the {@link mapAnchors} node of the {@link MapView} scene.
  * ```typescript
  * [[include:harp_gl_threejs_add_simple_object_2.ts]]
  * ```
@@ -94,7 +94,7 @@ export namespace ThreejsAddSimpleObject {
             // end:harp_gl_threejs_add_simple_object_2.ts
 
             // end:harp_gl_threejs_add_simple_object_3.ts
-            // Request an update once the cube [[MapObject]] is added to [[MapView]].
+            // Request an update once the cube {@link MapObject} is added to {@link MapView}.
             mapView.update();
             // end:harp_gl_threejs_add_simple_object_3.ts
         });

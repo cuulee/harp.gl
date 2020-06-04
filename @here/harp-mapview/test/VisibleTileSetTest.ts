@@ -150,12 +150,12 @@ describe("VisibleTileSet", function() {
     }
 
     /**
-     * Fake [[DataSource]] which provides tiles with the ground plane geometry.
+     * Fake {@link DataSource} which provides tiles with the ground plane geometry.
      */
     class FakeCoveringTileWMTS extends DataSource {
         /**
-         * Construct a fake [[DataSource]].
-         * @param isFullyCovering If this [[DataSource]] should be fully covering.
+         * Construct a fake {@link DataSource}.
+         * @param isFullyCovering If this {@link DataSource} should be fully covering.
          */
         constructor(isFullyCovering?: boolean) {
             super();
@@ -181,8 +181,8 @@ describe("VisibleTileSet", function() {
     }
 
     /**
-     * Fake [[DataSource]] with no backgroundPlane geometry, but which registers
-     * that it is fully covering, because its geometry fully covers the [[Tile]], an example
+     * Fake {@link DataSource} with no backgroundPlane geometry, but which registers
+     * that it is fully covering, because its geometry fully covers the {@link Tile}, an example
      * is satellite data or terrain.
      */
     class FakeWebTile extends DataSource {
@@ -416,7 +416,7 @@ describe("VisibleTileSet", function() {
     it("background data source is skipped by webtile", async function() {
         setupBerlinCenterCameraFromSamples();
 
-        // These tiles will be skipped, because a DataSource that produces [[Tiles]]s without
+        // These tiles will be skipped, because a DataSource that produces {@link Tiles}s without
         // a background plane, but where isFullyCovering is true trumps.
         const fullyCoveringDS1 = new BackgroundDataSource();
         const fullyCoveringDS2 = new FakeWebTile();
@@ -451,7 +451,7 @@ describe("VisibleTileSet", function() {
     it(`background data source skipped by other fully covering tile`, async function() {
         setupBerlinCenterCameraFromSamples();
 
-        // These tiles won't be skipped, because a DataSource that produces [[Tiles]]s without
+        // These tiles won't be skipped, because a DataSource that produces {@link Tiles}s without
         // `isFullyCovering` being true should not impact any others.
         const fullyCoveringDS1 = new BackgroundDataSource();
         const fullyCoveringDS2 = new FakeCoveringTileWMTS(true);
@@ -492,7 +492,7 @@ describe("VisibleTileSet", function() {
         when other non covering datasource added`, async function() {
         setupBerlinCenterCameraFromSamples();
 
-        // These tiles won't be skipped, because a DataSource that produces [[Tiles]]s without
+        // These tiles won't be skipped, because a DataSource that produces {@link Tiles}s without
         // `isFullyCovering` being true should not impact any others.
         const fullyCoveringDS1 = new BackgroundDataSource();
         const fullyCoveringDS2 = new FakeCoveringTileWMTS(false);

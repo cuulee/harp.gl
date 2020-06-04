@@ -25,14 +25,14 @@ import { Tile } from "../Tile";
 import { TileGeometryCreator } from "./TileGeometryCreator";
 
 /**
- * Loads the geometry for its [[Tile]]. Loads all geometry in a single step.
+ * Loads the geometry for its {@link Tile}. Loads all geometry in a single step.
  */
 export class TileGeometryLoader {
     /**
      * Make sure that all technique have their geometryKind set, either from the theme or their
      * default value.
      *
-     * Also gather set of the [[GeometryKind]]s found in the techniques and return it.
+     * Also gather set of the {@link GeometryKind}s found in the techniques and return it.
      *
      * @param {DecodedTile} decodedTile
      * @returns {GeometryKindSet} The set of kinds used in the decodeTile.
@@ -107,7 +107,7 @@ export class TileGeometryLoader {
     constructor(private m_tile: Tile) {}
 
     /**
-     * The [[Tile]] this `TileGeometryLoader` is managing.
+     * The {@link Tile} this `TileGeometryLoader` is managing.
      */
     get tile(): Tile {
         return this.m_tile;
@@ -145,8 +145,8 @@ export class TileGeometryLoader {
     }
 
     /**
-     * Set the [[DecodedTile]] of the tile. Is called after the decoded tile has been loaded, and
-     * prepares its content for later processing in the 'updateXXX' methods.
+     * Set the {@link DecodedTile} of the tile. Is called after the decoded tile has been loaded,
+     * and prepares its content for later processing in the 'updateXXX' methods.
      *
      * @param {DecodedTile} decodedTile The decoded tile with the flat geometry data belonging to
      *      this tile.
@@ -164,7 +164,7 @@ export class TileGeometryLoader {
     }
 
     /**
-     * The kinds of geometry stored in this [[Tile]].
+     * The kinds of geometry stored in this {@link Tile}.
      */
     get availableGeometryKinds(): GeometryKindSet | undefined {
         return this.m_availableGeometryKinds;
@@ -256,7 +256,8 @@ export class TileGeometryLoader {
     }
 
     /**
-     * Called by [[VisibleTileSet]] to mark that [[Tile]] is visible and it should prepare geometry.
+     * Called by {@link VisibleTileSet} to mark that {@link Tile} is visible and it should prepare
+     * geometry.
      */
     private prepareForRender(
         enabledKinds: GeometryKindSet | undefined,

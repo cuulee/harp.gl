@@ -32,7 +32,7 @@ export class RGBA {
     }
 
     /**
-     * Constructs a [[RGBA]] color using the given components in the [0..1] range.
+     * Constructs a {@link RGBA} color using the given components in the [0..1] range.
      */
     constructor(
         public r: number = 1,
@@ -42,7 +42,7 @@ export class RGBA {
     ) {}
 
     /**
-     * Clones this [[RGBA]] color.
+     * Clones this {@link RGBA} color.
      */
     clone() {
         return new RGBA(this.r, this.g, this.b, this.a);

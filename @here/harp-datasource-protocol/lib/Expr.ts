@@ -41,11 +41,11 @@ export interface ExprVisitor<Result, Context> {
 }
 
 /**
- * The dependencies of an [[Expr]].
+ * The dependencies of an {@link Expr}.
  */
 export class ExprDependencies {
     /**
-     * The properties needed to evaluate the [[Expr]].
+     * The properties needed to evaluate the {@link Expr}.
      */
     readonly properties = new Set<string>();
 
@@ -64,11 +64,11 @@ class ComputeExprDependencies implements ExprVisitor<void, ExprDependencies> {
     static instance = new ComputeExprDependencies();
 
     /**
-     * Gets the dependencies of an [[Expr]].
+     * Gets the dependencies of an {@link Expr}.
      *
-     * @param expr The [[Expr]] to process.
-     * @param scope The evaluation scope. Defaults to [[ExprScope.Value]].
-     * @param dependencies The output [[Set]] of dependency names.
+     * @param expr The {@link Expr} to process.
+     * @param scope The evaluation scope. Defaults to {@link ExprScope.Value}.
+     * @param dependencies The output {@link Set} of dependency names.
      */
     static of(expr: Expr) {
         const dependencies = new ExprDependencies();
@@ -176,7 +176,7 @@ export interface JsonObject {
 }
 
 /**
- * The JSON representation of an [[Expr]] object.
+ * The JSON representation of an {@link Expr} object.
  */
 export type JsonExpr = JsonArray;
 
@@ -185,7 +185,7 @@ export function isJsonExpr(v: any): v is JsonExpr {
 }
 
 /**
- * Internal state needed by [[Expr.fromJSON]] to resolve `"ref"` expressions.
+ * Internal state needed by {@link Expr.fromJSON} to resolve `"ref"` expressions.
  * @hidden
  */
 interface ReferenceResolverState {
@@ -195,31 +195,31 @@ interface ReferenceResolverState {
 }
 
 /**
- * The evaluation scope of an [[Expr]].
+ * The evaluation scope of an {@link Expr}.
  */
 export enum ExprScope {
     /**
-     * The scope of an [[Expr]] used as value of an attribute.
+     * The scope of an {@link Expr} used as value of an attribute.
      */
     Value,
 
     /**
-     * The scope of an [[Expr]] used in a [[Technique]] `when` condition.
+     * The scope of an {@link Expr} used in a {@link Technique} `when` condition.
      */
     Condition,
 
     /**
-     * The scope of an [[Expr]] used as dynamic property attribute value.
+     * The scope of an {@link Expr} used as dynamic property attribute value.
      */
     Dynamic
 }
 
 /**
- * Abstract class defining a shape of a [[Theme]]'s expression
+ * Abstract class defining a shape of a {@link Theme}'s expression
  */
 export abstract class Expr {
     /**
-     * Tests of given value is an [[Expr]].
+     * Tests of given value is an {@link Expr}.
      *
      * @param value The object to test.
      */
@@ -231,7 +231,7 @@ export abstract class Expr {
      * Creates an expression from the given `code`.
      *
      * @param code The code to parse.
-     * @returns The parsed [[Expr]].
+     * @returns The parsed {@link Expr}.
      * @deprecated
      */
     static parse(code: string): Expr | never {
@@ -273,10 +273,10 @@ export abstract class Expr {
     private m_isDynamic?: boolean;
 
     /**
-     * Evaluate an expression returning a [[Value]] object.
+     * Evaluate an expression returning a {@link Value} object.
      *
-     * @param env The [[Env]] used to lookup symbols.
-     * @param scope The evaluation scope. Defaults to [[ExprScope.Value]].
+     * @param env The {@link Env} used to lookup symbols.
+     * @param scope The evaluation scope. Defaults to {@link ExprScope.Value}.
      * @param cache A cache of previously computed results.
      */
     evaluate(
@@ -291,17 +291,17 @@ export abstract class Expr {
     }
 
     /**
-     * Instantiates this [[Expr]] by resolving references to the `get` and
+     * Instantiates this {@link Expr} by resolving references to the `get` and
      * `has` operator using the given instantiation context.
      *
-     * @param context The [[InstantationContext]] used to resolve names.
+     * @param context The {@link InstantationContext} used to resolve names.
      */
     instantiate(context: InstantiationContext): Expr {
         return this.accept(exprInstantiator, context);
     }
 
     /**
-     * Gets the dependencies of this [[Expr]].
+     * Gets the dependencies of this {@link Expr}.
      */
     dependencies(): ExprDependencies {
         if (!this.m_dependencies) {
@@ -311,10 +311,10 @@ export abstract class Expr {
     }
 
     /**
-     * Create a unique object that is structurally equivalent to this [[Expr]].
+     * Create a unique object that is structurally equivalent to this {@link Expr}.
      *
-     * @param pool The [[ExprPool]] used to create a unique
-     * equivalent object of this [[Expr]].
+     * @param pool The {@link ExprPool} used to create a unique
+     * equivalent object of this {@link Expr}.
      */
     intern(pool: ExprPool): Expr {
         return pool.add(this);
@@ -325,7 +325,7 @@ export abstract class Expr {
     }
 
     /**
-     * Returns `true` if a dynamic execution context is required to evaluate this [[Expr]].
+     * Returns `true` if a dynamic execution context is required to evaluate this {@link Expr}.
      */
     isDynamic(): boolean {
         if (this.m_isDynamic === undefined) {
@@ -340,9 +340,9 @@ export abstract class Expr {
     ): Result;
 
     /**
-     * Update the dynamic state of this [[Expr]].
+     * Update the dynamic state of this {@link Expr}.
      *
-     * [[exprIsDynamic]] must never be called directly.
+     * {@link exprIsDynamic} must never be called directly.
      *
      * @hidden
      */
@@ -386,7 +386,7 @@ export class VarExpr extends Expr {
 
 export abstract class LiteralExpr extends Expr {
     /**
-     * Create a [[LiteralExpr]] from the given value.
+     * Create a {@link LiteralExpr} from the given value.
      *
      * @param value A constant value.
      */
@@ -479,7 +479,7 @@ export class StringLiteralExpr extends LiteralExpr {
     }
 
     /**
-     * Returns the value of parsing this string as [[RGBA]] or [[Pixels]] constant.
+     * Returns the value of parsing this string as {@link RGBA} or {@link Pixels} constant.
      */
     get promotedValue(): RGBA | Pixels | undefined {
         if (this.m_promotedValue === undefined) {
@@ -544,7 +544,7 @@ export class CallExpr extends Expr {
     }
 
     /**
-     * Returns the child nodes of this [[Expr]].
+     * Returns the child nodes of this {@link Expr}.
      * @deprecated
      */
     get children() {

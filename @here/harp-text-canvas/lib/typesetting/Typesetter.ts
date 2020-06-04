@@ -11,26 +11,26 @@ import { TextGeometry } from "../rendering/TextGeometry";
 import { TextLayoutStyle, TextRenderStyle } from "../rendering/TextStyle";
 
 /**
- * Parameters passed when placing glyphs using [[Typesetter]]'s `arrangeGlyphs` function.
+ * Parameters passed when placing glyphs using {@link Typesetter}'s `arrangeGlyphs` function.
  */
 export interface TypesettingParameters {
     /**
-     * Array of all [[GlyphData]] to be placed.
+     * Array of all {@link GlyphData} to be placed.
      */
     glyphs: GlyphData[];
 
     /**
-     * [[FontCatalog]] used to retrieve all glyphs in `glyphDataArray`.
+     * {@link FontCatalog} used to retrieve all glyphs in `glyphDataArray`.
      */
     fontCatalog: FontCatalog;
 
     /**
-     * [[TextRenderStyle]] to be applied when arranging glyphs.
+     * {@link TextRenderStyle} to be applied when arranging glyphs.
      */
     textRenderStyle: TextRenderStyle;
 
     /**
-     * [[TextLayoutStyle]] to be applied when arranging glyphs.
+     * {@link TextLayoutStyle} to be applied when arranging glyphs.
      */
     textLayoutStyle: TextLayoutStyle;
 
@@ -40,7 +40,7 @@ export interface TypesettingParameters {
     position: THREE.Vector3;
 
     /**
-     * Target [[TextGeometry]] where arranged glyphs will be stored.
+     * Target {@link TextGeometry} where arranged glyphs will be stored.
      */
     geometry: TextGeometry;
 
@@ -67,7 +67,7 @@ export interface TypesettingParameters {
 }
 
 /**
- * Interface that handles glyph placement and layout. Mainly used by [[TextCanvas]].
+ * Interface that handles glyph placement and layout. Mainly used by {@link TextCanvas}.
  */
 export interface Typesetter {
     /**

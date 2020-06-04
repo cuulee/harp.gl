@@ -11,7 +11,7 @@ import { FontUnit, FontVariant } from "../rendering/TextStyle";
 import { UnicodeUtils } from "../utils/UnicodeUtils";
 
 /**
- * Collection of different constants and utility functions used by [[Typesetter]]s.
+ * Collection of different constants and utility functions used by {@link Typesetter}s.
  */
 export namespace TypesettingUtils {
     /**
@@ -35,7 +35,7 @@ export namespace TypesettingUtils {
     export const OBLIQUE_OFFSET = Math.tan(OBLIQUE_ANGLE);
 
     /**
-     * Convert between any size specified in any [[FontUnit]] to pixels.
+     * Convert between any size specified in any {@link FontUnit} to pixels.
      *
      * @param size Font size (specified in `unit`).
      * @param unit Size unit.
@@ -60,11 +60,11 @@ export namespace TypesettingUtils {
     }
 
     /**
-     * Gets the scale applied to a certain character when using the [[FontVariant]].`SmallCaps`.
+     * Gets the scale applied to a certain character when using the {@link FontVariant}.`SmallCaps`.
      *
-     * @param glyphs Array containing [[TransformedGlyphData]].
+     * @param glyphs Array containing {@link TransformedGlyphData}.
      * @param index Index to `glyphDataArray`.
-     * @param fontVariant Currently active [[FontVariant]].
+     * @param fontVariant Currently active {@link FontVariant}.
      *
      * @returns Glyph `SmallCaps` scale.
      */
@@ -82,9 +82,9 @@ export namespace TypesettingUtils {
     }
 
     /**
-     * Returns the first strong direction (LTR or RTL) found for a given array of [[GlyphData]].
+     * Returns the first strong direction (LTR or RTL) found for a given array of {@link GlyphData}.
      *
-     * @param glyphs Array containing [[GlyphData]].
+     * @param glyphs Array containing {@link GlyphData}.
      * @param offset `glyphDataArray` offset.
      *
      * @returns Strong direction.
@@ -112,7 +112,7 @@ export namespace TypesettingUtils {
      * @param transform Matrix used to store the results.
      * @param position Glyph' position.
      * @param scale Glyph' scale.
-     * @param rotation [[TextCanvas]] rotation.
+     * @param rotation {@link TextCanvas} rotation.
      * @param localRotation Glyph' local rotation.
      */
     export function computeGlyphTransform(

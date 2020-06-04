@@ -20,7 +20,7 @@ import { apikey, copyrightInfo } from "../config";
  * [[include:harp_gl_rendering_synchronous_1.ts]]
  * ```
  *
- * `MapViewEventNames.Update` event fired when [[MapView]] requests for a redraw.
+ * `MapViewEventNames.Update` event fired when {@link MapView} requests for a redraw.
  * E.g.: Tiles asynchronously decoded and ready for rendering, labels animation, etc...
  *
  * Subscribe to this event, and call your `update` method.

@@ -153,7 +153,7 @@ export namespace RingBuffer {
 
         /**
          * Gets the iterator's current value. This function does not fail even if an overrun occurs.
-         * To detect an overrun, watch the result for [[next]].
+         * To detect an overrun, watch the result for {@link next}.
          */
         get value(): T {
             return this.m_buffer.buffer[
@@ -428,7 +428,7 @@ export class SampledTimer extends SimpleTimer {
  * Only exported for testing
  * @ignore
  *
- * Compute the [[ArrayStats]] for the passed in array of numbers.
+ * Compute the {@link ArrayStats} for the passed in array of numbers.
  *
  * @param {number[]} samples Array containing sampled values. Will be modified (!) by sorting the
  *      entries.
@@ -821,7 +821,7 @@ export class FrameStats {
  * Only exported for testing.
  *
  * Instead of passing around an array of objects, we store the frame statistics as an object of
- * arrays. This allows convenient computations from [[RingBuffer]],
+ * arrays. This allows convenient computations from {@link RingBuffer},
  */
 export class FrameStatsArray {
     readonly frameEntries: Map<string, RingBuffer<number>> = new Map();
@@ -915,8 +915,8 @@ export interface SimpleFrameStatistics {
 }
 
 /**
- * Performance measurement central. Maintains the current [[FrameStats]], which holds all individual
- * performance numbers.
+ * Performance measurement central. Maintains the current {@link FrameStats}, which holds all
+ * individual performance numbers.
  *
  * Implemented as an instance for easy access.
  */
@@ -1017,7 +1017,7 @@ export class PerformanceStatistics {
     }
 
     /**
-     * Add the render state information from [[THREE.WebGLInfo]] to the current frame.
+     * Add the render state information from {@link THREE.WebGLInfo} to the current frame.
      * @param {THREE.WebGLInfo} webGlInfo
      */
     addWebGLInfo(webGlInfo: THREE.WebGLInfo) {

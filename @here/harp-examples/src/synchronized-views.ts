@@ -11,20 +11,20 @@ import { APIFormat, AuthenticationMethod, OmvDataSource } from "@here/harp-omv-d
 import { apikey, copyrightInfo } from "../config";
 
 /**
- * An example showing triple map view build with 3 [[MapView]]s each with a different theme and/or
- * datasource.
+ * An example showing triple map view build with 3 {@link MapView}s each with a different theme
+ * and/or datasource.
  *
  * Creates 3 views with their own MapView and MapControl as WebTileDataSourceOptions:
  * ```typescript
  * [[include:harp_gl_multiview_tripleView_1.ts]]
  * ```
  *
- * Create 3 separate [[MapView]]s and datasources that will populate them.
+ * Create 3 separate {@link MapView}s and datasources that will populate them.
  * ```typescript
  * [[include:harp_gl_multiview_tripleView_2.ts]]
  * ```
  * After adding the MapViews and their dedicated datasources (each one possibly with different
- * theme, added event handlers to sync between them [[MapView]]s:
+ * theme, added event handlers to sync between them {@link MapView}s:
  * ```typescript
  * [[include:harp_gl_multiview_tripleView_3.ts]]
  * ```

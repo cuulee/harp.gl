@@ -25,8 +25,8 @@ export class HighPrecisionPoints extends THREE.Points implements HighPrecisionOb
     /**
      * Creates a `HighPrecisionPoints` object.
      *
-     * @param geometry [[BufferGeometry]] used to render this object.
-     * @param material [[HighPrecisionLineMaterial]] used to render this object.
+     * @param geometry {@link BufferGeometry} used to render this object.
+     * @param material {@link HighPrecisionLineMaterial} used to render this object.
      *     instances.
      * @param positions Array of 2D/3D positions.
      * @param color Color of the rendered point.
@@ -60,7 +60,7 @@ export class HighPrecisionPoints extends THREE.Points implements HighPrecisionOb
     }
 
     /**
-     * Clears the [[BufferGeometry]] used to render this point.
+     * Clears the {@link BufferGeometry} used to render this point.
      */
     clearGeometry(): THREE.BufferGeometry {
         return (this.geometry = new THREE.BufferGeometry());
@@ -93,6 +93,7 @@ export class HighPrecisionPoints extends THREE.Points implements HighPrecisionOb
         };
     }
 
+    /**  */
     updateMatrixWorld(force: boolean) {
         const doUpdateMatrixWorldInverse = this.matrixWorldNeedsUpdate || force;
 

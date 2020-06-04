@@ -10,7 +10,8 @@ import { MemoryUsage } from "@here/harp-text-canvas";
 import { getPixelFromImage, screenToUvCoordinates } from "./PixelPicker";
 
 /**
- * Declares an interface for a `struct` containing a [[BoxBuffer]]'s attribute state information.
+ * Declares an interface for a `struct` containing a {@link BoxBuffer}'s attribute state
+ * information.
  */
 export interface State {
     positionAttributeCount: number;
@@ -71,8 +72,8 @@ const NUM_BYTES_PER_FLOAT = 4;
 const NUM_BYTES_PER_INT32 = 4;
 
 /**
- * SubClass of [[THREE.Mesh]] to identify meshes that have been created by [[BoxBuffer]] and
- * [[TextBuffer]]. Add the isEmpty flag to quickly test for empty meshes.
+ * SubClass of {@link THREE.Mesh} to identify meshes that have been created by {@link BoxBuffer} and
+ * {@link TextBuffer}. Add the isEmpty flag to quickly test for empty meshes.
  */
 export class BoxBufferMesh extends THREE.Mesh {
     constructor(geometry: THREE.BufferGeometry, material: THREE.Material | THREE.Material[]) {
@@ -102,33 +103,33 @@ export class BoxBufferMesh extends THREE.Mesh {
  */
 export class BoxBuffer {
     /**
-     * [[BufferAttribute]] holding the `BoxBuffer` position data.
+     * {@link BufferAttribute} holding the `BoxBuffer` position data.
      */
     protected positionAttribute?: THREE.BufferAttribute;
 
     /**
-     * [[BufferAttribute]] holding the `BoxBuffer` color data.
+     * {@link BufferAttribute} holding the `BoxBuffer` color data.
      */
     protected colorAttribute?: THREE.BufferAttribute;
 
     /**
-     * [[BufferAttribute]] holding the `BoxBuffer` uv data.
+     * {@link BufferAttribute} holding the `BoxBuffer` uv data.
      */
     protected uvAttribute?: THREE.BufferAttribute;
 
     /**
-     * [[BufferAttribute]] holding the `BoxBuffer` index data.
+     * {@link BufferAttribute} holding the `BoxBuffer` index data.
      */
     protected indexAttribute?: THREE.BufferAttribute;
     protected pickInfos: Array<any | undefined>;
 
     /**
-     * [[BufferGeometry]] holding all the different [[BufferAttribute]]s.
+     * {@link BufferGeometry} holding all the different {@link BufferAttribute}s.
      */
     protected geometry: THREE.BufferGeometry | undefined;
 
     /**
-     * [[Mesh]] used for rendering.
+     * {@link Mesh} used for rendering.
      */
     protected internalMesh: BoxBufferMesh | undefined;
 
@@ -137,7 +138,7 @@ export class BoxBuffer {
     /**
      * Creates a new `BoxBuffer`.
      *
-     * @param material Material to be used for [[Mesh]] of this `BoxBuffer`.
+     * @param material Material to be used for {@link Mesh} of this `BoxBuffer`.
      * @param renderOrder Optional renderOrder of this buffer.
      * @param startElementCount Initial number of elements this `BoxBuffer` can hold.
      * @param maxElementCount Maximum number of elements this `BoxBuffer` can hold.
@@ -218,7 +219,7 @@ export class BoxBuffer {
     }
 
     /**
-     * Returns this `BoxBuffer`'s attribute [[State]].
+     * Returns this `BoxBuffer`'s attribute {@link State}.
      */
     saveState(): State {
         const state: State = {
@@ -232,9 +233,9 @@ export class BoxBuffer {
     }
 
     /**
-     * Store this `BoxBuffer`'s attribute [[State]] to a previously stored one.
+     * Store this `BoxBuffer`'s attribute {@link State} to a previously stored one.
      *
-     * @param state [[State]] struct describing a previous attribute state.
+     * @param state {@link State} struct describing a previous attribute state.
      */
     restoreState(state: State) {
         this.positionAttribute!.count = state.positionAttributeCount;
@@ -247,8 +248,8 @@ export class BoxBuffer {
     /**
      * Adds a new box to this `BoxBuffer`.
      *
-     * @param screenBox [[Math2D.Box]] holding screen coordinates for this box.
-     * @param uvBox [[Math2D.UvBox]] holding uv coordinates for this box.
+     * @param screenBox {@link Math2D.Box} holding screen coordinates for this box.
+     * @param uvBox {@link Math2D.UvBox} holding uv coordinates for this box.
      * @param color Box's color.
      * @param opacity Box's opacity.
      * @param distance Box's distance to camera.
@@ -315,8 +316,8 @@ export class BoxBuffer {
     }
 
     /**
-     * Updates a [[BufferGeometry]] object to reflect the changes in this `TextBuffer`'s attribute
-     * data.
+     * Updates a {@link BufferGeometry} object to reflect the changes in this `TextBuffer`'s
+     * attribute data.
      */
     updateBufferGeometry() {
         const positionAttribute = this.positionAttribute!;
@@ -374,7 +375,7 @@ export class BoxBuffer {
     }
 
     /**
-     * Get the [[Mesh]] object. The geometry instance of the mesh may change if the buffers are
+     * Get the {@link Mesh} object. The geometry instance of the mesh may change if the buffers are
      * resized. The mesh, once created, will not change, so it can always be added to the scene.
      */
     get mesh(): BoxBufferMesh {
@@ -451,8 +452,8 @@ export class BoxBuffer {
     }
 
     /**
-     * Creates a new [[Geometry]] object from all the attribute data stored in this `BoxBuffer`.
-     * The [[Mesh]] object may be created if it is not initialized already.
+     * Creates a new {@link Geometry} object from all the attribute data stored in this `BoxBuffer`.
+     * The {@link Mesh} object may be created if it is not initialized already.
      *
      * @param newSize Optional number of elements to resize the buffer to.
      * @param forceResize Optional flag to force a resize even if new size is smaller than before.

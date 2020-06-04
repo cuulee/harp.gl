@@ -28,8 +28,9 @@ const DEPTH_PRE_PASS_RENDER_ORDER_OFFSET = 1e-6;
  * Depth prepass is enabled if correct opacity is specified (in range `(0,1)`) _and_ not explicitly
  * disabled by `enableDepthPrePass` option.
  *
- * @param technique [[BaseStandardTechnique]] instance to be checked
- * @param env [[Env]] instance used to evaluate [[Expr]] based properties of [[Technique]]
+ * @param technique {@link BaseStandardTechnique} instance to be checked
+ * @param env {@link Env} instance used to evaluate {@link Expr} based properties of
+ *        {@link Technique}
  */
 export function isRenderDepthPrePassEnabled(technique: ExtrudedPolygonTechnique, env: Env) {
     // Depth pass explicitly disabled
@@ -83,7 +84,7 @@ export function createDepthPrePassMaterial(baseMaterial: THREE.Material): THREE.
 /**
  * Clones a given mesh to render it in the depth prepass with another material. Both the original
  * and depth prepass meshes, when rendered in the correct order, create the proper depth prepass
- * effect. The original mesh material is slightly modified by [[createDepthPrePassMaterial]] to
+ * effect. The original mesh material is slightly modified by {@link createDepthPrePassMaterial} to
  * support the depth prepass. This method is usable only if the material of this mesh has an
  * opacity value in the range `(0,1)`.
  *

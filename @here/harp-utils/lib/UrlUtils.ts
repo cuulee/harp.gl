@@ -12,7 +12,7 @@
  * If `childUri` is absolute, then it is returned unchanged.
  * If `childUri` is origin-absolute path, then only origin path is taken from `parentUri`.
  *
- * See [[baseUri]] for reference how base URL of `parentUri` is determined.
+ * See {@link baseUri} for reference how base URL of `parentUri` is determined.
  *
  * Supports `http:`, `https:`, `file:`, `data:` schemes.
  *

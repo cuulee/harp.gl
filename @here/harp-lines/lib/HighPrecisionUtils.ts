@@ -61,7 +61,7 @@ export namespace HighPrecisionUtils {
 
     /**
      * Describes addtional postion data needed to render high-precision vertices. Created by
-     * [[createHighPrecisionCameraPos]].
+     * {@link createHighPrecisionCameraPos}.
      */
     export interface HighPrecisionCameraInfo {
         /**
@@ -81,8 +81,8 @@ export namespace HighPrecisionUtils {
     }
 
     /**
-     * Describes different properties used when creating a [[HighPrecisionLine]] or
-     * a [[HighPrecisionWireFrameLine]].
+     * Describes different properties used when creating a {@link HighPrecisionLine} or
+     * a {@link HighPrecisionWireFrameLine}.
      */
     export interface HighPrecisionLineParams extends ShaderMaterialParameters {
         /**
@@ -115,7 +115,8 @@ export namespace HighPrecisionUtils {
      * Calculate high-precision camera position used in vertex shader of high-precision materials.
      *
      * @param camera Camera used to get the high-precision position.
-     * @param objectInverseWorldMatrix Inverse World Matrix of the rendered [[HighPrecisionObject]].
+     * @param objectInverseWorldMatrix Inverse World Matrix of the rendered
+     *                                 {@link HighPrecisionObject}.
      */
     export function createHighPrecisionCameraPos(
         camera: Camera,
@@ -139,9 +140,9 @@ export namespace HighPrecisionUtils {
 
     /**
      * Updates the high-precision uniform data of a material used to render a
-     * [[HighPrecisionObject]].
+     * {@link HighPrecisionObject}.
      *
-     * @param object [[HighPrecisionObject]] used for rendering.
+     * @param object {@link HighPrecisionObject} used for rendering.
      * @param camera Camera used to get the high-precision position.
      * @param shaderMaterial Material which uniforms will be updated.
      */
@@ -179,7 +180,7 @@ export namespace HighPrecisionUtils {
     }
 
     /**
-     * Assembles the necessary attribute buffers needed to render [[HighPrecisionObject]].
+     * Assembles the necessary attribute buffers needed to render {@link HighPrecisionObject}.
      *
      * @param positions Array of positions.
      */
@@ -239,7 +240,7 @@ export namespace HighPrecisionUtils {
 
     /**
      * Assembles an interleaved buffer containing the position attribute data for a
-     * [[HighPrecisionObject]].
+     * {@link HighPrecisionObject}.
      *
      * @param positions Array of positions.
      * @param stride Stride of the elements in the `positions` array.
@@ -281,9 +282,9 @@ export namespace HighPrecisionUtils {
     }
 
     /**
-     * Adds the high-precision position attribute data to a [[HighPrecisionObject]].
+     * Adds the high-precision position attribute data to a {@link HighPrecisionObject}.
      *
-     * @param object [[HighPrecisionObject]] which position attribute will be set.
+     * @param object {@link HighPrecisionObject} which position attribute will be set.
      * @param positions Array of positions.
      */
     export function setPositions(
@@ -330,10 +331,10 @@ export namespace HighPrecisionUtils {
     }
 
     /**
-     * Creates a [[HighPrecisionLine]] or [[HighPrecisionWireFrameLine]] object.
+     * Creates a {@link HighPrecisionLine} or {@link HighPrecisionWireFrameLine} object.
      *
      * @param linePositions Array of 2D/3D positions.
-     * @param params Parameters used to configure the created [[HighPrecisionObject]].
+     * @param params Parameters used to configure the created {@link HighPrecisionObject}.
      */
     export function createLine(
         linePositions: ArrayLike<number>,
@@ -371,11 +372,11 @@ export namespace HighPrecisionUtils {
     }
 
     /**
-     * Creates a group of [[HighPrecisionPoints]].
+     * Creates a group of {@link HighPrecisionPoints}.
      *
      * @param pointPositions Array of 2D/3D positions.
      * @param materialParameters Parameters used to configure the material used to render the
-     * created [[HighPrecisionPoints]].
+     * created {@link HighPrecisionPoints}.
      */
     export function createPoints(
         pointPositions: ArrayLike<number>,

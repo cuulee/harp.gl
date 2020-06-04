@@ -13,8 +13,8 @@ const logger = LoggerManager.instance.create("WorkerLoader");
 
 /**
  * Set of `Worker` loading and initialization helpers:
- *  - starting Worker from URL with fallback to XHR+blob [[WorkerLoader.startWorker]]
- *  - waiting for proper worker initialization, see [[WorkerLoader.waitWorkerInitialized]]
+ *  - starting Worker from URL with fallback to XHR+blob {@link WorkerLoader.startWorker}
+ *  - waiting for proper worker initialization, see {@link WorkerLoader.waitWorkerInitialized}
  */
 export class WorkerLoader {
     static directlyFallbackToBlobBasedLoading: boolean = false;
@@ -23,10 +23,10 @@ export class WorkerLoader {
 
     /**
      * Starts worker by first attempting load from `scriptUrl` using native `Worker` constructor.
-     * Then waits (using [[waitWorkerInitialized]]) for first message that indicates successful
+     * Then waits (using {@link waitWorkerInitialized}) for first message that indicates successful
      * initialization.
      * If `scriptUrl`'s origin is different than `baseUrl`, then in case of error falls back to
-     * [[startWorkerBlob]].
+     * {@link startWorkerBlob}.
      *
      * We must resolve/reject promise at some time, so it is expected that any sane application will
      * be able to load worker code in some amount of time.
@@ -62,7 +62,7 @@ export class WorkerLoader {
      *
      * Findings:
      *
-     * * Chrome reports CSP by exception when constructing [[Worker]] instance.
+     * * Chrome reports CSP by exception when constructing {@link Worker} instance.
      * * Firefox reports CSP errors when loading in first event:
      *   https://bugzilla.mozilla.org/show_bug.cgi?id=1241888
      * * Firefox 62, Chrome 67 obeys `<meta http-equiv="Content-Security-Policy">` with
@@ -102,7 +102,7 @@ export class WorkerLoader {
 
     /**
      * Start worker, loading it immediately from `scriptUrl`. Waits (using
-     * [[waitWorkerInitialized]]) for successful worker start.
+     * {@link waitWorkerInitialized}) for successful worker start.
      *
      * @param scriptUrl web worker script URL
      */
@@ -116,9 +116,9 @@ export class WorkerLoader {
     }
 
     /**
-     * Start worker "via blob" by first loading worker script code with [[fetch]], creating `Blob`
-     * and attempting to start worker from blob url. Waits (using [[waitWorkerInitialized]]) for
-     * successful worker start.
+     * Start worker "via blob" by first loading worker script code with {@link fetch}, creating
+     * `Blob` and attempting to start worker from blob url. Waits
+     * (using {@link waitWorkerInitialized}) for successful worker start.
      *
      * @param scriptUrl web worker script URL
      */
@@ -175,7 +175,7 @@ export class WorkerLoader {
      * We must resolve/reject promise at some time, so it is expected that any sane application will
      * be able to load worker code in some amount of time.
      *
-     * @param worker [[Worker]] instance to be checked
+     * @param worker {@link Worker} instance to be checked
      * @param timeout timeout in milliseconds, in which worker should set initial message
      * @returns `Promise` that resolves to `worker` on success
      */

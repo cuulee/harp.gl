@@ -22,8 +22,8 @@ export interface GeoJsonDataProviderOptions {
 
     /**
      * Custom tiler instance.
-     * If not provided, [[GeoJsonDataProvider]] will obtain [[WorkerBasedTiler]]
-     * from [[ConcurrentTilerFacade]].
+     * If not provided, {@link GeoJsonDataProvider} will obtain {@link WorkerBasedTiler}
+     * from {@link ConcurrentTilerFacade}.
      */
     tiler?: ITiler;
 }
@@ -31,7 +31,7 @@ export interface GeoJsonDataProviderOptions {
 let missingTilerServiceInfoEmitted: boolean = false;
 
 /**
- * GeoJson [[DataProvider]]. Automatically handles tiling and simplification of static GeoJson.
+ * GeoJson {@link DataProvider}. Automatically handles tiling and simplification of static GeoJson.
  */
 export class GeoJsonDataProvider implements DataProvider {
     private m_tiler: ITiler;

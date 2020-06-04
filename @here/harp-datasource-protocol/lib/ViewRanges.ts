@@ -15,7 +15,7 @@ export interface ViewRanges {
     near: number;
     /**
      * Far clipping plane distance in camera space, along its eye vector.
-     * @note Should be always positive and bigger then [[near]] plane distance.
+     * @note Should be always positive and bigger then {@link near} plane distance.
      */
     far: number;
     /**
@@ -40,7 +40,7 @@ export interface ViewRanges {
      * allows to compute effects applied at the end of viewing range such as fog or
      * geometry fading.
      *
-     * @note Holds the maximum distance that may be applied for [[far]] plane at
+     * @note Holds the maximum distance that may be applied for {@link far} plane at
      * certain camera position, it is const in between orientation changes. You may use this
      * value to calculate fog or other depth effects that are related to frustum planes,
      * but should not change as dynamically as current near/far planes distances.

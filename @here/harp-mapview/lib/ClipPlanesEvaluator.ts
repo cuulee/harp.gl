@@ -34,7 +34,7 @@ export interface ClipPlanesEvaluator {
      * compatibility with any evaluator type it is strongly recommended to update on every frame.
      * @note The camera clipping planes (near/far properties) aren't automatically updated
      * via #evaluateClipPlanes() call, user should do it manually if needed.
-     * @param camera The [[THREE.Camera]] in use.
+     * @param camera The {@link THREE.Camera} in use.
      * @param projection The geo-projection currently used for encoding geographic data.
      * @param elevationProvider The optional elevation provider for fine tuned range calculation,
      * taking into account terrain variability and unevenness.
@@ -52,7 +52,7 @@ export interface ClipPlanesEvaluator {
  *
  * At general ground distance to camera along the surface normal is used as reference point for
  * planes evaluation, where near plane distance is set as fraction of this distance refereed as
- * [[nearMultiplier]]. Far plane equation has its own multiplier - [[nearFarMultiplier]],
+ * {@link nearMultiplier}. Far plane equation has its own multiplier - {@link nearFarMultiplier},
  * which is applied to near plane and offset giving finally far plane distance.
  * This evaluator supports both planar and spherical projections, although it's behavior is
  * slightly different in each case. General algorithm sets near plane between camera and
@@ -180,11 +180,11 @@ export abstract class ElevationBasedClipPlanesEvaluator implements ClipPlanesEva
      * @param elevation the elevation (altitude) value in world units (meters).
      * @note If you set this exactly to the maximum rendered feature height (altitude above
      * the sea, you may notice some flickering or even polygons disappearing related to rounding
-     * errors or depth buffer precision. In such cases increase [[nearFarMargin]] or add a little
-     * bit offset to your assumed maximum elevation.
+     * errors or depth buffer precision. In such cases increase {@link nearFarMargin} or add a
+     * little bit offset to your assumed maximum elevation.
      * @note Reasonable values are in between (-DeadSeeDepression, MtEverestHeight>, both values
-     * are defined in [[EarthConstant]] as [[EarthConstant.MIN_ELEVATION]] and
-     * [[EarthConstant.MAX_ELEVATION]] respectively.
+     * are defined in {@link EarthConstant} as {@link EarthConstant.MIN_ELEVATION} and
+     * {@link EarthConstant.MAX_ELEVATION} respectively.
      * @see minElevation for more information about precision and rounding errors.
      */
     set maxElevation(elevation: number) {
@@ -205,14 +205,15 @@ export abstract class ElevationBasedClipPlanesEvaluator implements ClipPlanesEva
      *
      * @param elevation the minimum elevation (depression) in world units (meters).
      * @note If you set this parameter to zero you may not see any features rendered if they are
-     * just below the sea level more than half of [[nearFarMargin]] assumed. Similarly if set to
+     * just below the sea level more than half of {@link nearFarMargin} assumed. Similarly if set to
      * -100m and rendered features lays exactly in such depression, you may notice that problem.
      * The errors usually come from projection precision loss and depth buffer nature (significant
      * precision loss closer to far plane). Thus is such cases either increase the margin (if you
-     * are sure features are just at this elevation, or setup bigger offset for [[minElevation]].
+     * are sure features are just at this elevation, or setup bigger offset for
+     * {@link minElevation}.
      * Reasonable values are between <-DeadSeaDepression, MtEverestHeight), where the first denotes
-     * lowest depression on the Earth defined as [[EarthConstants.MIN_ELEVATION]] and the second is
-     * the highest point our planet.
+     * lowest depression on the Earth defined as {@link EarthConstants.MIN_ELEVATION} and the second
+     * is the highest point our planet.
      * @see https://developer.nvidia.com/content/depth-precision-visualized
      */
     set minElevation(elevation: number) {
@@ -259,7 +260,7 @@ export class TopViewClipPlanesEvaluator extends ElevationBasedClipPlanesEvaluato
     /**
      * Allows to setup near/far offsets (margins), rendered geometry elevation relative to sea
      * level as also minimum near plane and maximum far plane distance constraints.
-     * It is strongly recommended to set some reasonable [[nearFarMargin]] (offset) between near
+     * It is strongly recommended to set some reasonable {@link nearFarMargin} (offset) between near
      * and far planes to avoid flickering.
      * @param maxElevation defines near plane offset from the ground in the surface normal
      * direction, positive values allows to render elevated terrain features (mountains,
@@ -269,20 +270,20 @@ export class TopViewClipPlanesEvaluator extends ElevationBasedClipPlanesEvaluato
      * @param nearMin minimum allowable near plane distance from camera, must be bigger than zero.
      * @param nearFarMarginRatio minimum distance between near and far plane, as a ratio of average
      * near/far plane distance, it have to be significantly bigger than zero (especially if
-     * [[maxElevation]] and [[minElevation]] are equal), otherwise you may notice flickering when
-     * rendering, or even render empty scene if frustum planes are almost equal.
+     * {@link maxElevation} and {@link minElevation} are equal), otherwise you may notice flickering
+     * when rendering, or even render empty scene if frustum planes are almost equal.
      * @param farMaxRatio maximum ratio between ground and far plane distance, allows to limit
      * viewing distance at overall. Have to be bigger than 1.0.
      * @note Keep in mind that this evaluator does not evaluate terrain (or building) elevation
-     * automatically, to keep such features rendered (between frustum planes) use [[minElevation]],
-     * [[maxElevation]] constraints. You may change this parameters at any time, but it requires
-     * repeating [[evaluatePlanes]] step, if your camera is moving you need to evaluate planes
-     * anyway.
-     * @note You may treat [[minElevation]] and [[maxElevation]] parameters as the maximum and
-     * minimum renderable elevation respectively along the surface normal, when camera is
-     * constantly looking downwards (top-down view). If you need [[ClipPlanesEvaluator]] for
-     * cameras that support tilt or yaw please use [[TiltViewClipPlanesEvaluator]].
-     * @note [[nearFarMaxRatio]] does not limit far plane when spherical projection is in use,
+     * automatically, to keep such features rendered (between frustum planes) use
+     * {@link minElevation}, {@link maxElevation} constraints. You may change this parameters at
+     * any time, but it requires repeating {@link evaluatePlanes} step, if your camera is moving
+     * you need to evaluate planes anyway.
+     * @note You may treat {@link minElevation} and {@link maxElevation} parameters as the maximum
+     * and minimum renderable elevation respectively along the surface normal, when camera is
+     * constantly looking downwards (top-down view). If you need {@link ClipPlanesEvaluator} for
+     * cameras that support tilt or yaw please use {@link TiltViewClipPlanesEvaluator}.
+     * @note {@link nearFarMaxRatio} does not limit far plane when spherical projection is in use,
      * the algorithm used there estimates distance to point on tangent where line from camera
      * touches the sphere horizon and there is no reason to clamp it.
      */
@@ -651,7 +652,7 @@ export class TiltViewClipPlanesEvaluator extends TopViewClipPlanesEvaluator {
      * @note This method assumes the world surface (ground) to be flat and
      * works only with planar projections.
      *
-     * @param camera The [[THREE.Camera]] instance in use,
+     * @param camera The {@link THREE.Camera} instance in use,
      * @param projection The geo-projection used to convert geographic to world coordinates.
      */
     protected getFrustumGroundIntersectionDist(
@@ -1049,9 +1050,9 @@ export class FixedClipPlanesEvaluator implements ClipPlanesEvaluator {
 }
 
 /**
- * Factory function that creates default [[ClipPlanesEvaluator]] that calculates near plane based
- * on ground distance and camera orientation.
+ * Factory function that creates default {@link ClipPlanesEvaluator} that calculates near
+ * plane based on ground distance and camera orientation.
  *
- * Creates [[TiltViewClipPlanesEvaluator]].
+ * Creates {@link TiltViewClipPlanesEvaluator}.
  */
 export const createDefaultClipPlanesEvaluator = () => new TiltViewClipPlanesEvaluator();

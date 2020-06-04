@@ -15,7 +15,7 @@ export class PerformanceTimer {
     /**
      * Returns timestamp in milliseconds since page load.
      *
-     * If the [[DOMHighResTimeStamp]] is supported, the resolution is up to 5 microseconds,
+     * If the {@link DOMHighResTimeStamp} is supported, the resolution is up to 5 microseconds,
      * otherwise it is in milliseconds. Timespans are computed by taking the difference between two
      * samples.
      *

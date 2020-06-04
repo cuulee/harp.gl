@@ -9,8 +9,8 @@ import * as THREE from "three";
 import { Pass } from "./Pass";
 
 /**
- * This enum represents the sampling level to apply to a [[MSAARenderPass]] instance. At level 0,
- * only one sample is performed, which is like disabling the MSAA pass.
+ * This enum represents the sampling level to apply to a {@link MSAARenderPass} instance.
+ * At level 0, only one sample is performed, which is like disabling the MSAA pass.
  */
 export enum MSAASampling {
     "Level_0",
@@ -22,10 +22,11 @@ export enum MSAASampling {
 }
 
 /**
- * [[MapView]]'s MSAA implementation. MSAA stands for Multi Sampling Anti-Aliasing, and its concept
- * is to provide a rendering engine with additional color values for each pixel, so they can include
- * the missing bits between them on a screen. WebGL already comes with a native MSAA implementation
- * with four samples. Because of its native nature, it is more efficient and one may not want to use
+ * {@link MapView}'s MSAA implementation. MSAA stands for Multi Sampling Anti-Aliasing, and its
+ * concept is to provide a rendering engine with additional color values for each pixel, so they can
+ * include the missing bits between them on a screen. WebGL already comes with a native MSAA
+ * implementation with four samples.
+ * Because of its native nature, it is more efficient and one may not want to use
  * MapView's MSAA implementation when these four samples are satisfying. However in some situations
  * they are not: on low devices, MSAA can impact the framerate and we may desire to reduce the
  * number of samples at runtime. On the other hand, when the interaction stops, the engine also
@@ -86,16 +87,16 @@ export class MSAARenderPass extends Pass {
 
     /**
      * The render function of `MSAARenderPass`. At each call of this method, and for each sample,
-     * the [[MapView]] camera provided in the `render` method is offset within the dimension of a
-     * pixel on screen. It then renders the whole scene with this offset to a local
+     * the {@link MapView} camera provided in the `render` method is offset within the dimension of
+     * a pixel on screen. It then renders the whole scene with this offset to a local
      * `WebGLRenderTarget` instance, via a `WebGLRenderer` instance. Finally the local camera
      * created in the constructor shoots the quad and renders to the write buffer or to the frame
      * buffer. The quad material's opacity is modified so the renders can accumulate in the
      * targetted buffer.
      *
-     * The number of samples can be modified at runtime through the enum [[SamplingLevel]].
+     * The number of samples can be modified at runtime through the enum {@link SamplingLevel}.
      *
-     * If there is no further pass, the [[Pass.renderToScreen]] flag can be set to `true` to
+     * If there is no further pass, the {@link Pass.renderToScreen} flag can be set to `true` to
      * output directly to the framebuffer.
      *
      * @param renderer The ThreeJS WebGLRenderer instance to render the scene with.

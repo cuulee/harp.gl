@@ -14,7 +14,7 @@ import { Typesetter, TypesettingParameters } from "./Typesetter";
 
 /**
  * @hidden
- * Parameters passed when placing glyphs using [[PathTypesetter]]'s `arrangeGlyphs` function.
+ * Parameters passed when placing glyphs using {@link PathTypesetter}'s `arrangeGlyphs` function.
  */
 export interface PathTypesettingParameters extends TypesettingParameters {
     /**
@@ -29,7 +29,7 @@ export interface PathTypesettingParameters extends TypesettingParameters {
 }
 
 /**
- * [[Typesetter]] implementation that arranges glyphs alongside a specified path.
+ * {@link Typesetter} implementation that arranges glyphs alongside a specified path.
  */
 export class PathTypesetter implements Typesetter {
     private m_tempTransform: THREE.Matrix3;
@@ -75,8 +75,8 @@ export class PathTypesetter implements Typesetter {
     /**
      * Arranges the specified glyphs using this `PathTypesetter`. Text will be placed into a single
      * bidirectional line that follows the specified path. Characters will be orientated and placed
-     * alongside this path following [[TextLayout]]'s [[VerticalAlignment]] and
-     * [[HorizontalAlignment]].
+     * alongside this path following {@link TextLayout}'s {@link VerticalAlignment} and
+     * {@link HorizontalAlignment}.
      *
      * @param params Typesetting parameters.
      *

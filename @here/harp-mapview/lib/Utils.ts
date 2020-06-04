@@ -74,9 +74,10 @@ const cache = {
 /**
  * Rounds a given zoom level up to the nearest integer value if it's close enough.
  *
- * The zoom level set in [[MapView]] after a zoom level target is given to [[MapView.lookAt]] or
- * [[MapControls]] never matches exactly the target due to the precision loss caused by the
- * conversion from zoom level to camera distance (done in [[MapView.lookAt]] and [[MapControls]])
+ * The zoom level set in {@link MapView} after a zoom level target is given to
+ * {@link MapView.lookAt} or {@link MapControls} never matches exactly the target due to the
+ * precision loss caused by the conversion from zoom level to camera distance
+ * (done in {@link MapView.lookAt} and {@link MapControls})
  * and from distance back to zoom level (done at every frame on camera update).
  * As a result, given a fixed integer zoom level input, the final zoom level computed at every frame
  * may fall sometimes below the integer value and others above. This causes flickering since each
@@ -197,7 +198,7 @@ export namespace MapViewUtils {
     /**
      * Orbits the camera around the focus point of the camera.
      *
-     * @param mapView The [[MapView]] instance to manipulate.
+     * @param mapView The {@link MapView} instance to manipulate.
      * @param deltaAzimuthDeg Delta azimuth in degrees.
      * @param deltaTiltDeg Delta tilt in degrees.
      * @param maxTiltAngleRad The maximum tilt between the camera and its target in radian.
@@ -350,7 +351,7 @@ export namespace MapViewUtils {
             const distance = camera.position.distanceTo(target);
             return { target, distance };
         } else {
-            // We either reached the [[PITCH_LIMIT]] or we did not hit the ground surface.
+            // We either reached the {@link PITCH_LIMIT} or we did not hit the ground surface.
             // In this case we do the reverse, i.e. compute some fallback distance and
             // use it to compute the tagret point by using the camera direction.
             const cameraPosZ = getHeightAboveTerrain(
@@ -378,8 +379,8 @@ export namespace MapViewUtils {
     }
 
     /**
-     * Returns the [[GeoCoordinates]] of the camera, given its target coordinates on the map and its
-     * zoom, yaw and pitch.
+     * Returns the {@link GeoCoordinates} of the camera, given its target coordinates on the map
+     * and its zoom, yaw and pitch.
      *
      * @param targetCoordinates Coordinates of the center of the view.
      * @param distance Distance to the target in meters.
@@ -526,9 +527,9 @@ export namespace MapViewUtils {
      * @hidden
      * @internal
      *
-     * Return [[GeoPoints]] bounding [[GeoBox]] applicable for [[getFitBoundsDistance]].
+     * Return {@link GeoPoints} bounding {@link GeoBox} applicable for {@link getFitBoundsDistance}.
      *
-     * @returns [[GeoCoordinates]] set that covers `box`
+     * @returns {@link GeoCoordinates} set that covers `box`
      */
     export function geoBoxToGeoPoints(box: GeoBox): GeoCoordinates[] {
         const center = box.center;
@@ -554,9 +555,9 @@ export namespace MapViewUtils {
      *
      * @param points points which shall are to be covered by view
      *
-     * @param worldTarget readonly, world target of [[MapView]]
+     * @param worldTarget readonly, world target of {@link MapView}
      * @param camera readonly, camera with proper `position` and rotation set
-     * @returns new distance to camera to be used with [[MapView.lookAt]]
+     * @returns new distance to camera to be used with {@link MapView.lookAt}
      */
     export function getFitBoundsDistance(
         points: THREE.Vector3[],
@@ -646,7 +647,7 @@ export namespace MapViewUtils {
      * @hidden
      * @internal
      *
-     * Paremeters for [[getFitBoundsLookAtParams]] function.
+     * Paremeters for {@link getFitBoundsLookAtParams} function.
      */
     export interface FitPointParams {
         tilt: number;
@@ -660,13 +661,13 @@ export namespace MapViewUtils {
      * @hidden
      * @internal
      *
-     * Get [[LookAtParams]] that fit all `worldPoints` giving that [[MapView]] will target at
-     * `geoTarget`.
+     * Get {@link LookAtParams} that fit all `worldPoints` giving that {@link MapView} will
+     * target at `geoTarget`.
      *
-     * @param geoTarget desired target (see [[MapView.target]]) as geo point
+     * @param geoTarget desired target (see {@link MapView.target}) as geo point
      * @param worldTarget same as `geoTarget` but in world space
      * @param worldPoints points we want to see
-     * @param params - other params derived from [[MapView]].
+     * @param params - other params derived from {@link MapView}.
      */
     export function getFitBoundsLookAtParams(
         geoTarget: GeoCoordinates,
@@ -797,8 +798,9 @@ export namespace MapViewUtils {
     }
 
     /**
-     * The function doing a pan in the spherical space when [[MapView]]'s active [[ProjectionType]]
-     * is spherical. In other words, the function that rotates the camera around the globe.
+     * The function doing a pan in the spherical space when {@link MapView}'s active
+     * {@link ProjectionType} is spherical. In other words, the function that rotates
+     * the camera around the globe.
      *
      * @param mapView MapView instance.
      * @param fromWorld Start vector representing the scene position of a geolocation.
@@ -821,7 +823,7 @@ export namespace MapViewUtils {
      * Rotates the camera by the given delta yaw and delta pitch. The pitch will be clamped to the
      * maximum possible tilt to the new target, and under the horizon in sphere projection.
      *
-     * @param mapView The [[MapView]] instance in use.
+     * @param mapView The {@link MapView} instance in use.
      * @param deltaYawDeg Delta yaw in degrees.
      * @param deltaPitchDeg Delta pitch in degrees.
      * @param maxTiltAngleRad Max tilt angle in radians.
@@ -930,8 +932,8 @@ export namespace MapViewUtils {
     /**
      * Extracts current camera tilt angle in radians.
      *
-     * @param camera The [[Camera]] in use.
-     * @param projection The [[Projection]] used to convert between geo and world coordinates.
+     * @param camera The {@link Camera} in use.
+     * @param projection The {@link Projection} used to convert between geo and world coordinates.
      *
      * @deprecated Use MapView.tilt
      */
@@ -978,8 +980,8 @@ export namespace MapViewUtils {
      *
      * @see https://en.wikipedia.org/wiki/Conversion_between_quaternions_and_Euler_angles
      *
-     * @param options Subset of necessary [[MapView]] properties.
-     * @param object The [[THREE.Object3D]] instance to extract the rotations from.
+     * @param options Subset of necessary {@link MapView} properties.
+     * @param object The {@link THREE.Object3D} instance to extract the rotations from.
      */
     export function extractAttitude(
         options: { projection: Projection },
@@ -1040,7 +1042,7 @@ export namespace MapViewUtils {
      * is the target of that object, by adding PI to it. Otherwise it only returns the spherical
      * coordinates of `object` in the tangent space of `location`.
      *
-     * @param mapView The [[MapView]] instance to consider.
+     * @param mapView The {@link MapView} instance to consider.
      * @param object The object to get the coordinates from.
      * @param location The reference point.
      */
@@ -1094,7 +1096,7 @@ export namespace MapViewUtils {
      * is the target of that object, by adding PI to it. Otherwise it only returns the tilt angle
      * (in radians) of `object` in the tangent space of `location`.
      *
-     * @param projection The [[Projection]] used when converting from geo to world coordinates.
+     * @param projection The {@link Projection} used when converting from geo to world coordinates.
      * @param object The object to get the coordinates from.
      * @param location The reference point.
      */
@@ -1199,7 +1201,7 @@ export namespace MapViewUtils {
      * level.
      *
      * @param mapView Instance of MapView.
-     * @param options Subset of necessary [[MapView]] properties.
+     * @param options Subset of necessary {@link MapView} properties.
      */
     export function calculateDistanceToGroundFromZoomLevel(
         options: { projection: Projection; focalLength: number; camera: THREE.Object3D },
@@ -1236,8 +1238,8 @@ export namespace MapViewUtils {
      * set the zoom level of the camera to 14, then you are able to see the whole tile in front of
      * you.
      *
-     * @param options Subset of necessary [[MapView]] properties.
-     * @param distance The distance in meters, which are scene units in [[MapView]].
+     * @param options Subset of necessary {@link MapView} properties.
+     * @param distance The distance in meters, which are scene units in {@link MapView}.
      */
     export function calculateZoomLevelFromDistance(
         options: { focalLength: number; minZoomLevel: number; maxZoomLevel: number },
@@ -1316,7 +1318,7 @@ export namespace MapViewUtils {
     /**
      * Calculates the vertical field of view based on the focal length and the height.
      *
-     * @param focalLength Focal length in pixels (see [[calculateFocalLengthByVerticalFov]])
+     * @param focalLength Focal length in pixels (see {@link calculateFocalLengthByVerticalFov})
      * @param height Height of canvas in pixels.
      */
     export function calculateFovByFocalLength(focalLength: number, height: number): number {
@@ -1326,7 +1328,7 @@ export namespace MapViewUtils {
     /**
      * Calculates object's screen size based on the focal length and it's camera distance.
      *
-     * @param focalLength Focal length in pixels (see [[calculateFocalLengthByVerticalFov]])
+     * @param focalLength Focal length in pixels (see {@link calculateFocalLengthByVerticalFov})
      * @param distance Object distance in world space.
      * @param worldSize Object size in world space.
      * @return object size in screen space.
@@ -1342,7 +1344,7 @@ export namespace MapViewUtils {
     /**
      * Calculates object's world size based on the focal length and it's camera distance.
      *
-     * @param focalLength Focal length in pixels (see [[calculateFocalLengthByVerticalFov]])
+     * @param focalLength Focal length in pixels (see {@link calculateFocalLengthByVerticalFov})
      * @param distance Object distance in world space.
      * @param screenSize Object size in screen space.
      * @return object size in world space.
@@ -1360,7 +1362,7 @@ export namespace MapViewUtils {
      * and/or attributes will be counted multiple times.
      *
      * @param object The mesh object to evaluate
-     * @param size The [[MemoryUsage]] to update.
+     * @param size The {@link MemoryUsage} to update.
      * @param visitedObjects Optional map to store large objects that could be shared.
      *
      * @returns Estimate of object size in bytes for heap and GPU.
@@ -1743,8 +1745,8 @@ export namespace TileOffsetUtils {
      * bitshift reduces this accordingly, so given the default bitshift of four, we support up to 24
      * levels. Given the current support up to level 19 this should be fine.
      *
-     * @param tileKey The unique [[TileKey]] from which to compute the unique key.
-     * @param offset How much the given [[TileKey]] is offset
+     * @param tileKey The unique {@link TileKey} from which to compute the unique key.
+     * @param offset How much the given {@link TileKey} is offset
      * @param bitshift How much space we have to store the offset. The default of 4 means we have
      *      enough space to store 16 unique tiles in a single view.
      */
@@ -1759,7 +1761,7 @@ export namespace TileOffsetUtils {
 
     /**
      * Extracts the offset and morton key from the given key (must be created by:
-     * [[getKeyForTileKeyAndOffset]])
+     * {@link getKeyForTileKeyAndOffset})
      *
      * Note, we can't use bitshift operators in Javascript because they work on 32-bit integers, and
      * would truncate the numbers, hence using powers of two.
@@ -1789,7 +1791,7 @@ export namespace TileOffsetUtils {
 
     /**
      * Returns the key of the parent. Key must have been computed using the function
-     * [[getKeyForTileKeyAndOffset]].
+     * {@link getKeyForTileKeyAndOffset}.
      *
      * @param calculatedKey Key to decompose
      * @param bitshift Bit shift used to create the key

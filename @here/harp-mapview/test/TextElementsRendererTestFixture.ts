@@ -218,7 +218,7 @@ export class TestFixture {
 
     /**
      * Adds a tile for testing that will contain the specified text elements. Tiles added this way
-     * can later be referenced by index when rendering a frame. See [[renderFrame]].
+     * can later be referenced by index when rendering a frame. See {@link renderFrame}.
      * @param elements The text elements the new tile will contain.
      */
     addTile(elements: TextElement[]) {

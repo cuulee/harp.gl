@@ -6,7 +6,7 @@
 import * as THREE from "three";
 
 /**
- * The base shader to use for [[MapView]]'s composing passes, like [[MSAAMaterial]].
+ * The base shader to use for {@link MapView}'s composing passes, like {@link MSAAMaterial}.
  */
 
 export const CopyShader: THREE.Shader = {
@@ -37,7 +37,7 @@ export class CopyMaterial extends THREE.ShaderMaterial {
     /**
      * The constructor of `CopyMaterial`.
      *
-     * @param uniforms The [[CopyShader]]'s uniforms.
+     * @param uniforms The {@link CopyShader}'s uniforms.
      */
     constructor(uniforms: { [uniformName: string]: THREE.IUniform }) {
         super({

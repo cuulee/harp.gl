@@ -10,7 +10,7 @@ import { loadTestResource } from "@here/harp-test-utils";
 import { DataProvider } from "../lib/DataProvider";
 
 /**
- * Data provider that loads test tile using [[loadTestResource]].
+ * Data provider that loads test tile using {@link loadTestResource}.
  */
 export class TestSingleFileDataProvider implements DataProvider {
     /**
@@ -57,7 +57,7 @@ export class TestTilesDataProvider implements DataProvider {
     }
 
     /**
-     * Loads the static test data from given URL and returns them as [[ArrayBufferLike]].
+     * Loads the static test data from given URL and returns them as {@link ArrayBufferLike}.
      *
      * @param tileKey - the tile key for the tile to be loaded
      * @param abortSignal - optional AbortSignal to be used by the fetch function
